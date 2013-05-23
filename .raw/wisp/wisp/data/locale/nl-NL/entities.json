@@ -1,0 +1,17 @@
+{
+    "organization": {
+        "name": "organisatienaam",
+        "company": {"name": "bedrijfsnaam"}
+    },
+    "filesystem": {
+        "file": "bestand",
+        "folder": "map",
+        "path": "pad",
+        "location": "locatie",
+        "copy": "kopie",
+        "disk": "schijf",
+        "log": "logboek"
+    }
+}
+
+

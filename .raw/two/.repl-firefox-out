@@ -1,0 +1,169 @@
+Creating plugins for '/home/baal/.mozilla/plugins'
+Parsing '/etc/mozpluggerrc'
+NOTICE: could not find 'mplayer'
+NOTICE: could not find 'totem'
+NOTICE: could not find 'xine'
+NOTICE: could not find 'mtvp'
+NOTICE: could not find 'xanim'
+NOTICE: could not find 'timidity'
+NOTICE: could not find 'playmidi'
+NOTICE: could not find 'mikmod'
+NOTICE: could not find 'xmp'
+NOTICE: could not find 'mpg321'
+found 'mpg123' at '/usr/bin/mpg123'
+NOTICE: could not find 'splay'
+NOTICE: could not find 'amp'
+NOTICE: could not find 'maplay'
+NOTICE: could not find 'mpeg3play'
+NOTICE: could not find 'xmms'
+NOTICE: could not find 'alsaplayer'
+NOTICE: could not find 'ogg123'
+NOTICE: could not find 'sidplay'
+NOTICE: could not find 'play'
+NOTICE: could not find 'sox'
+found 'display' at '/usr/bin/display'
+NOTICE: could not find 'gqview'
+NOTICE: could not find 'xv'
+NOTICE: could not find 'sdtimage'
+NOTICE: could not find 'qiv'
+NOTICE: could not find 'kpdf'
+NOTICE: could not find 'xpdf'
+NOTICE: could not find 'epdfview'
+NOTICE: could not find 'gv'
+NOTICE: could not find 'okular'
+NOTICE: could not find 'evince'
+NOTICE: could not find 'acroread'
+NOTICE: could not find 'kdvi'
+NOTICE: could not find 'xdvi'
+NOTICE: could not find 'ooffice2.0'
+NOTICE: could not find 'ooffice'
+NOTICE: could not find 'libreoffice'
+NOTICE: could not find 'soffice'
+NOTICE: could not find 'abiword'
+NOTICE: could not find 'kword'
+NOTICE: could not find 'Ted'
+NOTICE: could not find 'gnumeric'
+NOTICE: could not find 'rasmol'
+NOTICE: could not find '/usr/X11R6/lib/xscreensaver/molecule'
+NOTICE: could not find 'blenderplayer'
+NOTICE: could not find 'hxplay'
+NOTICE: could not find 'realplay'
+NOTICE: could not find 'wavplay'
+NOTICE: could not find 'bplay'
+WARNING: ignoring video/mpeg associated helpers not found
+WARNING: ignoring video/x-mpeg associated helpers not found
+WARNING: ignoring video/x-mpeg2 associated helpers not found
+WARNING: ignoring video/mp4 associated helpers not found
+WARNING: ignoring video/msvideo associated helpers not found
+WARNING: ignoring video/x-msvideo associated helpers not found
+WARNING: ignoring video/fli associated helpers not found
+WARNING: ignoring video/x-fli associated helpers not found
+WARNING: ignoring video/x-theora associated helpers not found
+WARNING: ignoring video/theora associated helpers not found
+WARNING: ignoring video/ogg associated helpers not found
+WARNING: ignoring video/x-ogg associated helpers not found
+WARNING: ignoring video/dl associated helpers not found
+WARNING: ignoring video/x-dl associated helpers not found
+WARNING: ignoring video/sgi-movie associated helpers not found
+WARNING: ignoring video/x-sgi-movie associated helpers not found
+WARNING: ignoring video/anim associated helpers not found
+WARNING: ignoring video/x-anim associated helpers not found
+WARNING: ignoring audio/mid associated helpers not found
+WARNING: ignoring audio/x-mid associated helpers not found
+WARNING: ignoring audio/midi associated helpers not found
+WARNING: ignoring audio/x-midi associated helpers not found
+WARNING: ignoring audio/mod associated helpers not found
+WARNING: ignoring audio/x-mod associated helpers not found
+WARNING: ignoring audio/mpeg-url associated helpers not found
+WARNING: ignoring audio/x-mpeg-url associated helpers not found
+WARNING: ignoring audio/mpegurl associated helpers not found
+WARNING: ignoring audio/x-mpegurl associated helpers not found
+WARNING: ignoring audio/x-scpls associated helpers not found
+WARNING: ignoring audio/x-ogg associated helpers not found
+WARNING: ignoring application/x-ogg associated helpers not found
+WARNING: ignoring application/ogg associated helpers not found
+WARNING: ignoring audio/flac associated helpers not found
+WARNING: ignoring audio/x-flac associated helpers not found
+WARNING: ignoring application/x-flac associated helpers not found
+WARNING: ignoring audio/x-sidtune associated helpers not found
+WARNING: ignoring audio/sidtune associated helpers not found
+WARNING: ignoring audio/psid associated helpers not found
+WARNING: ignoring audio/x-psid associated helpers not found
+WARNING: ignoring audio/basic associated helpers not found
+WARNING: ignoring audio/x-basic associated helpers not found
+WARNING: ignoring application/pdf associated helpers not found
+WARNING: ignoring application/x-pdf associated helpers not found
+WARNING: ignoring text/pdf associated helpers not found
+WARNING: ignoring text/x-pdf associated helpers not found
+WARNING: ignoring application/x-dvi associated helpers not found
+WARNING: ignoring application/x-postscript associated helpers not found
+WARNING: ignoring application/postscript associated helpers not found
+WARNING: ignoring application/x-rtf associated helpers not found
+WARNING: ignoring application/rtf associated helpers not found
+WARNING: ignoring text/rtf associated helpers not found
+WARNING: ignoring application/x-msword associated helpers not found
+WARNING: ignoring application/msword associated helpers not found
+WARNING: ignoring application/vnd.ms-excel associated helpers not found
+WARNING: ignoring application/vnd.sun.xml.writer associated helpers not found
+WARNING: ignoring application/so7_vnd.sun.xml.writer associated helpers not found
+WARNING: ignoring application/vnd.sun.xml.writer.template associated helpers not found
+WARNING: ignoring application/vnd.sun.xml.writer.global associated helpers not found
+WARNING: ignoring application/vnd.stardivision.writer associated helpers not found
+WARNING: ignoring application/vnd.stardivision.writer-global associated helpers not found
+WARNING: ignoring application/x-starwriter associated helpers not found
+WARNING: ignoring application/vnd.sun.xml.calc associated helpers not found
+WARNING: ignoring application/so7_vnd.sun.xml.calc associated helpers not found
+WARNING: ignoring application/vnd.sun.xml.calc.template associated helpers not found
+WARNING: ignoring application/vnd.stardivision.calc associated helpers not found
+WARNING: ignoring application/x-starcalc associated helpers not found
+WARNING: ignoring application/vnd.lotus-1-2-3 associated helpers not found
+WARNING: ignoring application/vnd.sun.xml.draw associated helpers not found
+WARNING: ignoring application/so7_vnd.sun.xml.draw associated helpers not found
+WARNING: ignoring application/vnd.sun.xml.draw.template associated helpers not found
+WARNING: ignoring application/vnd.stardivision.draw associated helpers not found
+WARNING: ignoring application/x-stardraw associated helpers not found
+WARNING: ignoring application/vnd.sun.xml.impress associated helpers not found
+WARNING: ignoring application/so7_vnd.sun.xml.impress associated helpers not found
+WARNING: ignoring application/vnd.sun.xml.impress.template associated helpers not found
+WARNING: ignoring application/vnd.stardivision.impress associated helpers not found
+WARNING: ignoring application/vnd.stardivision.impress-packed associated helpers not found
+WARNING: ignoring application/x-starimpress associated helpers not found
+WARNING: ignoring application/vnd.ms-powerpoint associated helpers not found
+WARNING: ignoring application/mspowerpoint associated helpers not found
+WARNING: ignoring application/vnd.sun.xml.math associated helpers not found
+WARNING: ignoring application/so7_vnd.sun.xml.math associated helpers not found
+WARNING: ignoring application/vnd.stardivision.math associated helpers not found
+WARNING: ignoring application/x-starmath associated helpers not found
+WARNING: ignoring application/vnd.oasis.opendocument.text associated helpers not found
+WARNING: ignoring application/vnd.oasis.opendocument.spreadsheet associated helpers not found
+WARNING: ignoring application/vnd.oasis.opendocument.presentation associated helpers not found
+WARNING: ignoring chemical/x-pdb associated helpers not found
+WARNING: ignoring model/x-pdb associated helpers not found
+WARNING: ignoring application/bge associated helpers not found
+WARNING: ignoring application/x-quicktimeplayer associated helpers not found
+WARNING: ignoring image/x-macpaint associated helpers not found
+WARNING: ignoring video/quicktime associated helpers not found
+WARNING: ignoring video/x-quicktime associated helpers not found
+WARNING: ignoring audio/x-pn-realaudio-plugin associated helpers not found
+WARNING: ignoring audio/x-pn-realaudio associated helpers not found
+WARNING: ignoring audio/x-realaudio associated helpers not found
+WARNING: ignoring application/vnd.rn-realmedia associated helpers not found
+WARNING: ignoring application/smil associated helpers not found
+WARNING: ignoring audio/vnd.rn-realaudio associated helpers not found
+WARNING: ignoring audio/vnd.rn-realvideo associated helpers not found
+WARNING: ignoring application/x-mplayer2 associated helpers not found
+WARNING: ignoring video/x-ms-asf associated helpers not found
+WARNING: ignoring video/x-ms-wm associated helpers not found
+WARNING: ignoring video/x-ms-wmv associated helpers not found
+WARNING: ignoring video/x-ms-wvx associated helpers not found
+WARNING: ignoring video/x-ms-asf-plugin associated helpers not found
+WARNING: ignoring application/asx associated helpers not found
+WARNING: ignoring audio/wav associated helpers not found
+WARNING: ignoring audio/x-wav associated helpers not found
+WARNING: ignoring audio/x-pn-wav associated helpers not found
+WARNING: ignoring audio/x-pn-windows-acm associated helpers not found
+WARNING: ignoring audio/x-ms-wax associated helpers not found
+WARNING: ignoring audio/x-ms-wma associated helpers not found
+Copy '/mozplugger.so' to '/home/baal/.mozilla/plugins/mozplugger0.so' for '0:'
+ERROR: Failed to open '/mozplugger.so'
+*** Failed to get string msg401 in bundle: chrome://febe/locale/febe.properties

@@ -1,0 +1,196 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'i', '--save', 'siphash' ]
+2 info using npm@1.2.21
+3 info using node@v0.10.7
+4 verbose read json /media/data/tredius/stale/modules/encryption/package.json
+5 warn package.json encryption@0.0.0 No repository field.
+6 warn package.json encryption@0.0.0 No readme data.
+7 verbose from cache /media/data/tredius/stale/modules/encryption/package.json
+8 verbose readDependencies using package.json deps
+9 verbose cache add [ 'siphash', null ]
+10 verbose cache add name=undefined spec="siphash" args=["siphash",null]
+11 verbose parsed url { protocol: null,
+11 verbose parsed url   slashes: null,
+11 verbose parsed url   auth: null,
+11 verbose parsed url   host: null,
+11 verbose parsed url   port: null,
+11 verbose parsed url   hostname: null,
+11 verbose parsed url   hash: null,
+11 verbose parsed url   search: null,
+11 verbose parsed url   query: null,
+11 verbose parsed url   pathname: 'siphash',
+11 verbose parsed url   path: 'siphash',
+11 verbose parsed url   href: 'siphash' }
+12 silly lockFile 1af7615d-siphash siphash
+13 verbose lock siphash /home/baal/.npm/1af7615d-siphash.lock
+14 silly lockFile 1af7615d-siphash siphash
+15 silly lockFile 1af7615d-siphash siphash
+16 verbose addNamed [ 'siphash', '' ]
+17 verbose addNamed [ null, '' ]
+18 silly lockFile a5b9435a-siphash siphash@
+19 verbose lock siphash@ /home/baal/.npm/a5b9435a-siphash.lock
+20 silly addNameRange { name: 'siphash', range: '', hasData: false }
+21 verbose url raw siphash
+22 verbose url resolving [ 'https://registry.npmjs.org/', './siphash' ]
+23 verbose url resolved https://registry.npmjs.org/siphash
+24 info trying registry request attempt 1 at 22:25:01
+25 http GET https://registry.npmjs.org/siphash
+26 http 200 https://registry.npmjs.org/siphash
+27 silly registry.get cb [ 200,
+27 silly registry.get   { vary: 'Accept',
+27 silly registry.get     server: 'CouchDB/1.3.0 (Erlang OTP/R15B03)',
+27 silly registry.get     etag: '"4AF672Y5Q0H2FRFGBWJM4E1YN"',
+27 silly registry.get     date: 'Mon, 20 May 2013 20:25:02 GMT',
+27 silly registry.get     'content-type': 'application/json',
+27 silly registry.get     'content-length': '7823' } ]
+28 silly addNameRange number 2 { name: 'siphash', range: '', hasData: true }
+29 silly addNameRange versions [ 'siphash', [ '1.0.0', '1.0.1' ] ]
+30 verbose addNamed [ 'siphash', '1.0.1' ]
+31 verbose addNamed [ '1.0.1', '1.0.1' ]
+32 silly lockFile 74f61fa4-siphash-1-0-1 siphash@1.0.1
+33 verbose lock siphash@1.0.1 /home/baal/.npm/74f61fa4-siphash-1-0-1.lock
+34 silly lockFile de6b4368-js-org-siphash-siphash-1-0-1-tgz https://registry.npmjs.org/siphash/-/siphash-1.0.1.tgz
+35 verbose lock https://registry.npmjs.org/siphash/-/siphash-1.0.1.tgz /home/baal/.npm/de6b4368-js-org-siphash-siphash-1-0-1-tgz.lock
+36 verbose addRemoteTarball [ 'https://registry.npmjs.org/siphash/-/siphash-1.0.1.tgz',
+36 verbose addRemoteTarball   '6f529583234a7a10481afc574f9e20517a356269' ]
+37 info retry fetch attempt 1 at 22:25:02
+38 verbose fetch to= /home/baal/tmp/npm-30699/1369081502919-0.05535884597338736/tmp.tgz
+39 http GET https://registry.npmjs.org/siphash/-/siphash-1.0.1.tgz
+40 http 200 https://registry.npmjs.org/siphash/-/siphash-1.0.1.tgz
+41 verbose tar unpack /home/baal/tmp/npm-30699/1369081502919-0.05535884597338736/tmp.tgz
+42 silly lockFile 814b5118-2919-0-05535884597338736-package /home/baal/tmp/npm-30699/1369081502919-0.05535884597338736/package
+43 verbose lock /home/baal/tmp/npm-30699/1369081502919-0.05535884597338736/package /home/baal/.npm/814b5118-2919-0-05535884597338736-package.lock
+44 silly lockFile b1d267ea-2919-0-05535884597338736-tmp-tgz /home/baal/tmp/npm-30699/1369081502919-0.05535884597338736/tmp.tgz
+45 verbose lock /home/baal/tmp/npm-30699/1369081502919-0.05535884597338736/tmp.tgz /home/baal/.npm/b1d267ea-2919-0-05535884597338736-tmp-tgz.lock
+46 silly gunzTarPerm modes [ '755', '644' ]
+47 silly gunzTarPerm extractEntry package.json
+48 silly gunzTarPerm extractEntry .npmignore
+49 silly gunzTarPerm extractEntry README.md
+50 silly gunzTarPerm extractEntry LICENSE
+51 silly gunzTarPerm extractEntry index.js
+52 silly gunzTarPerm extractEntry lib/siphash.js
+53 silly gunzTarPerm extractEntry lib/siphash.js.min
+54 silly gunzTarPerm extractEntry test/index.js
+55 verbose read json /home/baal/tmp/npm-30699/1369081502919-0.05535884597338736/package/package.json
+56 silly lockFile 814b5118-2919-0-05535884597338736-package /home/baal/tmp/npm-30699/1369081502919-0.05535884597338736/package
+57 silly lockFile 814b5118-2919-0-05535884597338736-package /home/baal/tmp/npm-30699/1369081502919-0.05535884597338736/package
+58 silly lockFile b1d267ea-2919-0-05535884597338736-tmp-tgz /home/baal/tmp/npm-30699/1369081502919-0.05535884597338736/tmp.tgz
+59 silly lockFile b1d267ea-2919-0-05535884597338736-tmp-tgz /home/baal/tmp/npm-30699/1369081502919-0.05535884597338736/tmp.tgz
+60 verbose from cache /home/baal/tmp/npm-30699/1369081502919-0.05535884597338736/package/package.json
+61 verbose tar pack [ '/home/baal/.npm/siphash/1.0.1/package.tgz',
+61 verbose tar pack   '/home/baal/tmp/npm-30699/1369081502919-0.05535884597338736/package' ]
+62 verbose tarball /home/baal/.npm/siphash/1.0.1/package.tgz
+63 verbose folder /home/baal/tmp/npm-30699/1369081502919-0.05535884597338736/package
+64 silly lockFile 814b5118-2919-0-05535884597338736-package /home/baal/tmp/npm-30699/1369081502919-0.05535884597338736/package
+65 verbose lock /home/baal/tmp/npm-30699/1369081502919-0.05535884597338736/package /home/baal/.npm/814b5118-2919-0-05535884597338736-package.lock
+66 silly lockFile 3b031f39-al-npm-siphash-1-0-1-package-tgz /home/baal/.npm/siphash/1.0.1/package.tgz
+67 verbose lock /home/baal/.npm/siphash/1.0.1/package.tgz /home/baal/.npm/3b031f39-al-npm-siphash-1-0-1-package-tgz.lock
+68 silly lockFile 814b5118-2919-0-05535884597338736-package /home/baal/tmp/npm-30699/1369081502919-0.05535884597338736/package
+69 silly lockFile 814b5118-2919-0-05535884597338736-package /home/baal/tmp/npm-30699/1369081502919-0.05535884597338736/package
+70 silly lockFile 3b031f39-al-npm-siphash-1-0-1-package-tgz /home/baal/.npm/siphash/1.0.1/package.tgz
+71 silly lockFile 3b031f39-al-npm-siphash-1-0-1-package-tgz /home/baal/.npm/siphash/1.0.1/package.tgz
+72 silly lockFile f701a3e7-e-baal-npm-siphash-1-0-1-package /home/baal/.npm/siphash/1.0.1/package
+73 verbose lock /home/baal/.npm/siphash/1.0.1/package /home/baal/.npm/f701a3e7-e-baal-npm-siphash-1-0-1-package.lock
+74 silly lockFile f701a3e7-e-baal-npm-siphash-1-0-1-package /home/baal/.npm/siphash/1.0.1/package
+75 silly lockFile f701a3e7-e-baal-npm-siphash-1-0-1-package /home/baal/.npm/siphash/1.0.1/package
+76 verbose tar unpack /home/baal/.npm/siphash/1.0.1/package.tgz
+77 silly lockFile f701a3e7-e-baal-npm-siphash-1-0-1-package /home/baal/.npm/siphash/1.0.1/package
+78 verbose lock /home/baal/.npm/siphash/1.0.1/package /home/baal/.npm/f701a3e7-e-baal-npm-siphash-1-0-1-package.lock
+79 silly lockFile 3b031f39-al-npm-siphash-1-0-1-package-tgz /home/baal/.npm/siphash/1.0.1/package.tgz
+80 verbose lock /home/baal/.npm/siphash/1.0.1/package.tgz /home/baal/.npm/3b031f39-al-npm-siphash-1-0-1-package-tgz.lock
+81 silly gunzTarPerm modes [ '755', '644' ]
+82 silly gunzTarPerm extractEntry package.json
+83 silly gunzTarPerm extractEntry .npmignore
+84 silly gunzTarPerm extractEntry README.md
+85 silly gunzTarPerm extractEntry LICENSE
+86 silly gunzTarPerm extractEntry index.js
+87 silly gunzTarPerm extractEntry lib/siphash.js
+88 silly gunzTarPerm extractEntry lib/siphash.js.min
+89 silly gunzTarPerm extractEntry test/index.js
+90 verbose read json /home/baal/.npm/siphash/1.0.1/package/package.json
+91 silly lockFile f701a3e7-e-baal-npm-siphash-1-0-1-package /home/baal/.npm/siphash/1.0.1/package
+92 silly lockFile f701a3e7-e-baal-npm-siphash-1-0-1-package /home/baal/.npm/siphash/1.0.1/package
+93 silly lockFile 3b031f39-al-npm-siphash-1-0-1-package-tgz /home/baal/.npm/siphash/1.0.1/package.tgz
+94 silly lockFile 3b031f39-al-npm-siphash-1-0-1-package-tgz /home/baal/.npm/siphash/1.0.1/package.tgz
+95 verbose from cache /home/baal/.npm/siphash/1.0.1/package/package.json
+96 verbose chmod /home/baal/.npm/siphash/1.0.1/package.tgz 644
+97 verbose chown /home/baal/.npm/siphash/1.0.1/package.tgz [ 1000, 1001 ]
+98 silly lockFile de6b4368-js-org-siphash-siphash-1-0-1-tgz https://registry.npmjs.org/siphash/-/siphash-1.0.1.tgz
+99 silly lockFile de6b4368-js-org-siphash-siphash-1-0-1-tgz https://registry.npmjs.org/siphash/-/siphash-1.0.1.tgz
+100 silly lockFile 74f61fa4-siphash-1-0-1 siphash@1.0.1
+101 silly lockFile 74f61fa4-siphash-1-0-1 siphash@1.0.1
+102 silly lockFile a5b9435a-siphash siphash@
+103 silly lockFile a5b9435a-siphash siphash@
+104 silly resolved [ { author: { name: 'Frank Denis', email: 'j at pureftpd dot org' },
+104 silly resolved     bugs: { url: 'https://github.com/jedisct1/siphash-js/issues' },
+104 silly resolved     description: 'SipHash-2-4 fast short-input pseudo-random function',
+104 silly resolved     homepage: 'https://github.com/jedisct1/siphash-js',
+104 silly resolved     keywords: [ 'prf', 'hash', 'crypto' ],
+104 silly resolved     license: 'Public Domain',
+104 silly resolved     main: 'index.js',
+104 silly resolved     name: 'siphash',
+104 silly resolved     repository:
+104 silly resolved      { type: 'git',
+104 silly resolved        url: 'https://github.com/jedisct1/siphash-js.git' },
+104 silly resolved     scripts: { test: 'node test/index.js' },
+104 silly resolved     version: '1.0.1',
+104 silly resolved     readme: 'siphash.js\n==========\n\nA pure Javascript implementation of\n[SipHash-2-4](http://131002.net/siphash/siphash.pdf)\n\n> SipHash is a family of pseudorandom functions optimized for short\n> inputs. Target applications include network traffic authentication and\n> hash-table lookups protected against hash-flooding denial-of-service\n> attacks. SipHash has well-defined security goals and competitive\n> performance.\n\nInstallation\n------------\n\nServer-side installation (nodejs):\n\n    $ npm install siphash\n\nBrowser-side: use `lib/siphash.min.js`.\n\nUsage\n-----\n\n```javascript\nvar siphash = require("siphash"),\n    key = siphash.string16_to_key("0123456789ABCDEF"),\n    message = "Short test message",\n    hash_hex = siphash.hash_hex(key, message);\n```\n\nA key is an array of 4 integers, and each of them will be clamped to\n32 bits in order to build a 128-bit key.\nFor a random key, just generate 4 random integers instead of calling\n`string16_to_key()`.\n\n```javascript\nvar siphash = require("siphash"),\n    key = [ 0xdeadbeef, 0xcafebabe, 0x8badf00d, 0x1badb002 ],\n    message = "Short test message",\n    hash_hex = siphash.hash_hex(key, message);\n```\n\nThe 64-bit hash can also be obtained as two 32-bit values with\n`hash(key, message)`:\n\n```javascript\nvar siphash = require("siphash"),\n    key = [ 0xdeadbeef, 0xcafebabe, 0x8badf00d, 0x1badb002 ],\n    message = "Short test message",\n    hash = siphash.hash(key, message),\n    hash_msb = hash.h,\n    hash_lsb = hash.l;\n```\n\nA 53-bit unsigned integer can be obtained with `hash_uint(key, message)`:\n\n```javascript\nvar siphash = require("siphash"),\n    key = siphash.string16_to_key("0123456789ABCDEF"),\n    message = "Short test message",\n    index = siphash.hash_uint(key, message);\n```\n',
+104 silly resolved     readmeFilename: 'README.md',
+104 silly resolved     _id: 'siphash@1.0.1',
+104 silly resolved     dist: { shasum: '1ff8c42bbea7e8ea3681aa0a7bfcf20d5daaa519' },
+104 silly resolved     _from: 'siphash@',
+104 silly resolved     _resolved: 'https://registry.npmjs.org/siphash/-/siphash-1.0.1.tgz' } ]
+105 info install siphash@1.0.1 into /media/data/tredius/stale/modules/encryption
+106 info installOne siphash@1.0.1
+107 verbose from cache /home/baal/.npm/siphash/1.0.1/package/package.json
+108 info /media/data/tredius/stale/modules/encryption/node_modules/siphash unbuild
+109 verbose read json /media/data/tredius/stale/modules/encryption/node_modules/siphash/package.json
+110 verbose tar unpack /home/baal/.npm/siphash/1.0.1/package.tgz
+111 silly lockFile c51205fc--encryption-node-modules-siphash /media/data/tredius/stale/modules/encryption/node_modules/siphash
+112 verbose lock /media/data/tredius/stale/modules/encryption/node_modules/siphash /home/baal/.npm/c51205fc--encryption-node-modules-siphash.lock
+113 silly lockFile 3b031f39-al-npm-siphash-1-0-1-package-tgz /home/baal/.npm/siphash/1.0.1/package.tgz
+114 verbose lock /home/baal/.npm/siphash/1.0.1/package.tgz /home/baal/.npm/3b031f39-al-npm-siphash-1-0-1-package-tgz.lock
+115 silly gunzTarPerm modes [ '755', '644' ]
+116 silly gunzTarPerm extractEntry package.json
+117 silly gunzTarPerm extractEntry .npmignore
+118 silly gunzTarPerm extractEntry README.md
+119 silly gunzTarPerm extractEntry LICENSE
+120 silly gunzTarPerm extractEntry index.js
+121 silly gunzTarPerm extractEntry lib/siphash.js
+122 silly gunzTarPerm extractEntry lib/siphash.js.min
+123 silly gunzTarPerm extractEntry test/index.js
+124 verbose read json /media/data/tredius/stale/modules/encryption/node_modules/siphash/package.json
+125 silly lockFile c51205fc--encryption-node-modules-siphash /media/data/tredius/stale/modules/encryption/node_modules/siphash
+126 silly lockFile c51205fc--encryption-node-modules-siphash /media/data/tredius/stale/modules/encryption/node_modules/siphash
+127 silly lockFile 3b031f39-al-npm-siphash-1-0-1-package-tgz /home/baal/.npm/siphash/1.0.1/package.tgz
+128 silly lockFile 3b031f39-al-npm-siphash-1-0-1-package-tgz /home/baal/.npm/siphash/1.0.1/package.tgz
+129 info preinstall siphash@1.0.1
+130 verbose from cache /media/data/tredius/stale/modules/encryption/node_modules/siphash/package.json
+131 verbose readDependencies using package.json deps
+132 verbose from cache /media/data/tredius/stale/modules/encryption/node_modules/siphash/package.json
+133 verbose readDependencies using package.json deps
+134 silly resolved []
+135 verbose about to build /media/data/tredius/stale/modules/encryption/node_modules/siphash
+136 info build /media/data/tredius/stale/modules/encryption/node_modules/siphash
+137 verbose from cache /media/data/tredius/stale/modules/encryption/node_modules/siphash/package.json
+138 verbose linkStuff [ false,
+138 verbose linkStuff   false,
+138 verbose linkStuff   false,
+138 verbose linkStuff   '/media/data/tredius/stale/modules/encryption/node_modules' ]
+139 info linkStuff siphash@1.0.1
+140 verbose from cache /media/data/tredius/stale/modules/encryption/package.json
+141 error TypeError: Object.keys called on non-object
+141 error     at Function.keys (native)
+141 error     at /usr/lib/node_modules/npm/lib/build.js:111:18
+141 error     at process._tickCallback (node.js:415:13)
+142 error If you need help, you may report this log at:
+142 error     <http://github.com/isaacs/npm/issues>
+142 error or email it to:
+142 error     <npm-@googlegroups.com>
+143 error System Linux 3.9.3-1-ck
+144 error command "/usr/bin/node" "/usr/bin/npm" "i" "--save" "siphash"
+145 error cwd /media/data/tredius/stale/modules/encryption
+146 error node -v v0.10.7
+147 error npm -v 1.2.21
+148 error type called_on_non_object
+149 verbose exit [ 1, true ]
