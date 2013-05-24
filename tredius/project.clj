@@ -14,11 +14,12 @@
      [com.postspectacular/rotor "0.1.0"]
      [com.taoensso/tower "1.5.1"]
      [markdown-clj "0.9.25"]
-     [org.clojure/clojurescript "0.0-1806"]
      [domina "1.0.0"]
      [prismatic/dommy "0.1.1"]
      [cljs-ajax "0.1.1"]
-     [http-kit "2.1.3"]]
+     [http-kit "2.1.3"]
+     [com.palletops/pallet "0.8.0-beta.10"]
+     [org.clojure/clojurescript "0.0-1806"]]
 
   :cljsbuild
 

@@ -1,12 +1,30 @@
 
 (ns tredius.models.data
-  (:require [cheshire.core :refer :all]))
+  (:require [cheshire.core :refer :all]
+            [cheshire.generate :refer [add-encoder remove-encoder encode-str]]))
 
+;; For each custom type that needs encoding, add a encoder
+(add-encoder java.awt.Color
+             (fn [c jsonGenerator]
+               (.writeString jsonGenerator (str c))))
+
+(add-encoder java.net.URL encode-str)
+(def ws (java.net.URL. "http://www.tredius.nl/diensten"))
+;(encode-str ws)
 
 (comment "It is better to have 100 functions operate on one data structure than 10 functions on 10 data structures. - Alan Perlis")
 
+;; create binary JSON
+(def smileds (encode-smile ds))
 
-(def ^:private data
+;; (decode (generate-string ds) true
+;;         (fn [field-name]
+;;           (if (= field-name "account")
+;;             #{}
+;;             [])))
+
+;; inline Clojure data structure in the form of a hash-map
+(def ^:private ds
 
   {:account {:customer {:name "Tredius" :contact "info@tredius.nl"}
              :googleanalytics "UA-39413290-1"}
@@ -20,8 +38,8 @@
 
    :taxonomy {:keywords ["accountancy" "belastingen" "pensioen" "adviseurs" "detachering" "loonadminstratie" "juridische" "diensten"]}
 
-   :directories {:site {:root "./" :public "publiek" :image-root "media/afbeeldingen"}
-                 :node {:bin "bin" :lib "lib" :doc "doc" :man "doc/man" :example "doc/samples"}}
+   :folders {:site {:root "./" :public "publiek" :image-root "media/afbeeldingen"}
+             :node {:bin "bin" :lib "lib" :doc "doc" :man "doc/man" :example "doc/samples"}}
 
    :website  {:domains {:portal {:name "Tredius.nl" :url "http://www.tredius.nl"}
                         :static {:name "Static files" :url "http://static.tredius.nl"}}
@@ -40,9 +58,8 @@
               :frontend {:engines {:templating {:html ["Clabango" "Hiccup" "Coffeekup"]} :preprocessors {:css "Stylus"} :transpilers {:js "Coffeescript"}}
                          :component ["component/dropload" "*" "component/upload" "*" "component/file" "*" "component/pillbox" "*" "component/classes" "*" "component/model" "*" "component/histogram" "*" "component/progress" "*" "component/thumb" "*" "component/enumerable" "0.3.1" "component/dom" "0.6.0"]
                          :styling {:filesystem {:input "index.styl" :output "algemeen.css" :paths ["documenten/stijlen/lib/cultivus"]}
-                                   :typography {:primary ["Open Sans" "400italic" "600italic" "700italic" "400" "600" "700"]
-                                                 :alternative ["Dosis" "400" "500" "600"]}
-                                   :base   {:companylogo "bedrijfslogo.jpg" :favicons "favicon.png"}
+                                   :typography {:primary ["Open Sans" "400italic" "600italic" "700italic" "400" "600" "700"] :alternative ["Dosis" "400" "500" "600"]}
+                                   :base   {:logo "bedrijfslogo.jpg" :favicons "favicon.png"}
                                    :grid   {:name "Semantic Grid" :columns 12 :type "fixed" :min-width 300 :max-width 960 :viewports false}
                                    :colors {:named {:orange "#F2A34F" :white "#ffffff" :black "#363636"
                                                     :yellow "#7A6A42" :gold "#b88d74"
@@ -53,21 +70,25 @@
                                                     :gray "#e0e0e0" :light-gray "#f8f8f8" :dark-gray "#919191"
                                                     :rood "#e31741" :light-red "#6b4c39"}}}
 
-                        :navigation {:top-horizontal {:home "Home"
-                                                      :missie "Wie zijn wij"
-                                                      :diensten    {:fiscaal      {:advies      "Belastingadvies"
-                                                                                   :pensioen    "Pensioen"
-                                                                                   :estate-plan "Estate Planning"}
-                                                                    :juridisch    {:advies      "Juridisch Advies"
-                                                                                   :abonnement  "Juridisch Abonnement"}
-                                                                    :debiteuren   {:beheer      "Debiteurenbeheer"
-                                                                                   :werkwijze   "Onze Werkwijze"
-                                                                                   :abonnement  "Abonnement"}
-                                                                    :accountancy  {:hr-payroll  "Salaris- en Personeelszaken"
-                                                                                   :accountancy "Accountancy"}
-                                                                    :risicoadvies {:verzekeren  "Risico-advies & Verzekeringen"
-                                                                                   :pensioen    "Pensioenadvies"
-                                                                                   :overstappen "Schoenendoos Overstapservice"}}
+                         ;; these will be created and often reflect the main menu structure except for those pages which are not templates
+                         ;; but generated truly 'on-the-fly' e.g. with intensive data reporting etc. you might want to pull these directly from a ds
+                         :folders {:root {:name "public" :items {:name "diensten"}}}
+
+                         :navigation {:top-horizontal {:home "Home"
+                                                       :missie "Wie zijn wij"
+                                                       :diensten    {:fiscaal      {:advies      "Belastingadvies"
+                                                                                    :pensioen    "Pensioen"
+                                                                                    :estate-plan "Estate Planning"}
+                                                                     :juridisch    {:advies      "Juridisch Advies"
+                                                                                    :abonnement  "Juridisch Abonnement"}
+                                                                     :debiteuren   {:beheer      "Debiteurenbeheer"
+                                                                                    :werkwijze   "Onze Werkwijze"
+                                                                                    :abonnement  "Abonnement"}
+                                                                     :accountancy  {:hr-payroll  "Salaris- en Personeelszaken"
+                                                                                    :accountancy "Accountancy"}
+                                                                     :risicoadvies {:verzekeren  "Risico-advies & Verzekeringen"
+                                                                                    :pensioen    "Pensioenadvies"
+                                                                                    :overstappen "Schoenendoos Overstapservice"}}
 
                                                       :t-time      {:videos       "Tredius vertelt..."
                                                                     :nieuwsbrief  "Nieuwsbrief"
