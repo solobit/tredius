@@ -1,4 +1,9 @@
-node_modules/
-tmp/
-gh-pages/
-docpad.env
+/target
+/lib
+/classes
+/checkouts
+pom.xml
+*.jar
+*.class
+/.lein-*
+/.env
