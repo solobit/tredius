@@ -17,14 +17,21 @@
      [ring-server "0.2.8"]
      [markdown-clj "0.9.25"]
      [prismatic/dommy "0.1.1"]
+     ;[stringtemplate-clj "0.1.0"]
      [com.taoensso/tower "1.5.1"]
      [org.clojure/clojure "1.5.1"]
      ;[commons-codec "1.2"] ; base64
      [com.taoensso/timbre "1.6.0"] ; log
      [com.postspectacular/rotor "0.1.0"]
      [com.palletops/pallet "0.8.0-beta.10"]
-     [org.clojure/clojurescript "0.0-1806"]]
-
+     [org.bituf/clj-stringtemplate "0.2"]
+     [org.clojure/clojurescript "0.0-1806"]
+     [org.apache.opennlp/opennlp-tools "1.5.2-incubating"]]
+  :profiles {:1.2 {:dependencies [[org.clojure/clojure "1.2.1"]]}
+             :1.3 {:dependencies [[org.clojure/clojure "1.3.0"]]}
+             :1.5 {:dependencies [[org.clojure/clojure "1.5.0-alpha6"]]}}
+  :aliases {"all" ["with-profile" "dev,1.2:dev,1.3:dev:dev,1.5"]}
+  :jvm-opts ["-Xmx2048m"]
   :cljsbuild
 
   {:builds
