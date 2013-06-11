@@ -3,14 +3,15 @@
             [markdown.core :as md]))
 
 (defn format-time
-  "formats the time using SimpleDateFormat, the default format is
-   \"dd MMM, yyyy\" and a custom one can be passed in as the second argument"
-  ([time] (format-time time "dd MMM, yyyy"))
+  "Formateer de tijd door SimpleDateFormat te gebruiken, standaard is deze
+   \"dd MMM, yyyy\" en een maatwerk variant kan als tweede argument ingegeven worden."
+  ([time]
+   (format-time time "dd MMM, yyyy"))
   ([time fmt]
     (.format (new java.text.SimpleDateFormat fmt) time)))
 
 (defn md->html
-  "reads a markdown file from public/md and returns an HTML string"
+  "Leest een 'Markdown' bestand uit public/md een geeft een HTML string terug."
   [filename]
   (->>
     (io/slurp-resource filename)

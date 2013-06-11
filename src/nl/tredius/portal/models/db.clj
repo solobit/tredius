@@ -7,18 +7,24 @@
 
 (defentity users)
 
-(defn create-user [user]
+(defn create-user
+  "Aanmaken van een nieuwe gebruiker in de databank."
+  [user]
   (insert users
           (values user)))
 
-(defn update-user [id first-name last-name email]
+(defn update-user
+  "Bijwerken van een gebruiker in de databank bij."
+  [id first-name last-name email]
   (update users
   (set-fields {:first_name first-name
                :last_name last-name
                :email email})
   (where {:id id})))
 
-(defn get-user [id]
+(defn get-user
+  "Inlezen van gebruikersgegevens uit de databank."
+  [id]
   (first (select users
                  (where {:id id})
                  (limit 1))))

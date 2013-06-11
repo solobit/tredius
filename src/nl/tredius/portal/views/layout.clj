@@ -5,7 +5,9 @@
 
 (def template-path "nl/tredius/portal/views/templates/")
 
-(defn render [template & [params]]
+(defn render
+  "Voert het verwerken van sjablonen, paginas en argumenten uit."
+  [template & [params]]
   (parser/render-file (str template-path template)
                       (assoc (or params {})
                         :context (:context *request*)

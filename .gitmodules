@@ -1,0 +1,3 @@
+[submodule "checkouts/defrecord2"]
+	path = checkouts/defrecord2
+	url = git@github.com:clojens/defrecord2.git

@@ -5,7 +5,10 @@
 
 (defonce server (atom nil))
 
-(defn get-handler []
+(defn get-handler
+  "Zorgt voor het soepel verlopen van code die herladen moet worden
+  zonder dat de server opnieuw gestart hoeft te worden."
+  []
   ;; #'app expands to (var app) so that when we reload our code,
   ;; the server is forced to re-resolve the symbol in the var
   ;; rather than having its own copy. When the root binding
@@ -17,7 +20,7 @@
     (wrap-file-info)))
 
 (defn start-server
-  "used for starting the server in development mode from REPL"
+  "Gebruikt voor het starten van de server in ontwikkelmodus vanaf de opdrachtregel."
   [& [port]]
   (let [port (if port (Integer/parseInt port) 8080)]
     (reset! server
@@ -27,8 +30,11 @@
                     :auto-reload? true
                     :destroy destroy
                     :join? true}))
-    (println (str "You can view the site at http://localhost:" port))))
+    (println (str "U kunt de site bekijken op http://localhost:" port))))
 
-(defn stop-server []
+(defn stop-server
+  "Stop het lopende exemplaar van de webserver."
+  []
   (.stop @server)
   (reset! server nil))
+
