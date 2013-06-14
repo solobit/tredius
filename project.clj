@@ -28,13 +28,13 @@
    [com.postspectacular/rotor "0.1.0"]
    [com.taoensso/tower "1.7.1"]
    [markdown-clj "0.9.26"]
-   [org.clojure/clojurescript "0.0-1820"]
    [domina "1.0.1"]
    [prismatic/dommy "0.1.1"]
    [cljs-ajax "0.1.3"]
-   [com.h2database/h2 "1.3.172"]
-   [korma "0.3.0-RC5"]
-   [liberator "0.9.0"]
+   [com.h2database/h2 "1.3.172"] ;; db adapter
+   [korma "0.3.0-RC5"] ;; database clean dsl
+   [com.keminglabs/c2 "0.2.3"] ;; graph rendering
+   [com.keminglabs/vomnibus "0.3.2"] ;; geo data
    [log4j
     "1.2.17"
     :exclusions
@@ -42,9 +42,13 @@
      javax.jms/jms
      com.sun.jdmk/jmxtools
      com.sun.jmx/jmxri]]
+   [garden "0.1.0-beta3"]
+   [com.novemberain/langohr "1.0.0-beta14"]
+   [formative "0.3.2" :exclusions [ring/ring-core]]
+   [liberator "0.9.0" :exclusions [org.clojure/data.json]]
    [clj-tagsoup "0.3.0" :exclusions [org.clojure/clojure]]
-   ;[formative "0.3.2" :exclusions [ring/ring-devel lib-noir ring-server ring]]
    [compojure "1.1.5" :exclusions [ring/ring-core lib-noir ring-server]]
+   [org.clojure/clojurescript "0.0-1820" :exclusions [com.google.guava/guava]]
    ]
 
   :cljsbuild

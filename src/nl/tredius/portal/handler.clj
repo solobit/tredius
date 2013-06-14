@@ -38,6 +38,7 @@
   (timbre/info "Tredius corporate web portal succesvol gestart"))
 
 
+
 (defn destroy
   "De functie destroy wordt aangeroepen wanneer de applicatie
    afsluit, plaats benodigde schoonmaak- / opruimcode hier"

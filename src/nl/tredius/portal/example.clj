@@ -1,4 +1,4 @@
-(ns nl.tredius.portal.example
+(ns nl.tredius.portal.examplefrm
   (:require [formative.core :as f]
             [formative.parse :as fp]))
 
@@ -12,3 +12,6 @@
                  [:min-length 8 :password]]
    :values {:secret-code 1234
             :remember true}})
+
+
+(f/render-form example-form)

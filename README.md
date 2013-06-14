@@ -27,6 +27,11 @@ To start a web server for the application, run:
     ~~lein ring server~~
     lein run
 
+## Tasks
+
+[x] Added c2 data visualization
+
+
 ## License
 
 Tredius BV &amp; Solobit © 2013 All rights reserved.
