@@ -1,8 +1,9 @@
 (ns nl.tredius.portal.util
-  (:use [net.cgrand.enlive-html]
+  (:refer-clojure :exclude [or replace and remove])
+  (:use [net.cgrand.enlive-html :only [html html-resource]]
         [clojure.contrib.seq-utils :only [indexed]]
         [clojure.contrib.str-utils :only [re-sub re-gsub]]
-        [pl.danieljanus.tagsoup]
+        [pl.danieljanus.tagsoup :exclude [parse]]
         [me.raynes.laser :as laser])
   (:import java.io.StringReader)
   (:require [noir.io :as io]
