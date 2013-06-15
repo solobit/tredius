@@ -1,10 +1,16 @@
 (ns nl.tredius.portal.util
+  (:use [net.cgrand.enlive-html]
+        [clojure.contrib.seq-utils :only [indexed]]
+        [clojure.contrib.str-utils :only [re-sub re-gsub]]
+        [pl.danieljanus.tagsoup])
+  (:import java.io.StringReader)
   (:require [noir.io :as io]
+            [clojure.pprint :refer [pprint]]
             [markdown.core :as md]))
 
 (defn format-time
   "Formateer de tijd door SimpleDateFormat te gebruiken, standaard is deze
-   \"dd MMM, yyyy\" en een maatwerk variant kan als tweede argument ingegeven worden."
+   \"dd MMM, yyyy\" en een maatwerk variant optioneel als tweede argument."
   ([time]
    (format-time time "dd MMM, yyyy"))
   ([time fmt]
@@ -16,3 +22,33 @@
   (->>
     (io/slurp-resource filename)
     (md/md-to-html-string)))
+
+
+(defn enlive->hiccup
+  "Converteer Clojure Enlive DSL naar Hiccup DSL."
+   [el]
+   (if-not (string? el)
+     (->> (map enlive->hiccup (:content el))
+       (concat [(:tag el) (:attrs el)])
+       (keep identity)
+       vec)
+     el))
+
+
+(defn html->enlive
+  "Converteer een string HTML opmaak elementen en attributen
+  naar Clojure Enlive DSL."
+  [html]
+  (first (html-resource (StringReader. html))))
+
+
+(defn html->hiccup
+  "Converteert een string HTML opmaak elementen en attributen
+  naar Clojure Hiccup DSL (via Enlive)."
+  [html]
+  (-> html
+      html->enlive
+      enlive->hiccup))
+
+;(pprint (html->enlive "<html><body id='foo'><div><p>hello</p></div></body></html>"))
+;(pprint (parse "http://tredius.nl"))

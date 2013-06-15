@@ -1,4 +1,4 @@
-(ns clojurewerkz.langohr.examples.weathr
+(ns nl.tredius.budget.messages.example
   (:gen-class)
   (:require [langohr.core      :as rmq]
             [langohr.channel   :as lch]
@@ -13,17 +13,37 @@
 (defn start-consumer
   "Starts a consumer bound to the given topic exchange in a separate thread"
   [ch topic-name queue-name]
-  (let [queue-name' (.getQueue (lq/declare ch queue-name :exclusive false :auto-delete true))
+  ;; local binding scope
+  (let [queue-name' (.getQueue (lq/declare ch queue-name
+                                           :exclusive false
+                                           :auto-delete true))
+
         handler     (fn [ch {:keys [routing-key] :as meta} ^bytes payload]
-                      (println (format "[consumer] Consumed '%s' from %s, routing key: %s" (String. payload "UTF-8") queue-name' routing-key)))]
-    (lq/bind    ch queue-name' weather-exchange :routing-key topic-name)
-    (.start (Thread. (fn []
-                       (lc/subscribe ch queue-name' handler :auto-ack true))))))
+                      (println
+                       (format
+                        "[consumer] Consumed '%s' from %s, routing key: %s"
+                        (String. payload "UTF-8") queue-name' routing-key)))]
+
+    ;; function body
+    (lq/bind ch queue-name' weather-exchange :routing-key topic-name)
+
+    (.start (Thread.
+             (fn [] (lc/subscribe ch queue-name' handler :auto-ack true))))))
+
+
 
 (defn publish-update
   "Publishes a weather update"
   [ch payload routing-key]
-  (lb/publish ch weather-exchange routing-key payload :content-type "text/plain" :type "weather.update"))
+  (lb/publish ch weather-exchange
+              routing-key payload
+              :content-type "text/plain"
+              :type "weather.update"))
+
+;;
+;; Main entry point
+;; Use $ lein run -m nl.tredius.budget.messages.example
+;;
 
 (defn -main
   [& args]
@@ -35,6 +55,14 @@
                    "us.tx.austin"   "#.tx.austin"
                    "it.rome"        "europe.italy.rome"
                    "asia.hk"        "asia.southeast.hk.#"}]
+
+    (comment "
+      -----------------------------------------------------------------------
+     | We use a topic exchange here. Topic exchanges are used for multicast
+     | messaging where consumers indicate which topics they are interested in
+     | (think of it as subscribing to a feed for an individual tag in your
+     | favourite blog as opposed to the full feed). ")
+
     (le/declare ch weather-exchange "topic" :durable false :auto-delete true)
     (doseq [[k v] locations]
       (start-consumer ch v k))
