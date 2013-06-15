@@ -17,7 +17,7 @@
 
   :plugins
   [[environ/environ.lein "0.3.0"]
-   [hiccup-bridge "1.0.0"]]
+   [local/hiccup-bridge "1.0.0"]]
 
   :dependencies
   [[http-kit "2.1.3"]
@@ -75,6 +75,8 @@
   {:handler nl.tredius.portal.handler/war-handler,
    :init nl.tredius.portal.handler/init,
    :destroy nl.tredius.portal.handler/destroy}
+
+  :repositories {"project" "file:repo"}
 
   :profiles
   {:production
