@@ -1,4 +1,5 @@
 (ns nl.tredius.portal.views.forms
+  (:use clostache.parser)
   (:require [compojure.core :refer [defroutes GET POST ANY]]
             [compojure.handler :refer [site]]
             [ring.middleware.stacktrace :as trace]
@@ -7,8 +8,25 @@
             [formative.core :as f]
             [formative.parse :as fp]
             [hiccup.page :as page]
+            [garden.core :refer [css]]
             [clojure.pprint :refer [pprint]]))
 
+
+(def customer {:name "Tredius"
+               :site "http://www.tredius.nl"})
+
+
+;; Smell. This could/should be abstracted out. HTML/Site snippets could be processed per
+;; logical block
+(layout
+ [:div
+  [:foo (render "Hello {{name}}", customer)
+   [:a {:href (render "{{site}}", customer)}]]
+  ])
+
+;;
+;; Validate input
+;;
 
 (defn valideer-upload-cv
   "Valideer de upload van het bestand."
@@ -17,6 +35,10 @@
     (when (and filename (not (re-find #"(\.doc|\.docx|\.pdf|\.odt|\.rtf|\.pages|\.txt)$" filename)))
       {:keys [:voeg-je-cv-toe] :msg "Alleen tekstbestanden of documentopmaak
         (.doc,.docx,.pdf,.odt,.rtf,.pages,.txt)"})))
+
+;;
+;; Form definitions
+;;
 
 (def werken-bij-form
   {:enctype "multipart/form-data"
@@ -81,18 +103,39 @@
      (page/include-css "//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/css/bootstrap.min.css")
      ;;(page/include-css "//google-code-prettify.googlecode.com/svn/trunk/src/prettify.css")
      [:style
-      "body { margin: 2em; }"
-      ".form-table { width: 100%; }"
-      ".form-table th { text-align: left; }"
-      ".form-table h3 { border-bottom: 1px solid #ddd; }"
-      ".form-table .label-cell { vertical-align: top; text-align: right; padding-right: 10px; padding-top: 10px; }"
-      ".form-table td { vertical-align: top; padding-top: 5px; }"
-      ".form-table .checkbox-row label { display: inline; margin-left: 5px; }"
-      ".form-table .checkbox-row .input-shell { margin-bottom: 10px; }"
-      ".form-table .submit-row th, .form-table .submit-row td { padding: 30px 0; }"
-      ".form-table .problem th, .form-table .problem td { color: #b94a48; background: #fee; }"]]
-    [:body {:onload "prettyPrint()"}
-     body]
+      ;;(css [:body {:margin "2em"}])
+
+      (css [:.form-table {:width "100%"}
+            [:&:th {:text-align "left"}]
+            [:&:h3 {:border-bottom "1px solid #ddd"}]
+            [:&:.label-cell {:vertical-align "top"
+                             :text-align "right"
+                             :padding-right "10px"
+                             :padding-top "10px"}]
+            [:&:td {:vertical-align "top"
+                    :padding-top "5px"}]
+            [:&:.checkbox-row :label {:display "inline"
+                                     :margin-left "5px" }]
+            [:&:.checkbox-row.input-shell {:margin-bottom "10px"}]
+            [:&:.submit-row :th
+             [:&:.submit-row :td {:padding "30px 0" }]]
+            [:&:.problem :th
+             [:&:.problem :td {:color "#b94a48"
+                              :background "#fee" }]]])]]
+
+;;       "body { margin: 2em; }"
+;;       ".form-table { width: 100%; }"
+;;       ".form-table th { text-align: left; }"
+;;       ".form-table h3 { border-bottom: 1px solid #ddd; }"
+;;       ".form-table .label-cell { vertical-align: top; text-align: right; padding-right: 10px; padding-top: 10px; }"
+;;       ".form-table td { vertical-align: top; padding-top: 5px; }"
+;;       ".form-table .checkbox-row label { display: inline; margin-left: 5px; }"
+;;       ".form-table .checkbox-row .input-shell { margin-bottom: 10px; }"
+;;       ".form-table .submit-row th, .form-table .submit-row td { padding: 30px 0; }"
+;;       ".form-table .problem th, .form-table .problem td { color: #b94a48; background: #fee; }"]]
+;;        [:body {:onload "prettyPrint()"}
+
+    [:body body]
     (page/include-js "//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js")
     (page/include-js "//google-code-prettify.googlecode.com/svn/trunk/src/prettify.js")
     (page/include-js "//google-code-prettify.googlecode.com/svn/trunk/src/lang-clj.js")

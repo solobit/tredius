@@ -1,39 +1,38 @@
 # Tredius corporate public portal
 
-This is the final refactoring of the portal environment in preparation of the
-personal budget household aid. Running on Clojure/ClojureScript cross-over
-using the JVM, Google Closure Compiler, many different plugins icw leiningen,
-and http-kit.
+Momenteel bevat deze opslag de navolgende onderdelen:
 
-HTTP Kit is a minimalist, efficient, Ring-compatible HTTP client/server for
-Clojure. It uses a event-driven architecture to support highly concurrent
-a/synchronous web applications. Feature a unified API for WebSocket and HTTP
-long polling/streaming.
+* `nl.tredius.budget` Namespace voor budget-tool uitrol 2014
+* `nl.tredius.portal` Namespace voor publieke domein portaal
 
-Tested with 600.000 concurrent HTTP connections using Clojure and http-kit.
+Webserver getest met 600.000 gelijktijdige HTTP verbindingen.
 
 You go girl!
 
-## Prerequisites
+## Voorbereiding
 
-You will need [Leiningen][1] 2.0 or above installed.
+U heeft [Leiningen][1] 2.0 of hoger geinstalleerd.
 
 [1]: https://github.com/technomancy/leiningen
 
-## Running
+## Uitvoeren
 
-To start a web server for the application, run:
+Om een webserver van http-kit te starten gebruikt u:
 
-    ~~lein ring server~~
     lein run
 
-## Tasks
+## Taken
 
-[x] Added c2 data visualization
+De volgende takenlijst heeft betrekking op dit project:
 
+* [ ] formulieren omzetten
+* [ ] importeren oude HTML -> Hiccup
+* [ ] CSS opschonen
+* [ ] configuratie overnemen
 
-## License
+## Licentie
 
-Tredius BV &amp; Solobit © 2013 All rights reserved.
+Tredius BV &amp; Solobit © 2013 Alle rechten voorbehouden.
+Minimaal Eclipse publieke licentie, net als Clojure.
 
 

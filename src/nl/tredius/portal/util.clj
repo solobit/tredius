@@ -2,13 +2,13 @@
   (:refer-clojure :exclude [or replace and remove])
   (:use [net.cgrand.enlive-html :only [html html-resource]]
         [clojure.contrib.seq-utils :only [indexed]]
-        [clojure.contrib.str-utils :only [re-sub re-gsub]]
-        [pl.danieljanus.tagsoup :exclude [parse]]
-        [me.raynes.laser :as laser])
+        ;[me.raynes.laser :exclude [parse]]
+        [clojure.contrib.str-utils :only [re-sub re-gsub]])
   (:import java.io.StringReader)
   (:require [noir.io :as io]
             [clojure.pprint :refer [pprint]]
-            [markdown.core :as md]))
+            [markdown.core :as md]
+            [pl.danieljanus.tagsoup :as ts]))
 
 
 ;;
@@ -58,5 +58,3 @@
       html->enlive
       enlive->hiccup))
 
-;(pprint (html->enlive "<html><body id='foo'><div><p>hello</p></div></body></html>"))
-;(pprint (parse "http://tredius.nl"))
