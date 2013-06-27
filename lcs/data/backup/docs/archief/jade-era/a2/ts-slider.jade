@@ -1,0 +1,35 @@
+
+
+section.ttSpecialSlider-sectie
+
+  h1 Specials van Tredius
+
+  .ttSpecialSlider--download
+    div
+      each special in getCollection("special").toJSON()
+        a(href='#{special.bestand}')
+          figure
+            img(src='/media/afbeeldingen/icon_pdf.png')
+            figcaption #{special.titel}
+
+
+//- :coffeescript
+
+//-   jQuery(document).ready ($) ->
+
+//-     si = $("#t-specials").royalSlider(
+//-       addActiveClass: true
+//-       arrowsNav: false
+//-       controlNavigation: "bullets"
+//-       autoScaleSlider: true
+//-       autoScaleSliderWidth: 940
+//-       autoScaleSliderHeight: 340
+//-       loop: true
+//-       fadeinLoadedSlide: false
+//-       globalCaption: true
+//-       keyboardNavEnabled: true
+//-       globalCaptionInside: false
+
+//-     ).data("royalSlider")
+
+

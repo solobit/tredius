@@ -1,0 +1,407 @@
+
+<!-- saved from url=(0028)http://jeditoolkit.com/wisp/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Wisp playground</title>
+    <link rel="stylesheet" href="http://jeditoolkit.com/wisp/support/codemirror.css">
+    <link rel="stylesheet" href="http://jeditoolkit.com/wisp/support/ambiance.css">
+    <script src="./Wisp playground3_files/codemirror-compressed.js"></script>
+    <style>
+      html, body {
+        font-size: 12px;
+        margin: 0;
+        padding: 0;
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-width: 100%;
+        height: 100%;
+        min-height: 100%;
+      }
+
+      #input, #output {
+        width: 50%;
+        float: left;
+      }
+
+      .CodeMirror .CodeMirror-scroll {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+  <a href="https://github.com/gozala/wisp"><img style="z-index: 3; position: absolute; top: 0; right: 0; border: 0;" src="./Wisp playground3_files/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+<script type="text/expamles" id="examples">;; # wisp
+
+; Wisp is homoiconic JS dialect with a clojure syntax, s-expressions and
+; macros. Wisp code compiles to a human readable javascript, which is one
+; of they key differences from clojurescript.
+
+;; ## wisp data structures
+
+;; 1. nil - is just like js undefined with a differenc that it's
+;;    not something can be defined. In fact it's just a shortcut for
+;;    void(0) in JS.
+nil ;; => void(0)
+
+;; 2. Booleans - Wisp booleans true / false are JS booleans
+
+true ;; => true
+
+;; 3. Numbers - Wisp numbers are JS numbers
+1  ;; => 1
+
+;; 4. Strings - Wisp strings are JS Strings
+"Hello world"
+;;    Wisp strings can be multiline
+"Hello,
+My name is wisp!"
+
+;; 5. Characters - Characters are sugar for JS single char strings
+\a  ;; => "a"
+
+;; 6. Keywords - Keywords are symbolic identifiers that evaluate to
+;;               themselves.
+:keyword  ;; => "keyword"
+;;    Since in JS string constats fulfill this purpose of symbolic
+;;    identifiers, keywords compile to equivalent JS strings.
+(window.addEventListener :load handler false)
+;;    Keywords can be invoked as functions, that desugars to plain
+;;    associated value access in JS
+(:bar foo) ;; => foo["bar"]
+
+
+;; 7. Vectors - Wisp vectors are JS arrays.
+[ 1 2 3 4 ]
+;;    Note: Commas are white space & can be used if desired
+[ 1, 2, 3, 4]
+
+
+;; 8. Maps - Maps are hash maps, plain JS objects. Note that unlike
+;;    in clojure keys can not be of arbitary types.
+{ "foo" bar :beep-bop "bop" 1 2 }
+;;    Commas are optional but can come handy for separating key value
+;;    pairs.
+{ a 1, b 2 }
+;; In a future JSONs syntax may be made compatible with map syntax.
+
+
+;; 9. Lists - You can't have a lisp without lists! Wisp has lists too.
+;;    Wisp is homoiconic and it's code is made up of lists representing
+;;    expressions. The first item in the expression is a function, being
+;;    invoked with rest items as arguments.
+(foo bar baz) ; => foo(bar, baz);
+
+;; # Conventions
+;; Wisp puts a lot of effort in making naming conventions transparent,
+;; by encouraning lisp conventions and then translating them to equivalent
+;; JS conventions:
+
+(dash-delimited)   ;; => dashDelimited
+(predicate?)       ;; => isPredicate
+(**privates**)     ;; => __privates__
+(list->vector)     ;; => listToVector
+
+;; As a side effect some names can be expressed in a few ways, although
+;; it's considered to be an advantage.
+
+(parse-int x)
+(parseInt x)
+
+(array? x)
+(isArray x)
+
+
+;; # Special forms
+
+;; There are some functions in wisp that are special, in a sence that
+;; they compile to JS expressions & can not be passed around as regular
+;; functions. JS operators are represteted in wisp as special forms
+
+;; Arithmetic forms - Wisp comes with special form for arithmetic
+;; operations.
+
+(+ a b)        ; => a + b
+(+ a b c)      ; => a + b + c
+(- a b)        ; => a - b
+(* a b c)      ; => a * b * c
+(/ a b)        ; => a / b
+(mod a b)      ; => a % 2
+
+;; Comparison forms - Wisp comes with special forms for comparisons
+
+(identical? a b)     ;; => a === b
+(identical? a b c)   ;; => a === b && b === c
+(= a b)              ;; => a == b
+(= a b c)            ;; => a == b && b == c
+(> a b)              ;; => a > b
+(>= a b)             ;; => a >= b
+(< a b c)            ;; => a < b && b < c
+(<= a b c)           ;; => a <= b && b <= c
+
+;; Logical forms - Wisp comes with special forms for logical operations
+
+(and a b)            ;; => a && b
+(and a b c)          ;; => a && b && c
+(or a b)             ;; => a || b
+(and (or a b)
+     (and c d))      ;; (a || b) && (c && d)
+
+
+;; Definitions - Variable definitions also happen through special forms.
+(def a)     ; => var a = void(0);
+(def b 2)   ; => var b = 2;
+
+;; Assignments - In wisp new values can be set to a variables via `set!`
+;; special form. Note that in functional programing binding changes are
+;; a bad practice, avoiding those would make your programs only better!
+;; Stil if you need it you have it.
+(set! a 1)
+
+;; Conditionals - Conditional code branching in wisp is expressed via
+;; if special form. First expression following `if` is a condition,
+;; if it evaluates to `true` result of the `if` expression is second
+;; expression otherwise it's third expression.
+(if (< number 10)
+  "Digit"
+  "Number")
+;; Else expression is optional, if missing and conditional evaluates to
+;; `true` result will be `nil`.
+(if (monday? today) "How was your weekend")
+
+
+
+;; Compbining expressions - In wisp is everything is an expression, but
+;; sometimes one might want to compbine multiple expressions into one,
+;; usually for the purpose of evaluating expressions that have
+;; side-effects
+(do
+  (console.log "Computing sum of a & b")
+  (+ a b))
+
+;; Also number of expressions is `do` special form 0 to many. If `0`
+;; result of evaluation will be nil.
+(do)
+
+
+;; Bindings - Let special form evaluates containing expressions in a
+;; lexical context of in which simbols in the bindings-forms (first item)
+;; are bound to their respective expression results.
+
+(let [a 1
+      b (+ a c)]
+  (+ a b))
+
+
+;; Functions - Wisp functions are JS functions
+(fn [x] (+ x 1))
+
+;; Wisp functions can be named similar to JS
+(fn increment [x] (+ x 1))
+
+;; Wisp functions can also contain documentation and some metadata.
+;; Note: Docstring and metadata is not presented in compiled JS yet,
+;; but in a future it will compile to comments associated with function.
+(fn incerement
+  "Returns a number one greater than given."
+  {:added "1.0"}
+  [x] (+ x 1))
+
+;; Wisp makes capturing of rest arguments a lot easier than JS. argument
+;; that follows special `&` simbol will capture all the rest args in array.
+
+(fn [x & rest]
+  (rest.reduce (fn [sum x] (+ sum x)) x))
+
+;; Overloads - In wisp functions can be overloaded depending on number
+;; of arguments they take, without introspection of rest arguments.
+(fn sum
+  "Return the sum of all arguments"
+  {:version "1.0"}
+  ([] 0)
+  ([x] x)
+  ([x y] (+ x y))
+  ([x & more] (more.reduce (fn [x y] (+ x y)) x)))
+
+;; If function does not has variadic overload and more arguments is
+;; passed to it, it throws exception.
+(fn
+  ([x] x)
+  ([x y] (- x y)))
+
+
+
+;; ## Other Special Forms
+
+;; Instantiation - In wisp type instantiation has a consice form, type
+;; function just needs to be suffixed with `.` character
+(Type. options)
+
+;; More verbose but JS like form is also there 
+(new Class options)
+
+
+;; Method calls - In wisp method calls are no different from function
+;; calls, it's just method functions are perfixed with `.` character
+(.log console "hello wisp")
+
+;; Also more JS like forms are supported too!
+(window.addEventListener "load" handler false)
+
+
+;; Attribute access - In wisp attribute access is also just like function
+;; call. Attribute name just needs to be prefixed with `.-`
+(.-location window)
+
+;; Compound properties can be access via `get` special form
+(get templates (.-id element))
+
+;; Catching exceptions - In wisp exceptions can be handled via `try` 
+;; special form. As everything else try form is also expression. It
+;; results to nil if no handling takes place.
+(try (raise exception))
+
+;; Although catch form can be used to handle exceptions
+(try
+  (raise exception)
+  (catch error (.log console error)))
+
+;; Also finally clase can be used when necessary
+(try
+  (raise exception)
+  (catch error (recover error))
+  (finally (.log console "That was a close one!")))
+
+
+;; Throwing exceptions - Throw special form allows throwing exceptions,
+;; although doing that is not idiomatic.
+(fn raise [message] (throw (Error. message)))
+
+
+;; ## Macros
+;; Wisp has a programmatic macro system which allows the compiler to
+;; be extended by user code. Many core constructs of Wisp are in fact
+;; normal macros.
+
+;; quote
+
+;; Before diving into macros too much, we need to learn about few more
+;; things. In lisp any expression can be marked to prevent it from being
+;; evaluated. For instance, if you enter the symbol `foo` you will be
+;; evaluating the reference to the value of the corresponding variable.
+foo
+
+;; If you wish to refer to the literal symbol, rather then reference you
+;; could use
+(quote foo)
+;; or more usually
+'foo
+
+;; Any expression can be quoted, to prevent it's evaluation. Although your
+;; resulting programs should not have these forms compiled to JS.
+'foo
+':bar
+'(a b)
+
+;; Wisp doesn’t have `unless` special form or a macro, but it's trivial
+;; to implement it via macro. Although let's try implemting it as a
+;; function to understand a use case for macro!
+
+;; We want to execute body unless condition is `true`.
+(defn unless-fn [condition body]
+  (if condition nil body))
+
+;; Although following code will log "should not print" anyway, since
+;; function arguments are exectued before function is called.
+(unless-fn true (console.log "should not print"))
+
+;; Macros solve this problem, because they do not evaluate their arguments
+;; immediately. Instead, you get to choose when (and if!) the arguments
+;; to a macro are evaluated. Macros take items of the expression as
+;; arguments and return new form that is compiled instead.
+(defmacro unless
+  [condition form]
+  (list 'if condition nil form))
+
+;; The body of unless macro executes at macro expansion time, producing an
+;; if form for compilation. Which later is compiled as usual. This way
+;; compiled JS is a conditional instead of function call.
+(unless true (console.log "should not print"))
+
+;; Simple macros like above could be written via templating, expressed
+;; as syntax-quoted forms.
+
+;; `syntax-quote` is almost the same as the plain `quote`, but it allows
+;; sub expressions to be unquoted so that form acts a template. Symbols
+;; inside form are resolved to help prevent inadvertent symbol capture.
+;; Which can be done via `unquote` and `unquote-splicing` forms.
+
+(syntax-quote (foo (unquote bar)))
+(syntax-quote (foo (unquote bar) (unquote-splicing bazs)))
+
+;; Also there is a special syntax sugar for both unquoting operators:
+
+;; Syntax quote: Quote form, but allow internal unquoting so that form
+;; acts as template. Symbols inside form are resolved to help prevent
+;; inadvertent symbol capture.
+`(foo bar)
+
+;; Unquote: Use inside a syntax-quote to substitute an unquoted value.
+`(foo ~bar)
+
+;; Splicing unquote: Use inside a syntax-quote to splice an unquoted
+; list into a template.
+`(foo ~bar ~@bazs)
+
+
+;; For expmale build-in `defn` macro can be defined expressed with
+;; simple template macro. That's more or less how build-in `defn`
+;; macro is implemented.
+(defmacro define-fn
+  [name & body]
+  `(def ~name (fn ~@body)))
+
+
+;; Now if we use `define-fn` form above defined macro will be expanded
+;; and compile time resulting into diff program output.
+(define-fn print
+  [message]
+  (.log console message))
+
+
+;; Not all of the macros can be expressed via templating, but all of the
+;; language is available at hand to assemble macro expanded form.
+;; For instance let's define macro to ease functional chanining popular
+;; in JS but usually expressed via method chaining. For example following
+;; API is pioneered by jQuery is very common in JS:
+;;
+;; open(target, "keypress).
+;;  filter(isEnterKey).
+;;  map(getInputText).
+;;  reduce(render)
+;;
+;; Unfortunately though it usually requires all the functions need to be
+;; methods of dsl object, which is very limited. Making third party
+;; functions second class. Via macros we can achieve similar chaining
+;; without such tradeoffs.
+(defmacro ->
+  [& operations]
+  (reduce
+   (fn [form operation]
+     (cons (first operation)
+           (cons form (rest operation))))
+   (first operations)
+   (rest operations)))
+
+(->
+ (open tagret :keypress)
+ (filter enter-key?)
+ (map get-input-text)
+ (reduce render))
+</script>
+<div id="input" name="input" style="width: 50%;"><div class="CodeMirror"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 739.796875px; left: 55px;"><textarea wrap="off" autocorrect="off" autocapitalize="off" style="position: absolute; padding: 0px; width: 1px; height: 1em;"></textarea></div><div class="CodeMirror-scrollbar" style="display: block; height: 760px;"><div class="CodeMirror-scrollbar-inner" style="height: 1242px;"></div></div><div class="CodeMirror-scroll cm-s-ambiance CodeMirror-focused" tabindex="-1" draggable="false"><div style="position: relative; min-height: 1242px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-gutter" style="height: 1242px; left: 0px;"><div class="CodeMirror-gutter-text"><pre>1</pre><pre>2</pre><pre>3</pre><pre>4</pre><pre>5</pre><pre>6</pre><pre>7</pre><pre>8</pre><pre>9</pre><pre>10</pre><pre>11</pre><pre>12</pre><pre>13</pre><pre>14</pre><pre>15</pre><pre>16</pre><pre>17</pre><pre>18</pre><pre>19</pre><pre>20</pre><pre>21</pre><pre>22</pre><pre>23</pre><pre>24</pre><pre>25</pre><pre>26</pre><pre>27</pre><pre>28</pre><pre>29</pre><pre>30</pre><pre>31</pre><pre>32</pre><pre>33</pre><pre>34</pre><pre>35</pre><pre>36</pre><pre>37</pre><pre>38</pre><pre>39</pre><pre>40</pre><pre>41</pre><pre>42</pre><pre>43</pre><pre>44</pre><pre>45</pre><pre>46</pre><pre>47</pre><pre>48</pre><pre>49</pre><pre>50</pre><pre>51</pre><pre>52</pre><pre>53</pre><pre>54</pre><pre>55</pre><pre>56</pre><pre>57</pre><pre>58</pre><pre>59</pre><pre>60</pre><pre>61</pre><pre>62</pre><pre>63</pre><pre>64</pre><pre>65</pre><pre>66</pre><pre>67</pre><pre>68</pre><pre>69</pre><pre>70</pre><pre>71</pre><pre>72</pre><pre>73</pre><pre>74</pre><pre>75</pre><pre>76</pre><pre>77</pre></div></div><div class="CodeMirror-lines"><div style="position: relative; z-index: 0; outline: none; min-width: 2759px; margin-left: 35px;"><div style="position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden;"><pre><span class="cm-bracket CodeMirror-matchingbracket">(</span><span class="cm-keyword">defn-</span> conf <span class="cm-bracket">[]</span> <span class="cm-bracket CodeMirror-matchingbracket">(</span><span class="cm-keyword">.</span> <span class="cm-bracket">(</span><span class="cm-builtin">require</span> <span class="cm-string">"nconf"</span><span class="cm-bracket">)</span> file {<span class="cm-atom">:file</span> <span class="cm-bracket">(</span>.join path <span class="cm-bracket">(</span><span class="cm-atom">:bron</span> hoofdproject<span class="cm-bracket">)</span> <span class="cm-bracket">(</span><span class="cm-atom">:definitie</span> hoofdproject<span class="cm-bracket">))</span> }<span class="cm-bracket CodeMirror-matchingbracket">)</span><span class="cm-bracket CodeMirror-matchingbracket">)</span><span> </span></pre></div><pre class="CodeMirror-cursor" style="top: 1200px; left: 0px;">&nbsp;</pre><pre class="CodeMirror-cursor" style="visibility: hidden; left: 2758px;">&nbsp;</pre><div style="position: relative; z-index: -1; display: none;"><div class="CodeMirror-selected" style="position: absolute; left: 0px; top: 1136px; right: 0px; height: 32px;"></div><div class="CodeMirror-selected" style="position: absolute; left: 0px; top: 1168px; right: 1996px; height: 16px;"></div></div><div style=""><pre> </pre><pre> </pre><pre><span class="cm-comment">;; Tredius project * final upgrade</span></pre><pre> </pre><pre><span class="cm-comment">;; 1. Inleiding</span></pre><pre> </pre><pre><span class="cm-comment">;; JavaScript is een scripttaal die veel gebruikt wordt om webpagina's interactief te maken en webapplicaties te ontwikkelen. JavaScript kan ook gebruikt worden voor server-side scripting. De laatste jaren maakt node.js een grote opgang.</span></pre><pre> </pre><pre><span class="cm-comment">;; Hypertext Transfer Protocol (HTTP) is het protocol voor de communicatie tussen een webclient (meestal een webbrowser) en een webserver.</span></pre><pre><span class="cm-bracket">(</span><span class="cm-builtin">require</span> <span class="cm-string">"http"</span><span class="cm-bracket">)</span></pre><pre> </pre><pre><span class="cm-comment">;; NPM is volgens de maker van Node.js geen acroniem voor "Node Package Manager". Het lost een groot deel van de problemen met 'dependency hell' (letterlijke betekenis: hel van de onderling afhankelijke software bibliotheken) op.</span></pre><pre><span class="cm-bracket">(</span><span class="cm-builtin">require</span> <span class="cm-string">"npm"</span><span class="cm-bracket">)</span></pre><pre> </pre><pre><span class="cm-comment">;; Belangrijk is dat Node.js interactie met het bestandssysteem mogelijk maakt. Dit doen wij ook, voor onze site-generator onder andere. Node.js heeft hiervoor een aantal interne bibliotheken</span></pre><pre><span class="cm-bracket">(</span><span class="cm-keyword">import</span> path <span class="cm-string">"path"</span><span class="cm-bracket">)</span></pre><pre><span class="cm-bracket">(</span><span class="cm-keyword">import</span> fs <span class="cm-string">"fs"</span><span class="cm-bracket">)</span></pre><pre> </pre><pre><span class="cm-comment">;; Ook andere talen zijn mogelijk te gebruiken, een bekende taal die naar JavaScript transcompileert is CoffeeScript:</span></pre><pre><span class="cm-bracket">(</span><span class="cm-builtin">require</span> <span class="cm-string">"coffee-script"</span><span class="cm-bracket">)</span></pre><pre> </pre><pre><span class="cm-comment">;; Ook de taal die ik gebruik is er een die naar een 'schone' functionele stijl van JavaScript compileert (zie rechtervlak) en welke gebaseerd is op de taal. Clojure gemaakt door Rich Hickey. Wisp is een taal die schone "Homoiconic JS with clojure syntax, s-expressions &amp; macros" naar het web brengt. In tegenstelling tot ClojureScript die een oerwoud aan Google Closure Library code genereert.</span></pre><pre><span class="cm-bracket">(</span><span class="cm-builtin">require</span> <span class="cm-string">"wisp"</span><span class="cm-bracket">)</span></pre><pre> </pre><pre><span class="cm-comment">;; Het semantische versie systeem is een afspraak tussen ontwikkelaars van software. Het volgt een op conventies (overeenkomsten) gebaseerd systeem van versie-nummers: 1.0.2 -&gt; geen grote wijzigingen, 1.1.0 -&gt; mogelijk breekt de software, Majors 2.0.0 -&gt; gegarandeerd problemen indien geen conversie plaats vindt.</span></pre><pre><span class="cm-bracket">(</span><span class="cm-builtin">require</span> <span class="cm-string">"semver"</span><span class="cm-bracket">)</span></pre><pre> </pre><pre><span class="cm-comment">;; Node.js projecten worden, indien gewenst ingelezen door het 'npm' programma en kan hier uit diverse gegevens over afhankelijke software, auteurs(rechten), onderhoud, downloads, en dergelijke meta-gegevens uitlezen. De `./` verwijst naar de bronmap.</span></pre><pre> </pre><pre> </pre><pre><span class="cm-comment">;; 2. Gegevensopslag ;;</span></pre><pre> </pre><pre><span class="cm-comment">;; Cf doctrine: beter 1 datastructuur met 100 functies dan 10 functies over 10 datastructuren</span></pre><pre><span class="cm-bracket">(</span><span class="cm-keyword">def</span> ^<span class="cm-atom">:private</span> gegevens {</pre><pre> <span class="cm-atom">:hoofdproject</span> {<span class="cm-atom">:bron</span> <span class="cm-string">"./"</span> <span class="cm-atom">:site</span> <span class="cm-string">"www"</span> <span class="cm-atom">:definitie</span> <span class="cm-string">"package.json"</span> <span class="cm-atom">:afbeeldingen</span> <span class="cm-string">"media/afbeeldingen"</span>}</pre><pre> <span class="cm-comment">;; We erkennen een corporate identity als belangrijke data structuur voor gebruik op de site. De huisstijl is een van haar onderdelen.</span></pre><pre> <span class="cm-atom">:typografisch</span> {<span class="cm-atom">:primair</span> <span class="cm-bracket">[</span><span class="cm-string">"Open Sans"</span> <span class="cm-string">"500,600,700"</span> <span class="cm-string">"italic"</span><span class="cm-bracket">]</span> <span class="cm-atom">:alternatief</span> <span class="cm-bracket">[</span><span class="cm-string">"Dosis"</span> <span class="cm-string">"500,600,700"</span><span class="cm-bracket">]</span> }</pre><pre> <span class="cm-atom">:illustraties</span> {<span class="cm-atom">:bedrijfslogo</span> <span class="cm-bracket">(</span>afb <span class="cm-string">"bedrijfslogo.jpg"</span><span class="cm-bracket">)</span> }</pre><pre> <span class="cm-atom">:vlakindeling</span> {<span class="cm-atom">:kolommen</span> <span class="cm-number">12</span> <span class="cm-atom">:soort</span> <span class="cm-string">"fixed"</span> <span class="cm-atom">:breedte</span> <span class="cm-number">960</span>}</pre><pre> <span class="cm-atom">:kleurenpalet</span> {<span class="cm-atom">:paars</span> <span class="cm-string">"1234"</span> <span class="cm-atom">:blauw</span> <span class="cm-string">"1234"</span> <span class="cm-atom">:groen</span> <span class="cm-string">"1234"</span> <span class="cm-atom">:rood</span> <span class="cm-string">"1234"</span> <span class="cm-atom">:turquoise</span> <span class="cm-string">"1234"</span> <span class="cm-atom">:licht-paars</span> <span class="cm-string">"1234"</span>}</pre><pre> <span class="cm-comment">;; N.B.: Namespaces zijn specifieke vertaalde logische groepen zoals 'buttons' of 'menu'</span></pre><pre> <span class="cm-atom">:taal-en-land</span> {<span class="cm-atom">:preload</span> <span class="cm-bracket">[</span><span class="cm-string">"nl-NL"</span><span class="cm-bracket">]</span> <span class="cm-atom">:lng</span> <span class="cm-string">"nl-NL"</span> <span class="cm-atom">:fallbackLng</span> <span class="cm-string">"en"</span> <span class="cm-atom">:load</span> <span class="cm-string">"current"</span> <span class="cm-atom">:detectLngQS</span> <span class="cm-string">"taal"</span> <span class="cm-atom">:useCookie</span> <span class="cm-atom">true</span></pre><pre>                <span class="cm-atom">:debug</span> <span class="cm-atom">true</span> <span class="cm-atom">:keyseparator</span> <span class="cm-string">"::"</span> <span class="cm-atom">:nsseparator</span> <span class="cm-string">":::"</span> <span class="cm-atom">:resGetPath</span> <span class="cm-bracket">(</span>uri <span class="cm-string">"/etc/i18n"</span> <span class="cm-string">"/__lng__/__ns__.json"</span><span class="cm-bracket">)</span></pre><pre>                <span class="cm-atom">:ns</span> {<span class="cm-atom">:namespaces</span> <span class="cm-bracket">[</span><span class="cm-string">"app"</span><span class="cm-bracket">]</span> <span class="cm-atom">:defaultNs</span> <span class="cm-string">"app"</span>}}</pre><pre> }<span class="cm-bracket">)</span></pre><pre> </pre><pre><span class="cm-comment">;; Cascading Style Sheets (afgekort tot CSS), stijlbladen, zijn een mogelijkheid om de vormgeving van webpagina's los te koppelen van hun feitelijke inhoud en centraal vast te leggen. Tegenwoordig zijn er veel efficiëntere (vergeleken met CSS) pre-processors op de markt, die op veel gebieden meer mogelijkheden bieden. De meeste kracht (mogelijkheden) biedt Stylus.</span></pre><pre><span class="cm-bracket">(</span><span class="cm-builtin">require</span> <span class="cm-string">"stylus"</span><span class="cm-bracket">)</span> <span class="cm-comment">;; nextgen, revolutionair krachtige pre-processor engine</span></pre><pre> </pre><pre><span class="cm-comment">;; Een site bestaat veelal uit meerdere talen, dit wordt snel complex met datum/tijd en taal (ookwel culture genoemd tegenwoordig, of internationalization, locales of i18n), los van het feit dat het web hiermee erg achterloopt.</span></pre><pre><span class="cm-bracket">(</span><span class="cm-builtin">require</span> <span class="cm-string">"i18next"</span><span class="cm-bracket">)</span> <span class="cm-comment">;; erg netjes gemaakt</span></pre><pre> </pre><pre><span class="cm-comment">;; Nu we 'internationaal' zijn kunnen we namenlijk ook goed bijvoorbeeld onze menu definitie opstellen. Gewoon, in het Nederlands, en ooit eventueel in andere talen.</span></pre><pre>{<span class="cm-atom">:menu</span> {<span class="cm-atom">:home</span>   <span class="cm-string">"Home"</span></pre><pre>        <span class="cm-atom">:missie</span> <span class="cm-string">"Wie zijn wij"</span></pre><pre>        <span class="cm-atom">:diensten</span> {<span class="cm-atom">:fiscaal</span> {<span class="cm-atom">:advies</span> <span class="cm-string">"Belastingadvies"</span> <span class="cm-atom">:pensioen</span> <span class="cm-string">"Pensioen"</span> <span class="cm-atom">:estate-planning</span> <span class="cm-string">"Estate Planning"</span>}</pre><pre>                   <span class="cm-atom">:juridisch</span> {<span class="cm-atom">:advies</span> <span class="cm-string">"Juridisch Advies"</span> <span class="cm-atom">:abonnement</span> <span class="cm-string">"Juridisch Abonnement"</span>}</pre><pre>                   <span class="cm-atom">:debiteuren</span> {<span class="cm-atom">:beheer</span> <span class="cm-string">"Debiteurenbeheer"</span> <span class="cm-atom">:werkwijze</span> <span class="cm-string">"Onze Werkwijze"</span> <span class="cm-atom">:abonnement</span> <span class="cm-string">"Abonnement"</span>}</pre><pre>                   <span class="cm-atom">:accountancy</span> {<span class="cm-atom">:hr-payroll</span> <span class="cm-string">"Salaris- en Personeelszaken"</span> <span class="cm-atom">:accountancy</span> <span class="cm-string">"Accountancy"</span>}</pre><pre>                   <span class="cm-atom">:risico-advies</span> {<span class="cm-atom">:verzekeringen</span> <span class="cm-string">"Risico-advies &amp; Verzekeringen"</span> <span class="cm-atom">:pensioen</span> <span class="cm-string">"Pensioenadvies"</span> <span class="cm-atom">:overstappen</span> <span class="cm-string">"Schoenendoos Overstapservice"</span>}</pre><pre>}}}</pre><pre> </pre><pre> </pre><pre> </pre><pre><span class="cm-comment">;; Vaak zullen we een referentie tot de sitemap op moeten geven, laten we hiervoor een functie maken</span></pre><pre><span class="cm-bracket">(</span><span class="cm-keyword">defn-</span> uri <span class="cm-bracket">[</span>bestand<span class="cm-bracket">]</span> <span class="cm-bracket">(</span>.join path <span class="cm-bracket">(</span><span class="cm-atom">:bron</span> hoofdproject<span class="cm-bracket">)</span> <span class="cm-bracket">(</span><span class="cm-atom">:site</span> hoofdproject<span class="cm-bracket">)</span> bestand<span class="cm-bracket">))</span></pre><pre> </pre><pre><span class="cm-comment">;; Noot; meestal zijn er veel afbeeldingen en heeft zo'n map een onderliggende structuur andere mappen: per thema, of product e.d. De bron is vaak hetzelfde maar kan ook een speciale server zijn:</span></pre><pre><span class="cm-comment">;; Geef het volledige pad (test/development/productieomgeving) TODO domeinen</span></pre><pre><span class="cm-bracket">(</span><span class="cm-keyword">defn-</span> afb <span class="cm-bracket">[</span>bestand<span class="cm-bracket">]</span> <span class="cm-bracket">(</span>.join path <span class="cm-bracket">(</span><span class="cm-atom">:bron</span> hoofdproject<span class="cm-bracket">)</span> <span class="cm-bracket">(</span><span class="cm-atom">:site</span> hoofdproject<span class="cm-bracket">)</span> <span class="cm-bracket">(</span><span class="cm-atom">:afbeeldingen</span> hoofdproject<span class="cm-bracket">)</span> bestand<span class="cm-bracket">))</span></pre><pre> </pre><pre> </pre><pre><span class="cm-comment">;; Ons projectbestand dat in JSON genoteerde gegevens bevat, kunnen we eenvoudig uitlezen door de 'nconf' applicatie</span></pre><pre><span class="cm-bracket">(</span><span class="cm-keyword">defn-</span> conf <span class="cm-bracket">[]</span> <span class="cm-bracket CodeMirror-matchingbracket">(</span><span class="cm-keyword">.</span> <span class="cm-bracket">(</span><span class="cm-builtin">require</span> <span class="cm-string">"nconf"</span><span class="cm-bracket">)</span> file {<span class="cm-atom">:file</span> <span class="cm-bracket">(</span>.join path <span class="cm-bracket">(</span><span class="cm-atom">:bron</span> hoofdproject<span class="cm-bracket">)</span> <span class="cm-bracket">(</span><span class="cm-atom">:definitie</span> hoofdproject<span class="cm-bracket">))</span> }<span class="cm-bracket CodeMirror-matchingbracket">)</span><span class="cm-bracket">)</span></pre><pre> </pre><div style="position: relative;"><pre class="activeline" style="position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: -2;">&nbsp;</pre><pre> </pre></div><pre> </pre></div></div></div></div></div></div></div></div>
+<div id="output" name="output"><div class="CodeMirror"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 59px;"><textarea wrap="off" autocorrect="off" autocapitalize="off" style="position: absolute; padding: 0px; width: 1px; height: 1em;"></textarea></div><div class="CodeMirror-scrollbar" style="display: block; height: 760px;"><div class="CodeMirror-scrollbar-inner" style="height: 1754px;"></div></div><div class="CodeMirror-scroll cm-s-ambiance" tabindex="-1"><div style="position: relative; min-height: 1754px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-gutter" style="height: 1754px; left: 0px;"><div class="CodeMirror-gutter-text"><pre>1</pre><pre>2</pre><pre>3</pre><pre>4</pre><pre>5</pre><pre>6</pre><pre>7</pre><pre>8</pre><pre>9</pre><pre>10</pre><pre>11</pre><pre>12</pre><pre>13</pre><pre>14</pre><pre>15</pre><pre>16</pre><pre>17</pre><pre>18</pre><pre>19</pre><pre>20</pre><pre>21</pre><pre>22</pre><pre>23</pre><pre>24</pre><pre>25</pre><pre>26</pre><pre>27</pre><pre>28</pre><pre>29</pre><pre>30</pre><pre>31</pre><pre>32</pre><pre>33</pre><pre>34</pre><pre>35</pre><pre>36</pre><pre>37</pre><pre>38</pre><pre>39</pre><pre>40</pre><pre>41</pre><pre>42</pre><pre>43</pre><pre>44</pre><pre>45</pre><pre>46</pre><pre>47</pre><pre>48</pre><pre>49</pre><pre>50</pre><pre>51</pre><pre>52</pre><pre>53</pre><pre>54</pre><pre>55</pre><pre>56</pre><pre>57</pre><pre>58</pre><pre>59</pre><pre>60</pre><pre>61</pre><pre>62</pre><pre>63</pre><pre>64</pre><pre>65</pre><pre>66</pre><pre>67</pre><pre>68</pre><pre>69</pre><pre>70</pre><pre>71</pre><pre>72</pre><pre>73</pre><pre>74</pre><pre>75</pre><pre>76</pre><pre>77</pre><pre>78</pre><pre>79</pre><pre>80</pre><pre>81</pre><pre>82</pre><pre>83</pre><pre>84</pre><pre>85</pre><pre>86</pre><pre>87</pre><pre>88</pre><pre>89</pre><pre>90</pre><pre>91</pre><pre>92</pre><pre>93</pre><pre>94</pre><pre>95</pre><pre>96</pre><pre>97</pre><pre>98</pre><pre>99</pre><pre>100</pre><pre>101</pre><pre>102</pre><pre>103</pre><pre>104</pre><pre>105</pre><pre>106</pre><pre>107</pre><pre>108</pre><pre>109</pre></div></div><div class="CodeMirror-lines"><div style="position: relative; z-index: 0; outline: none; min-width: 862px; margin-left: 39px;"><div style="position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden;"></div><pre class="CodeMirror-cursor" style="top: 0px; left: 0px; visibility: hidden;">&nbsp;</pre><pre class="CodeMirror-cursor" style="visibility: hidden; left: 861px;">&nbsp;</pre><div style="position: relative; z-index: -1; display: none;"></div><div style=""><pre><span class="cm-variable">require</span>(<span class="cm-string">"http"</span>);</pre><pre> </pre><pre><span class="cm-variable">require</span>(<span class="cm-string">"npm"</span>);</pre><pre> </pre><pre><span class="cm-keyword">var</span> <span class="cm-variable">path</span> = <span class="cm-variable">require</span>(<span class="cm-string">"path"</span>);</pre><pre> </pre><pre><span class="cm-keyword">var</span> <span class="cm-variable">fs</span> = <span class="cm-variable">require</span>(<span class="cm-string">"fs"</span>);</pre><pre> </pre><pre><span class="cm-variable">require</span>(<span class="cm-string">"coffee-script"</span>);</pre><pre> </pre><pre><span class="cm-variable">require</span>(<span class="cm-string">"wisp"</span>);</pre><pre> </pre><pre><span class="cm-variable">require</span>(<span class="cm-string">"semver"</span>);</pre><pre> </pre><pre><span class="cm-keyword">var</span> <span class="cm-variable">gegevens</span> = {</pre><pre>  <span class="cm-string">"hoofdproject"</span>: {</pre><pre>    <span class="cm-string">"bron"</span>: <span class="cm-string">"./"</span>,</pre><pre>    <span class="cm-string">"site"</span>: <span class="cm-string">"www"</span>,</pre><pre>    <span class="cm-string">"definitie"</span>: <span class="cm-string">"package.json"</span>,</pre><pre>    <span class="cm-string">"afbeeldingen"</span>: <span class="cm-string">"media/afbeeldingen"</span></pre><pre>  },</pre><pre>  <span class="cm-string">"typografisch"</span>: {</pre><pre>    <span class="cm-string">"primair"</span>: [<span class="cm-string">"Open Sans"</span>, <span class="cm-string">"500,600,700"</span>, <span class="cm-string">"italic"</span>],</pre><pre>    <span class="cm-string">"alternatief"</span>: [<span class="cm-string">"Dosis"</span>, <span class="cm-string">"500,600,700"</span>]</pre><pre>  },</pre><pre>  <span class="cm-string">"illustraties"</span>: {</pre><pre>    <span class="cm-string">"bedrijfslogo"</span>: <span class="cm-variable">afb</span>(<span class="cm-string">"bedrijfslogo.jpg"</span>)</pre><pre>  },</pre><pre>  <span class="cm-string">"vlakindeling"</span>: {</pre><pre>    <span class="cm-string">"kolommen"</span>: <span class="cm-number">12</span>,</pre><pre>    <span class="cm-string">"soort"</span>: <span class="cm-string">"fixed"</span>,</pre><pre>    <span class="cm-string">"breedte"</span>: <span class="cm-number">960</span></pre><pre>  },</pre><pre>  <span class="cm-string">"kleurenpalet"</span>: {</pre><pre>    <span class="cm-string">"paars"</span>: <span class="cm-string">"1234"</span>,</pre><pre>    <span class="cm-string">"blauw"</span>: <span class="cm-string">"1234"</span>,</pre><pre>    <span class="cm-string">"groen"</span>: <span class="cm-string">"1234"</span>,</pre><pre>    <span class="cm-string">"rood"</span>: <span class="cm-string">"1234"</span>,</pre><pre>    <span class="cm-string">"turquoise"</span>: <span class="cm-string">"1234"</span>,</pre><pre>    <span class="cm-string">"licht-paars"</span>: <span class="cm-string">"1234"</span></pre><pre>  },</pre><pre>  <span class="cm-string">"taal-en-land"</span>: {</pre><pre>    <span class="cm-string">"preload"</span>: [<span class="cm-string">"nl-NL"</span>],</pre><pre>    <span class="cm-string">"lng"</span>: <span class="cm-string">"nl-NL"</span>,</pre><pre>    <span class="cm-string">"fallbackLng"</span>: <span class="cm-string">"en"</span>,</pre><pre>    <span class="cm-string">"load"</span>: <span class="cm-string">"current"</span>,</pre><pre>    <span class="cm-string">"detectLngQS"</span>: <span class="cm-string">"taal"</span>,</pre><pre>    <span class="cm-string">"useCookie"</span>: <span class="cm-atom">true</span>,</pre><pre>    <span class="cm-string">"debug"</span>: <span class="cm-atom">true</span>,</pre><pre>    <span class="cm-string">"keyseparator"</span>: <span class="cm-string">"::"</span>,</pre><pre>    <span class="cm-string">"nsseparator"</span>: <span class="cm-string">":::"</span>,</pre><pre>    <span class="cm-string">"resGetPath"</span>: <span class="cm-variable">uri</span>(<span class="cm-string">"/etc/i18n"</span>, <span class="cm-string">"/__lng__/__ns__.json"</span>),</pre><pre>    <span class="cm-string">"ns"</span>: {</pre><pre>      <span class="cm-string">"namespaces"</span>: [<span class="cm-string">"app"</span>],</pre><pre>      <span class="cm-string">"defaultNs"</span>: <span class="cm-string">"app"</span></pre><pre>    }</pre><pre>  }</pre><pre>};</pre><pre> </pre><pre><span class="cm-variable">require</span>(<span class="cm-string">"stylus"</span>);</pre><pre> </pre><pre><span class="cm-variable">require</span>(<span class="cm-string">"i18next"</span>);</pre><pre> </pre><pre>{</pre><pre>  <span class="cm-string">"menu"</span>: {</pre><pre>    <span class="cm-string">"home"</span>: <span class="cm-string">"Home"</span>,</pre><pre>    <span class="cm-string">"missie"</span>: <span class="cm-string">"Wie zijn wij"</span>,</pre><pre>    <span class="cm-string">"diensten"</span>: {</pre><pre>      <span class="cm-string">"fiscaal"</span>: {</pre><pre>        <span class="cm-string">"advies"</span>: <span class="cm-string">"Belastingadvies"</span>,</pre><pre>        <span class="cm-string">"pensioen"</span>: <span class="cm-string">"Pensioen"</span>,</pre><pre>        <span class="cm-string">"estate-planning"</span>: <span class="cm-string">"Estate Planning"</span></pre><pre>      },</pre><pre>      <span class="cm-string">"juridisch"</span>: {</pre><pre>        <span class="cm-string">"advies"</span>: <span class="cm-string">"Juridisch Advies"</span>,</pre><pre>        <span class="cm-string">"abonnement"</span>: <span class="cm-string">"Juridisch Abonnement"</span></pre><pre>      },</pre><pre>      <span class="cm-string">"debiteuren"</span>: {</pre><pre>        <span class="cm-string">"beheer"</span>: <span class="cm-string">"Debiteurenbeheer"</span>,</pre><pre>        <span class="cm-string">"werkwijze"</span>: <span class="cm-string">"Onze Werkwijze"</span>,</pre><pre>        <span class="cm-string">"abonnement"</span>: <span class="cm-string">"Abonnement"</span></pre><pre>      },</pre><pre>      <span class="cm-string">"accountancy"</span>: {</pre><pre>        <span class="cm-string">"hr-payroll"</span>: <span class="cm-string">"Salaris- en Personeelszaken"</span>,</pre><pre>        <span class="cm-string">"accountancy"</span>: <span class="cm-string">"Accountancy"</span></pre><pre>      },</pre><pre>      <span class="cm-string">"risico-advies"</span>: {</pre><pre>        <span class="cm-string">"verzekeringen"</span>: <span class="cm-string">"Risico-advies &amp; Verzekeringen"</span>,</pre><pre>        <span class="cm-string">"pensioen"</span>: <span class="cm-string">"Pensioenadvies"</span>,</pre><pre>        <span class="cm-string">"overstappen"</span>: <span class="cm-string">"Schoenendoos Overstapservice"</span></pre><pre>      }</pre><pre>    }</pre><pre>  }</pre><pre>};</pre><pre> </pre><pre><span class="cm-keyword">var</span> <span class="cm-variable">uri</span> = <span class="cm-keyword">function</span> <span class="cm-variable">uri</span>(<span class="cm-def">bestand</span>) {</pre><pre>  <span class="cm-keyword">return</span> <span class="cm-variable">path</span>.<span class="cm-property">join</span>((<span class="cm-variable">hoofdproject</span> || <span class="cm-number">0</span>)[<span class="cm-string">"bron"</span>], (<span class="cm-variable">hoofdproject</span> || <span class="cm-number">0</span>)[<span class="cm-string">"site"</span>], <span class="cm-variable-2">bestand</span>);</pre><pre>};</pre><pre> </pre><pre><span class="cm-keyword">var</span> <span class="cm-variable">afb</span> = <span class="cm-keyword">function</span> <span class="cm-variable">afb</span>(<span class="cm-def">bestand</span>) {</pre><pre>  <span class="cm-keyword">return</span> <span class="cm-variable">path</span>.<span class="cm-property">join</span>((<span class="cm-variable">hoofdproject</span> || <span class="cm-number">0</span>)[<span class="cm-string">"bron"</span>], (<span class="cm-variable">hoofdproject</span> || <span class="cm-number">0</span>)[<span class="cm-string">"site"</span>], (<span class="cm-variable">hoofdproject</span> || <span class="cm-number">0</span>)[<span class="cm-string">"afbeeldingen"</span>], <span class="cm-variable-2">bestand</span>);</pre><pre>};</pre><pre> </pre><pre><span class="cm-keyword">var</span> <span class="cm-variable">conf</span> = <span class="cm-keyword">function</span> <span class="cm-variable">conf</span>() {</pre><pre>  <span class="cm-keyword">return</span> <span class="cm-variable">require</span>(<span class="cm-string">"nconf"</span>).<span class="cm-property">file</span>({</pre><pre>    <span class="cm-string">"file"</span>: <span class="cm-variable">path</span>.<span class="cm-property">join</span>((<span class="cm-variable">hoofdproject</span> || <span class="cm-number">0</span>)[<span class="cm-string">"bron"</span>], (<span class="cm-variable">hoofdproject</span> || <span class="cm-number">0</span>)[<span class="cm-string">"definitie"</span>])</pre><pre>  });</pre><pre>}</pre><pre> </pre></div></div></div></div></div></div></div></div>
+    <script src="./Wisp playground3_files/app.js"></script>
+  
+
+</body></html>

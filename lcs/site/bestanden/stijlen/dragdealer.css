@@ -1,0 +1,207 @@
+/**
+* Dragdealer JS v0.9.5
+* http://code.ovidiu.ch/dragdealer-js
+*
+* Copyright (c) 2010, Ovidiu Chereches
+* MIT License
+* http://legal.ovidiu.ch/licenses/MIT
+*/
+
+.dragdealer{
+    background: #EEE;
+    height: 30px;
+    position: relative;
+}
+.dragdealer .handle{
+    cursor: pointer;
+    position: absolute;
+}
+.dragdealer .red-bar{
+    background: #CC0000;
+    color: #FFF;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    width: 100px;
+}
+.dragdealer .disabled{
+    background: #898989;
+}
+
+/* Corners */
+
+.rounded-cornered,
+.rounded-cornered .handle{
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+/* DRAGDEALER DEMOS */
+
+.dragdealer{
+    width: auto;
+}
+#scroll-bar{
+    height: 160px;
+    width: 22px;
+}
+.handle{
+    height: 54px;
+    width: 22px;
+}
+#scroll-mask{
+    background: #F8F8F8;
+    border: 1px solid #CCC;
+    height: 158px;
+    overflow: hidden;
+    width: 566px;
+}
+#scroll-content{
+    padding: 10px;
+}
+
+/* Magnifier */
+
+#magnifying-text{
+    background: #F8F8F8;
+    border: 1px solid #CCC;
+    font-family: Georgia, serif;
+    font-size: 12px;
+    line-height: normal;
+    padding: 10px;
+}
+
+/* Slideshow */
+
+#slideshow-menu-wrapper{
+    position: relative;
+}
+.cursor{
+    border: 3px solid #444;
+    height: 63px;
+    position: absolute;
+    width: 182px;
+}
+#slideshow-menu{
+    width: 190px;
+}
+
+li a .title{
+    color: #000;
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 24px;
+    margin: 1px 0 7px 0;
+}
+li a .description{
+    color: #444;
+    display: block;
+    font-size: 11px;
+    line-height: 11px;
+    text-transform: uppercase;
+}
+
+#slideshow{
+    height: 267px;
+    overflow: hidden;
+    width: 400px;
+}
+.handle{
+    height: 267px;
+    width: 1600px;
+}
+.slide{
+    float: left;
+    height: 267px;
+    width: 400px;
+}
+.img1{
+    background: url('/media/afbeeldingen/custom/slide1.jpg') no-repeat 0 0;
+}
+.img2{
+    background: url('/media/afbeeldingen/custom/slide2.jpg') no-repeat 0 0;
+}
+.img3{
+    background: url('/media/afbeeldingen/custom/slide3.jpg') no-repeat 0 0;
+}
+.img4{
+    background: url('/media/afbeeldingen/custom/slide4.jpg') no-repeat 0 0;
+}
+
+/* Canvas mask */
+
+#canvas-mask{
+    height: 300px;
+    overflow: hidden;
+    width: 600px;
+}
+#canvas-mask .handle{
+    background: url('/media/afbeeldingen/custom/canvas.jpg') no-repeat 0 0;
+    height: 600px;
+    width: 1200px;
+}
+#canvas-mask .handle .slide{
+    float: left;
+    height: 300px;
+    position: relative;
+    width: 600px;
+}
+#canvas-mask .handle .slide .bar{
+    background: url('/media/afbeeldingen/custom/overlay.png') repeat 0 0;
+    bottom: 0;
+    color: #FFF;
+    left: 0;
+    padding: 12px;
+    position: absolute;
+}
+#canvas-mask .handle .slide .bar .title{
+    display: block;
+    font-size: 26px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 26px;
+    margin: 0 0 6px 0;
+}
+#canvas-mask .handle .slide .bar .description{
+    color: #EEE;
+    display: block;
+    font-size: 12px;
+    line-height: 12px;
+    text-transform: uppercase;
+}
+
+.top-spaced{
+    margin-top: 10px;
+}
+.bottom-spaced{
+    margin-bottom: 10px;
+}
+.left-float{
+    float: left;
+}
+.right-float{
+    float: right;
+}
+.big{
+    font-size: 14px;
+}
+small{
+    color: #888;
+    font-weight: normal;
+}
+ul.items{
+    margin: 0 0 10px 0;
+}
+ul.items li{
+    margin: 10px 0 0 0;
+}
+ul.units{
+    list-style-type: circle;
+    padding: 0 0 0 30px;
+}
+ul.units li{
+    margin: 5px 0 0 0;
+}

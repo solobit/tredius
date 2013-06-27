@@ -1,0 +1,265 @@
+module.exports = {
+  events: {
+    serverExtend: function(opts) {
+      var docpad, server;
+
+      server = opts.server;
+      return docpad = this.docpad;
+    },
+    renderAfter: function(opts, next) {
+      var docpad, documents;
+
+      docpad = this.docpad;
+      docpad.log('info', 'Listing all generated page urls');
+      documents = docpad.getCollection('html');
+      documents.forEach(function(document) {
+        var documentName, documentPath;
+
+        documentName = document.get('name');
+        documentPath = document.get('path');
+        return console.log(document.get('outFilename'));
+      });
+      return next() != null;
+    }
+  },
+  port: 1337,
+  srcPath: 'bron',
+  outPath: 'uitvoer',
+  pluginsPaths: ['node_modules', 'modules/node_modules', 'modules/plugins'],
+  documentsPaths: ['documents', 'documenten'],
+  filesPaths: ['files', 'public', 'bestanden'],
+  layoutsPaths: ['layouts', 'sjablonen'],
+  enabledPlugins: {
+    absolutepath: true,
+    pathtoroot: false,
+    munge: true,
+    text: false,
+    literate: false
+  },
+  plugins: {
+    partials: {
+      partialsPath: 'bouwstenen'
+    },
+    sitemap: {
+      cachetime: 600000,
+      changefreq: 'yearly',
+      priority: 0.8
+    },
+    downloader: {
+      downloads: [
+        {
+          name: 'jquery',
+          path: 'bron/bestanden/',
+          url: 'http://code.jquery.com/jquery-1.9.1.js'
+        }
+      ]
+    }
+  },
+  templateData: {
+    org: {
+      bedrijfsnaam: 'Tredius',
+      bedrijfslogo: '/media/afbeeldingen/bedrijfslogo.png',
+      omschrijving: "                Tredius verleent financiële-, fiscale-, juridische-,                personele- en bedrijfsadministratieve diensten aan het MKB                van Nederland".replace(/\s+/g, " "),
+      auteursrecht: "" + (new Date().getFullYear() + ' © Tredius.nl'),
+      bezoekadres: {
+        straat: 'Zijlweg 146',
+        postcode: '2015 BH',
+        plaats: 'Haarlem'
+      },
+      postadres: {
+        postbus: 'Postbus 992',
+        postcode: '2003 RZ',
+        plaats: 'Haarlem'
+      },
+      contactgegevens: {
+        telefoon: '023 551 30 55',
+        fax: '023 551 30 35',
+        email: 'info@tredius.nl'
+      },
+      handelsgegevens: {
+        kvk: '3782878',
+        btw: 'NL8124.72.792.B01',
+        bedrijfsvorm: 'Besloten Venootschap (BV)'
+      },
+      contactpersonen: {
+        marco: {
+          naam: 'Marco Krijger MB FB',
+          titel: 'Partner Tredius Fiscalisten',
+          email: 'm.krijger@tredius.nl'
+        },
+        linda: {
+          naam: 'Linda Honig',
+          titel: '',
+          telefoon: '023 551 30 55',
+          email: ''
+        },
+        lennard: {
+          naam: 'Lennard Honig',
+          titel: '',
+          telefoon: '023 551 30 55',
+          email: ''
+        },
+        luuk: {
+          naam: 'Luuk Oosting',
+          titel: '',
+          telefoon: '0299 651 987',
+          email: ''
+        },
+        wil: {
+          naam: 'Wil Buffing',
+          titel: '',
+          telefoon: '0299 411 345',
+          email: ''
+        }
+      },
+      vestigingen: {
+        purmerend: {
+          bezoekadres: "Wielingenstraat 119\n1441 ZN\nPurmerend\nNoord-Holland\nNederland".trim().split('\n'),
+          postadres: "Postbus 258\n1440 AG\nPurmerend".trim().split('\n'),
+          telefoon: "0299 411 345",
+          fax: "0299 411 348",
+          email: "info@tredius.nl",
+          geocode: ['52.503605', '4.958375'],
+          rest: "geocode=Cc9PzZeFjzXfFYEnIQMdp59LACmPF3Re0AbGRzF_fLmc8BNprg&amp;sll=52.504454,4.956079&amp;sspn=0.009065,0.019054&amp;mra=pd&amp;t=m&amp;spn=0.0064,0.013282"
+        },
+        monnickendam: {
+          bezoekadres: "Haringburgwal 17\n1141 AT\nMonnickendam\nNoord-Holland\nNederland".trim().split('\n'),
+          postadres: "Postbus 48\n1140 AA\nMonnickendam".trim().split('\n'),
+          telefoon: '0299 651 987',
+          fax: '0299 653 004',
+          email: 'info@tredius.nl',
+          geocode: ['52.462874', '5.035343'],
+          rest: "geocode=CXRphrBe0kPwFRuFIAMdStVMACln1vctrAXGRzHfFo4FDFJsxg&amp;aq=&amp;sll=52.505806,4.827991&amp;sspn=0.269159,0.835648&amp;mra=pd&amp;spn=0.006406,0.013282"
+        },
+        alkmaar: {
+          bezoekadres: "Professor van der Waalsstraat 3K\n1821 BT\nAlkmaar\nNoord-Holland\nNederland".trim().split('\n'),
+          postadres: "Professor van der Waalsstraat 3K\n1821 BT\nAlkmaar".trim().split('\n'),
+          telefoon: '072 564 4203',
+          fax: '072 564 3019',
+          email: 'info@tredius.nl',
+          geocode: ['52.625092', '4.770384'],
+          rest: "spn=0.006382,0.013282"
+        },
+        haarlem: {
+          bezoekadres: "Zijlweg 146\n2015 BH\nHaarlem\nNoord-Holland\nNederland".trim().split('\n'),
+          postadres: "Postbus 992\n2003 RZ\nHaarlem".trim().split('\n'),
+          telefoon: '023 551 30 55',
+          fax: '023 551 30 35',
+          email: 'info@tredius.nl',
+          geocode: ['52.386457', '4.620631'],
+          rest: "geocode=CWxUaXo29tzfFddYHwMdWoFGACkH_TJiEO_FRzHom-tyuYRbow&amp;sll=52.386457,4.620631&amp;sspn=0.008434,0.026114&amp;mra=iwd&amp;spn=0.006417,0.013282"
+        }
+      }
+    },
+    site: {
+      naam: 'Tredius.nl',
+      url: 'http://www.tredius.nl',
+      "static": 'http://static.tredius.nl',
+      development: 'http://solobit.github.io/tredius',
+      auteur: 'Solobit &amp; Edberry Creative',
+      contact: 'info@tredius.nl',
+      taal: {
+        'xml:lang': 'nl'
+      },
+      essentie: "                Tredius verleent financiële-, fiscale-, juridische-,                personele- en bedrijfsadministratieve diensten aan het MKB                van Nederland".replace(/\s+/g, " "),
+      omschrijving: "                Bij Tredius hebben we de behoefte om het MKB landschap te                veranderen: Vrijheid, Onafhankelijkheid en Zelfstandigheid,                voor iedere ondernemer.".replace(/\s+/g, " "),
+      keywords: "                belasting, advies, accountancy, pensioenbelasting,                bedrijfsadministratie, vrijheid, onafhankelijkheid,                zelfstandigheid".replace(/\s+/g, " "),
+      beheer: 'rob.jentzema@gmail.com',
+      googleanalytics: 'UA-39413290-1',
+      techniek: "                Node.js, Docpad, jQuery, Semantic Grid, Stylus, Jade,                CoffeeScript, Markdown, Accessible Rich Internet                Applications (WAI-ARIA) ".replace(/\s+/g, " "),
+      disclaimer: "                De informatie zoals opgenomen in bovenstaand artikel is                uitsluitend bestemd voor algemene informatiedoeleinden.                Derhalve dienen op grond van deze informatie geen                handelingen te worden verricht zonder voorafgaand deskundig                advies. Voor een toelichting kunt u uiteraard contact                opnemen met een van onze kantoren. ".replace(/\s+/g, " "),
+      blockingScripts: "//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js\n//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js\n//code.createjs.com/preloadjs-0.3.0.min.js\n/assets/modernizr-custom.js\n/assets/ender.min.js".trim().split('\n'),
+      nonBlockingScripts: "/assets/jquery.cookie.js\n/assets/jquery.circlemenu.js\n/assets/vimeo.froogaloop2.min.js\n/assets/dragdealer.js\n/assets/jquery.colorbox.js\n/assets/jquery.easing.min.js".trim().split('\n'),
+      stijl: {
+        lettertype: "                    //fonts.googleapis.com/css?family=Dosis:400,500,600                    |Open+Sans:400italic,600italic,700italic,400,600,700                    ".replace(/\s+/g, " "),
+        icoon: "/media/afbeeldingen/favicon.png",
+        volatile: ['/stijlen/algemeen.css' + '?' + new Date().getTime() / 1000],
+        bladen: ['/stijlen/algemeen.css' + '?' + new Date().getTime() / 1000, '/stijlen/circlemenu.css', '/stijlen/dragdealer.css']
+      },
+      snelkoppelingen: {
+        debiteuren: {
+          tekst: 'Tredius Debiteurenbeheer',
+          url: '/diensten/debiteurenbeheer/index.html',
+          titel: 'Tredius Debiteurenbeheer is duurzaamheid voorop'
+        },
+        stappenplan: {
+          tekst: 'Tredius Debiteurenbeheer Stappenplan',
+          url: '/diensten/debiteurenbeheer/stappenplan.html',
+          titel: 'Neem nu een Tredius Debiteurenbeheer Abonnement'
+        },
+        debiteurenabo: {
+          tekst: 'Tredius Debiteuren Abonnement',
+          url: '/diensten/debiteurenbeheer/abonnement.html',
+          titel: 'Neem nu een Tredius Debiteurenbeheer Abonnement'
+        },
+        voorwaarden: {
+          tekst: 'voorwaarden',
+          url: '/overig/voorwaarden.html',
+          titel: 'Lees onze algemene voorwaarden'
+        }
+      },
+      vocabulaire: {
+        'xmlns:s': 'http://schema.org/',
+        'xmlns:gr': 'http://purl.org/goodrelations/v1#',
+        'xmlns:rdfs': 'http://www.w3.org/2000/01/rdf-schema#',
+        'xmlns:vcard': 'http://www.w3.org/2006/vcard/ns#',
+        'xmlns:foaf': 'http://xmlns.com/foaf/0.1/',
+        'xmlns:xsd': 'http://www.w3.org/2001/XMLSchema#',
+        'xmlns:v': 'http://rdf.data-vocabulary.org/#',
+        'xmlns:pto': 'http://www.productontology.org/id/',
+        'xmlns:wn': 'http://xmlns.com/wordnet/1.6/'
+      }
+    },
+    getVimeoUri: function(id) {
+      return "http://player.vimeo.com/video/" + id + "?api=1&amp;player_id=VideoSpeler-" + id + "&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;color=e31741";
+    },
+    getMailUri: function(_arg) {
+      var api, b64, ds, dsid, formulier, func, id, mlid, sid;
+
+      id = _arg.id, ds = _arg.ds;
+      if ((id != null) || (ds != null)) {
+        return "";
+      }
+      formulier = {
+        nieuwsbrief: [145464, 20853],
+        neemcontact: [145467, 20853],
+        jabonnement: [145467, 20853],
+        dabonnement: [145467, 20853],
+        vacaturescv: [145472, 20853]
+      };
+      api = encodeURI("http://www.graphicmail.nl/api.aspx?");
+      sid = encodeURIComponent("SID=4");
+      b64 = encodeURIComponent("&Credentials=DtZEdUEEcUap7RsVxnxyWux37VTOip2Xp2M+gIusSMwpc9Hu7nDCFm2LffostDgC/8lkV84pfIARSyMl/Hfamx4oG8mt/mk8o+UsteAhNqMs/qO3lhsagAKn4EtikhystNc17yejBNe2b+pfgz1pwRTA3F1AwxkI87/m5D+5kPkj2DLiRn/CFk4UBeiBT37fW+kniU94iIxHeoOThig3YRuLGaxd3LeSloSHW1xcaEhMpaP+uFozdVPBBf5cVZwjx63xVLa5+jQZBf7UM9zaew==");
+      func = encodeURIComponent("&Function=post_add_email_and_data");
+      mlid = encodeURIComponent("&MailingListID=" + id);
+      dsid = encodeURIComponent("&DatasetID=" + ds);
+      return api + sid + mlid + dsid + b64 + func;
+    },
+    verzameling: function(query) {
+      return this.getCollection('documents').findAllLive(query).toJSON();
+    },
+    urlOphalen: function(document) {
+      return this.site.url + (document.url || (typeof document.get === "function" ? document.get('url') : void 0));
+    },
+    plaatsLink: function(naam) {
+      var anker, link;
+
+      link = this.site.snelkoppelingen[naam];
+      anker = "<a href=\"" + link.url + "\" title=\"" + link.titel + "\" class=\"" + (link.cssKlasse || '') + "\">" + link.tekst + "</a>";
+      return anker;
+    }
+  },
+  collections: {
+    pages: function() {
+      return this.getCollection('documents').findAllLive({
+        pageOrder: {
+          $exists: true
+        }
+      }, [
+        {
+          pageOrder: 1
+        }
+      ]);
+    }
+  }
+};

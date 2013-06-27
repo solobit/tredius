@@ -1,0 +1,22 @@
+{
+  "name": "docpad-plugin-i18n",
+  "version": "0.0.1",
+  "description": "Enable internationalization, multiple languages and localized types for docpad.",
+  "main": "i18n.plugin.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "keywords": [
+    "docpad",
+    "plugin",
+    "coffee",
+    "docpad-plugin"
+  ],
+  "author": "R. Jentzema <github.com/supersym>",
+  "license": "MIT",
+  "dependencies": {
+    "i18next": "~1.6.7",
+    "node-gettext": "~0.2.11"
+  }
+}

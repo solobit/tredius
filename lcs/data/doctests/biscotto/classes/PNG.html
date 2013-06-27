@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset='UTF-8'>
+  <title>CoffeeScript API Documentation</title>
+  <link rel='stylesheet' href='..&#47;assets/biscotto.css' type='text/css'>
+  <script src='..&#47;assets/biscotto.js'></script>
+  <script src='..&#47;assets/search_data.js'></script>
+</head>
+  <body>
+    <div id='base' data-path='..&#47;'></div>
+<div id='header'>
+  <div id='menu'>
+    <a href='..&#47;README.md.html' title='Tredius'>Tredius</a>
+    &raquo;
+    <a href='..&#47;class_index.html' title='Index'>Index</a>
+    &raquo;
+    <span class='title'>PNG</span>
+    <nav>
+      <ul>
+        <li class='noframes'>
+          (<a class='noframes' href='#'>no frames</a>)
+        </li>
+      </ul>
+    </nav>
+    <div id='search'>
+      <a id='class_list_link' href='..&#47;class_list.html'>Classes</a>
+      <a id='file_list_link' href='..&#47;file_list.html'>Files</a>
+      <a id='method_list_link' href='..&#47;method_list.html'>Methods</a>
+      <a id='extra_list_link' href='..&#47;extra_list.html'>Extras</a>
+    </div>
+  </div>
+  <iframe id='search_frame'></iframe>
+  <div id='fuzzySearch'>
+    <input type='text'>
+    <ol></ol>
+  </div>
+  <div id='help'>
+    <p>
+      Quickly fuzzy find classes, mixins, methods, file:
+    </p>
+    <ul>
+      <li>
+        <span>Ctrl-T</span>
+        Open fuzzy finder dialog
+      </li>
+    </ul>
+    <p>
+      In frame mode you can toggle the list naviation frame on the left side:
+    </p>
+    <ul>
+      <li>
+        <span>Ctrl-L</span>
+        Toggle list view
+      </li>
+    </ul>
+    <p>
+      You can focus a list in frame mode or toggle a tab in frameless mode:
+    </p>
+    <ul>
+      <li>
+        <span>Ctrl-C</span>
+        Class list
+      </li>
+      <li>
+        <span>Ctrl-I</span>
+        Mixin list
+      </li>
+      <li>
+        <span>Ctrl-F</span>
+        File list
+      </li>
+      <li>
+        <span>Ctrl-M</span>
+        Method list
+      </li>
+      <li>
+        <span>Ctrl-E</span>
+        Extras list
+      </li>
+    </ul>
+    <p>
+      You can focus and blur the search input:
+    </p>
+    <ul>
+      <li>
+        <span>Ctrl-S</span>
+        Focus search input
+      </li>
+      <li>
+        <span>Esc</span>
+        Blur search input
+      </li>
+    </ul>
+    <p>
+      In frameless mode you can close the list tab:
+    </p>
+    <ul>
+      <li>
+        <span>Esc</span>
+        Close list tab
+      </li>
+    </ul>
+  </div>
+</div>
+    <div id='content'>
+      <h1>
+        Class:
+        PNG
+      </h1>
+      <table class='box'>
+        <tr>
+          <td>Defined in:</td>
+          <td>node_modules&#47;pdfkit&#47;node_modules&#47;png-js&#47;png.coffee</td>
+        </tr>
+      </table>
+      <h2>Constant Summary</h2>
+      <dl class='constants'>
+        <dt id='APNG_DISPOSE_OP_NONE-constant'>
+          APNG_DISPOSE_OP_NONE
+          =
+          <div class='tags'>
+</div>
+        </dt>
+        <dd>
+          <pre><code class='coffee'>0</code></pre>
+        </dd>
+        <dt id='APNG_DISPOSE_OP_BACKGROUND-constant'>
+          APNG_DISPOSE_OP_BACKGROUND
+          =
+          <div class='tags'>
+</div>
+        </dt>
+        <dd>
+          <pre><code class='coffee'>1</code></pre>
+        </dd>
+        <dt id='APNG_DISPOSE_OP_PREVIOUS-constant'>
+          APNG_DISPOSE_OP_PREVIOUS
+          =
+          <div class='tags'>
+</div>
+        </dt>
+        <dd>
+          <pre><code class='coffee'>2</code></pre>
+        </dd>
+        <dt id='APNG_BLEND_OP_SOURCE-constant'>
+          APNG_BLEND_OP_SOURCE
+          =
+          <div class='tags'>
+</div>
+        </dt>
+        <dd>
+          <pre><code class='coffee'>0</code></pre>
+        </dd>
+        <dt id='APNG_BLEND_OP_OVER-constant'>
+          APNG_BLEND_OP_OVER
+          =
+          <div class='tags'>
+</div>
+        </dt>
+        <dd>
+          <pre><code class='coffee'>1</code></pre>
+        </dd>
+      </dl>
+      <h2>Class Method Summary</h2>
+      <ul class='summary'>
+  <li>
+    <span class='signature'>
+      <a href='#load-class'>
+        @<strong>load</strong>(url, canvas, callback)
+      </a>
+    </span>
+    <span class='desc'>
+      
+    </span>
+  </li>
+</ul>
+      <h2>Instance Method Summary</h2>
+      <ul class='summary'>
+  <li>
+    <span class='signature'>
+      <a href='#animate-instance'>
+        .<strong>animate</strong>(ctx)
+      </a>
+    </span>
+    <span class='desc'>
+      
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#constructor-instance'>
+        .<strong>constructor</strong>(data)
+      </a>
+    </span>
+    <span class='constructor note title'>Constructor</span>
+    <span class='desc'>
+      
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#copyToImageData-instance'>
+        .<strong>copyToImageData</strong>(imageData, pixels)
+      </a>
+    </span>
+    <span class='desc'>
+      
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#decode-instance'>
+        .<strong>decode</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#decodeFrames-instance'>
+        .<strong>decodeFrames</strong>(ctx)
+      </a>
+    </span>
+    <span class='desc'>
+      
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#decodePalette-instance'>
+        .<strong>decodePalette</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#decodePixels-instance'>
+        .<strong>decodePixels</strong>(data = @imgData)
+      </a>
+    </span>
+    <span class='desc'>
+      
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#read-instance'>
+        .<strong>read</strong>(bytes)
+      </a>
+    </span>
+    <span class='desc'>
+      
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#readUInt16-instance'>
+        .<strong>readUInt16</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#readUInt32-instance'>
+        .<strong>readUInt32</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#render-instance'>
+        .<strong>render</strong>(canvas)
+      </a>
+    </span>
+    <span class='desc'>
+      
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#renderFrame-instance'>
+        .<strong>renderFrame</strong>(ctx, number)
+      </a>
+    </span>
+    <span class='desc'>
+      
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#stopAnimation-instance'>
+        .<strong>stopAnimation</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      
+    </span>
+  </li>
+</ul>
+      <h2>Class Method Details</h2>
+      <div class='methods'>
+  <div class='method_details'>
+    <p class='signature' id='load-class'>
+      @<strong>load</strong>(url, canvas, callback)
+    </p>
+    <div class='tags'>
+</div>
+  </div>
+</div>
+      <h2>Constructor Details</h2>
+      <div class='methods'>
+  <div class='method_details'>
+    <p class='signature' id='constructor-instance'>
+      .<strong>constructor</strong>(data)
+    </p>
+    <div class='tags'>
+</div>
+  </div>
+</div>
+      <h2>Instance Method Details</h2>
+      <div class='methods'>
+  <div class='method_details'>
+    <p class='signature' id='animate-instance'>
+      .<strong>animate</strong>(ctx)
+    </p>
+    <div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='copyToImageData-instance'>
+      .<strong>copyToImageData</strong>(imageData, pixels)
+    </p>
+    <div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='decode-instance'>
+      .<strong>decode</strong>()
+    </p>
+    <div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='decodeFrames-instance'>
+      .<strong>decodeFrames</strong>(ctx)
+    </p>
+    <div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='decodePalette-instance'>
+      .<strong>decodePalette</strong>()
+    </p>
+    <div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='decodePixels-instance'>
+      .<strong>decodePixels</strong>(data = @imgData)
+    </p>
+    <div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='read-instance'>
+      .<strong>read</strong>(bytes)
+    </p>
+    <div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='readUInt16-instance'>
+      .<strong>readUInt16</strong>()
+    </p>
+    <div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='readUInt32-instance'>
+      .<strong>readUInt32</strong>()
+    </p>
+    <div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='render-instance'>
+      .<strong>render</strong>(canvas)
+    </p>
+    <div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='renderFrame-instance'>
+      .<strong>renderFrame</strong>(ctx, number)
+    </p>
+    <div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='stopAnimation-instance'>
+      .<strong>stopAnimation</strong>()
+    </p>
+    <div class='tags'>
+</div>
+  </div>
+</div>
+    </div>
+    <div id='footer'>
+  Generated on
+  Mon May 06 2013 18:23:43 GMT+0200 (CEST)
+  by
+  <a href='https://github.com/gjtorikian/biscotto' title='TomDoc-CoffeeScript API documentation generator'>Biscotto</a>
+  v0.0.11
+  (Node.js v0.10.5).
+  &#10034;
+  Press Ctrl-h to see the keyboard shortcuts
+</div>
+  </body>
+</html>

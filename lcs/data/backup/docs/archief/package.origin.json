@@ -1,0 +1,56 @@
+{
+  "name": "tredius-corporate",
+  "version": "0.0.5",
+  "description": "Tredius corporate web site",
+  "main": "docpad.coffee",
+  "private": true,
+  "preferGlobal": false,
+  "dependencies": {
+    "docpad": "6.x",
+    "docpad-plugin-cachr": "2.x",
+    "docpad-plugin-cleanurls": "2.x",
+    "docpad-plugin-coffeekup": "2.x",
+    "docpad-plugin-coffeescript": "2.x",
+    "docpad-plugin-cson": "2.x",
+    "docpad-plugin-eco": "2.x",
+    "docpad-plugin-marked": "2.x",
+    "docpad-plugin-partials": "2.x",
+    "docpad-plugin-services": "2.x",
+    "docpad-plugin-stylus": "2.x",
+    "docpad-plugin-text": "2.x",
+    "docpad-plugin-livereload": "2.x"
+  },
+  "devDependencies": {
+    "domready": "~0.2.11",
+    "ender": "~1.0.1",
+    "pdfkit": "~0.1.9",
+    "URIjs": "~1.10.2",
+    "chai": "~1.6.0",
+    "mocha": "~1.9.0",
+    "docco": "~0.6.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/solobit/customers.git"
+  },
+  "author": "Solobit",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "185909b228cc42fa2e409a49dc1e6587dd3adf4a",
+  "directories": {
+    "doc": "docs"
+  },
+  "keywords": [
+    "accountancy",
+    "belastingen",
+    "pensioen",
+    "adviseurs",
+    "detachering",
+    "loonadminstratie",
+    "juridische",
+    "diensten"
+  ]
+}

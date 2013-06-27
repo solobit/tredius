@@ -1,0 +1,45 @@
+
+Tredius analyze graphicmail: 
+
+base64 encoded binary
+
+
+
+           x: """https://www.graphicmail.nl/api.aspx
+                ?
+                SID=4
+                &amp;
+                .
+                Base64 pads strings with equals signs if the encoded string's length is not a multiple of 3.  Every three bytes are encoded into 4 ASCII characters.  If the source string does not contain an even multiple of three characters, one or two equals signs are added to indicate how long the last triplet is.
+                http://en.wikipedia.org/wiki/Base_64
+                However, Base64 is an encoding method, not an encryption method.  It is a way to encode binary data into a smaller subset of characters to be transmitted without having to support all 256 possible values of a byte.  There is no guarantee that the encoded string will contain an equals sign.  In fact if the lengths of the strings are random, then statistically one out of every three strings will NOT have an equals sign.  
+                Even if you know the string is base-64, you still don't know if the source string is the original source or an encrypted version.  
+                .
+                Credentials=
+                DtZEdUEEcUap7RsVxnxyWux37VTOip2Xp2M+gIusSMwpc9Hu7nDCFm2LffostDgC
+                /
+                8lkV84pfIARSyMl
+                /
+                Hfamx4oG8mt
+                /
+                mk8o+UsteAhNqMs
+                /
+                qO3lhsagAKn4EtikhystNc17yejBNe2b+pfgz1pwRTA3F1AwxkI87
+                /
+                m5D+5kPkj2DLiRn
+                /
+                CFk4UBeiBT37fW
+                +
+                kniU94iIxHeoOThig3YRuLGaxd3LeSloSHW1xcaEhMpaP
+                +
+                uFozdVPBBf5cVZwjx63xVLa5
+                +
+                jQZBf7UM9zaew==
+ 
+                &amp;
+                Function=post_add_email_and_data
+                &amp;
+                MailingListID=145467
+                &amp;
+                DatasetID=20853
+                """

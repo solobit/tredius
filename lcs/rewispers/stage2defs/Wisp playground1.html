@@ -1,0 +1,407 @@
+
+<!-- saved from url=(0028)http://jeditoolkit.com/wisp/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Wisp playground</title>
+    <link rel="stylesheet" href="http://jeditoolkit.com/wisp/support/codemirror.css">
+    <link rel="stylesheet" href="http://jeditoolkit.com/wisp/support/ambiance.css">
+    <script src="./Wisp playground1_files/codemirror-compressed.js"></script>
+    <style>
+      html, body {
+        font-size: 12px;
+        margin: 0;
+        padding: 0;
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-width: 100%;
+        height: 100%;
+        min-height: 100%;
+      }
+
+      #input, #output {
+        width: 50%;
+        float: left;
+      }
+
+      .CodeMirror .CodeMirror-scroll {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+  <a href="https://github.com/gozala/wisp"><img style="z-index: 3; position: absolute; top: 0; right: 0; border: 0;" src="./Wisp playground1_files/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+<script type="text/expamles" id="examples">;; # wisp
+
+; Wisp is homoiconic JS dialect with a clojure syntax, s-expressions and
+; macros. Wisp code compiles to a human readable javascript, which is one
+; of they key differences from clojurescript.
+
+;; ## wisp data structures
+
+;; 1. nil - is just like js undefined with a differenc that it's
+;;    not something can be defined. In fact it's just a shortcut for
+;;    void(0) in JS.
+nil ;; => void(0)
+
+;; 2. Booleans - Wisp booleans true / false are JS booleans
+
+true ;; => true
+
+;; 3. Numbers - Wisp numbers are JS numbers
+1  ;; => 1
+
+;; 4. Strings - Wisp strings are JS Strings
+"Hello world"
+;;    Wisp strings can be multiline
+"Hello,
+My name is wisp!"
+
+;; 5. Characters - Characters are sugar for JS single char strings
+\a  ;; => "a"
+
+;; 6. Keywords - Keywords are symbolic identifiers that evaluate to
+;;               themselves.
+:keyword  ;; => "keyword"
+;;    Since in JS string constats fulfill this purpose of symbolic
+;;    identifiers, keywords compile to equivalent JS strings.
+(window.addEventListener :load handler false)
+;;    Keywords can be invoked as functions, that desugars to plain
+;;    associated value access in JS
+(:bar foo) ;; => foo["bar"]
+
+
+;; 7. Vectors - Wisp vectors are JS arrays.
+[ 1 2 3 4 ]
+;;    Note: Commas are white space & can be used if desired
+[ 1, 2, 3, 4]
+
+
+;; 8. Maps - Maps are hash maps, plain JS objects. Note that unlike
+;;    in clojure keys can not be of arbitary types.
+{ "foo" bar :beep-bop "bop" 1 2 }
+;;    Commas are optional but can come handy for separating key value
+;;    pairs.
+{ a 1, b 2 }
+;; In a future JSONs syntax may be made compatible with map syntax.
+
+
+;; 9. Lists - You can't have a lisp without lists! Wisp has lists too.
+;;    Wisp is homoiconic and it's code is made up of lists representing
+;;    expressions. The first item in the expression is a function, being
+;;    invoked with rest items as arguments.
+(foo bar baz) ; => foo(bar, baz);
+
+;; # Conventions
+;; Wisp puts a lot of effort in making naming conventions transparent,
+;; by encouraning lisp conventions and then translating them to equivalent
+;; JS conventions:
+
+(dash-delimited)   ;; => dashDelimited
+(predicate?)       ;; => isPredicate
+(**privates**)     ;; => __privates__
+(list->vector)     ;; => listToVector
+
+;; As a side effect some names can be expressed in a few ways, although
+;; it's considered to be an advantage.
+
+(parse-int x)
+(parseInt x)
+
+(array? x)
+(isArray x)
+
+
+;; # Special forms
+
+;; There are some functions in wisp that are special, in a sence that
+;; they compile to JS expressions & can not be passed around as regular
+;; functions. JS operators are represteted in wisp as special forms
+
+;; Arithmetic forms - Wisp comes with special form for arithmetic
+;; operations.
+
+(+ a b)        ; => a + b
+(+ a b c)      ; => a + b + c
+(- a b)        ; => a - b
+(* a b c)      ; => a * b * c
+(/ a b)        ; => a / b
+(mod a b)      ; => a % 2
+
+;; Comparison forms - Wisp comes with special forms for comparisons
+
+(identical? a b)     ;; => a === b
+(identical? a b c)   ;; => a === b && b === c
+(= a b)              ;; => a == b
+(= a b c)            ;; => a == b && b == c
+(> a b)              ;; => a > b
+(>= a b)             ;; => a >= b
+(< a b c)            ;; => a < b && b < c
+(<= a b c)           ;; => a <= b && b <= c
+
+;; Logical forms - Wisp comes with special forms for logical operations
+
+(and a b)            ;; => a && b
+(and a b c)          ;; => a && b && c
+(or a b)             ;; => a || b
+(and (or a b)
+     (and c d))      ;; (a || b) && (c && d)
+
+
+;; Definitions - Variable definitions also happen through special forms.
+(def a)     ; => var a = void(0);
+(def b 2)   ; => var b = 2;
+
+;; Assignments - In wisp new values can be set to a variables via `set!`
+;; special form. Note that in functional programing binding changes are
+;; a bad practice, avoiding those would make your programs only better!
+;; Stil if you need it you have it.
+(set! a 1)
+
+;; Conditionals - Conditional code branching in wisp is expressed via
+;; if special form. First expression following `if` is a condition,
+;; if it evaluates to `true` result of the `if` expression is second
+;; expression otherwise it's third expression.
+(if (< number 10)
+  "Digit"
+  "Number")
+;; Else expression is optional, if missing and conditional evaluates to
+;; `true` result will be `nil`.
+(if (monday? today) "How was your weekend")
+
+
+
+;; Compbining expressions - In wisp is everything is an expression, but
+;; sometimes one might want to compbine multiple expressions into one,
+;; usually for the purpose of evaluating expressions that have
+;; side-effects
+(do
+  (console.log "Computing sum of a & b")
+  (+ a b))
+
+;; Also number of expressions is `do` special form 0 to many. If `0`
+;; result of evaluation will be nil.
+(do)
+
+
+;; Bindings - Let special form evaluates containing expressions in a
+;; lexical context of in which simbols in the bindings-forms (first item)
+;; are bound to their respective expression results.
+
+(let [a 1
+      b (+ a c)]
+  (+ a b))
+
+
+;; Functions - Wisp functions are JS functions
+(fn [x] (+ x 1))
+
+;; Wisp functions can be named similar to JS
+(fn increment [x] (+ x 1))
+
+;; Wisp functions can also contain documentation and some metadata.
+;; Note: Docstring and metadata is not presented in compiled JS yet,
+;; but in a future it will compile to comments associated with function.
+(fn incerement
+  "Returns a number one greater than given."
+  {:added "1.0"}
+  [x] (+ x 1))
+
+;; Wisp makes capturing of rest arguments a lot easier than JS. argument
+;; that follows special `&` simbol will capture all the rest args in array.
+
+(fn [x & rest]
+  (rest.reduce (fn [sum x] (+ sum x)) x))
+
+;; Overloads - In wisp functions can be overloaded depending on number
+;; of arguments they take, without introspection of rest arguments.
+(fn sum
+  "Return the sum of all arguments"
+  {:version "1.0"}
+  ([] 0)
+  ([x] x)
+  ([x y] (+ x y))
+  ([x & more] (more.reduce (fn [x y] (+ x y)) x)))
+
+;; If function does not has variadic overload and more arguments is
+;; passed to it, it throws exception.
+(fn
+  ([x] x)
+  ([x y] (- x y)))
+
+
+
+;; ## Other Special Forms
+
+;; Instantiation - In wisp type instantiation has a consice form, type
+;; function just needs to be suffixed with `.` character
+(Type. options)
+
+;; More verbose but JS like form is also there 
+(new Class options)
+
+
+;; Method calls - In wisp method calls are no different from function
+;; calls, it's just method functions are perfixed with `.` character
+(.log console "hello wisp")
+
+;; Also more JS like forms are supported too!
+(window.addEventListener "load" handler false)
+
+
+;; Attribute access - In wisp attribute access is also just like function
+;; call. Attribute name just needs to be prefixed with `.-`
+(.-location window)
+
+;; Compound properties can be access via `get` special form
+(get templates (.-id element))
+
+;; Catching exceptions - In wisp exceptions can be handled via `try` 
+;; special form. As everything else try form is also expression. It
+;; results to nil if no handling takes place.
+(try (raise exception))
+
+;; Although catch form can be used to handle exceptions
+(try
+  (raise exception)
+  (catch error (.log console error)))
+
+;; Also finally clase can be used when necessary
+(try
+  (raise exception)
+  (catch error (recover error))
+  (finally (.log console "That was a close one!")))
+
+
+;; Throwing exceptions - Throw special form allows throwing exceptions,
+;; although doing that is not idiomatic.
+(fn raise [message] (throw (Error. message)))
+
+
+;; ## Macros
+;; Wisp has a programmatic macro system which allows the compiler to
+;; be extended by user code. Many core constructs of Wisp are in fact
+;; normal macros.
+
+;; quote
+
+;; Before diving into macros too much, we need to learn about few more
+;; things. In lisp any expression can be marked to prevent it from being
+;; evaluated. For instance, if you enter the symbol `foo` you will be
+;; evaluating the reference to the value of the corresponding variable.
+foo
+
+;; If you wish to refer to the literal symbol, rather then reference you
+;; could use
+(quote foo)
+;; or more usually
+'foo
+
+;; Any expression can be quoted, to prevent it's evaluation. Although your
+;; resulting programs should not have these forms compiled to JS.
+'foo
+':bar
+'(a b)
+
+;; Wisp doesn’t have `unless` special form or a macro, but it's trivial
+;; to implement it via macro. Although let's try implemting it as a
+;; function to understand a use case for macro!
+
+;; We want to execute body unless condition is `true`.
+(defn unless-fn [condition body]
+  (if condition nil body))
+
+;; Although following code will log "should not print" anyway, since
+;; function arguments are exectued before function is called.
+(unless-fn true (console.log "should not print"))
+
+;; Macros solve this problem, because they do not evaluate their arguments
+;; immediately. Instead, you get to choose when (and if!) the arguments
+;; to a macro are evaluated. Macros take items of the expression as
+;; arguments and return new form that is compiled instead.
+(defmacro unless
+  [condition form]
+  (list 'if condition nil form))
+
+;; The body of unless macro executes at macro expansion time, producing an
+;; if form for compilation. Which later is compiled as usual. This way
+;; compiled JS is a conditional instead of function call.
+(unless true (console.log "should not print"))
+
+;; Simple macros like above could be written via templating, expressed
+;; as syntax-quoted forms.
+
+;; `syntax-quote` is almost the same as the plain `quote`, but it allows
+;; sub expressions to be unquoted so that form acts a template. Symbols
+;; inside form are resolved to help prevent inadvertent symbol capture.
+;; Which can be done via `unquote` and `unquote-splicing` forms.
+
+(syntax-quote (foo (unquote bar)))
+(syntax-quote (foo (unquote bar) (unquote-splicing bazs)))
+
+;; Also there is a special syntax sugar for both unquoting operators:
+
+;; Syntax quote: Quote form, but allow internal unquoting so that form
+;; acts as template. Symbols inside form are resolved to help prevent
+;; inadvertent symbol capture.
+`(foo bar)
+
+;; Unquote: Use inside a syntax-quote to substitute an unquoted value.
+`(foo ~bar)
+
+;; Splicing unquote: Use inside a syntax-quote to splice an unquoted
+; list into a template.
+`(foo ~bar ~@bazs)
+
+
+;; For expmale build-in `defn` macro can be defined expressed with
+;; simple template macro. That's more or less how build-in `defn`
+;; macro is implemented.
+(defmacro define-fn
+  [name & body]
+  `(def ~name (fn ~@body)))
+
+
+;; Now if we use `define-fn` form above defined macro will be expanded
+;; and compile time resulting into diff program output.
+(define-fn print
+  [message]
+  (.log console message))
+
+
+;; Not all of the macros can be expressed via templating, but all of the
+;; language is available at hand to assemble macro expanded form.
+;; For instance let's define macro to ease functional chanining popular
+;; in JS but usually expressed via method chaining. For example following
+;; API is pioneered by jQuery is very common in JS:
+;;
+;; open(target, "keypress).
+;;  filter(isEnterKey).
+;;  map(getInputText).
+;;  reduce(render)
+;;
+;; Unfortunately though it usually requires all the functions need to be
+;; methods of dsl object, which is very limited. Making third party
+;; functions second class. Via macros we can achieve similar chaining
+;; without such tradeoffs.
+(defmacro ->
+  [& operations]
+  (reduce
+   (fn [form operation]
+     (cons (first operation)
+           (cons form (rest operation))))
+   (first operations)
+   (rest operations)))
+
+(->
+ (open tagret :keypress)
+ (filter enter-key?)
+ (map get-input-text)
+ (reduce render))
+</script>
+<div id="input" name="input" style="width: 50%;"><div class="CodeMirror"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 565px; left: 59px;"><textarea wrap="off" autocorrect="off" autocapitalize="off" style="position: absolute; padding: 0px; width: 1px; height: 1em;"></textarea></div><div class="CodeMirror-scrollbar" style="display: block; height: 550px;"><div class="CodeMirror-scrollbar-inner" style="height: 6634px;"></div></div><div class="CodeMirror-scroll cm-s-ambiance CodeMirror-focused" tabindex="-1" draggable="false"><div style="position: relative; min-height: 6634px;"><div style="position: relative; top: 4432px;"><div class="CodeMirror-gutter" style="height: 2202px; left: 0px;"><div class="CodeMirror-gutter-text"><pre>278</pre><pre>279</pre><pre>280</pre><pre>281</pre><pre>282</pre><pre>283</pre><pre>284</pre><pre>285</pre><pre>286</pre><pre>287</pre><pre>288</pre><pre>289</pre><pre>290</pre><pre>291</pre><pre>292</pre><pre>293</pre><pre>294</pre><pre>295</pre><pre>296</pre><pre>297</pre><pre>298</pre><pre>299</pre><pre>300</pre><pre>301</pre><pre>302</pre><pre>303</pre><pre>304</pre><pre>305</pre><pre>306</pre><pre>307</pre><pre>308</pre><pre>309</pre><pre>310</pre><pre>311</pre><pre>312</pre><pre>313</pre><pre>314</pre><pre>315</pre><pre>316</pre><pre>317</pre><pre>318</pre><pre>319</pre><pre>320</pre><pre>321</pre><pre>322</pre><pre>323</pre><pre>324</pre><pre>325</pre><pre>326</pre><pre>327</pre><pre>328</pre><pre>329</pre><pre>330</pre><pre>331</pre><pre>332</pre><pre>333</pre><pre>334</pre><pre>335</pre><pre>336</pre><pre>337</pre><pre>338</pre><pre>339</pre><pre>340</pre><pre>341</pre><pre>342</pre><pre>343</pre><pre>344</pre><pre>345</pre><pre>346</pre><pre>347</pre><pre>348</pre><pre>349</pre><pre>350</pre><pre>351</pre><pre>352</pre><pre>353</pre><pre>354</pre><pre>355</pre><pre>356</pre><pre>357</pre><pre>358</pre><pre>359</pre><pre>360</pre><pre>361</pre><pre>362</pre><pre>363</pre><pre>364</pre><pre>365</pre><pre>366</pre><pre>367</pre><pre>368</pre><pre>369</pre><pre>370</pre><pre>371</pre><pre>372</pre><pre>373</pre><pre>374</pre><pre>375</pre><pre>376</pre><pre>377</pre><pre>378</pre><pre>379</pre><pre>380</pre><pre>381</pre><pre>382</pre><pre>383</pre><pre>384</pre><pre>385</pre><pre>386</pre><pre>387</pre><pre>388</pre><pre>389</pre><pre>390</pre><pre>391</pre><pre>392</pre><pre>393</pre><pre>394</pre><pre>395</pre><pre>396</pre><pre>397</pre><pre>398</pre><pre>399</pre><pre>400</pre><pre>401</pre><pre>402</pre><pre>403</pre><pre>404</pre><pre>405</pre><pre>406</pre><pre>407</pre><pre>408</pre><pre>409</pre><pre>410</pre><pre>411</pre><pre>412</pre><pre>413</pre><pre>414</pre></div></div><div class="CodeMirror-lines"><div style="position: relative; z-index: 0; outline: none; min-width: 10032px; margin-left: 39px;"><div style="position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden;"></div><pre class="CodeMirror-cursor" style="top: 2176px; left: 0px;">&nbsp;</pre><pre class="CodeMirror-cursor" style="visibility: hidden; left: 10031px;">&nbsp;</pre><div style="position: relative; z-index: -1; display: none;"><div class="CodeMirror-selected" style="position: absolute; left: 0px; top: 0px; right: 0px; height: 2176px;"></div><div class="CodeMirror-selected" style="position: absolute; left: 0px; top: 2176px; right: 10032px; height: 16px;"></div></div><div style=""><pre>                                              <span class="cm-atom">:aanhef</span>       <span class="cm-string">"Dhr."</span></pre><pre>                                              <span class="cm-atom">:titel</span>        <span class="cm-string">""</span></pre><pre>                                              <span class="cm-atom">:telefoon</span>     <span class="cm-string">"0299 651 987"</span></pre><pre>                                              <span class="cm-atom">:email</span>        <span class="cm-string">""</span>}</pre><pre>                                  <span class="cm-atom">:wil</span>       {<span class="cm-atom">:naam</span>         <span class="cm-string">"Wil Buffing"</span></pre><pre>                                              <span class="cm-atom">:titel</span>        <span class="cm-string">"Mevr."</span></pre><pre>                                              <span class="cm-atom">:telefoon</span>     <span class="cm-string">"0299 411 345"</span></pre><pre>                                              <span class="cm-atom">:email</span>        <span class="cm-string">""</span>}}</pre><pre> </pre><pre>                <span class="cm-atom">:vestigingen</span>  {<span class="cm-atom">:purmerend</span>    {<span class="cm-atom">:bezoekadres</span> <span class="cm-bracket">[</span><span class="cm-string">"Wielingenstraat 119"</span> <span class="cm-string">"1441 ZN"</span> <span class="cm-string">"Purmerend"</span> <span class="cm-string">"Noord-Holland"</span> <span class="cm-string">"Nederland"</span><span class="cm-bracket">]</span></pre><pre>                                              <span class="cm-atom">:geocode</span>     <span class="cm-bracket">[</span><span class="cm-string">"52.503605"</span> <span class="cm-string">"4.958375"</span><span class="cm-bracket">]</span></pre><pre>                                              <span class="cm-atom">:rest</span>         <span class="cm-string">"geocode=Cc9PzZeFjzXfFYEnIQMdp59LACmPF3Re0AbGRzF_fLmc8BNprg&amp;amp;sll=52.504454,4.956079&amp;amp;sspn=0.009065,0.019054&amp;amp;mra=pd&amp;amp;t=m&amp;amp;spn=0.0064,0.013282"</span></pre><pre>                                              <span class="cm-atom">:postadres</span>   <span class="cm-bracket">[</span><span class="cm-string">"Postbus 258"</span> <span class="cm-string">"1440 AG"</span> <span class="cm-string">"Purmerend"</span><span class="cm-bracket">]</span></pre><pre>                                              <span class="cm-atom">:telefoon</span>     <span class="cm-string">"0299 411 345"</span></pre><pre>                                              <span class="cm-atom">:fax</span>          <span class="cm-string">"0299 411 348"</span></pre><pre>                                              <span class="cm-atom">:email</span>        <span class="cm-string">"info@tredius.nl"</span>}</pre><pre> </pre><pre>                               <span class="cm-atom">:monnickendam</span> {<span class="cm-atom">:bezoekadres</span> <span class="cm-bracket">[</span><span class="cm-string">"Haringburgwal&nbsp;17"</span> <span class="cm-string">"1141 AT"</span> <span class="cm-string">"Monnickendam"</span> <span class="cm-string">"Noord-Holland"</span> <span class="cm-string">"Nederland"</span><span class="cm-bracket">]</span></pre><pre>                                              <span class="cm-atom">:geocode</span>     <span class="cm-bracket">[</span><span class="cm-string">"52.462874"</span> <span class="cm-string">"5.035343"</span><span class="cm-bracket">]</span></pre><pre>                                              <span class="cm-atom">:rest</span>         <span class="cm-string">"geocode=CXRphrBe0kPwFRuFIAMdStVMACln1vctrAXGRzHfFo4FDFJsxg&amp;amp;aq=&amp;amp;sll=52.505806,4.827991&amp;amp;sspn=0.269159,0.835648&amp;amp;mra=pd&amp;amp;spn=0.006406,0.013282"</span></pre><pre>                                              <span class="cm-atom">:postadres</span>   <span class="cm-bracket">[</span><span class="cm-string">"Postbus 48"</span> <span class="cm-string">"1140 AA"</span> <span class="cm-string">"Monnickendam"</span><span class="cm-bracket">]</span></pre><pre>                                              <span class="cm-atom">:telefoon</span>     <span class="cm-string">"0299 651 987"</span></pre><pre>                                              <span class="cm-atom">:fax</span>          <span class="cm-string">"0299 653 004"</span></pre><pre>                                              <span class="cm-atom">:email</span>        <span class="cm-string">"info@tredius.nl"</span>}</pre><pre> </pre><pre>                               <span class="cm-atom">:alkmaar</span>      {<span class="cm-atom">:bezoekadres</span> <span class="cm-bracket">[</span><span class="cm-string">"Professor van der Waalsstraat 3K"</span> <span class="cm-string">"1821 BT"</span> <span class="cm-string">"Alkmaar"</span> <span class="cm-string">"Noord-Holland"</span> <span class="cm-string">"Nederland"</span><span class="cm-bracket">]</span></pre><pre>                                              <span class="cm-atom">:geocode</span>     <span class="cm-bracket">[</span><span class="cm-string">"52.625092"</span> <span class="cm-string">"4.770384"</span><span class="cm-bracket">]</span></pre><pre>                                              <span class="cm-atom">:rest</span>         <span class="cm-string">"spn=0.006382,0.013282"</span></pre><pre>                                              <span class="cm-atom">:postadres</span>   <span class="cm-bracket">[</span><span class="cm-string">"Professor van der Waalsstraat 3K"</span> <span class="cm-string">"1821 BT""Alkmaar"</span><span class="cm-bracket">]</span></pre><pre>                                              <span class="cm-atom">:telefoon</span>     <span class="cm-string">"072 564 4203"</span></pre><pre>                                              <span class="cm-atom">:fax</span>          <span class="cm-string">"072 564 3019"</span></pre><pre>                                              <span class="cm-atom">:email</span>        <span class="cm-string">"info@tredius.nl"</span>}</pre><pre> </pre><pre>                               <span class="cm-atom">:haarlem</span>      {<span class="cm-atom">:bezoekadres</span> <span class="cm-bracket">[</span><span class="cm-string">"Zijlweg 146"</span> <span class="cm-string">"2015 BH"</span> <span class="cm-string">"Haarlem"</span> <span class="cm-string">"Noord-Holland"</span> <span class="cm-string">"Nederland"</span><span class="cm-bracket">]</span></pre><pre>                                              <span class="cm-atom">:geocode</span>     <span class="cm-bracket">[</span><span class="cm-string">"52.386457"</span> <span class="cm-string">"4.620631"</span><span class="cm-bracket">]</span></pre><pre>                                              <span class="cm-atom">:rest</span>         <span class="cm-string">"geocode=CWxUaXo29tzfFddYHwMdWoFGACkH_TJiEO_FRzHom-tyuYRbow&amp;amp;sll=52.386457,4.620631&amp;amp;sspn=0.008434,0.026114&amp;amp;mra=iwd&amp;amp;spn=0.006417,0.013282"</span></pre><pre>                                              <span class="cm-atom">:postadres</span>   <span class="cm-bracket">[</span><span class="cm-string">"Postbus 992"</span> <span class="cm-string">"2003 RZ"</span> <span class="cm-string">"Haarlem"</span><span class="cm-bracket">]</span></pre><pre>                                              <span class="cm-atom">:telefoon</span>     <span class="cm-string">"023 551 30 55"</span></pre><pre>                                              <span class="cm-atom">:fax</span>          <span class="cm-string">"023 551 30 35"</span></pre><pre>                                              <span class="cm-atom">:email</span>        <span class="cm-string">"info@tredius.nl"</span>}}}</pre><pre> </pre><pre>  <span class="cm-comment">;; We erkennen een corporate identity als belangrijke data structuur voor gebruik op de site. De huisstijl is een van haar onderdelen.</span></pre><pre>  <span class="cm-comment">;;  //fonts.googleapis.com/css?family=Dosis:400,500,600|Open+Sans:400italic,600italic,700italic,400,600,700</span></pre><pre>  <span class="cm-atom">:typografisch</span> {<span class="cm-atom">:primair</span>     <span class="cm-bracket">[</span><span class="cm-string">"Open Sans"</span> <span class="cm-string">"400italic"</span> <span class="cm-string">"600italic"</span> <span class="cm-string">"700italic"</span> <span class="cm-string">"400"</span> <span class="cm-string">"600"</span> <span class="cm-string">"700"</span><span class="cm-bracket">]</span></pre><pre>                 <span class="cm-atom">:alternatief</span> <span class="cm-bracket">[</span><span class="cm-string">"Dosis"</span> <span class="cm-string">"400"</span> <span class="cm-string">"500"</span> <span class="cm-string">"600"</span><span class="cm-bracket">]</span> }</pre><pre> </pre><pre>  <span class="cm-comment">;; Regelmatig benodigde informatie van illustraties, afbeeldingen, mappen en logo's of art-work kan hier.</span></pre><pre>  <span class="cm-atom">:illustraties</span> {<span class="cm-atom">:bedrijfslogo</span> <span class="cm-bracket">(</span>afb <span class="cm-string">"bedrijfslogo.jpg"</span><span class="cm-bracket">)</span></pre><pre>                 <span class="cm-atom">:site-icoon</span>   <span class="cm-bracket">(</span>afb <span class="cm-string">"favicon.png"</span><span class="cm-bracket">)</span>}</pre><pre> </pre><pre>  <span class="cm-comment">;; Het 'Semantic grid' systeem is een manier om een breed scala aan indelingen in vlakken te maken</span></pre><pre>  <span class="cm-atom">:vlakindeling</span> {<span class="cm-atom">:kolommen</span> <span class="cm-number">12</span> <span class="cm-atom">:soort</span> <span class="cm-string">"fixed"</span> <span class="cm-atom">:breedte</span> <span class="cm-number">960</span>}</pre><pre> </pre><pre>  <span class="cm-comment">;; Kleuren lichter, donkerder, transformeren van en naar CSS.</span></pre><pre>  <span class="cm-atom">:kleuren</span> {<span class="cm-atom">:oranje</span> <span class="cm-string">"#F2A34F"</span></pre><pre>            <span class="cm-atom">:wit</span>    <span class="cm-string">"#ffffff"</span>    <span class="cm-atom">:zwart</span>       <span class="cm-string">"#363636"</span></pre><pre>            <span class="cm-atom">:geel</span>   <span class="cm-string">"#7A6A42"</span>    <span class="cm-atom">:goud</span>        <span class="cm-string">"#b88d74"</span></pre><pre>            <span class="cm-atom">:groen</span>  <span class="cm-string">"#7FC028"</span>    <span class="cm-atom">:turquoise</span>   <span class="cm-string">"#6CBBB8"</span></pre><pre>            <span class="cm-atom">:bruin</span>  <span class="cm-string">"#6b4c39"</span>    <span class="cm-atom">:licht-bruin</span> <span class="cm-string">"#b88c74"</span></pre><pre>            <span class="cm-atom">:paars</span>  <span class="cm-string">"#47427A"</span>    <span class="cm-atom">:licht-paars</span> <span class="cm-string">"#6664a0"</span></pre><pre>            <span class="cm-atom">:blaauw</span> <span class="cm-string">"#0183b5"</span>    <span class="cm-atom">:licht-blauw</span> <span class="cm-string">"#0183b5"</span>   <span class="cm-atom">:donker-blauw</span> <span class="cm-string">"#403e6b"</span></pre><pre>            <span class="cm-atom">:grijs</span>  <span class="cm-string">"#e0e0e0"</span>    <span class="cm-atom">:licht-grijs</span> <span class="cm-string">"#f8f8f8"</span>   <span class="cm-atom">:donker-grijs</span> <span class="cm-string">"#919191"</span></pre><pre>            <span class="cm-atom">:rood</span>   <span class="cm-string">"#e31741"</span>    <span class="cm-atom">:licht-rood</span>  <span class="cm-string">"#6b4c39"</span>}</pre><pre> </pre><pre>  <span class="cm-atom">:stijl</span> {<span class="cm-atom">:invoer</span> <span class="cm-string">"index.styl"</span> <span class="cm-atom">:uitvoer</span> <span class="cm-string">"algemeen.css"</span> <span class="cm-atom">:locaties</span> <span class="cm-bracket">[]</span>}</pre><pre> </pre><pre>  <span class="cm-comment">;; Configuratie van talen, remote servers, accounts e.d.</span></pre><pre>  <span class="cm-atom">:config</span> {  <span class="cm-atom">:ftp</span>  {<span class="cm-atom">:source</span> <span class="cm-string">"https://github.com/mscdex/node-ftp"</span></pre><pre>                    <span class="cm-atom">:host</span> <span class="cm-string">"ftp.tredius.nl"</span>       <span class="cm-comment">;; string   - The hostname or IP address of the FTP server. Default: 'localhost'</span></pre><pre>                    <span class="cm-atom">:port</span> <span class="cm-number">21</span>                     <span class="cm-comment">;; integer  - The port of the FTP server. Default: 21</span></pre><pre>                    <span class="cm-atom">:secure</span> <span class="cm-atom">true</span>                 <span class="cm-comment">;; mixed    - Set to true for both control and data connection encryption, 'control' for control connection encryption only, or 'implicit' for implicitly encrypted control connection (this mode is deprecated in modern times, but usually uses port 990)</span></pre><pre>                    <span class="cm-atom">:user</span> <span class="cm-string">"solobit"</span>              <span class="cm-comment">;; string   - Username for authentication. Default: 'anonymous'</span></pre><pre>                    <span class="cm-atom">:password</span> <span class="cm-string">"secret"</span>           <span class="cm-comment">;; string   - Password for authentication. Default: 'anonymous@'</span></pre><pre>                    <span class="cm-atom">:connTimeout</span> <span class="cm-number">10000</span>           <span class="cm-comment">;; integer  - How long (in milliseconds) to wait for the control connection to be established. Default: 10000</span></pre><pre>                    <span class="cm-atom">:pasvTimeout</span> <span class="cm-number">10000</span>           <span class="cm-comment">;; integer  - How long (in milliseconds) to wait for a PASV data connection to be established. Default: 10000</span></pre><pre>                    <span class="cm-atom">:keepalive</span> <span class="cm-number">10000</span>}             <span class="cm-comment">;; integer  - How often (in milliseconds) to send a 'dummy' (NOOP) command to keep the connection alive. Default: 10000</span></pre><pre>             <span class="cm-atom">:i18n</span> {<span class="cm-atom">:source</span> <span class="cm-string">"https://github.com/jamuhl/i18next"</span></pre><pre>                    <span class="cm-atom">:help</span> <span class="cm-string">"http://i18next.com/pages/doc_init.html"</span></pre><pre>                    <span class="cm-atom">:preload</span> <span class="cm-bracket">[</span><span class="cm-string">"nl-NL"</span><span class="cm-bracket">]</span>           <span class="cm-comment">;; array    - The additional languages will be preloaded.</span></pre><pre>                    <span class="cm-atom">:lng</span> <span class="cm-string">"nl-NL"</span>                 <span class="cm-comment">;; string   - Resolve order: 1) languageCode plus countryCode, eg. 'en-US' 2) languageCode only, eg. 'en' 3) finally fallback language, default: 'dev' If language is not set explicitly i18next tries to detect the user language by: 1) querystring parameter (?setLng=en-US) 2) cookie (i18next) 3) language set in navigator</span></pre><pre>                    <span class="cm-atom">:fallbackLng</span> <span class="cm-string">"en"</span>            <span class="cm-comment">;; str/bool - If not set it will default to 'dev'. If turned on, all missing key/values will be sent to this language. (use e.g. 'en' for production). False: As the fallbackLng will default to 'dev' you can turn it off by setting the option value to false. This will prevent loading the fallbacks resource file and any futher look up of missing value inside a fallback file.</span></pre><pre>                    <span class="cm-atom">:load</span> <span class="cm-string">"current"</span>              <span class="cm-comment">;; string   - If load option is set to current i18next will load the current set language (this could be a specific (en-US) or unspecific (en) resource file).</span></pre><pre>                    <span class="cm-atom">:detectLngQS</span> <span class="cm-string">"taal"</span>          <span class="cm-comment">;; string   - The current locale to set will be looked up in the new parameter: ?lang=en-US Hint: default would be ?setLng=en-US</span></pre><pre>                    <span class="cm-atom">:useCookie</span> <span class="cm-atom">true</span>              <span class="cm-comment">;; boolean  - Use this only if your sure that language will be provided by the other lookup options or set programatically.</span></pre><pre>                    <span class="cm-atom">:debug</span> <span class="cm-atom">true</span>                  <span class="cm-comment">;; boolean  - If something went wrong you might find some helpful information on console log.</span></pre><pre>                    <span class="cm-atom">:keyseparator</span> <span class="cm-string">"::"</span>           <span class="cm-comment">;; string   - Seperator for keys</span></pre><pre>                    <span class="cm-atom">:nsseparator</span> <span class="cm-string">":::"</span>           <span class="cm-comment">;; string   - Seperator for namespaces</span></pre><pre>                    <span class="cm-atom">:resGetPath</span> <span class="cm-bracket">(</span>uri <span class="cm-string">"/etc/i18n"</span> <span class="cm-string">"/__lng__/__ns__.json"</span><span class="cm-bracket">)</span> <span class="cm-comment">;; Set static route to load resources. Will load 'locales/en-US/translation.json'. If language is set to 'en-US' following resource files will be loaded one-by-one: en-US, en, dev (default fallback language). Hint: to lowercase countryCode in requests, eg. to 'en-us' set option lowerCaseLng = true</span></pre><pre>                    <span class="cm-atom">:ns</span> {<span class="cm-atom">:namespaces</span> <span class="cm-bracket">[</span><span class="cm-string">"app"</span><span class="cm-bracket">]</span>     <span class="cm-comment">;; array    - The additional namespaces will be loaded.</span></pre><pre>                         <span class="cm-atom">:defaultNs</span> <span class="cm-string">"app"</span>}}}        <span class="cm-comment">;; string   - The default namespace to load</span></pre><pre> </pre><pre> </pre><pre>  <span class="cm-comment">;; Vertaalbaar met i18next: menu structuur</span></pre><pre>  <span class="cm-atom">:navigatie</span> {<span class="cm-atom">:hoofdmenu</span> {<span class="cm-atom">:home</span>   <span class="cm-string">"Home"</span></pre><pre> </pre><pre>                          <span class="cm-atom">:missie</span> <span class="cm-string">"Wie zijn wij"</span></pre><pre> </pre><pre>                          <span class="cm-atom">:diensten</span>    {<span class="cm-atom">:fiscaal</span>      {<span class="cm-atom">:advies</span>      <span class="cm-string">"Belastingadvies"</span></pre><pre>                                                       <span class="cm-atom">:pensioen</span>    <span class="cm-string">"Pensioen"</span></pre><pre>                                                       <span class="cm-atom">:estate-plan</span> <span class="cm-string">"Estate Planning"</span>}</pre><pre> </pre><pre>                                        <span class="cm-atom">:juridisch</span>    {<span class="cm-atom">:advies</span>      <span class="cm-string">"Juridisch Advies"</span></pre><pre>                                                       <span class="cm-atom">:abonnement</span>  <span class="cm-string">"Juridisch Abonnement"</span>}</pre><pre> </pre><pre>                                        <span class="cm-atom">:debiteuren</span>   {<span class="cm-atom">:beheer</span>      <span class="cm-string">"Debiteurenbeheer"</span></pre><pre>                                                       <span class="cm-atom">:werkwijze</span>   <span class="cm-string">"Onze Werkwijze"</span></pre><pre>                                                       <span class="cm-atom">:abonnement</span>  <span class="cm-string">"Abonnement"</span>}</pre><pre> </pre><pre>                                        <span class="cm-atom">:accountancy</span>  {<span class="cm-atom">:hr-payroll</span>  <span class="cm-string">"Salaris- en Personeelszaken"</span></pre><pre>                                                       <span class="cm-atom">:accountancy</span> <span class="cm-string">"Accountancy"</span>}</pre><pre> </pre><pre>                                        <span class="cm-atom">:risicoadvies</span> {<span class="cm-atom">:verzekeren</span>  <span class="cm-string">"Risico-advies &amp; Verzekeringen"</span></pre><pre>                                                       <span class="cm-atom">:pensioen</span>    <span class="cm-string">"Pensioenadvies"</span></pre><pre>                                                       <span class="cm-atom">:overstappen</span> <span class="cm-string">"Schoenendoos Overstapservice"</span>}}</pre><pre> </pre><pre>                          <span class="cm-atom">:t-time</span>      {<span class="cm-atom">:videos</span>       <span class="cm-string">"Tredius vertelt..."</span></pre><pre>                                        <span class="cm-atom">:nieuwsbrief</span>  <span class="cm-string">"Nieuwsbrief"</span></pre><pre>                                        <span class="cm-atom">:columns</span>      <span class="cm-string">"Onze columns"</span></pre><pre>                                        <span class="cm-atom">:special</span>      <span class="cm-string">"Specials"</span>}</pre><pre> </pre><pre>                          <span class="cm-atom">:werken-bij</span>  {<span class="cm-atom">:tredius</span>      <span class="cm-string">"Werken bij Tredius"</span></pre><pre>                                        <span class="cm-atom">:vacatures</span>    <span class="cm-string">"Vacatures"</span></pre><pre>                                        <span class="cm-atom">:stages</span>       <span class="cm-string">"Stageplekken"</span></pre><pre>                                        <span class="cm-atom">:wie-ben-jij</span>  <span class="cm-string">"Wie ben jij?"</span>}</pre><pre> </pre><pre>                          <span class="cm-comment">;; TODO Toevoegen van adresgegevens</span></pre><pre>                          <span class="cm-atom">:vestiging</span>   {<span class="cm-atom">:alkmaar</span>      <span class="cm-string">"Alkmaar"</span></pre><pre>                                        <span class="cm-atom">:haarlem</span>      <span class="cm-string">"Haarlem"</span></pre><pre>                                        <span class="cm-atom">:monnickendam</span> <span class="cm-string">"Monnickendam"</span></pre><pre>                                        <span class="cm-atom">:purmerend</span>    <span class="cm-string">"Purmerend"</span>}</pre><pre> </pre><pre>                          <span class="cm-atom">:contact</span>     <span class="cm-string">"contact"</span>}}</pre><pre>}<span class="cm-bracket">)</span></pre><pre> </pre><pre> </pre><pre> </pre><div style="position: relative;"><pre class="activeline" style="position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: -2;">&nbsp;</pre><pre> </pre></div></div></div></div></div></div></div></div></div>
+<div id="output" name="output"><div class="CodeMirror"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 4.796875px; left: 59px;"><textarea wrap="off" autocorrect="off" autocapitalize="off" style="position: absolute; padding: 0px; width: 1px; height: 1em;"></textarea></div><div class="CodeMirror-scrollbar" style="display: block; height: 550px;"><div class="CodeMirror-scrollbar-inner" style="height: 7626px;"></div></div><div class="CodeMirror-scroll cm-s-ambiance" tabindex="-1"><div style="position: relative; min-height: 7626px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-gutter" style="height: 2202px; left: 0px;"><div class="CodeMirror-gutter-text"><pre>1</pre><pre>2</pre><pre>3</pre><pre>4</pre><pre>5</pre><pre>6</pre><pre>7</pre><pre>8</pre><pre>9</pre><pre>10</pre><pre>11</pre><pre>12</pre><pre>13</pre><pre>14</pre><pre>15</pre><pre>16</pre><pre>17</pre><pre>18</pre><pre>19</pre><pre>20</pre><pre>21</pre><pre>22</pre><pre>23</pre><pre>24</pre><pre>25</pre><pre>26</pre><pre>27</pre><pre>28</pre><pre>29</pre><pre>30</pre><pre>31</pre><pre>32</pre><pre>33</pre><pre>34</pre><pre>35</pre><pre>36</pre><pre>37</pre><pre>38</pre><pre>39</pre><pre>40</pre><pre>41</pre><pre>42</pre><pre>43</pre><pre>44</pre><pre>45</pre><pre>46</pre><pre>47</pre><pre>48</pre><pre>49</pre><pre>50</pre><pre>51</pre><pre>52</pre><pre>53</pre><pre>54</pre><pre>55</pre><pre>56</pre><pre>57</pre><pre>58</pre><pre>59</pre><pre>60</pre><pre>61</pre><pre>62</pre><pre>63</pre><pre>64</pre><pre>65</pre><pre>66</pre><pre>67</pre><pre>68</pre><pre>69</pre><pre>70</pre><pre>71</pre><pre>72</pre><pre>73</pre><pre>74</pre><pre>75</pre><pre>76</pre><pre>77</pre><pre>78</pre><pre>79</pre><pre>80</pre><pre>81</pre><pre>82</pre><pre>83</pre><pre>84</pre><pre>85</pre><pre>86</pre><pre>87</pre><pre>88</pre><pre>89</pre><pre>90</pre><pre>91</pre><pre>92</pre><pre>93</pre><pre>94</pre><pre>95</pre><pre>96</pre><pre>97</pre><pre>98</pre><pre>99</pre><pre>100</pre><pre>101</pre><pre>102</pre><pre>103</pre><pre>104</pre><pre>105</pre><pre>106</pre><pre>107</pre><pre>108</pre><pre>109</pre><pre>110</pre><pre>111</pre><pre>112</pre><pre>113</pre><pre>114</pre><pre>115</pre><pre>116</pre><pre>117</pre><pre>118</pre><pre>119</pre><pre>120</pre><pre>121</pre><pre>122</pre><pre>123</pre><pre>124</pre><pre>125</pre><pre>126</pre><pre>127</pre><pre>128</pre><pre>129</pre><pre>130</pre><pre>131</pre><pre>132</pre><pre>133</pre><pre>134</pre><pre>135</pre><pre>136</pre><pre>137</pre></div></div><div class="CodeMirror-lines"><div style="position: relative; z-index: 0; outline: none; min-width: 2941px; margin-left: 39px;"><div style="position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden;"></div><pre class="CodeMirror-cursor" style="top: 0px; left: 0px;">&nbsp;</pre><pre class="CodeMirror-cursor" style="visibility: hidden; left: 2940px;">&nbsp;</pre><div style="position: relative; z-index: -1; display: none;"><div class="CodeMirror-selected" style="position: absolute; left: 0px; top: 1040px; right: 0px; height: 176px;"></div><div class="CodeMirror-selected" style="position: absolute; left: 0px; top: 1216px; right: 2941px; height: 16px;"></div></div><div style=""><pre><span class="cm-variable">process</span>.<span class="cm-property">exit</span>(<span class="cm-number">1</span>);</pre><pre> </pre><pre><span class="cm-variable">require</span>(<span class="cm-string">"npm"</span>);</pre><pre> </pre><pre><span class="cm-variable">require</span>(<span class="cm-string">"pkginfo"</span>);</pre><pre> </pre><pre><span class="cm-variable">require</span>(<span class="cm-string">"latest"</span>);</pre><pre> </pre><pre><span class="cm-variable">require</span>(<span class="cm-string">"semver"</span>);</pre><pre> </pre><pre><span class="cm-variable">require</span>(<span class="cm-string">"latest"</span>);</pre><pre> </pre><pre><span class="cm-keyword">var</span> <span class="cm-variable">path</span> = <span class="cm-variable">require</span>(<span class="cm-string">"path"</span>);</pre><pre> </pre><pre><span class="cm-keyword">var</span> <span class="cm-variable">fs</span> = <span class="cm-variable">require</span>(<span class="cm-string">"fs-extra"</span>);</pre><pre> </pre><pre><span class="cm-variable">require</span>(<span class="cm-string">"coffee-script"</span>);</pre><pre> </pre><pre><span class="cm-keyword">var</span> <span class="cm-variable">kleur</span> = <span class="cm-keyword">function</span> <span class="cm-variable">kleur</span>() {</pre><pre>  <span class="cm-keyword">return</span> <span class="cm-variable">require</span>(<span class="cm-string">"color"</span>);</pre><pre>};</pre><pre> </pre><pre><span class="cm-keyword">var</span> <span class="cm-variable">genereerStijlblad</span> = <span class="cm-keyword">function</span> <span class="cm-variable">genereerStijlblad</span>(<span class="cm-def">uitvoer</span>) {</pre><pre>  <span class="cm-string">"Stylus is een next-gen pre-processor voor CSS stijlbladen en de meest\n  krachtige engine om nog meer uit de vormgeving van webpagina's te halen."</span>;</pre><pre>  <span class="cm-keyword">return</span> (<span class="cm-keyword">function</span>() {</pre><pre>    <span class="cm-keyword">var</span> <span class="cm-def">stylus</span> = <span class="cm-variable">require</span>(<span class="cm-string">"stylus"</span>);</pre><pre>    <span class="cm-keyword">var</span> <span class="cm-def">bestand</span> = <span class="cm-variable">path</span>.<span class="cm-property">join</span>((<span class="cm-variable">hoofdproject</span> || <span class="cm-number">0</span>)[<span class="cm-string">"bron"</span>], (<span class="cm-variable">hoofdproject</span> || <span class="cm-number">0</span>)[<span class="cm-string">"code"</span>], (<span class="cm-variable">hoofdproject</span> || <span class="cm-number">0</span>)[<span class="cm-string">"stijl"</span>]);</pre><pre>    <span class="cm-keyword">var</span> <span class="cm-def">stijlblad</span> = <span class="cm-variable">fs</span>.<span class="cm-property">readFileSync</span>(<span class="cm-variable-2">bestand</span>, <span class="cm-string">"utf-8"</span>);</pre><pre>    <span class="cm-keyword">var</span> <span class="cm-def">mappen</span> = <span class="cm-variable">site</span>(<span class="cm-string">"documenten/stijlen/lib/cultivus"</span>);</pre><pre>    <span class="cm-keyword">var</span> <span class="cm-def">opties</span> = {</pre><pre>      <span class="cm-string">"filename"</span>: <span class="cm-variable">gegevens</span>.<span class="cm-property">stijl</span>.<span class="cm-property">uitvoer</span>,</pre><pre>      <span class="cm-string">"paths"</span>: [<span class="cm-variable-2">mappen</span>, <span class="cm-variable">path</span>.<span class="cm-property">join</span>(<span class="cm-variable-2">mappen</span>, <span class="cm-string">"i18n"</span>)]</pre><pre>    };</pre><pre>    <span class="cm-keyword">return</span> <span class="cm-variable-2">stylus</span>.<span class="cm-property">render</span>(<span class="cm-variable-2">stijlblad</span>, <span class="cm-variable-2">opties</span>, <span class="cm-keyword">function</span>(<span class="cm-def">exception</span>, <span class="cm-def">css</span>) {</pre><pre>      <span class="cm-keyword">return</span> (<span class="cm-keyword">function</span>() {</pre><pre>      <span class="cm-keyword">try</span> {</pre><pre>        <span class="cm-keyword">return</span> <span class="cm-variable">raise</span>(<span class="cm-variable">exception</span>);</pre><pre>      } <span class="cm-keyword">catch</span> (<span class="cm-def">error</span>) {</pre><pre>        <span class="cm-keyword">return</span> <span class="cm-variable">recover</span>(<span class="cm-variable-2">error</span>);</pre><pre>      } <span class="cm-keyword">finally</span> {</pre><pre>        <span class="cm-keyword">return</span> <span class="cm-variable">console</span>.<span class="cm-property">error</span>(<span class="cm-variable">css</span>);</pre><pre>      }})();</pre><pre>    });</pre><pre>  })();</pre><pre>};</pre><pre> </pre><pre><span class="cm-keyword">var</span> <span class="cm-variable">staticServer</span> = <span class="cm-keyword">function</span> <span class="cm-variable">staticServer</span>() {</pre><pre>  <span class="cm-string">"A streaming static file server supporting partial responses (Ranges),\n  conditional-GET negotiation and granular events."</span>;</pre><pre>  <span class="cm-keyword">return</span> (<span class="cm-keyword">function</span>() {</pre><pre>    <span class="cm-keyword">var</span> <span class="cm-def">http</span> = <span class="cm-variable">require</span>(<span class="cm-string">"http"</span>);</pre><pre>    <span class="cm-keyword">var</span> <span class="cm-def">url</span> = <span class="cm-variable">require</span>(<span class="cm-string">"url"</span>);</pre><pre>    <span class="cm-keyword">var</span> <span class="cm-def">sends</span> = <span class="cm-variable">require</span>(<span class="cm-string">"send"</span>);</pre><pre>    <span class="cm-keyword">return</span> <span class="cm-variable-2">http</span>.<span class="cm-property">createServer</span>(<span class="cm-keyword">function</span>(<span class="cm-def">req</span>, <span class="cm-def">res</span>) {</pre><pre>      <span class="cm-keyword">var</span> <span class="cm-def">error</span> = <span class="cm-keyword">function</span> <span class="cm-def">error</span>(<span class="cm-def">err</span>) {</pre><pre>        <span class="cm-variable">res</span>.<span class="cm-property">statusCode</span> = <span class="cm-variable-2">err</span>.<span class="cm-property">status</span> || <span class="cm-number">500</span>;</pre><pre>        <span class="cm-keyword">return</span> <span class="cm-variable">res</span>.<span class="cm-property">end</span>(<span class="cm-variable-2">err</span>.<span class="cm-property">message</span>);</pre><pre>      };</pre><pre>      <span class="cm-keyword">var</span> <span class="cm-def">redirect</span> = <span class="cm-keyword">function</span> <span class="cm-def">redirect</span>() {</pre><pre>        <span class="cm-variable">res</span>.<span class="cm-property">statusCode</span> = <span class="cm-number">301</span>;</pre><pre>        <span class="cm-variable">res</span>.<span class="cm-property">setHeader</span>(<span class="cm-string">""</span> + <span class="cm-string">"Location"</span> + <span class="cm-variable">req</span>.<span class="cm-variable">url</span> + <span class="cm-string">"/"</span>);</pre><pre>        <span class="cm-keyword">return</span> <span class="cm-variable">res</span>.<span class="cm-property">end</span>(<span class="cm-string">""</span> + <span class="cm-string">"Redirecting to "</span> + <span class="cm-variable">req</span>.<span class="cm-variable">url</span> + <span class="cm-string">"/"</span>);</pre><pre>      };</pre><pre>      <span class="cm-keyword">var</span> <span class="cm-def">file</span> = <span class="cm-keyword">function</span> <span class="cm-def">file</span>() {</pre><pre>        <span class="cm-keyword">return</span> <span class="cm-variable">void</span>(<span class="cm-number">0</span>);</pre><pre>      };</pre><pre>      <span class="cm-keyword">var</span> <span class="cm-def">stream</span> = <span class="cm-keyword">function</span> <span class="cm-def">stream</span>() {</pre><pre>        <span class="cm-keyword">return</span> <span class="cm-variable">void</span>(<span class="cm-number">0</span>);</pre><pre>      };</pre><pre>      <span class="cm-keyword">var</span> <span class="cm-def">end</span> = <span class="cm-keyword">function</span> <span class="cm-def">end</span>() {</pre><pre>        <span class="cm-keyword">return</span> <span class="cm-variable">void</span>(<span class="cm-number">0</span>);</pre><pre>      };</pre><pre>      <span class="cm-keyword">return</span> <span class="cm-variable">to</span>(<span class="cm-variable">sends</span>, <span class="cm-variable-2">req</span>, <span class="cm-variable-2">req</span>.<span class="cm-property">url</span>, <span class="cm-variable">from</span>, <span class="cm-string">"/www/example.com/public"</span>, <span class="cm-variable">maxage</span>, <span class="cm-number">60000</span>, <span class="cm-variable">on</span>, <span class="cm-string">"error"</span>, <span class="cm-variable-2">error</span>, <span class="cm-variable">on</span>, <span class="cm-string">"directory"</span>, <span class="cm-variable-2">redirect</span>, <span class="cm-variable">pipe</span>, <span class="cm-variable-2">res</span>);</pre><pre>    }, <span class="cm-variable">listen</span>, <span class="cm-number">3000</span>);</pre><pre>  })();</pre><pre>};</pre><pre> </pre><pre><span class="cm-keyword">var</span> <span class="cm-variable">startDocpad</span> = <span class="cm-keyword">function</span> <span class="cm-variable">startDocpad</span>() {</pre><pre>  <span class="cm-string">"Start een docpad site generator exemplaar op."</span>;</pre><pre>  <span class="cm-keyword">return</span> <span class="cm-variable">require</span>(<span class="cm-string">"docpad"</span>).<span class="cm-property">createInstance</span>({});</pre><pre>};</pre><pre> </pre><pre><span class="cm-keyword">var</span> <span class="cm-variable">archiveer</span> = <span class="cm-keyword">function</span> <span class="cm-variable">archiveer</span>(<span class="cm-def">soort</span>) {</pre><pre>  <span class="cm-keyword">var</span> <span class="cm-def">bestanden</span> = <span class="cm-variable">Array</span>.<span class="cm-property">prototype</span>.<span class="cm-property">slice</span>.<span class="cm-property">call</span>(<span class="cm-variable-2">arguments</span>, <span class="cm-number">1</span>);</pre><pre>  <span class="cm-keyword">return</span> <span class="cm-keyword">function</span>() {</pre><pre>    <span class="cm-keyword">switch</span> (<span class="cm-variable-2">arguments</span>.<span class="cm-property">length</span>) {</pre><pre>      </pre><pre>      <span class="cm-keyword">default</span>:</pre><pre>        (<span class="cm-keyword">function</span>() { <span class="cm-keyword">throw</span> <span class="cm-variable">Error</span>(<span class="cm-string">"Invalid arity"</span>); })()</pre><pre>    };</pre><pre>    <span class="cm-keyword">return</span> <span class="cm-variable">void</span>(<span class="cm-number">0</span>);</pre><pre>  };</pre><pre>};</pre><pre> </pre><pre><span class="cm-keyword">var</span> <span class="cm-variable">uploadFtp</span> = <span class="cm-keyword">function</span> <span class="cm-variable">uploadFtp</span>() {</pre><pre>  <span class="cm-string">"Hiermee uploaden we bestanden naar een remote FTP van een server."</span>;</pre><pre>  <span class="cm-keyword">return</span> (<span class="cm-keyword">function</span>() {</pre><pre>    <span class="cm-keyword">var</span> <span class="cm-def">local</span> = <span class="cm-string">"boo.txt"</span>;</pre><pre>    <span class="cm-keyword">var</span> <span class="cm-def">remote</span> = <span class="cm-string">"boo.remote-copy.txt"</span>;</pre><pre>    <span class="cm-keyword">var</span> <span class="cm-def">client</span> = <span class="cm-variable">require</span>(<span class="cm-string">"ftp"</span>);</pre><pre>    <span class="cm-keyword">return</span> (<span class="cm-keyword">function</span>() {</pre><pre>      <span class="cm-keyword">return</span> <span class="cm-variable">client</span>.<span class="cm-property">put</span>(<span class="cm-variable">local</span>, <span class="cm-variable">remote</span>, (<span class="cm-keyword">function</span>() {</pre><pre>      <span class="cm-keyword">try</span> {</pre><pre>        <span class="cm-keyword">return</span> <span class="cm-variable">raise</span>(<span class="cm-variable">exception</span>);</pre><pre>      } <span class="cm-keyword">catch</span> (<span class="cm-def">error</span>) {</pre><pre>        <span class="cm-keyword">return</span> <span class="cm-variable">recover</span>(<span class="cm-variable-2">error</span>);</pre><pre>      } <span class="cm-keyword">finally</span> {</pre><pre>        <span class="cm-keyword">return</span> <span class="cm-variable">c</span>.<span class="cm-property">end</span>();</pre><pre>      }})(), <span class="cm-variable">c</span>.<span class="cm-property">connect</span>());</pre><pre>    })();</pre><pre>  })();</pre><pre>};</pre><pre> </pre><pre><span class="cm-keyword">var</span> <span class="cm-variable">dirp</span> = <span class="cm-keyword">function</span> <span class="cm-variable">dirp</span>(<span class="cm-def">pad</span>, <span class="cm-def">extensie</span>) {</pre><pre>  <span class="cm-string">"Doorloop recursief een mappenstructuur en\n  geef een stream API van bestanden retour."</span>;</pre><pre>  <span class="cm-keyword">return</span> (<span class="cm-keyword">function</span>() {</pre><pre>    <span class="cm-keyword">var</span> <span class="cm-def">readdirp</span> = <span class="cm-variable">require</span>(<span class="cm-string">"readdirp"</span>);</pre><pre>    <span class="cm-keyword">var</span> <span class="cm-def">es</span> = <span class="cm-variable">require</span>(<span class="cm-string">"event-stream"</span>);</pre><pre>    <span class="cm-keyword">var</span> <span class="cm-def">options</span> = {</pre><pre>      <span class="cm-string">"root"</span>: <span class="cm-variable">pad</span>,</pre><pre>      <span class="cm-string">"fileFilter"</span>: <span class="cm-variable">extensie</span></pre><pre>    };</pre><pre>    <span class="cm-keyword">var</span> <span class="cm-def">stream</span> = <span class="cm-variable-2">readdirp</span>(<span class="cm-variable-2">options</span>);</pre><pre>    <span class="cm-keyword">return</span> <span class="cm-variable">to</span>(<span class="cm-variable-2">stream</span>(<span class="cm-variable">on</span>, <span class="cm-string">"warn"</span>, <span class="cm-keyword">function</span>(<span class="cm-def">error</span>) {</pre><pre>      <span class="cm-keyword">return</span> (<span class="cm-keyword">function</span>() {</pre><pre>      <span class="cm-keyword">try</span> {</pre><pre>        <span class="cm-keyword">return</span> <span class="cm-variable">raise</span>(<span class="cm-variable">exception</span>);</pre><pre>      } <span class="cm-keyword">catch</span> (<span class="cm-def">error</span>) {</pre><pre>        <span class="cm-keyword">return</span> <span class="cm-variable">console</span>.<span class="cm-property">warn</span>(<span class="cm-string">""</span> + <span class="cm-string">"Non-fatal error: "</span> + <span class="cm-variable-2">error</span>);</pre><pre>      }})();</pre><pre>    }), <span class="cm-variable">on</span>(<span class="cm-string">"error"</span>, <span class="cm-keyword">function</span>(<span class="cm-def">error</span>) {</pre><pre>      <span class="cm-keyword">return</span> (<span class="cm-keyword">function</span>() {</pre><pre>      <span class="cm-keyword">try</span> {</pre><pre>        <span class="cm-keyword">return</span> <span class="cm-variable">raise</span>(<span class="cm-variable">exception</span>);</pre><pre>      } <span class="cm-keyword">catch</span> (<span class="cm-def">error</span>) {</pre><pre>        <span class="cm-keyword">return</span> <span class="cm-variable">console</span>.<span class="cm-property">error</span>(<span class="cm-string">""</span> + <span class="cm-string">"Fatal: "</span> + <span class="cm-variable-2">error</span>);</pre><pre>      }})();</pre><pre>    }), <span class="cm-variable">pipe</span>(<span class="cm-variable-2">es</span>.<span class="cm-property">mapSync</span>(<span class="cm-keyword">function</span>(<span class="cm-def">entry</span>) {</pre></div></div></div></div></div></div></div></div>
+    <script src="./Wisp playground1_files/app.js"></script>
+  
+
+</body></html>

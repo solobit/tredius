@@ -1,0 +1,28 @@
+coffeescript ->
+
+    embedVideo = (video) ->
+        videoEmbedCode = video.html
+        document.getElementById("laatste").innerHTML = unescape(video.html)
+    
+    latestVideo = (videos) ->
+        videoUrl = videos[0].url
+        loadScript oEmbedUrl + "?url=" + 
+        encodeURIComponent(videoUrl) + 
+        "&callback=" + oEmbedCallback + 
+        "&badge=0&title=0&byline=0&portrait=0&color=e31741&width=300"
+    
+    loadScript = (url) ->
+        js = document.createElement("script")
+        js.setAttribute "type", "text/javascript"
+        js.setAttribute "src", url
+        document.getElementsByTagName("head").item(0).appendChild js
+        vimeoUserName = "15193529"
+        videoCallback = "latestVideo"
+        oEmbedCallback = "embedVideo"
+        videosUrl = "http://vimeo.com/api/v2/" 
+        + vimeoUserName 
+        + "/videos.json?callback=" 
+        + videoCallback
+        oEmbedUrl = "http://vimeo.com/api/oembed.json"
+    
+    window.onload = -> loadScript videosUrl

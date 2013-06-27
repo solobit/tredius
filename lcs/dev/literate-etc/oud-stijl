@@ -1,0 +1,101 @@
+
+
+
+Introspection API
+
+Stylus supports an introspection API. This allows mixins and functions
+to reflect relative to the caller, etc.
+
+JavaScript API
+
+Simply require the module, and call render() with the given string of
+Stylus code, and (optional) options object.
+
+Frameworks utilizing Stylus should pass the filename option to provide
+better error reporting.
+
+```js
+var stylus = require('stylus');
+
+stylus.render(str, { filename: 'nesting.css' }, function(err, css){
+  if (err) throw err;
+  console.log(css);
+});
+```
+
+# Stijl en vormgeving
+
+De identiteit van een bedrijf is de organisatie zelf, de mensen die haar
+bemannen en de taak (missie) en het gedachtegoed (visie) van het bedrijf
+realiseren. Met de 'coorporate identity' bedoelt men vaak, in marketing
+en reclame, het concept en de 'vormgeving'. Vaak zijn kleur, logo,
+lettertype alles van visueel en expliciet, tot subtiel en impliciet, wat
+als samenhangend geheel een indruk van de identiteit, en hopelijk
+herkenning (en verwantschap) moet bewerkstelligen.
+
+Alleen die zaken van stijlistische aard komen in dit document
+vooralsnog. De 'manning', naam, adres enzovoorts staan in
+docpad.litcoffee
+
+
+> NOOT: dus wat we gaan krijgen is een set standaard
+> configuratiebestanden welke samenkomen en, afhankelijk van gebruik, al
+> dan niet naar de global (??) docpad geexporteert moeten worden
+
+
+Laten we proberen er een aantal op standaard (eigen conventies) wijze
+vaststellen. De JavaScript die uit dit document komt, is namelijk direct
+te gebruiken samen met 'Stylus' onze stylesheet pre-processor. Deze
+maakt ons leven zoveel makkelijker.
+
+
+### Functie
+
+
+stylus  = require 'stylus'
+log     = console.log
+
+> TODO: vervangen met 1, 2 documenten
+
+str = '''
+    body {
+        color white
+        margin 0
+        box-shadow(5px)
+    }
+'''
+
+sstr = """
+    body { }
+
+    
+
+"""
+
+
+Gebruik de functie `render` voor het transformeren van een string `str`
+stylus als eerste argument
+
+    stylus.render str, { 
+
+Vervolgens het tweede argument: een object met opties, in dit geval
+minimaal de bestandsnaam voor uitvoer
+
+        filename: 'huisstijl.css'
+
+Tot slot een closure in de vorm van een functie, met als eerste argument
+een object voor foutafhandeling `err` en `css` voor de callback van deze
+functie in de ReadEvalPrint loop.
+
+     }, (err, css) ->
+
+Op het vroegst mogelijke moment een fout teruggeven.
+
+        throw err if err
+
+Vervolgens....
+
+        console.log css
+
+    log stylus
+

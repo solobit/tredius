@@ -1,0 +1,51 @@
+
+winston = require("winston")
+
+# Winston config object
+config =
+    levels:
+        info:       0
+        verbose:    1
+        success:    2
+        data:       3
+        warning:    4
+        debug:      5
+        failure:    6
+
+    colors:
+        info:       "magenta"
+        verbose:    "cyan"
+        success:    "green"
+        data:       "grey"
+        warning:    "yellow"
+        debug:      "blue"
+        failure:    "red"
+
+# Log tool instance of Winston
+logger = module.exports = new (winston.Logger)(
+    transports: [new (winston.transports.Console)(colorize: true)]
+    levels: config.levels
+    colors: config.colors
+)
+
+# System processes
+{exec} = require "child_process"
+
+
+
+task 'unmangle', 'Create a docpad js/coffee file from annotaded source', ->
+    exec "coffee -p -b config/docpad.litcoffee > docpad.js && js2coffee docpad.js > docpad.coffee", (err, output) ->
+        (logger.failure 'Something went wrong during conversion from .litcoffee to .js'; throw err) if err
+
+        logger.success "Written docpad.js and stipped .coffee files from .litcoffee annotated source"
+
+task 'dpruns', 'Create a working docpad environment from literate coffeescript cleanly', ->
+    exec "docpad run", (err, output) ->
+        (logger.failure "Failed to properly run docpad instance"; throw err) if err
+        logger.success "Running docpad server instance..."
+
+
+
+#task 'mkinit', 'Initialize a clean environment to build and backup files', ->
+#    exec "mkdir data/{tmp,backup,config} && docpad clean && cake untangle && docpad generate && mv docpad.js docpad.previous data/backup", (err, output) ->
+

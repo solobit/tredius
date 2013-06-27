@@ -1,0 +1,29 @@
+---
+layout: standaard
+titel: Twinfield
+subtitel: Login
+kenmerk: twinfield
+bannier: /media/afbeeldingen/bg_bruin.gif
+---
+
+form(method="post", action="https://login.twinfield.com/logon/default.aspx")
+ul
+  li
+    label(for='userid') Gebruikersnaam:
+    input#userid(type="text", name="txtUserID")
+  li
+    label(for='wachtwoord') Wachtwoord:
+    input#wachtwoord(type="password", name="txtPassword")
+  li
+    label(for='bedrijfsnr') Administratie:
+    input#bedrijfsnr(type="text", name="txtCompanyID")
+  li
+    input#inloggen(type="submit", name='btnLogin', value="Login")
+  li
+    script
+      qs();
+      if (qsParm['msg']) {
+        document.write(translateCode(qsParm['msg']))
+      };
+
+

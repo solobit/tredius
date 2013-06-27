@@ -1,0 +1,49 @@
+{
+  "name": "tredius-site",
+  "version": "0.0.6",
+  "description": "Tredius coorporate public web portal",
+  "main": "docpad.coffee",
+  "private": true,
+  "preferGlobal": false,
+  "dependencies": {
+    "docpad": "6.x",
+    "docpad-plugin-cachr": "2.x",
+    "docpad-plugin-coffeekup": "2.x",
+    "docpad-plugin-coffeescript": "2.x",
+    "docpad-plugin-cson": "2.x",
+    "docpad-plugin-marked": "2.x",
+    "docpad-plugin-partials": "2.x",
+    "docpad-plugin-services": "2.x",
+    "docpad-plugin-stylus": "2.x",
+    "docpad-plugin-text": "2.x",
+    "docpad-plugin-livereload": "2.x"
+  },
+  "scripts": {
+    "test": "cake test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com/solobit/tredius.git"
+  },
+  "author": "Solobit",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "185909b228cc42fa2e409a49dc1e6587dd3adf4a",
+  "directories": {
+    "doc": "docs"
+  },
+  "keywords": [
+    "accountancy",
+    "belastingen",
+    "pensioen",
+    "adviseurs",
+    "detachering",
+    "loonadminstratie",
+    "juridische",
+    "diensten"
+  ],
+  "devDependencies": {
+    "ender": "~1.0.2",
+    "cli-table": "~0.2.0"
+  }
+}

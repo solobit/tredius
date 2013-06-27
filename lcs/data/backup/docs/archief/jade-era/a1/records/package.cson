@@ -1,0 +1,86 @@
+#!/usr/bin/env coffee
+
+pkg = {
+
+  name: "tredius"
+  version: "0.0.2"
+  homepage: "http://www.tredius.nl"
+  description: "Tredius web site en server architectuur."
+
+  preferGlobal: false
+  private: true
+  analyze: false
+
+  author:
+    name: "Supersymmetry"
+    email: "node@hack.co.nl"
+    url: "solobit.net"
+
+  contributors: [
+    name: "Rob Jentzema"
+    email: "rob.jentzema@googlemail.com"
+  ,
+    name: " Thimo Smit"
+    email: "info@edberry.net"
+   ]
+  bugs:
+    email: "rob.jentzema@gmail.com"
+    url: "https://bitbucket.org/tredius/site.main.portal/issues"
+
+  directories:
+    ###
+    doc: "./doc"
+    man: "./man"
+    lib: "./lib"
+    bin: "./bin"
+    src: "./src"
+    ###
+
+  scripts:
+    ###
+    test: "node ./test/run.js && tap test/tap/*.js"
+    start: "docpad run"
+    prepublish: "npm prune ; rm -rf test/*/*/node_modules ; make -j4 doc"
+    dumpconf: "env | grep npm | sort | uniq"
+    echo: "node bin/npm-cli.js"
+    ###
+
+  repository:
+    type: "git"
+    url: "https://bitbucket.org/tredius/site.main.portal.git"
+
+  dependencies:
+    docpad: "*"
+    "docpad-plugin-jade": "2.0.x"
+    "docpad-plugin-marked": "2.1.x"
+    "docpad-plugin-stylus": "2.2.x"
+    "docpad-plugin-partials": "2.3.x"
+    "docpad-plugin-html2jade": "latest"
+    "docpad-plugin-coffee": "2.0.x"
+
+  optionalDependencies:
+    "docpad-plugin-eco": "2.0.1"
+
+  devDependencies:
+    stylus: "latest"
+    jade: "latest"
+    marked: "latest"
+    "coffee-script": "latest"
+    ###
+    grunt: "latest"
+    "grunt-modernizr": "latest"
+    "grunt-jam": "latest"
+    jam: "latest"
+    vows: "0.5.x"
+    request: "2.1.x"
+    faker2: "0.5.x"
+    ender: "latest"
+    browserify: "latest"
+    ###
+
+  bundledDependencies: [ "union", "ecstatic" ]
+  license: "MIT"
+  engines:
+    node: ">=0.6"
+}
+

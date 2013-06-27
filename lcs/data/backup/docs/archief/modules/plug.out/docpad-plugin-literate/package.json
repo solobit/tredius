@@ -1,0 +1,30 @@
+{
+  "name": "docpad-plugin-literate",
+  "version": "0.0.1",
+  "description": "Literate programming, documentation generation and publishing support for docpad",
+  "main": "literate.plugin.coffee",
+  "scripts": {
+    "test": "literate.test.coffee"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/solobit/docpad-plugin-pack"
+  },
+  "keywords": [
+    "docpad",
+    "docpad plugin",
+    "literate",
+    "LP",
+    "documentation",
+    "docco",
+    "reference",
+    "API",
+    "manual",
+    "publish"
+  ],
+  "author": "Rob Jentzema <Solobit.net>",
+  "license": "BSD",
+  "dependencies": {
+    "docco": "~0.6.2"
+  }
+}

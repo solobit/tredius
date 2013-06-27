@@ -1,0 +1,225 @@
+
+uitklappen()
+    opacity 1
+    overflow visible
+    visibility visible
+
+// Hoofdmenu
+.NavigatieBalk
+
+    // Container
+    position relative
+    z-index 500
+    clear both
+    width 100%
+    height 37px
+    border 1px solid #eee
+    border-bottom 2px solid #ccc
+    background linear-gradient(top, #fefefe 0%, #ededed 100%)
+    border-radius(3px)
+
+    // Max breedte 940px
+    .NavHoofdMenu--verbreden > div
+        width 100%
+
+    // Submenu's (kolommen)
+    .NavHoofdMenu-groep
+        width 200px
+        float left
+        margin 10px 0 10px 10px
+
+    // Standaard stijlen
+    ul, li, a, div, p, h3, h4, h5
+        margin 0
+        padding 0
+        font-size 13px
+        font-family 'Open Sans', sans-serif
+    a
+        text-decoration none
+
+    li
+        list-style none
+
+    // Reset clearfix
+    &:before,
+    &:after
+        content ''
+        clear both
+
+    > li > ul li.NavHoofdMenu--openen:hover > ul
+        top -11px
+
+    > li
+        position relative
+        display block
+        float left
+        height 37px
+        border-right 1px dotted #ccc
+
+        // Volledige breedte
+        &.NavHoofdMenu--verbreden
+            position static
+
+        // Uitvouwbaar gedeelte
+        &.NavHoofdMenu--openen:hover > div,
+        &.NavHoofdMenu--openen:hover > ul,
+        > ul li.NavHoofdMenu--openen:hover > ul,
+        &.NavHoofdMenu--openen:hover > a:focus
+            uitklappen()
+
+        &.NavHoofdMenu--openen:hover > a:after,
+        &.NavHoofdMenu--openen:hover > a:focus:after
+            position absolute
+            content ''
+            top 2px
+            left 0
+            width 100%
+            height 37px
+            background transparent url('../media/afbeeldingen/menu_pijl.png') no-repeat bottom center
+
+            &:hover > a
+                z-index 650
+
+        > ul,
+        > ul li > ul
+            width 160px
+            padding 10px
+
+        > ul li
+            position relative
+
+        > ul
+            position absolute
+            left 100%
+
+        > ul
+            a
+                display block
+                text-transform capitalize
+                line-height 30px
+                border-bottom 1px dotted #e1e1e1
+                padding-left 10px
+                font-family 'Open Sans', sans-serif
+                font-size 13px
+                color #363636
+                text-shadow 0 1px 1px white
+                transition color .15s ease-in
+
+            li:last-child a
+                border none
+
+            a:hover
+                color #e31741
+
+        > a
+            position relative
+            text-transform capitalize
+            z-index 550
+            display block
+            padding 0 30px 0 0
+            line-height 34px
+            font-family 'Dosis', sans-serif
+            font-weight 500
+            font-size 18px
+            color #525252
+            text-shadow 0 1px 1px white
+            transition color .15s ease-in, background-image .2s linear .15s
+
+            &:hover
+                color #000
+
+            &:active
+                color #525252
+                transition(color 1s)
+
+        > div,
+        > ul,
+        > ul li > ul
+            position absolute
+            z-index 600
+            padding 0
+            top 38px
+            left -1px
+            opacity 0
+            overflow hidden
+            visibility hidden
+            background-color #fff
+            border-top 1px solid #e0e0e0
+            box-shadow 0 3px 6px 0px rgba(0, 0, 0, 0.25), inset 0 1px 1px 1px rgba(255, 255, 255, 0.7)
+            border-bottom-right-radius 3px
+            border-bottom-left-radius 3px
+
+// Inhoud
+.NavHoofdMenu-blok
+
+    cursor default
+
+    // Koppen
+    h3
+        font-family 'Open Sans', sans-serif
+        font-style normal
+        font-size 14px
+        color #e31741
+        margin-top 10px
+        margin-right 0
+        text-align left
+        padding-bottom 10px
+        padding-left 5px
+        font-weight 400
+        text-transform uppercase
+    p
+        padding 10px 0
+        line-height 18px
+        color #333
+    a
+        color zwart
+        text-transform capitalize
+
+        &:hover
+            color #e31741
+
+        &:before
+            content "» "
+
+    // Snelkoppelingen lijstitems
+    .NavHoofdMenu-lijst
+        a
+            display block
+            padding 5px 5px
+            line-height 30px
+            border-bottom 1px dotted #e1e1e1
+            &:hover
+                text-decoration none
+                cursor pointer
+
+            &:before
+                content "» "
+
+        li:last-child a
+            border none
+
+// Menu klasse
+.NavigatieMenu
+    border 1px solid #fff
+    border-bottom 2px solid #fff
+    background linear-gradient(top, #fff 0%, #fff 100%)
+    > li
+        border-right 1px dotted #fff
+        > a
+            color #b88d74
+            text-shadow 0 1px 1px #fff
+            &:hover
+                color #e31741
+            &:active
+                color #b88d74
+
+.NavHoofdMenu--versmallen li > a
+    &:before
+        content "» "
+
+// Media queries ?
+@media screen and (min-width: 940px)
+
+    .NavigatieBalk .NavHoofdMenu--verbreden .NavHoofdMenu-groep
+        width 22.8%
+        margin 1.3% 0 1.3% 1.3%

@@ -1,0 +1,92 @@
+
+# Dependencies
+winston = require 'winston'
+{exec}  = require "child_process"
+path    = require 'path'
+css     = require 'term-css'
+fs      = require 'fs'
+
+LOG_FILE = 'data/logs/cake.log'
+
+# Synchronous I/O (really, its ok to use it here!)
+readCssFile = fs.readFileSync 'extra/tools/cli/ansi/css-style/stylesheet.css', 'utf8'
+
+# Uses that CSS file to style terminal elements by name of hash keys
+styler      = css.compile "Some {name}", readCssFile
+
+# First use old log method, later override the function variable
+log  = (msg) -> console.log "sets» " + msg
+
+# Member variables
+# Hash objects of key/value pairs
+
+file = {
+    describe: "Key/value pairs of member in this file"
+    basename: path.basename(__filename)
+    longname: __filename
+    location: __dirname
+}
+log styler file
+
+log "Running process, machine and system information"
+ps = {
+    ver:    process.version
+    name:   process.title
+    os:     process.platform
+    march:  process.arch
+}
+
+log "New logger configuration object with colors and levels for output"
+cfgLogger =
+    levels: { base: 0, fact: 1, done: 2, note: 3, warn: 4, task: 5, fail: 6 }
+    colors: { base: "magenta", fact: "cyan", done: "green", note: "grey", warn: "yellow", task: "blue", fail: "red"}
+
+log "Initialize a new logger instance and transport to file and console"
+log = new (winston.Logger)(
+
+    levels:     cfgLogger.levels
+
+    colors:     cfgLogger.colors
+
+    transports: [
+                new (winston.transports.Console)(
+                    colorize: true
+                    level: 'base'
+                    )
+                new (winston.transports.File)(
+                    filename: LOG_FILE
+                    level: 'base'
+                    )
+                ]
+)
+
+
+log.base "Using new logger and using this from now on..."
+log.done "Loading member build-time variables"
+
+log.fact "Running file #{file.basename} as subprocess of #{ps.name} #{ps.ver}"
+log.fact "Using '#{ps.os}' as your host platform and #{ps.march} CPU architecture\n"
+
+#
+# Tasks
+#
+
+task 'hello'    ,   'a very hello-world to you', -> run @.name
+task 'clean'    ,   'a very hello-world to you', -> run @.name
+task 'static'   ,   'a very hello-world to you', -> run @.name
+task 'lint'     ,   'a very hello-world to you', -> run @.name
+task 'test'     ,   'a very hello-world to you', -> run @.name
+task 'help'     ,   'a very hello-world to you', -> run @.name
+task 'repl'     ,   'a very hello-world to you', -> run @.name
+task 'debug'    ,   'a very hello-world to you', -> run @.name
+
+run = (name) -> log.task "Started task '#{name}' at #{new Date()}"
+
+task 'unmangle', 'Create a docpad js/coffee file from annotaded source', ->
+    exec "coffee -p -b config/docpad.litcoffee > docpad.js && js2coffee docpad.js > docpad.coffee", (err, output) ->
+        (log.fail 'Something went wrong during conversion from .litcoffee to .js'; throw err) if err
+        log.done "Written docpad.js and stipped .coffee files from .litcoffee annotated source"
+
+
+
+

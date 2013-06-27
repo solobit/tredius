@@ -1,0 +1,259 @@
+!!!5
+//if lt IE 7
+  html(lang="nl", class="no-js ie6")
+//if IE 7
+  html(lang="nl", class="no-js ie7")
+//if IE 8
+  html(lang="en", class="no-js ie8")
+//if IE 9
+  html(lang="nl", class="no-js ie9")
+//if (gt IE 9) | !(IE)
+html(lang='nl', version="HTML+RDFa 1.1")
+
+
+  head(prefix="og: http://ogp.me/ns#")
+
+    //- Document koptekst meta-gegevens
+    meta(http-equiv="content-type", content="text/html; charset=utf-8")
+    meta(name='rivist-after', content='1 days')
+    meta(name='description', content='geefOmschrijving()')
+    meta(name='keywords', content='geefSleutelwoorden()')
+    meta(name='author', content='site.auteur')
+    meta(name='Rating', content='General')
+
+    title geefTitel()
+
+    //-
+      The Open Graph protocol enables any web page to become a rich object in a
+      social graph. For instance, this is used on Facebook to allow any web page
+      to have the same functionality as any other object on Facebook.
+      Position: Document-Head
+
+    meta(property="og:title", content="document.titel")
+    meta(property="og:type", content="document.type")
+    meta(property="og:url", content="document.url")
+    meta(property="og:image", content="org.merknamen.bedrijfslogo")
+
+    //- Site weergave
+    meta(name="viewport", content="width=device-width, initial-scale=0.7")
+
+    //- Icoontjes (overigen nog toevoegen)
+    link(rel='shortcut icon', type='image/png', href='/media/afbeeldingen/favicon.png')
+
+    //- Fonts
+    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Dosis:400,500,600|Open+Sans:400italic,600italic,700italic,400,600,700"')
+
+    //- Stijlen komen voor dat scripts aan de beurt zijn, zodat deze de pijpleiding niet blokkeren
+    //-!= getBlock('styles').add(['/stijlen/algemeen.css','/stijlen/circlemenu.css']).toHTML() 
+
+    //- Oude browsers ondersteunen terugwerkende kracht
+    script(src='/assets/modernizr-custom.js')
+
+    //- jQuery voor beste ondersteuning in de kop laden
+    script(src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")
+    script(src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js")
+    //- idem
+    script(src="/assets/jquery.colorbox.js")
+
+    //-
+
+      //- Site and customer / visitor metrics and analytics
+      //-script(src='/assets/analytics.js')
+      //-script(src='/assets/mixpanel.js')
+      //- Bibliotheek met code functies
+      //-script(src='/assets/ender.min.js')
+
+
+    //- Docpad toevoegen als generator plus plugins initialiseren
+    //!= getBlock('meta').toHTML()
+
+
+    //-
+      ## Semantics
+
+      Many applications, especially search engines, can benefit greatly from
+      direct access to this structured data. On-page markup enables search engines
+      to understand the information on web pages and provide richer search results
+      in order to make it easier for users to find relevant information on the
+      web. Markup can also enable new tools and applications that make use of the
+      structure.
+
+      gr      = GoodRelations: The Professional Web Vocabulary for E-Commerce
+      rdfs    = Resource Description Framework (RDF) metadata data model
+      schema  = Schema.org markup in ways recognized by major search providers
+      foaf    = integrates social-, representational,- and information networks
+      pto     = ca. 300,000 precise definitions for types of product or services
+      vcard   = file format standard for electronic business cards
+
+    //-
+
+      ### Prefix declarations
+      #### Mixing vocabularies in microformats
+
+  body(
+    role="document"
+    typeof="geefEntiteit()"
+    xmlns:s="http://schema.org/"
+    xmlns:gr="http://purl.org/goodrelations/v1#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:vcard="http://www.w3.org/2006/vcard/ns#"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:v="http://rdf.data-vocabulary.org/#"
+    xmlns:pto="http://www.productontology.org/id/"
+    xmlns:wn="http://xmlns.com/wordnet/1.6/"
+  )
+
+
+    //- FIXME
+    //- Melding cookies impliciet akkoord
+    //.cookieWarningBox
+    :coffeescript
+      $( "#position3" ).position
+        my: "right center",
+        at: "right bottom",
+        of: "#targetElement"
+
+    //- Melding voor oudere browsers
+    //if lt IE 7
+      p.chromeframe
+        | Uw browser is
+        em antiek!
+      a(href="http://browsehappy.com/") Upgrade
+      span de browser of
+      a(href="http://www.google.nl/chromeframe/?redirect=true")
+        | installeer Google Chrome Frame
+      span om deze site te ervaren.
+
+    //-
+      FIXME!
+      //- Meldingen voor ontbrekende CSS3 functionaliteit Modernizr
+      .support-note
+        span.no-csstransforms CSS transforms are not supported in your browser
+        span.no-csstransforms3d CSS 3D transforms are not supported in your browser
+        span.no-csstransitions CSS transitions are not supported in your browser
+
+
+    //- Bovenste rij: kopelementen van de webpagina
+    section#paginakop
+
+      //- De entiteit 'Tredius' als bedrijf(snaam)
+      header(itemscope, itemtype="gr:BusinessEntity", about="#company")
+
+        //- Rechtspersoon
+        div(property="gr:legalName", content="Tredius")
+
+        //-
+          Naar startpagina (FOAF)
+
+          FOAF (Friend of a Friend) is ontwikkeld als een machine-leesbare
+          ontologie, die personen beschrijft, de relaties met andere personen en
+          voorwerpen, en de interacties hiervan. FOAF is een beschrijvende
+          informatieterminologie (vocabulary) die gebruik maakt van Resource
+          Description Framework (RDF) en OWL. FOAF integreert drie soorten
+          netwerkwerken: sociale netwerken, representatienetwerken en
+          informatienetwerken.
+
+        a(
+          href='site.url'
+          alt='Terug naar startpagina'
+          rel="foaf:page"
+          resource="site.url"
+          )
+
+          //- Bedrijfslogo
+          img(
+           width='160'
+           height='59'
+           rel="foaf:logo"
+           title='site.naam'
+           alt='Ga terug naar site.naam'
+           src='org.merknamen.bedrijfslogo'
+           resource="org.merknamen.bedrijfslogo"
+           )
+
+
+      //- Login extern
+      aside
+        a.login.knop(href='https://login.twinfield.com/') Inloggen
+
+      //- Horizontaal menu
+      //include navigatie
+
+    //- Hoofdbannier breede band met afbeeldingen bovenaan
+    header#bannier(
+      role='banner'
+      aria-labelledby="label_titel"
+      style="background: url('document.bannier') repeat-x;"
+      )
+      h1#label_titel(title="Tredius")
+
+      //- Web pagina extra informatie van de context attributen
+      #menucontext(itemscope, itemtype="s:WebPage")
+
+        .pagina-info
+
+          //- Build-time ingevoegde context
+          h1#pagina_titel(itemprop="name")             document.titel
+          h2#pagina_subtitel(itemprop="about")         document.subtitel
+          p(itemprop="description")                    document.samenvatting
+
+          //- Hiermee voegen we bijv. extra knoppen in de kop toe
+          //-p!=                           document.extra
+
+          meta(itemprop="keywords", content="document.labels")
+          meta(itemprop="creator", content="org.naam")
+
+        //- Satellietmenu
+        //-if document.menu
+          //-include satelliet
+
+
+    //- Inhoud
+    section#pagina(role="main")
+
+      //- Unieke identifier voor inhoud per document
+      article.inhoud(id='document.kenmerk')
+
+        //- Alles doorvoeren
+        //!= content
+
+    //- Multimedia
+    //!= partial('multimedia', { 'video1': "55429476", 'video2': "55430952" } )
+
+    //- Snelkoppelingen
+    //include voetblok
+
+
+  //- Alle uitgestelde scripts die niet in het hoofd geladen hoeven te worden
+  //-!= getBlock('scripts').add(['/assets/jquery.hypher.js','/assets/jquery.revolver.min.js','/assets/jquery.cookie.js','/assets/hyphenate-patern-nl.min.js','/app.js','/assets/jquery.circlemenu.js','/assets/cross-domain.js']).toHTML()
+
+  //-
+    , '/assets/cookie-alert.js'
+    script
+      document.write(unescape('%3Cscript type="text/javascript" src="'+document.location.protocol+'//counter.goingup.com/js/tracker.js?st=bp73vpv&amp;b=5"%3E%3C/script%3E'));
+
+    noscript
+      a(href="http://www.goingup.com", title="free seo tool")
+        img(src="http://counter.goingup.com/default.php?st=bp73vpv&amp;b=5", border="0", alt="free seo tool")
+
+
+//-
+
+  script
+    analytics.identify('019mr8mf4r', {
+    name             : 'Achilles',
+    email            : 'achilles@segment.io',
+    subscriptionPlan : 'Premium',
+    friendCount      : 29
+    });
+
+
+  //-
+    Triggert tevens socket.io voor livereload
+    != getBlock('scripts').add(['/assets/jquery.flexslider.js']).toHTML()
+    '/assets/analytics-segmentio.js'
+    script(type='text/javascript', src='/assets/menu.js?version=1', charset='utf-8')
+    script(src='//eightmedia.github.com/hammer.js/hammer.js')
+    Socket.io enzovoorts andere plugins ook
+

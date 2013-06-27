@@ -1,0 +1,295 @@
+
+:coffeescript
+  # Negeren van klikken op links zonder URL (#)
+  $ -> $("li > a[href='#']").on 'click', (e) -> e.preventDefault
+
+
+ul.meganizr.menu-klasse(
+  role="menubar"
+  itemscope
+  itemtype="s:SiteNavigationElement"
+  )
+
+  //-
+    ===========================
+    Home
+    ===========================
+  li(
+    role="menuitem"
+    aria-haspopup="false"
+    aria-labelledby="menu_home"
+    )
+    a(
+      href='/index.html'
+      tabindex='1'
+      id="menu_home"
+      )
+      | HOME
+      //- --
+
+
+  //-
+    ===========================
+    Wie zijn we
+    ===========================
+
+  li(
+    role="menuitem"
+    aria-haspopup="false"
+    aria-labelledby="menu_wiezijnwe"
+    )
+    a(
+      href='/overtuiging.html'
+      tabindex='2'
+      id="menu_wiezijnwe"
+      )
+      | WIE ZIJN WE
+      //- ---------
+
+
+
+  //-
+    ===========================
+    Onze diensten
+    ===========================
+
+  li.menu-uitvouwen.menu-breedst(
+    role="menuitem"
+    aria-haspopup="true"
+    aria-labelledby="menu_onzediensten"
+    )
+    a(
+      href='#'
+      tabindex='2'
+      id="menu_onzediensten"
+      )
+      | ONZE DIENSTEN
+      //- -----------
+
+    //- Uitvouwen diensten
+    .menu-inhoud
+
+      //- 1 Belasting
+      .menu-groep
+
+        h3#menu_belasting(role="menuitem") BELASTING
+
+        ul.menu-links(role="menu")
+          li
+            a(role="menuitem", href='/diensten/belastingadvies.html', tabindex='3') Belastingadvies
+          li
+            a(role="menuitem", href='/diensten/pensioen.html', tabindex='3') Pensioen
+          li
+            a(role="menuitem", href='/diensten/estateplanning.html', tabindex='4') Estate Planning
+
+      //- 2 Accountancy
+      .menu-groep
+
+        h3(role="menuitem") ACCOUNTANCY
+
+        ul.menu-links(role="menu")
+          li
+            a(role="menuitem", href='/diensten/accountancy.html', tabindex='5') Accountancy
+          li
+            a(role="menuitem", href='/diensten/salaris-en-personeel.html', tabindex='6') Salaris &amp; Personeelszaken
+          li &nbsp;
+
+      //- 3 Juridisch
+      .menu-groep
+
+        h3(role="menuitem") JURIDISCH
+
+        ul.menu-links(role="menu")
+          li
+            a(role="menuitem", href='/diensten/juridisch-advies.html', tabindex='7') Juridisch Advies
+          li
+            a(role="menuitem", href='/diensten/juridisch-abonnement.html', tabindex='8') Juridisch Abonnement
+          li &nbsp;
+
+      //- 4 Risico en Verzekeringen
+      .menu-groep
+
+        h3(role="menuitem") RISICO- &amp; PENSIOENADVIES
+
+        ul.menu-links(role="menu")
+          li
+            a(role="menuitem", href='/diensten/risicoadvies-en-verzekeringen.html', tabindex='9') Risicoadvies &amp; Verzekeringen
+          li
+            a(role="menuitem", href='/diensten/pensioenadvies.html', tabindex='10') Pensioenadvies
+          li
+            a(role="menuitem", href='/diensten/overstapservice.html', tabindex='11') Schoenendoos Overstapservice
+
+  //-
+    ===========================
+    Detachering
+    ===========================
+
+    li(
+      role="menuitem"
+      aria-haspopup="true"
+      aria-labelledby="menu_detachering"
+      )
+      a(
+        href='/detachering.html'
+        tabindex='11'
+        id="menu_detachering"
+        )
+        | DETACHERING
+        //- ---------
+
+
+  //-
+    ===========================
+    T-Time
+    ===========================
+
+  li.menu-uitvouwen.menu-smal(
+    role="menuitem"
+    aria-haspopup="true"
+    aria-labelledby="menu_ttime"
+    )
+    a(
+      href='/t-time/'
+      tabindex='12'
+      id="menu_ttime"
+      )
+      | T-TIME
+      //- ----
+
+    ul(role="menu")
+      li
+        a(role="menuitem", href='/t-time/#videos', tabindex='14') Tredius vertelt...
+      li
+        a(role="menuitem", href='/t-time/#columns', tabindex='15') Onze columns
+      li
+        a(role="menuitem", href='/t-time/#nieuwsbrief', tabindex='16') Nieuwsbrief
+      li
+        a(role="menuitem", href='/t-time/#specials', tabindex='17') Specials
+
+
+  //-
+    ===========================
+    Werken bij
+    ===========================
+
+  li.menu-uitvouwen.menu-smal(
+    role="menuitem"
+    aria-haspopup="true"
+    aria-labelledby="menu_werkenbij"
+    )
+    a(
+      href='/werken-bij/'
+      tabindex='13'
+      id="menu_werkenbij"
+      )
+      | WERKEN BIJ
+      //- --------
+
+    ul(role="menu")
+      li
+        a(role="menuitem", href='/werken-bij/index.html', tabindex='14') Werken bij Tredius
+      li
+        a(role="menuitem", href='/werken-bij/vacatures.html', tabindex='15') Vacatures
+      li
+        a(role="menuitem", href='/werken-bij/stages.html', tabindex='16') Stages
+      li
+        a(role="menuitem", href='/werken-bij/wie-ben-jij.html', tabindex='17') Wie ben jij?
+
+
+  //-
+    ===========================
+    Vestigingen
+    ===========================
+
+  li.menu-uitvouwen.menu-smal(
+    role="menuitem"
+    aria-haspopup="true"
+    aria-labelledby="menu_vestigingen"
+    )
+    a(
+      href='#'
+      tabindex='18'
+      id="menu_vestigingen"
+      )
+      | VESTIGINGEN
+      //- ---------
+
+    ul(role="menu")
+      li
+        a(href='/vestigingen/alkmaar.html', tabindex='19') Alkmaar
+      li
+        a(href='/vestigingen/haarlem.html', tabindex='20') Haarlem
+      li
+        a(href='/vestigingen/monnickendam.html', tabindex='21') Monnickendam
+      li
+        a(href='/vestigingen/purmerend.html', tabindex='22') Purmerend
+
+
+  //-
+
+  li(
+    role="menuitem"
+    aria-haspopup="false"
+    aria-labelledby="menu_contact"
+    )
+    a(
+      href='/contact.html'
+      tabindex='23'
+      id="menu_contact"
+      )
+      | CONTACT
+
+
+
+
+  //- //- 4
+  //- li.menu-uitvouwen.menu-breedst
+  //-   a(href='#', tabindex='2') T-TIME
+
+  //-   .menu-inhoud
+
+  //-     //- 4A
+  //-     .menu-groep
+  //-       h3 VIDEOS
+  //-       ul.menu-links
+  //-         li
+  //-           a(href='/t-time/videos/1234.html', tabindex='3') » Video 1
+  //-         li
+  //-           a(href='/t-time/videos/1234.html', tabindex='3') » Video 2
+  //-         li
+  //-           a(href='/t-time/videos/1234.html', tabindex='3') » Video 3
+
+  //-     //- 4B
+  //-     .menu-groep
+  //-       h3 COLUMNS
+  //-       ul.menu-links
+  //-         li
+  //-           a(href='/t-time/columns/1234.html', tabindex='3') » Column 1
+  //-         li
+  //-           a(href='/t-time/columns/1234.html', tabindex='3') » Column 2
+  //-         li
+  //-           a(href='/t-time/columns/1234.html', tabindex='3') » Column 3
+
+  //-     //- 4C
+  //-     .menu-groep
+  //-       h3 NIEUWSBRIEF
+  //-       ul.menu-links
+  //-         li
+  //-           a(href='/t-time/columns/1234.html', tabindex='3') » Nieuwsbrief 1
+  //-         li
+  //-           a(href='/t-time/columns/1234.html', tabindex='3') » Nieuwsbrief 2
+  //-         li
+  //-           a(href='/t-time/columns/1234.html', tabindex='3') » Nieuwsbrief 3
+
+  //-     //- 4D
+  //-     .menu-groep
+  //-       h3 SPECIALS
+  //-       ul.menu-links
+  //-         li
+  //-           a(href='/t-time/specials/1234.html', tabindex='3') » Special 1
+  //-         li
+  //-           a(href='/t-time/specials/1234.html', tabindex='3') » Special 2
+  //-         li
+  //-           a(href='/t-time/specials/1234.html', tabindex='3') » Special 3
+
+  //- 5

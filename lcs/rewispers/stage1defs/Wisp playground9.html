@@ -1,0 +1,407 @@
+
+<!-- saved from url=(0028)http://jeditoolkit.com/wisp/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Wisp playground</title>
+    <link rel="stylesheet" href="http://jeditoolkit.com/wisp/support/codemirror.css">
+    <link rel="stylesheet" href="http://jeditoolkit.com/wisp/support/ambiance.css">
+    <script src="./Wisp playground9_files/codemirror-compressed.js"></script>
+    <style>
+      html, body {
+        font-size: 12px;
+        margin: 0;
+        padding: 0;
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-width: 100%;
+        height: 100%;
+        min-height: 100%;
+      }
+
+      #input, #output {
+        width: 50%;
+        float: left;
+      }
+
+      .CodeMirror .CodeMirror-scroll {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+  <a href="https://github.com/gozala/wisp"><img style="z-index: 3; position: absolute; top: 0; right: 0; border: 0;" src="./Wisp playground9_files/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+<script type="text/expamles" id="examples">;; # wisp
+
+; Wisp is homoiconic JS dialect with a clojure syntax, s-expressions and
+; macros. Wisp code compiles to a human readable javascript, which is one
+; of they key differences from clojurescript.
+
+;; ## wisp data structures
+
+;; 1. nil - is just like js undefined with a differenc that it's
+;;    not something can be defined. In fact it's just a shortcut for
+;;    void(0) in JS.
+nil ;; => void(0)
+
+;; 2. Booleans - Wisp booleans true / false are JS booleans
+
+true ;; => true
+
+;; 3. Numbers - Wisp numbers are JS numbers
+1  ;; => 1
+
+;; 4. Strings - Wisp strings are JS Strings
+"Hello world"
+;;    Wisp strings can be multiline
+"Hello,
+My name is wisp!"
+
+;; 5. Characters - Characters are sugar for JS single char strings
+\a  ;; => "a"
+
+;; 6. Keywords - Keywords are symbolic identifiers that evaluate to
+;;               themselves.
+:keyword  ;; => "keyword"
+;;    Since in JS string constats fulfill this purpose of symbolic
+;;    identifiers, keywords compile to equivalent JS strings.
+(window.addEventListener :load handler false)
+;;    Keywords can be invoked as functions, that desugars to plain
+;;    associated value access in JS
+(:bar foo) ;; => foo["bar"]
+
+
+;; 7. Vectors - Wisp vectors are JS arrays.
+[ 1 2 3 4 ]
+;;    Note: Commas are white space & can be used if desired
+[ 1, 2, 3, 4]
+
+
+;; 8. Maps - Maps are hash maps, plain JS objects. Note that unlike
+;;    in clojure keys can not be of arbitary types.
+{ "foo" bar :beep-bop "bop" 1 2 }
+;;    Commas are optional but can come handy for separating key value
+;;    pairs.
+{ a 1, b 2 }
+;; In a future JSONs syntax may be made compatible with map syntax.
+
+
+;; 9. Lists - You can't have a lisp without lists! Wisp has lists too.
+;;    Wisp is homoiconic and it's code is made up of lists representing
+;;    expressions. The first item in the expression is a function, being
+;;    invoked with rest items as arguments.
+(foo bar baz) ; => foo(bar, baz);
+
+;; # Conventions
+;; Wisp puts a lot of effort in making naming conventions transparent,
+;; by encouraning lisp conventions and then translating them to equivalent
+;; JS conventions:
+
+(dash-delimited)   ;; => dashDelimited
+(predicate?)       ;; => isPredicate
+(**privates**)     ;; => __privates__
+(list->vector)     ;; => listToVector
+
+;; As a side effect some names can be expressed in a few ways, although
+;; it's considered to be an advantage.
+
+(parse-int x)
+(parseInt x)
+
+(array? x)
+(isArray x)
+
+
+;; # Special forms
+
+;; There are some functions in wisp that are special, in a sence that
+;; they compile to JS expressions & can not be passed around as regular
+;; functions. JS operators are represteted in wisp as special forms
+
+;; Arithmetic forms - Wisp comes with special form for arithmetic
+;; operations.
+
+(+ a b)        ; => a + b
+(+ a b c)      ; => a + b + c
+(- a b)        ; => a - b
+(* a b c)      ; => a * b * c
+(/ a b)        ; => a / b
+(mod a b)      ; => a % 2
+
+;; Comparison forms - Wisp comes with special forms for comparisons
+
+(identical? a b)     ;; => a === b
+(identical? a b c)   ;; => a === b && b === c
+(= a b)              ;; => a == b
+(= a b c)            ;; => a == b && b == c
+(> a b)              ;; => a > b
+(>= a b)             ;; => a >= b
+(< a b c)            ;; => a < b && b < c
+(<= a b c)           ;; => a <= b && b <= c
+
+;; Logical forms - Wisp comes with special forms for logical operations
+
+(and a b)            ;; => a && b
+(and a b c)          ;; => a && b && c
+(or a b)             ;; => a || b
+(and (or a b)
+     (and c d))      ;; (a || b) && (c && d)
+
+
+;; Definitions - Variable definitions also happen through special forms.
+(def a)     ; => var a = void(0);
+(def b 2)   ; => var b = 2;
+
+;; Assignments - In wisp new values can be set to a variables via `set!`
+;; special form. Note that in functional programing binding changes are
+;; a bad practice, avoiding those would make your programs only better!
+;; Stil if you need it you have it.
+(set! a 1)
+
+;; Conditionals - Conditional code branching in wisp is expressed via
+;; if special form. First expression following `if` is a condition,
+;; if it evaluates to `true` result of the `if` expression is second
+;; expression otherwise it's third expression.
+(if (< number 10)
+  "Digit"
+  "Number")
+;; Else expression is optional, if missing and conditional evaluates to
+;; `true` result will be `nil`.
+(if (monday? today) "How was your weekend")
+
+
+
+;; Compbining expressions - In wisp is everything is an expression, but
+;; sometimes one might want to compbine multiple expressions into one,
+;; usually for the purpose of evaluating expressions that have
+;; side-effects
+(do
+  (console.log "Computing sum of a & b")
+  (+ a b))
+
+;; Also number of expressions is `do` special form 0 to many. If `0`
+;; result of evaluation will be nil.
+(do)
+
+
+;; Bindings - Let special form evaluates containing expressions in a
+;; lexical context of in which simbols in the bindings-forms (first item)
+;; are bound to their respective expression results.
+
+(let [a 1
+      b (+ a c)]
+  (+ a b))
+
+
+;; Functions - Wisp functions are JS functions
+(fn [x] (+ x 1))
+
+;; Wisp functions can be named similar to JS
+(fn increment [x] (+ x 1))
+
+;; Wisp functions can also contain documentation and some metadata.
+;; Note: Docstring and metadata is not presented in compiled JS yet,
+;; but in a future it will compile to comments associated with function.
+(fn incerement
+  "Returns a number one greater than given."
+  {:added "1.0"}
+  [x] (+ x 1))
+
+;; Wisp makes capturing of rest arguments a lot easier than JS. argument
+;; that follows special `&` simbol will capture all the rest args in array.
+
+(fn [x & rest]
+  (rest.reduce (fn [sum x] (+ sum x)) x))
+
+;; Overloads - In wisp functions can be overloaded depending on number
+;; of arguments they take, without introspection of rest arguments.
+(fn sum
+  "Return the sum of all arguments"
+  {:version "1.0"}
+  ([] 0)
+  ([x] x)
+  ([x y] (+ x y))
+  ([x & more] (more.reduce (fn [x y] (+ x y)) x)))
+
+;; If function does not has variadic overload and more arguments is
+;; passed to it, it throws exception.
+(fn
+  ([x] x)
+  ([x y] (- x y)))
+
+
+
+;; ## Other Special Forms
+
+;; Instantiation - In wisp type instantiation has a consice form, type
+;; function just needs to be suffixed with `.` character
+(Type. options)
+
+;; More verbose but JS like form is also there 
+(new Class options)
+
+
+;; Method calls - In wisp method calls are no different from function
+;; calls, it's just method functions are perfixed with `.` character
+(.log console "hello wisp")
+
+;; Also more JS like forms are supported too!
+(window.addEventListener "load" handler false)
+
+
+;; Attribute access - In wisp attribute access is also just like function
+;; call. Attribute name just needs to be prefixed with `.-`
+(.-location window)
+
+;; Compound properties can be access via `get` special form
+(get templates (.-id element))
+
+;; Catching exceptions - In wisp exceptions can be handled via `try` 
+;; special form. As everything else try form is also expression. It
+;; results to nil if no handling takes place.
+(try (raise exception))
+
+;; Although catch form can be used to handle exceptions
+(try
+  (raise exception)
+  (catch error (.log console error)))
+
+;; Also finally clase can be used when necessary
+(try
+  (raise exception)
+  (catch error (recover error))
+  (finally (.log console "That was a close one!")))
+
+
+;; Throwing exceptions - Throw special form allows throwing exceptions,
+;; although doing that is not idiomatic.
+(fn raise [message] (throw (Error. message)))
+
+
+;; ## Macros
+;; Wisp has a programmatic macro system which allows the compiler to
+;; be extended by user code. Many core constructs of Wisp are in fact
+;; normal macros.
+
+;; quote
+
+;; Before diving into macros too much, we need to learn about few more
+;; things. In lisp any expression can be marked to prevent it from being
+;; evaluated. For instance, if you enter the symbol `foo` you will be
+;; evaluating the reference to the value of the corresponding variable.
+foo
+
+;; If you wish to refer to the literal symbol, rather then reference you
+;; could use
+(quote foo)
+;; or more usually
+'foo
+
+;; Any expression can be quoted, to prevent it's evaluation. Although your
+;; resulting programs should not have these forms compiled to JS.
+'foo
+':bar
+'(a b)
+
+;; Wisp doesn’t have `unless` special form or a macro, but it's trivial
+;; to implement it via macro. Although let's try implemting it as a
+;; function to understand a use case for macro!
+
+;; We want to execute body unless condition is `true`.
+(defn unless-fn [condition body]
+  (if condition nil body))
+
+;; Although following code will log "should not print" anyway, since
+;; function arguments are exectued before function is called.
+(unless-fn true (console.log "should not print"))
+
+;; Macros solve this problem, because they do not evaluate their arguments
+;; immediately. Instead, you get to choose when (and if!) the arguments
+;; to a macro are evaluated. Macros take items of the expression as
+;; arguments and return new form that is compiled instead.
+(defmacro unless
+  [condition form]
+  (list 'if condition nil form))
+
+;; The body of unless macro executes at macro expansion time, producing an
+;; if form for compilation. Which later is compiled as usual. This way
+;; compiled JS is a conditional instead of function call.
+(unless true (console.log "should not print"))
+
+;; Simple macros like above could be written via templating, expressed
+;; as syntax-quoted forms.
+
+;; `syntax-quote` is almost the same as the plain `quote`, but it allows
+;; sub expressions to be unquoted so that form acts a template. Symbols
+;; inside form are resolved to help prevent inadvertent symbol capture.
+;; Which can be done via `unquote` and `unquote-splicing` forms.
+
+(syntax-quote (foo (unquote bar)))
+(syntax-quote (foo (unquote bar) (unquote-splicing bazs)))
+
+;; Also there is a special syntax sugar for both unquoting operators:
+
+;; Syntax quote: Quote form, but allow internal unquoting so that form
+;; acts as template. Symbols inside form are resolved to help prevent
+;; inadvertent symbol capture.
+`(foo bar)
+
+;; Unquote: Use inside a syntax-quote to substitute an unquoted value.
+`(foo ~bar)
+
+;; Splicing unquote: Use inside a syntax-quote to splice an unquoted
+; list into a template.
+`(foo ~bar ~@bazs)
+
+
+;; For expmale build-in `defn` macro can be defined expressed with
+;; simple template macro. That's more or less how build-in `defn`
+;; macro is implemented.
+(defmacro define-fn
+  [name & body]
+  `(def ~name (fn ~@body)))
+
+
+;; Now if we use `define-fn` form above defined macro will be expanded
+;; and compile time resulting into diff program output.
+(define-fn print
+  [message]
+  (.log console message))
+
+
+;; Not all of the macros can be expressed via templating, but all of the
+;; language is available at hand to assemble macro expanded form.
+;; For instance let's define macro to ease functional chanining popular
+;; in JS but usually expressed via method chaining. For example following
+;; API is pioneered by jQuery is very common in JS:
+;;
+;; open(target, "keypress).
+;;  filter(isEnterKey).
+;;  map(getInputText).
+;;  reduce(render)
+;;
+;; Unfortunately though it usually requires all the functions need to be
+;; methods of dsl object, which is very limited. Making third party
+;; functions second class. Via macros we can achieve similar chaining
+;; without such tradeoffs.
+(defmacro ->
+  [& operations]
+  (reduce
+   (fn [form operation]
+     (cons (first operation)
+           (cons form (rest operation))))
+   (first operations)
+   (rest operations)))
+
+(->
+ (open tagret :keypress)
+ (filter enter-key?)
+ (map get-input-text)
+ (reduce render))
+</script>
+<div id="input" name="input" style="width: 50%;"><div class="CodeMirror"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 218.796875px; left: 360px;"><textarea wrap="off" autocorrect="off" autocapitalize="off" style="position: absolute; padding: 0px; width: 1px; height: 1em;"></textarea></div><div class="CodeMirror-scrollbar" style="display: block; height: 599px;"><div class="CodeMirror-scrollbar-inner" style="height: 5674px;"></div></div><div class="CodeMirror-scroll cm-s-ambiance CodeMirror-focused" tabindex="-1" draggable="false"><div style="position: relative; min-height: 5674px;"><div style="position: relative; top: 560px;"><div class="CodeMirror-gutter" style="height: 3834px; left: 0px;"><div class="CodeMirror-gutter-text"><pre>36</pre><pre>37</pre><pre>38</pre><pre>39</pre><pre>40</pre><pre>41</pre><pre>42</pre><pre>43</pre><pre>44</pre><pre>45</pre><pre>46</pre><pre>47</pre><pre>48</pre><pre>49</pre><pre>50</pre><pre>51</pre><pre>52</pre><pre>53</pre><pre>54</pre><pre>55</pre><pre>56</pre><pre>57</pre><pre>58</pre><pre>59</pre><pre>60</pre><pre>61</pre><pre>62</pre><pre>63</pre><pre>64</pre><pre>65</pre><pre>66</pre><pre>67</pre><pre>68</pre><pre>69</pre><pre>70</pre><pre>71</pre><pre>72</pre><pre>73</pre><pre>74</pre><pre>75</pre><pre>76</pre><pre>77</pre><pre>78</pre><pre>79</pre><pre>80</pre><pre>81</pre><pre>82</pre><pre>83</pre><pre>84</pre><pre>85</pre><pre>86</pre><pre>87</pre><pre>88</pre><pre>89</pre><pre>90</pre><pre>91</pre><pre>92</pre><pre>93</pre><pre>94</pre><pre>95</pre><pre>96</pre><pre>97</pre><pre>98</pre><pre>99</pre><pre>100</pre><pre>101</pre><pre>102</pre><pre>103</pre><pre>104</pre><pre>105</pre><pre>106</pre><pre>107</pre><pre>108</pre><pre>109</pre><pre>110</pre><pre>111</pre><pre>112</pre><pre>113</pre><pre>114</pre><pre>115</pre><pre>116</pre><pre>117</pre><pre>118</pre><pre>119</pre><pre>120</pre><pre>121</pre><pre>122</pre><pre>123</pre><pre>124</pre><pre>125</pre><pre>126</pre><pre>127</pre><pre>128</pre><pre>129</pre><pre>130</pre><pre>131</pre><pre>132</pre><pre>133</pre><pre>134</pre><pre>135</pre><pre>136</pre><pre>137</pre><pre>138</pre><pre>139</pre><pre>140</pre><pre>141</pre><pre>142</pre><pre>143</pre><pre>144</pre><pre>145</pre><pre>146</pre><pre>147</pre><pre>148</pre><pre>149</pre><pre>150</pre><pre>151</pre><pre>152</pre><pre>153</pre><pre>154</pre><pre>155</pre><pre>156</pre><pre>157</pre><pre>158</pre><pre>159</pre><pre>160</pre><pre>161</pre><pre>162</pre><pre>163</pre><pre>164</pre><pre>165</pre><pre>166</pre><pre>167</pre><pre>168</pre><pre>169</pre><pre>170</pre><pre>171</pre><pre>172</pre><pre>173</pre><pre>174</pre><pre>175</pre><pre>176</pre><pre>177</pre><pre>178</pre><pre>179</pre><pre>180</pre><pre>181</pre><pre>182</pre><pre>183</pre><pre>184</pre><pre>185</pre><pre>186</pre><pre>187</pre><pre>188</pre><pre>189</pre><pre>190</pre><pre>191</pre><pre>192</pre><pre>193</pre><pre>194</pre><pre>195</pre><pre>196</pre><pre>197</pre><pre>198</pre><pre>199</pre><pre>200</pre><pre>201</pre><pre>202</pre><pre>203</pre><pre>204</pre><pre>205</pre><pre>206</pre><pre>207</pre><pre>208</pre><pre>209</pre><pre>210</pre><pre>211</pre><pre>212</pre><pre>213</pre><pre>214</pre><pre>215</pre><pre>216</pre><pre>217</pre><pre>218</pre><pre>219</pre><pre>220</pre><pre>221</pre><pre>222</pre><pre>223</pre><pre>224</pre><pre>225</pre><pre>226</pre><pre>227</pre><pre>228</pre><pre>229</pre><pre>230</pre><pre>231</pre><pre>232</pre><pre>233</pre><pre>234</pre><pre>235</pre><pre>236</pre><pre>237</pre><pre>238</pre><pre>239</pre><pre>240</pre><pre>241</pre><pre>242</pre><pre>243</pre><pre>244</pre><pre>245</pre><pre>246</pre><pre>247</pre><pre>248</pre><pre>249</pre><pre>250</pre><pre>251</pre><pre>252</pre><pre>253</pre><pre>254</pre><pre>255</pre><pre>256</pre><pre>257</pre><pre>258</pre><pre>259</pre><pre>260</pre><pre>261</pre><pre>262</pre><pre>263</pre><pre>264</pre><pre>265</pre><pre>266</pre><pre>267</pre><pre>268</pre><pre>269</pre><pre>270</pre><pre>271</pre><pre>272</pre><pre>273</pre><pre>274</pre></div></div><div class="CodeMirror-lines"><div style="position: relative; z-index: 0; outline: none; min-width: 10032px; margin-left: 39px;"><div style="position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden;"><pre>                                           <span>                 </span><span class="cm-string">"Nederland"</span><span class="cm-bracket">]</span></pre></div><pre class="CodeMirror-cursor" style="top: 1824px; left: 301px;">&nbsp;</pre><pre class="CodeMirror-cursor" style="visibility: hidden; left: 10031px;">&nbsp;</pre><div style="position: relative; z-index: -1; display: none;"><div class="CodeMirror-selected" style="position: absolute; left: 105px; top: 1776px; right: 9528px; height: 16px;"></div></div><div style=""><pre><span class="cm-comment">;; Node.js projecten worden, indien gewenst ingelezen door het 'npm' programma en kan hier uit diverse gegevens over afhankelijke software, auteurs(rechten), onderhoud, downloads, en dergelijke meta-gegevens uitlezen. De `./` verwijst naar de bronmap.</span></pre><pre> </pre><pre><span class="cm-comment">;; 2. Gegevensopslag</span></pre><pre><span class="cm-comment">;; -----------------</span></pre><pre> </pre><pre><span class="cm-comment">;; Sleutelwoorden `:sleutel` bevatten veel paden en teksten, herhaling voorkomen met de functies</span></pre><pre><span class="cm-bracket">(</span><span class="cm-builtin">comment</span> <span class="cm-string">"It is better to have 100 functions operate on one data structure than 10 functions on 10 data structures. - Alan Perlis"</span><span class="cm-bracket">)</span></pre><pre><span class="cm-bracket">(</span><span class="cm-keyword">def</span> ^<span class="cm-atom">:private</span> gegevens {</pre><pre>  <span class="cm-comment">;; De belangrijkste gegevens die we nodig hebben om ons project in te laden.</span></pre><pre>  <span class="cm-atom">:hoofdproject</span> {<span class="cm-atom">:bron</span> <span class="cm-string">"./"</span>                            <span class="cm-comment">;; folder - Bronmap van het gehele hoofdproject</span></pre><pre>                 <span class="cm-atom">:site</span> <span class="cm-string">"www"</span>                           <span class="cm-comment">;; folder - Website uitvoer map, veelal wordt een browsebaar 'site' ingericht - al is het maar voor documentatie</span></pre><pre>                 <span class="cm-atom">:definitie</span> <span class="cm-string">"package.json"</span>             <span class="cm-comment">;; file   - Node.js package definition with meta-data</span></pre><pre>                 <span class="cm-atom">:stijl</span> <span class="cm-string">"documenten/stijlen/lib/index.styl"</span></pre><pre>                 <span class="cm-atom">:afbeeldingen</span> <span class="cm-string">"media/afbeeldingen"</span></pre><pre>                 <span class="cm-atom">:code</span> <span class="cm-string">"src"</span>}</pre><pre> </pre><pre>  <span class="cm-atom">:site</span> {<span class="cm-atom">:naam</span>             <span class="cm-string">"Tredius.nl"</span></pre><pre>         <span class="cm-atom">:url</span>              <span class="cm-string">"http//www.tredius.nl"</span></pre><pre>         <span class="cm-atom">:static</span>           <span class="cm-string">"http//static.tredius.nl"</span></pre><pre>         <span class="cm-atom">:development</span>      <span class="cm-string">"http//solobit.github.io/tredius"</span></pre><pre>         <span class="cm-atom">:auteur</span>           <span class="cm-string">"Solobit &amp;amp; Edberry Creative"</span></pre><pre>         <span class="cm-atom">:contact</span>          <span class="cm-string">"info@tredius.nl"</span></pre><pre>         <span class="cm-atom">:landcode</span>         <span class="cm-string">"nl"</span></pre><pre>         <span class="cm-atom">:taal</span>             {<span class="cm-atom">:xmllang</span> <span class="cm-string">"nl"</span> }</pre><pre>         <span class="cm-atom">:essentie</span>         <span class="cm-string">"Tredius verleent financiële-, fiscale-, juridische-, personele- en bedrijfsadministratieve diensten aan het MKB van Nederland"</span></pre><pre>         <span class="cm-atom">:omschrijving</span>     <span class="cm-string">"Bij Tredius hebben we de behoefte om het MKB landschap te veranderen Vrijheid, Onafhankelijkheid en Zelfstandigheid, voor iedere ondernemer."</span></pre><pre>         <span class="cm-atom">:keywords</span>         <span class="cm-string">"belasting, advies, accountancy, pensioenbelasting, bedrijfsadministratie, vrijheid, onafhankelijkheid, zelfstandigheid"</span></pre><pre>         <span class="cm-atom">:googleanalytics</span>  <span class="cm-string">"UA-39413290-1"</span></pre><pre>         <span class="cm-atom">:techniek</span>         <span class="cm-string">"Node.js, Docpad, jQuery, Semantic Grid, Stylus, Jade, CoffeeScript, Markdown, Accessible Rich Internet Applications (WAI-ARIA)"</span></pre><pre>         <span class="cm-atom">:disclaimer</span>       <span class="cm-string">"De informatie zoals opgenomen in bovenstaand artikel is uitsluitend bestemd voor algemene informatiedoeleinden. Derhalve dienen op grond van deze informatie geen handelingen te worden verricht zonder voorafgaand deskundig advies. Voor een toelichting kunt u uiteraard contact opnemen met een van onze kantoren."</span></pre><pre>         <span class="cm-atom">:support</span>         {<span class="cm-atom">:beheerder</span>      <span class="cm-string">"Solobit"</span></pre><pre>                           <span class="cm-atom">:emailadres</span>     <span class="cm-string">"rob.jentzema@gmail.com"</span></pre><pre>                           <span class="cm-atom">:servicelijn</span>    <span class="cm-string">"013-5906677"</span>}}</pre><pre> </pre><pre>  <span class="cm-atom">:organisatie</span> {<span class="cm-atom">:bedrijfsnaam</span>    <span class="cm-string">"Tredius"</span></pre><pre>                <span class="cm-atom">:bedrijfslogo</span>    <span class="cm-bracket">(</span>afb <span class="cm-string">"bedrijfslogo.png"</span><span class="cm-bracket">)</span></pre><pre>                <span class="cm-atom">:omschrijving</span>    <span class="cm-string">"Tredius verleent financiële-, fiscale-, juridische-, personele- en bedrijfsadministratieve diensten aan het MKB van Nederland"</span></pre><pre>                <span class="cm-atom">:auteursrecht</span>    <span class="cm-bracket">(</span><span class="cm-builtin">str</span> <span class="cm-bracket">(</span><span class="cm-keyword">.</span> <span class="cm-bracket">(</span>Date<span class="cm-bracket">)</span> getFullYear<span class="cm-bracket">)</span> <span class="cm-string">"</span> <span class="cm-string">© Tredius.nl"</span><span class="cm-bracket">)</span></pre><pre> </pre><pre>                <span class="cm-atom">:bezoekadres</span>     {<span class="cm-atom">:straat</span>       <span class="cm-string">"Zijlweg 146"</span></pre><pre>                                  <span class="cm-atom">:postcode</span>     <span class="cm-string">"2015 BH"</span></pre><pre>                                  <span class="cm-atom">:plaats</span>       <span class="cm-string">"Haarlem"</span>}</pre><pre> </pre><pre>                <span class="cm-atom">:postadres</span>       {<span class="cm-atom">:postbus</span>      <span class="cm-string">"Postbus 992"</span></pre><pre>                                  <span class="cm-atom">:postcode</span>     <span class="cm-string">"2003 RZ"</span></pre><pre>                                  <span class="cm-atom">:plaats</span>       <span class="cm-string">"Haarlem"</span>}</pre><pre> </pre><pre>                <span class="cm-atom">:contacten</span>       {<span class="cm-atom">:telefoon</span>     <span class="cm-string">"023 551 30 55"</span></pre><pre>                                  <span class="cm-atom">:fax</span>          <span class="cm-string">"023 551 30 35"</span></pre><pre>                                  <span class="cm-atom">:email</span>        <span class="cm-string">"info@tredius.nl"</span>}</pre><pre> </pre><pre>                <span class="cm-atom">:handelsinfo</span>     {<span class="cm-atom">:kvk</span>          <span class="cm-string">"3782878"</span></pre><pre>                                  <span class="cm-atom">:btw</span>          <span class="cm-string">"NL8124.72.792.B01"</span></pre><pre>                                  <span class="cm-atom">:bedrijfsvorm</span> <span class="cm-string">"Besloten Venootschap (BV)"</span>}</pre><pre> </pre><pre>                <span class="cm-atom">:contactpersonen</span> {<span class="cm-atom">:marco</span>     {<span class="cm-atom">:naam</span>         <span class="cm-string">"Marco Krijger MB FB"</span></pre><pre>                                              <span class="cm-atom">:aanhef</span>       <span class="cm-string">""</span></pre><pre>                                              <span class="cm-atom">:titel</span>        <span class="cm-string">"Partner Tredius Fiscalisten"</span></pre><pre>                                              <span class="cm-atom">:email</span>        <span class="cm-string">"m.krijger@tredius.nl"</span>}</pre><pre> </pre><pre>                                  <span class="cm-atom">:linda</span>     {<span class="cm-atom">:naam</span>         <span class="cm-string">"Linda Honig"</span></pre><pre>                                              <span class="cm-atom">:aanhef</span>       <span class="cm-string">"Mevr."</span></pre><pre>                                              <span class="cm-atom">:telefoon</span>     <span class="cm-string">"023 551 30 55"</span></pre><pre>                                              <span class="cm-atom">:email</span>        <span class="cm-string">""</span>}</pre><pre> </pre><pre>                                  <span class="cm-atom">:lennard</span>   {<span class="cm-atom">:naam</span>         <span class="cm-string">"Lennard Honig"</span></pre><pre>                                              <span class="cm-atom">:aanhef</span>       <span class="cm-string">"Dhr."</span></pre><pre>                                              <span class="cm-atom">:titel</span>        <span class="cm-string">""</span></pre><pre>                                              <span class="cm-atom">:telefoon</span>     <span class="cm-string">"023 551 30 55"</span></pre><pre>                                              <span class="cm-atom">:email</span>        <span class="cm-string">""</span>}</pre><pre> </pre><pre>                                  <span class="cm-atom">:luuk</span>      {<span class="cm-atom">:naam</span>         <span class="cm-string">"Luuk Oosting"</span></pre><pre>                                              <span class="cm-atom">:aanhef</span>       <span class="cm-string">"Dhr."</span></pre><pre>                                              <span class="cm-atom">:titel</span>        <span class="cm-string">""</span></pre><pre>                                              <span class="cm-atom">:telefoon</span>     <span class="cm-string">"0299 651 987"</span></pre><pre>                                              <span class="cm-atom">:email</span>        <span class="cm-string">""</span>}</pre><pre> </pre><pre>                                  <span class="cm-atom">:wil</span>       {<span class="cm-atom">:naam</span>         <span class="cm-string">"Wil Buffing"</span></pre><pre>                                              <span class="cm-atom">:titel</span>        <span class="cm-string">"Mevr."</span></pre><pre>                                              <span class="cm-atom">:telefoon</span>     <span class="cm-string">"0299 411 345"</span></pre><pre>                                              <span class="cm-atom">:email</span>        <span class="cm-string">""</span>}}</pre><pre> </pre><pre>                <span class="cm-atom">:vestigingen</span>  {<span class="cm-atom">:purmerend</span>    {<span class="cm-atom">:bezoekadres</span> <span class="cm-bracket">[</span><span class="cm-string">"Wielingenstraat 119"</span></pre><pre>                                                            <span class="cm-string">"1441 ZN"</span></pre><pre>                                                            <span class="cm-string">"Purmerend"</span></pre><pre>                                                            <span class="cm-string">"Noord-Holland"</span></pre><pre>                                                            <span class="cm-string">"Nederland"</span><span class="cm-bracket">]</span></pre><pre>                                              <span class="cm-atom">:geocode</span>     <span class="cm-bracket">[</span><span class="cm-string">"52.503605"</span> <span class="cm-string">"4.958375"</span><span class="cm-bracket">]</span></pre><pre>                                              <span class="cm-atom">:rest</span>         <span class="cm-string">"geocode=Cc9PzZeFjzXfFYEnIQMdp59LACmPF3Re0AbGRzF_fLmc8BNprg&amp;amp;sll=52.504454,4.956079&amp;amp;sspn=0.009065,0.019054&amp;amp;mra=pd&amp;amp;t=m&amp;amp;spn=0.0064,0.013282"</span></pre><pre>                                              <span class="cm-atom">:postadres</span>   <span class="cm-bracket">[</span><span class="cm-string">"Postbus 258"</span></pre><pre>                                                            <span class="cm-string">"1440 AG"</span></pre><pre>                                                            <span class="cm-string">"Purmerend"</span><span class="cm-bracket">]</span></pre><pre>                                              <span class="cm-atom">:telefoon</span>     <span class="cm-string">"0299 411 345"</span></pre><pre>                                              <span class="cm-atom">:fax</span>          <span class="cm-string">"0299 411 348"</span></pre><pre>                                              <span class="cm-atom">:email</span>        <span class="cm-string">"info@tredius.nl"</span>}</pre><pre> </pre><pre>                               <span class="cm-atom">:monnickendam</span> {<span class="cm-atom">:bezoekadres</span> <span class="cm-bracket">[</span><span class="cm-string">"Haringburgwal&nbsp;17"</span></pre><pre>                                                            <span class="cm-string">"1141 AT"</span></pre><pre>                                                            <span class="cm-string">"Monnickendam"</span></pre><pre>                                                            <span class="cm-string">"Noord-Holland"</span></pre><pre>                                                            <span class="cm-string">"Nederland"</span><span class="cm-bracket">]</span></pre><pre>                                              <span class="cm-atom">:geocode</span>     <span class="cm-bracket">[</span><span class="cm-string">"52.462874"</span> <span class="cm-string">"5.035343"</span><span class="cm-bracket">]</span></pre><pre>                                              <span class="cm-atom">:rest</span>         <span class="cm-string">"geocode=CXRphrBe0kPwFRuFIAMdStVMACln1vctrAXGRzHfFo4FDFJsxg&amp;amp;aq=&amp;amp;sll=52.505806,4.827991&amp;amp;sspn=0.269159,0.835648&amp;amp;mra=pd&amp;amp;spn=0.006406,0.013282"</span></pre><pre>                                              <span class="cm-atom">:postadres</span>   <span class="cm-bracket">[</span><span class="cm-string">"Postbus 48"</span></pre><pre>                                                            <span class="cm-string">"1140 AA"</span></pre><pre>                                                            <span class="cm-string">"Monnickendam"</span><span class="cm-bracket">]</span></pre><pre>                                              <span class="cm-atom">:telefoon</span>     <span class="cm-string">"0299 651 987"</span></pre><pre>                                              <span class="cm-atom">:fax</span>          <span class="cm-string">"0299 653 004"</span></pre><pre>                                              <span class="cm-atom">:email</span>        <span class="cm-string">"info@tredius.nl"</span>}</pre><pre> </pre><pre>                               <span class="cm-atom">:alkmaar</span>      {<span class="cm-atom">:bezoekadres</span> <span class="cm-bracket">[</span><span class="cm-string">"Professor van der Waalsstraat 3K"</span></pre><pre>                                                            <span class="cm-string">"1821 BT"</span></pre><pre>                                                            <span class="cm-string">"Alkmaar"</span></pre><pre>                                                            <span class="cm-string">"Noord-Holland"</span></pre><div style="position: relative;"><pre class="activeline" style="position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: -2;">&nbsp;</pre><pre>                                                            <span class="cm-string">"Nederland"</span><span class="cm-bracket">]</span></pre></div><pre>                                              <span class="cm-atom">:geocode</span>     <span class="cm-bracket">[</span><span class="cm-string">"52.625092"</span> <span class="cm-string">"4.770384"</span><span class="cm-bracket">]</span></pre><pre>                                              <span class="cm-atom">:rest</span>         <span class="cm-string">"spn=0.006382,0.013282"</span></pre><pre>                                              <span class="cm-atom">:postadres</span>   <span class="cm-bracket">[</span><span class="cm-string">"Professor van der Waalsstraat 3K"</span></pre><pre>                                                            <span class="cm-string">"1821 BT"</span></pre><pre>                                                            <span class="cm-string">"Alkmaar"</span><span class="cm-bracket">]</span></pre><pre>                                              <span class="cm-atom">:telefoon</span>     <span class="cm-string">"072 564 4203"</span></pre><pre>                                              <span class="cm-atom">:fax</span>          <span class="cm-string">"072 564 3019"</span></pre><pre>                                              <span class="cm-atom">:email</span>        <span class="cm-string">"info@tredius.nl"</span>}</pre><pre> </pre><pre>                               <span class="cm-atom">:haarlem</span>      {<span class="cm-atom">:bezoekadres</span> <span class="cm-bracket">[</span><span class="cm-string">"Zijlweg 146"</span></pre><pre>                                                            <span class="cm-string">"2015 BH"</span></pre><pre>                                                            <span class="cm-string">"Haarlem"</span></pre><pre>                                                            <span class="cm-string">"Noord-Holland"</span></pre><pre>                                                            <span class="cm-string">"Nederland"</span><span class="cm-bracket">]</span></pre><pre>                                              <span class="cm-atom">:geocode</span>     <span class="cm-bracket">[</span><span class="cm-string">"52.386457"</span> <span class="cm-string">"4.620631"</span><span class="cm-bracket">]</span></pre><pre>                                              <span class="cm-atom">:rest</span>         <span class="cm-string">"geocode=CWxUaXo29tzfFddYHwMdWoFGACkH_TJiEO_FRzHom-tyuYRbow&amp;amp;sll=52.386457,4.620631&amp;amp;sspn=0.008434,0.026114&amp;amp;mra=iwd&amp;amp;spn=0.006417,0.013282"</span></pre><pre>                                              <span class="cm-atom">:postadres</span>   <span class="cm-bracket">[</span><span class="cm-string">"Postbus 992"</span></pre><pre>                                                            <span class="cm-string">"2003 RZ"</span></pre><pre>                                                            <span class="cm-string">"Haarlem"</span><span class="cm-bracket">]</span></pre><pre>                                              <span class="cm-atom">:telefoon</span>     <span class="cm-string">"023 551 30 55"</span></pre><pre>                                              <span class="cm-atom">:fax</span>          <span class="cm-string">"023 551 30 35"</span></pre><pre>                                              <span class="cm-atom">:email</span>        <span class="cm-string">"info@tredius.nl"</span>}}</pre><pre>  }<span class="cm-comment">;; org</span></pre><pre> </pre><pre> </pre><pre>  <span class="cm-comment">;; We erkennen een corporate identity als belangrijke data structuur voor gebruik op de site. De huisstijl is een van haar onderdelen.</span></pre><pre>  <span class="cm-atom">:typografisch</span> {<span class="cm-atom">:primair</span>     <span class="cm-bracket">[</span><span class="cm-string">"Open Sans"</span> <span class="cm-string">"500,600,700"</span> <span class="cm-string">"italic"</span><span class="cm-bracket">]</span></pre><pre>                 <span class="cm-atom">:alternatief</span> <span class="cm-bracket">[</span><span class="cm-string">"Dosis"</span> <span class="cm-string">"500,600,700"</span><span class="cm-bracket">]</span> }</pre><pre> </pre><pre>  <span class="cm-comment">;; Regelmatig benodigde informatie van illustraties, afbeeldingen, mappen en logo's of art-work kan hier.</span></pre><pre>  <span class="cm-atom">:illustraties</span> {<span class="cm-atom">:bedrijfslogo</span> <span class="cm-bracket">(</span>afb <span class="cm-string">"bedrijfslogo.jpg"</span><span class="cm-bracket">)</span> }</pre><pre> </pre><pre>  <span class="cm-comment">;; Het 'Semantic grid' systeem is een manier om een breed scala aan indelingen in vlakken te maken</span></pre><pre>  <span class="cm-atom">:vlakindeling</span> {<span class="cm-atom">:kolommen</span> <span class="cm-number">12</span> <span class="cm-atom">:soort</span> <span class="cm-string">"fixed"</span> <span class="cm-atom">:breedte</span> <span class="cm-number">960</span>}</pre><pre> </pre><pre>  <span class="cm-comment">;; TODO: ; (. Color desaturate 0.5)</span></pre><pre>  <span class="cm-comment">;; Kleuren lichter, donkerder, transformeren van en naar CSS.</span></pre><pre>  <span class="cm-atom">:kleuren</span> {<span class="cm-atom">:fn</span> <span class="cm-bracket">(</span><span class="cm-builtin">require</span> <span class="cm-string">"color"</span><span class="cm-bracket">)</span></pre><pre>            <span class="cm-atom">:wit</span>   <span class="cm-string">"#ffffff"</span> <span class="cm-atom">:zwart</span> <span class="cm-string">"#000000"</span></pre><pre>            <span class="cm-atom">:paars</span> <span class="cm-string">"1234"</span>    <span class="cm-atom">:licht-paars</span> <span class="cm-string">"1234"</span></pre><pre>            <span class="cm-atom">:blauw</span> <span class="cm-string">"1234"</span>    <span class="cm-atom">:licht-blauw</span> <span class="cm-string">"1234"</span></pre><pre>            <span class="cm-atom">:groen</span> <span class="cm-string">"1234"</span>    <span class="cm-atom">:turquoise</span>   <span class="cm-string">"1234"</span></pre><pre>            <span class="cm-atom">:rood</span>  <span class="cm-string">"1234"</span>    <span class="cm-atom">:lichtrood</span>   <span class="cm-string">"1234"</span></pre><pre>            <span class="cm-atom">:grijs</span> <span class="cm-string">"1234"</span>    <span class="cm-atom">:licht-grijs</span> <span class="cm-string">"1234"</span> <span class="cm-atom">:donker-grijs</span> <span class="cm-string">""</span>}</pre><pre> </pre><pre>  <span class="cm-atom">:stijl</span> {<span class="cm-atom">:invoer</span> <span class="cm-string">"index.styl"</span> <span class="cm-atom">:uitvoer</span> <span class="cm-string">"algemeen.css"</span> <span class="cm-atom">:locaties</span> <span class="cm-bracket">[]</span>}</pre><pre> </pre><pre>  <span class="cm-comment">;; Configuratie van talen, remote servers, accounts e.d.</span></pre><pre>  <span class="cm-atom">:config</span> {<span class="cm-atom">:ftp</span>  {<span class="cm-atom">:source</span> <span class="cm-string">"https://github.com/mscdex/node-ftp"</span></pre><pre>                  <span class="cm-atom">:host</span> <span class="cm-string">"ftp.tredius.nl"</span>       <span class="cm-comment">;; string   - The hostname or IP address of the FTP server. Default: 'localhost'</span></pre><pre>                  <span class="cm-atom">:port</span> <span class="cm-number">21</span>                     <span class="cm-comment">;; integer  - The port of the FTP server. Default: 21</span></pre><pre>                  <span class="cm-atom">:secure</span> <span class="cm-atom">true</span>                 <span class="cm-comment">;; mixed    - Set to true for both control and data connection encryption, 'control' for control connection encryption only, or 'implicit' for implicitly encrypted control connection (this mode is deprecated in modern times, but usually uses port 990)</span></pre><pre>                  <span class="cm-atom">:user</span> <span class="cm-string">"solobit"</span>              <span class="cm-comment">;; string   - Username for authentication. Default: 'anonymous'</span></pre><pre>                  <span class="cm-atom">:password</span> <span class="cm-string">"secret"</span>           <span class="cm-comment">;; string   - Password for authentication. Default: 'anonymous@'</span></pre><pre>                  <span class="cm-atom">:connTimeout</span> <span class="cm-number">10000</span>           <span class="cm-comment">;; integer  - How long (in milliseconds) to wait for the control connection to be established. Default: 10000</span></pre><pre>                  <span class="cm-atom">:pasvTimeout</span> <span class="cm-number">10000</span>           <span class="cm-comment">;; integer  - How long (in milliseconds) to wait for a PASV data connection to be established. Default: 10000</span></pre><pre>                  <span class="cm-atom">:keepalive</span> <span class="cm-number">10000</span>             <span class="cm-comment">;; integer  - How often (in milliseconds) to send a 'dummy' (NOOP) command to keep the connection alive. Default: 10000</span></pre><pre>                  }</pre><pre> </pre><pre>           <span class="cm-atom">:i18n</span> {<span class="cm-atom">:source</span> <span class="cm-string">"https://github.com/jamuhl/i18next"</span></pre><pre>                  <span class="cm-atom">:help</span> <span class="cm-string">"http://i18next.com/pages/doc_init.html"</span></pre><pre>                  <span class="cm-atom">:preload</span> <span class="cm-bracket">[</span><span class="cm-string">"nl-NL"</span><span class="cm-bracket">]</span>           <span class="cm-comment">;; array    - The additional languages will be preloaded.</span></pre><pre>                  <span class="cm-atom">:lng</span> <span class="cm-string">"nl-NL"</span>                 <span class="cm-comment">;; string   - Resolve order: 1) languageCode plus countryCode, eg. 'en-US' 2) languageCode only, eg. 'en' 3) finally fallback language, default: 'dev' If language is not set explicitly i18next tries to detect the user language by: 1) querystring parameter (?setLng=en-US) 2) cookie (i18next) 3) language set in navigator</span></pre><pre>                  <span class="cm-atom">:fallbackLng</span> <span class="cm-string">"en"</span>            <span class="cm-comment">;; str/bool - If not set it will default to 'dev'. If turned on, all missing key/values will be sent to this language. (use e.g. 'en' for production). False: As the fallbackLng will default to 'dev' you can turn it off by setting the option value to false. This will prevent loading the fallbacks resource file and any futher look up of missing value inside a fallback file.</span></pre><pre>                  <span class="cm-atom">:load</span> <span class="cm-string">"current"</span>              <span class="cm-comment">;; string   - If load option is set to current i18next will load the current set language (this could be a specific (en-US) or unspecific (en) resource file).</span></pre><pre>                  <span class="cm-atom">:detectLngQS</span> <span class="cm-string">"taal"</span>          <span class="cm-comment">;; string   - The current locale to set will be looked up in the new parameter: ?lang=en-US Hint: default would be ?setLng=en-US</span></pre><pre>                  <span class="cm-atom">:useCookie</span> <span class="cm-atom">true</span>              <span class="cm-comment">;; boolean  - Use this only if your sure that language will be provided by the other lookup options or set programatically.</span></pre><pre>                  <span class="cm-atom">:debug</span> <span class="cm-atom">true</span>                  <span class="cm-comment">;; boolean  - If something went wrong you might find some helpful information on console log.</span></pre><pre>                  <span class="cm-atom">:keyseparator</span> <span class="cm-string">"::"</span>           <span class="cm-comment">;; string   - Seperator for keys</span></pre><pre>                  <span class="cm-atom">:nsseparator</span> <span class="cm-string">":::"</span>           <span class="cm-comment">;; string   - Seperator for namespaces</span></pre><pre>                  <span class="cm-atom">:resGetPath</span> <span class="cm-bracket">(</span>uri <span class="cm-string">"/etc/i18n"</span> <span class="cm-string">"/__lng__/__ns__.json"</span><span class="cm-bracket">)</span> <span class="cm-comment">;; Set static route to load resources. Will load 'locales/en-US/translation.json'. If language is set to 'en-US' following resource files will be loaded one-by-one: en-US, en, dev (default fallback language). Hint: to lowercase countryCode in requests, eg. to 'en-us' set option lowerCaseLng = true</span></pre><pre>                  <span class="cm-atom">:ns</span> {<span class="cm-atom">:namespaces</span> <span class="cm-bracket">[</span><span class="cm-string">"app"</span><span class="cm-bracket">]</span>     <span class="cm-comment">;; array  - The additional namespaces will be loaded.</span></pre><pre>                       <span class="cm-atom">:defaultNs</span> <span class="cm-string">"app"</span>        <span class="cm-comment">;; string - The default namespace to load</span></pre><pre>                  }}</pre><pre> </pre><pre>  <span class="cm-comment">;; Vertaalbaar met i18next: menu structuur</span></pre><pre>  <span class="cm-atom">:navigatie</span> {<span class="cm-atom">:hoofdmenu</span> {<span class="cm-atom">:home</span>   <span class="cm-string">"Home"</span></pre><pre> </pre><pre>                          <span class="cm-atom">:missie</span> <span class="cm-string">"Wie zijn wij"</span></pre><pre> </pre><pre>                          <span class="cm-atom">:diensten</span>    {<span class="cm-atom">:fiscaal</span>      {<span class="cm-atom">:advies</span>      <span class="cm-string">"Belastingadvies"</span></pre><pre>                                                       <span class="cm-atom">:pensioen</span>    <span class="cm-string">"Pensioen"</span></pre><pre>                                                       <span class="cm-atom">:estate-plan</span> <span class="cm-string">"Estate Planning"</span>}</pre><pre> </pre><pre>                                        <span class="cm-atom">:juridisch</span>    {<span class="cm-atom">:advies</span>      <span class="cm-string">"Juridisch Advies"</span></pre><pre>                                                       <span class="cm-atom">:abonnement</span>  <span class="cm-string">"Juridisch Abonnement"</span>}</pre><pre> </pre><pre>                                        <span class="cm-atom">:debiteuren</span>   {<span class="cm-atom">:beheer</span>      <span class="cm-string">"Debiteurenbeheer"</span></pre><pre>                                                       <span class="cm-atom">:werkwijze</span>   <span class="cm-string">"Onze Werkwijze"</span></pre><pre>                                                       <span class="cm-atom">:abonnement</span>  <span class="cm-string">"Abonnement"</span>}</pre><pre> </pre><pre>                                        <span class="cm-atom">:accountancy</span>  {<span class="cm-atom">:hr-payroll</span>  <span class="cm-string">"Salaris- en Personeelszaken"</span></pre><pre>                                                       <span class="cm-atom">:accountancy</span> <span class="cm-string">"Accountancy"</span>}</pre><pre> </pre><pre>                                        <span class="cm-atom">:risicoadvies</span> {<span class="cm-atom">:verzekeren</span>  <span class="cm-string">"Risico-advies &amp; Verzekeringen"</span></pre><pre>                                                       <span class="cm-atom">:pensioen</span>    <span class="cm-string">"Pensioenadvies"</span></pre><pre>                                                       <span class="cm-atom">:overstappen</span> <span class="cm-string">"Schoenendoos Overstapservice"</span>}</pre><pre> </pre><pre>                          <span class="cm-atom">:t-time</span>      {<span class="cm-atom">:videos</span>       <span class="cm-string">"Tredius vertelt..."</span></pre><pre>                                        <span class="cm-atom">:nieuwsbrief</span>  <span class="cm-string">"Nieuwsbrief"</span></pre><pre>                                        <span class="cm-atom">:columns</span>      <span class="cm-string">"Onze columns"</span></pre><pre>                                        <span class="cm-atom">:special</span>      <span class="cm-string">"Specials"</span>}</pre><pre> </pre><pre>                          <span class="cm-atom">:werken-bij</span>  {<span class="cm-atom">:tredius</span>      <span class="cm-string">"Werken bij Tredius"</span></pre><pre>                                        <span class="cm-atom">:vacatures</span>    <span class="cm-string">"Vacatures"</span></pre><pre>                                        <span class="cm-atom">:stages</span>       <span class="cm-string">"Stageplekken"</span></pre><pre>                                        <span class="cm-atom">:wie-ben-jij</span>  <span class="cm-string">"Wie ben jij?"</span>}</pre><pre> </pre><pre>                          <span class="cm-comment">;; TODO Toevoegen van adresgegevens</span></pre><pre>                          <span class="cm-atom">:vestiging</span>   {<span class="cm-atom">:alkmaar</span>      <span class="cm-string">"Alkmaar"</span></pre><pre>                                        <span class="cm-atom">:haarlem</span>      <span class="cm-string">"Haarlem"</span></pre><pre>                                        <span class="cm-atom">:monnickendam</span> <span class="cm-string">"Monnickendam"</span></pre><pre>                                        <span class="cm-atom">:purmerend</span>    <span class="cm-string">"Purmerend"</span>}</pre><pre>                          }}</pre><pre>                }}</pre><pre>  }<span class="cm-bracket">)</span></pre><pre> </pre><pre> </pre><pre><span class="cm-comment">;; Main routines</span></pre><pre><span class="cm-comment">;; =============</span></pre><pre> </pre><pre><span class="cm-comment">;; Web site</span></pre><pre><span class="cm-comment">;; Momenteel is de site omschreven in CoffeeScript HTML. De variabelen bevinden zich in een centraal docpad config bestand. Daarnaast is er meta-data omschreven in de koppen</span></pre><pre> </pre></div></div></div></div></div></div></div></div>
+<div id="output" name="output"><div class="CodeMirror"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 59px;"><textarea wrap="off" autocorrect="off" autocapitalize="off" style="position: absolute; padding: 0px; width: 1px; height: 1em;"></textarea></div><div class="CodeMirror-scrollbar" style="display: block; height: 599px;"><div class="CodeMirror-scrollbar-inner" style="height: 5306px;"></div></div><div class="CodeMirror-scroll cm-s-ambiance" tabindex="-1"><div style="position: relative; min-height: 5306px;"><div style="position: relative; top: 2608px;"><div class="CodeMirror-gutter" style="height: 2698px; left: 0px;"><div class="CodeMirror-gutter-text"><pre>164</pre><pre>165</pre><pre>166</pre><pre>167</pre><pre>168</pre><pre>169</pre><pre>170</pre><pre>171</pre><pre>172</pre><pre>173</pre><pre>174</pre><pre>175</pre><pre>176</pre><pre>177</pre><pre>178</pre><pre>179</pre><pre>180</pre><pre>181</pre><pre>182</pre><pre>183</pre><pre>184</pre><pre>185</pre><pre>186</pre><pre>187</pre><pre>188</pre><pre>189</pre><pre>190</pre><pre>191</pre><pre>192</pre><pre>193</pre><pre>194</pre><pre>195</pre><pre>196</pre><pre>197</pre><pre>198</pre><pre>199</pre><pre>200</pre><pre>201</pre><pre>202</pre><pre>203</pre><pre>204</pre><pre>205</pre><pre>206</pre><pre>207</pre><pre>208</pre><pre>209</pre><pre>210</pre><pre>211</pre><pre>212</pre><pre>213</pre><pre>214</pre><pre>215</pre><pre>216</pre><pre>217</pre><pre>218</pre><pre>219</pre><pre>220</pre><pre>221</pre><pre>222</pre><pre>223</pre><pre>224</pre><pre>225</pre><pre>226</pre><pre>227</pre><pre>228</pre><pre>229</pre><pre>230</pre><pre>231</pre><pre>232</pre><pre>233</pre><pre>234</pre><pre>235</pre><pre>236</pre><pre>237</pre><pre>238</pre><pre>239</pre><pre>240</pre><pre>241</pre><pre>242</pre><pre>243</pre><pre>244</pre><pre>245</pre><pre>246</pre><pre>247</pre><pre>248</pre><pre>249</pre><pre>250</pre><pre>251</pre><pre>252</pre><pre>253</pre><pre>254</pre><pre>255</pre><pre>256</pre><pre>257</pre><pre>258</pre><pre>259</pre><pre>260</pre><pre>261</pre><pre>262</pre><pre>263</pre><pre>264</pre><pre>265</pre><pre>266</pre><pre>267</pre><pre>268</pre><pre>269</pre><pre>270</pre><pre>271</pre><pre>272</pre><pre>273</pre><pre>274</pre><pre>275</pre><pre>276</pre><pre>277</pre><pre>278</pre><pre>279</pre><pre>280</pre><pre>281</pre><pre>282</pre><pre>283</pre><pre>284</pre><pre>285</pre><pre>286</pre><pre>287</pre><pre>288</pre><pre>289</pre><pre>290</pre><pre>291</pre><pre>292</pre><pre>293</pre><pre>294</pre><pre>295</pre><pre>296</pre><pre>297</pre><pre>298</pre><pre>299</pre><pre>300</pre><pre>301</pre><pre>302</pre><pre>303</pre><pre>304</pre><pre>305</pre><pre>306</pre><pre>307</pre><pre>308</pre><pre>309</pre><pre>310</pre><pre>311</pre><pre>312</pre><pre>313</pre><pre>314</pre><pre>315</pre><pre>316</pre><pre>317</pre><pre>318</pre><pre>319</pre><pre>320</pre><pre>321</pre><pre>322</pre><pre>323</pre><pre>324</pre><pre>325</pre><pre>326</pre><pre>327</pre><pre>328</pre><pre>329</pre><pre>330</pre><pre>331</pre></div></div><div class="CodeMirror-lines"><div style="position: relative; z-index: 0; outline: none; min-width: 2318px; margin-left: 39px;"><div style="position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden;"></div><pre class="CodeMirror-cursor" style="top: -2608px; left: 0px; visibility: hidden;">&nbsp;</pre><pre class="CodeMirror-cursor" style="visibility: hidden; left: 2317px;">&nbsp;</pre><div style="position: relative; z-index: -1; display: none;"><div class="CodeMirror-selected" style="position: absolute; left: 49px; top: 1808px; right: 0px; height: 16px;"></div><div class="CodeMirror-selected" style="position: absolute; left: 0px; top: 1824px; right: 1212px; height: 16px;"></div></div><div style=""><pre>  <span class="cm-string">"kleuren"</span>: {</pre><pre>    <span class="cm-string">"fn"</span>: <span class="cm-variable">require</span>(<span class="cm-string">"color"</span>),</pre><pre>    <span class="cm-string">"wit"</span>: <span class="cm-string">"#ffffff"</span>,</pre><pre>    <span class="cm-string">"zwart"</span>: <span class="cm-string">"#000000"</span>,</pre><pre>    <span class="cm-string">"paars"</span>: <span class="cm-string">"1234"</span>,</pre><pre>    <span class="cm-string">"licht-paars"</span>: <span class="cm-string">"1234"</span>,</pre><pre>    <span class="cm-string">"blauw"</span>: <span class="cm-string">"1234"</span>,</pre><pre>    <span class="cm-string">"licht-blauw"</span>: <span class="cm-string">"1234"</span>,</pre><pre>    <span class="cm-string">"groen"</span>: <span class="cm-string">"1234"</span>,</pre><pre>    <span class="cm-string">"turquoise"</span>: <span class="cm-string">"1234"</span>,</pre><pre>    <span class="cm-string">"rood"</span>: <span class="cm-string">"1234"</span>,</pre><pre>    <span class="cm-string">"lichtrood"</span>: <span class="cm-string">"1234"</span>,</pre><pre>    <span class="cm-string">"grijs"</span>: <span class="cm-string">"1234"</span>,</pre><pre>    <span class="cm-string">"licht-grijs"</span>: <span class="cm-string">"1234"</span>,</pre><pre>    <span class="cm-string">"donker-grijs"</span>: <span class="cm-string">""</span></pre><pre>  },</pre><pre>  <span class="cm-string">"stijl"</span>: {</pre><pre>    <span class="cm-string">"invoer"</span>: <span class="cm-string">"index.styl"</span>,</pre><pre>    <span class="cm-string">"uitvoer"</span>: <span class="cm-string">"algemeen.css"</span>,</pre><pre>    <span class="cm-string">"locaties"</span>: []</pre><pre>  },</pre><pre>  <span class="cm-string">"config"</span>: {</pre><pre>    <span class="cm-string">"ftp"</span>: {</pre><pre>      <span class="cm-string">"source"</span>: <span class="cm-string">"https://github.com/mscdex/node-ftp"</span>,</pre><pre>      <span class="cm-string">"host"</span>: <span class="cm-string">"ftp.tredius.nl"</span>,</pre><pre>      <span class="cm-string">"port"</span>: <span class="cm-number">21</span>,</pre><pre>      <span class="cm-string">"secure"</span>: <span class="cm-atom">true</span>,</pre><pre>      <span class="cm-string">"user"</span>: <span class="cm-string">"solobit"</span>,</pre><pre>      <span class="cm-string">"password"</span>: <span class="cm-string">"secret"</span>,</pre><pre>      <span class="cm-string">"connTimeout"</span>: <span class="cm-number">10000</span>,</pre><pre>      <span class="cm-string">"pasvTimeout"</span>: <span class="cm-number">10000</span>,</pre><pre>      <span class="cm-string">"keepalive"</span>: <span class="cm-number">10000</span></pre><pre>    },</pre><pre>    <span class="cm-string">"i18n"</span>: {</pre><pre>      <span class="cm-string">"source"</span>: <span class="cm-string">"https://github.com/jamuhl/i18next"</span>,</pre><pre>      <span class="cm-string">"help"</span>: <span class="cm-string">"http://i18next.com/pages/doc_init.html"</span>,</pre><pre>      <span class="cm-string">"preload"</span>: [<span class="cm-string">"nl-NL"</span>],</pre><pre>      <span class="cm-string">"lng"</span>: <span class="cm-string">"nl-NL"</span>,</pre><pre>      <span class="cm-string">"fallbackLng"</span>: <span class="cm-string">"en"</span>,</pre><pre>      <span class="cm-string">"load"</span>: <span class="cm-string">"current"</span>,</pre><pre>      <span class="cm-string">"detectLngQS"</span>: <span class="cm-string">"taal"</span>,</pre><pre>      <span class="cm-string">"useCookie"</span>: <span class="cm-atom">true</span>,</pre><pre>      <span class="cm-string">"debug"</span>: <span class="cm-atom">true</span>,</pre><pre>      <span class="cm-string">"keyseparator"</span>: <span class="cm-string">"::"</span>,</pre><pre>      <span class="cm-string">"nsseparator"</span>: <span class="cm-string">":::"</span>,</pre><pre>      <span class="cm-string">"resGetPath"</span>: <span class="cm-variable">uri</span>(<span class="cm-string">"/etc/i18n"</span>, <span class="cm-string">"/__lng__/__ns__.json"</span>),</pre><pre>      <span class="cm-string">"ns"</span>: {</pre><pre>        <span class="cm-string">"namespaces"</span>: [<span class="cm-string">"app"</span>],</pre><pre>        <span class="cm-string">"defaultNs"</span>: <span class="cm-string">"app"</span></pre><pre>      }</pre><pre>    },</pre><pre>    <span class="cm-string">"navigatie"</span>: {</pre><pre>      <span class="cm-string">"hoofdmenu"</span>: {</pre><pre>        <span class="cm-string">"home"</span>: <span class="cm-string">"Home"</span>,</pre><pre>        <span class="cm-string">"missie"</span>: <span class="cm-string">"Wie zijn wij"</span>,</pre><pre>        <span class="cm-string">"diensten"</span>: {</pre><pre>          <span class="cm-string">"fiscaal"</span>: {</pre><pre>            <span class="cm-string">"advies"</span>: <span class="cm-string">"Belastingadvies"</span>,</pre><pre>            <span class="cm-string">"pensioen"</span>: <span class="cm-string">"Pensioen"</span>,</pre><pre>            <span class="cm-string">"estate-plan"</span>: <span class="cm-string">"Estate Planning"</span></pre><pre>          },</pre><pre>          <span class="cm-string">"juridisch"</span>: {</pre><pre>            <span class="cm-string">"advies"</span>: <span class="cm-string">"Juridisch Advies"</span>,</pre><pre>            <span class="cm-string">"abonnement"</span>: <span class="cm-string">"Juridisch Abonnement"</span></pre><pre>          },</pre><pre>          <span class="cm-string">"debiteuren"</span>: {</pre><pre>            <span class="cm-string">"beheer"</span>: <span class="cm-string">"Debiteurenbeheer"</span>,</pre><pre>            <span class="cm-string">"werkwijze"</span>: <span class="cm-string">"Onze Werkwijze"</span>,</pre><pre>            <span class="cm-string">"abonnement"</span>: <span class="cm-string">"Abonnement"</span></pre><pre>          },</pre><pre>          <span class="cm-string">"accountancy"</span>: {</pre><pre>            <span class="cm-string">"hr-payroll"</span>: <span class="cm-string">"Salaris- en Personeelszaken"</span>,</pre><pre>            <span class="cm-string">"accountancy"</span>: <span class="cm-string">"Accountancy"</span></pre><pre>          },</pre><pre>          <span class="cm-string">"risicoadvies"</span>: {</pre><pre>            <span class="cm-string">"verzekeren"</span>: <span class="cm-string">"Risico-advies &amp; Verzekeringen"</span>,</pre><pre>            <span class="cm-string">"pensioen"</span>: <span class="cm-string">"Pensioenadvies"</span>,</pre><pre>            <span class="cm-string">"overstappen"</span>: <span class="cm-string">"Schoenendoos Overstapservice"</span></pre><pre>          },</pre><pre>          <span class="cm-string">"t-time"</span>: {</pre><pre>            <span class="cm-string">"videos"</span>: <span class="cm-string">"Tredius vertelt..."</span>,</pre><pre>            <span class="cm-string">"nieuwsbrief"</span>: <span class="cm-string">"Nieuwsbrief"</span>,</pre><pre>            <span class="cm-string">"columns"</span>: <span class="cm-string">"Onze columns"</span>,</pre><pre>            <span class="cm-string">"special"</span>: <span class="cm-string">"Specials"</span></pre><pre>          },</pre><pre>          <span class="cm-string">"werken-bij"</span>: {</pre><pre>            <span class="cm-string">"tredius"</span>: <span class="cm-string">"Werken bij Tredius"</span>,</pre><pre>            <span class="cm-string">"vacatures"</span>: <span class="cm-string">"Vacatures"</span>,</pre><pre>            <span class="cm-string">"stages"</span>: <span class="cm-string">"Stageplekken"</span>,</pre><pre>            <span class="cm-string">"wie-ben-jij"</span>: <span class="cm-string">"Wie ben jij?"</span></pre><pre>          },</pre><pre>          <span class="cm-string">"vestiging"</span>: {</pre><pre>            <span class="cm-string">"alkmaar"</span>: <span class="cm-string">"Alkmaar"</span>,</pre><pre>            <span class="cm-string">"haarlem"</span>: <span class="cm-string">"Haarlem"</span>,</pre><pre>            <span class="cm-string">"monnickendam"</span>: <span class="cm-string">"Monnickendam"</span>,</pre><pre>            <span class="cm-string">"purmerend"</span>: <span class="cm-string">"Purmerend"</span></pre><pre>          }</pre><pre>        }</pre><pre>      }</pre><pre>    }</pre><pre>  }</pre><pre>};</pre><pre> </pre><pre><span class="cm-keyword">var</span> <span class="cm-variable">genereerStijlblad</span> = <span class="cm-keyword">function</span> <span class="cm-variable">genereerStijlblad</span>(<span class="cm-def">uitvoer</span>) {</pre><pre>  <span class="cm-string">"Stylus is een next-gen pre-processor voor CSS stijlbladen en de meest krachtige\n  engine om nog meer uit de vormgeving van webpagina's te halen."</span>;</pre><pre>  <span class="cm-keyword">return</span> (<span class="cm-keyword">function</span>() {</pre><pre>    <span class="cm-keyword">var</span> <span class="cm-def">stylus</span> = <span class="cm-variable">require</span>(<span class="cm-string">"stylus"</span>);</pre><pre>    <span class="cm-keyword">var</span> <span class="cm-def">bestand</span> = <span class="cm-variable">path</span>.<span class="cm-property">join</span>((<span class="cm-variable">hoofdproject</span> || <span class="cm-number">0</span>)[<span class="cm-string">"bron"</span>], (<span class="cm-variable">hoofdproject</span> || <span class="cm-number">0</span>)[<span class="cm-string">"code"</span>], (<span class="cm-variable">hoofdproject</span> || <span class="cm-number">0</span>)[<span class="cm-string">"stijl"</span>]);</pre><pre>    <span class="cm-keyword">var</span> <span class="cm-def">stijlblad</span> = <span class="cm-variable">fs</span>.<span class="cm-property">readFileSync</span>(<span class="cm-variable-2">bestand</span>, <span class="cm-string">"utf-8"</span>);</pre><pre>    <span class="cm-keyword">var</span> <span class="cm-def">mappen</span> = <span class="cm-variable">site</span>(<span class="cm-string">"documenten/stijlen/lib/cultivus"</span>);</pre><pre>    <span class="cm-keyword">var</span> <span class="cm-def">opties</span> = {</pre><pre>      <span class="cm-string">"filename"</span>: <span class="cm-variable">gegevens</span>.<span class="cm-property">stijl</span>.<span class="cm-property">uitvoer</span>,</pre><pre>      <span class="cm-string">"paths"</span>: [<span class="cm-variable-2">mappen</span>, <span class="cm-variable">path</span>.<span class="cm-property">join</span>(<span class="cm-variable-2">mappen</span>, <span class="cm-string">"i18n"</span>)]</pre><pre>    };</pre><pre>    <span class="cm-keyword">return</span> <span class="cm-variable-2">stylus</span>.<span class="cm-property">render</span>(<span class="cm-variable-2">stijlblad</span>, <span class="cm-variable-2">opties</span>, <span class="cm-keyword">function</span>(<span class="cm-def">exception</span>, <span class="cm-def">css</span>) {</pre><pre>      <span class="cm-keyword">return</span> (<span class="cm-keyword">function</span>() {</pre><pre>      <span class="cm-keyword">try</span> {</pre><pre>        <span class="cm-keyword">return</span> <span class="cm-variable">raise</span>(<span class="cm-variable">exception</span>);</pre><pre>      } <span class="cm-keyword">catch</span> (<span class="cm-def">error</span>) {</pre><pre>        <span class="cm-keyword">return</span> <span class="cm-variable">recover</span>(<span class="cm-variable-2">error</span>);</pre><pre>      } <span class="cm-keyword">finally</span> {</pre><pre>        <span class="cm-keyword">return</span> <span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-variable">css</span>);</pre><pre>      }})();</pre><pre>    });</pre><pre>  })();</pre><pre>};</pre><pre> </pre><pre><span class="cm-keyword">var</span> <span class="cm-variable">uploadFtp</span> = <span class="cm-keyword">function</span> <span class="cm-variable">uploadFtp</span>() {</pre><pre>  <span class="cm-string">"Hiermee uploaden we bestanden naar een remote FTP van een server."</span>;</pre><pre>  <span class="cm-keyword">return</span> (<span class="cm-keyword">function</span>() {</pre><pre>    <span class="cm-keyword">var</span> <span class="cm-def">local</span> = <span class="cm-string">"boo.txt"</span>;</pre><pre>    <span class="cm-keyword">var</span> <span class="cm-def">remote</span> = <span class="cm-string">"boo.remote-copy.txt"</span>;</pre><pre>    <span class="cm-keyword">var</span> <span class="cm-def">client</span> = <span class="cm-variable">require</span>(<span class="cm-string">"ftp"</span>);</pre><pre>    <span class="cm-keyword">return</span> (<span class="cm-keyword">function</span>() {</pre><pre>      <span class="cm-keyword">return</span> <span class="cm-variable">client</span>.<span class="cm-property">put</span>(<span class="cm-variable">local</span>, <span class="cm-variable">remote</span>, (<span class="cm-keyword">function</span>() {</pre><pre>      <span class="cm-keyword">try</span> {</pre><pre>        <span class="cm-keyword">return</span> <span class="cm-variable">raise</span>(<span class="cm-variable">exception</span>);</pre><pre>      } <span class="cm-keyword">catch</span> (<span class="cm-def">error</span>) {</pre><pre>        <span class="cm-keyword">return</span> <span class="cm-variable">recover</span>(<span class="cm-variable-2">error</span>);</pre><pre>      } <span class="cm-keyword">finally</span> {</pre><pre>        <span class="cm-keyword">return</span> <span class="cm-variable">c</span>.<span class="cm-property">end</span>();</pre><pre>      }})(), <span class="cm-variable">c</span>.<span class="cm-property">connect</span>());</pre><pre>    })();</pre><pre>  })();</pre><pre>};</pre><pre> </pre><pre><span class="cm-keyword">var</span> <span class="cm-variable">cultuur</span> = <span class="cm-keyword">function</span> <span class="cm-variable">cultuur</span>() {</pre><pre>  <span class="cm-string">"Een site bestaat veelal uit meerdere talen, tijd of valuta moeten mee veranderen.\n  Dit wordt ook wel internationalization, localization of i18n."</span>;</pre><pre>  <span class="cm-keyword">return</span> <span class="cm-variable">require</span>(<span class="cm-string">"i18next"</span>).<span class="cm-property">init</span>((<span class="cm-variable">hoofdproject</span> || <span class="cm-number">0</span>)[<span class="cm-string">"taal-en-land"</span>]);</pre><pre>};</pre><pre> </pre><pre><span class="cm-keyword">var</span> <span class="cm-variable">site</span> = <span class="cm-keyword">function</span> <span class="cm-variable">site</span>(<span class="cm-def">bestand</span>) {</pre><pre>  <span class="cm-string">"Vaak zullen we een referentie tot de sitemap op moeten geven."</span>;</pre><pre>  <span class="cm-keyword">return</span> <span class="cm-variable">path</span>.<span class="cm-property">join</span>((<span class="cm-variable">hoofdproject</span> || <span class="cm-number">0</span>)[<span class="cm-string">"bron"</span>], (<span class="cm-variable">hoofdproject</span> || <span class="cm-number">0</span>)[<span class="cm-string">"site"</span>], <span class="cm-variable-2">bestand</span>);</pre><pre>};</pre><pre> </pre><pre><span class="cm-keyword">var</span> <span class="cm-variable">afb</span> = <span class="cm-keyword">function</span> <span class="cm-variable">afb</span>(<span class="cm-def">bestand</span>) {</pre><pre>  <span class="cm-string">"Geef de locatie (map) van afbeeldingen per server, domein, onderdeel of map."</span>;</pre><pre>  <span class="cm-keyword">return</span> <span class="cm-variable">path</span>.<span class="cm-property">join</span>((<span class="cm-variable">hoofdproject</span> || <span class="cm-number">0</span>)[<span class="cm-string">"bron"</span>], (<span class="cm-variable">hoofdproject</span> || <span class="cm-number">0</span>)[<span class="cm-string">"site"</span>], (<span class="cm-variable">hoofdproject</span> || <span class="cm-number">0</span>)[<span class="cm-string">"afbeeldingen"</span>], <span class="cm-variable-2">bestand</span>);</pre><pre>};</pre><pre> </pre><pre><span class="cm-keyword">var</span> <span class="cm-variable">conf</span> = <span class="cm-keyword">function</span> <span class="cm-variable">conf</span>() {</pre><pre>  <span class="cm-string">"Ons projectbestand bevat in eerste aanleg in JSON genoteerde gegevens. Lees\n  met nconf de velden eenvoudig uit."</span>;</pre><pre>  <span class="cm-keyword">return</span> <span class="cm-variable">require</span>(<span class="cm-string">"nconf"</span>).<span class="cm-property">file</span>({</pre><pre>    <span class="cm-string">"file"</span>: <span class="cm-variable">path</span>.<span class="cm-property">join</span>((<span class="cm-variable">hoofdproject</span> || <span class="cm-number">0</span>)[<span class="cm-string">"bron"</span>], (<span class="cm-variable">hoofdproject</span> || <span class="cm-number">0</span>)[<span class="cm-string">"definitie"</span>])</pre><pre>  });</pre><pre>}</pre><pre> </pre></div></div></div></div></div></div></div></div>
+    <script src="./Wisp playground9_files/app.js"></script>
+  
+
+</body></html>

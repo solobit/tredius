@@ -1,0 +1,103 @@
+--- cson
+layout:     'standaard'
+titel:      'Juridisch'
+subtitel:   'Juridisch Abonnement'
+naam:       'Juridisch Abonnement'
+kenmerk:    'juridisch_abonnement'
+tags:       ['randstad', 'belastingen', 'juridisch', 'abonnement']
+bannier:    'bg_juristen.jpg'
+voetmenu:   1
+---
+
+script(src='/assets/validatie.js')
+
+h1 Tredius staat voor gemak
+
+p Om dit in de praktijk te brengen hebben wij het
+  strong  Tredius Juridisch Abonnement
+  |  in het leven geroepen.
+  br
+  | Voor € 295 excl. BTW per jaar bent u van juridisch advies gegarandeerd.
+  br
+  | Onze slogan is dan ook "Gemak dient de ondernemer"
+
+section#productinfo(itemscope, itemtype="s:Offer", itemid="#offer")
+
+  img(
+    itemprop="image"
+    src='/media/afbeeldingen/icon_juridischabonnement.png'
+    alt='Het Tredius juridisch abonnement'
+    )
+
+  h3(typeof="gr:Offering", about="#offering") Juridisch Abonnement
+
+  //- Productomschrijving, bedrijfsactiviteiten en koppelingen
+  div(rev="gr:offers", resource="#company")
+  div(property="gr:name", content="Juridisch abonnement", xml:lang="nl")
+  div(rel="gr:hasBusinessFunction", resource="gr:ProvideService")
+  div(rel="foaf:page", resource="#{document.url}")
+  div(property="gr:description", xml:lang="nl"
+    content="Met het Tredius Juridisch abonnement bent u van juridisch advies gegarandeerd.")
+
+  h4 Voor slechts <span itemprop="price">€ 295</span> ontvangt u
+
+  ul
+
+    li 2 contracten per jaar gratis
+
+    li
+      hr
+      p of
+
+    li 3 uur gratis juridisch advies
+
+    li
+      hr
+      p &amp;
+
+    li 15% korting op het uurtarief van de juristen
+
+    li
+      hr
+      p &amp;
+
+    li Wanneer u 3 jaar geen gebruik maakt van deze dienst, <br /> krijgt u 50% terug
+
+//- Formulier
+
+form#ulier_abonnement(name="form_api"
+  method="post", action="")
+
+  h3 Vul uw gegevens in om het abonnement af te sluiten
+  ol
+
+    li
+      label(for='achternaam') Achternaam*
+      input.invoer(id='achternaam', type='text', placeholder='Naam', name='col2')
+
+    li
+      label(for='telefoon') Telefoon overdag*
+      input.invoer(id='telefoon', type='tel', placeholder='010 123 45 67', name='col')
+
+    li
+      label(for='email') E-mailadres*
+      input.invoer(id='email', type='email', size='20', placeholder='naam@email.com', name='Email')
+
+    li
+      label(for='postcode') Postcode*
+      input(id='postcode', type='text', placeholder='1010 AB', name='col13')
+
+    li
+      label(for='woonplaats') Woonplaats*
+      input(id='woonplaats', type='text', placeholder='Woonplaats', name='col11')
+
+    li
+      input(id='akkoord', type='checkbox', name='col21', checked='checked')
+
+      label(for='akkoord') Ja, ik ga akkoord met de&nbsp;
+        a.link.wit(href='/overig/voorwaarden.html') voorwaarden
+        |  van Tredius
+
+      a.knop.versturen(href='#') Verzenden &raquo;
+
+      span.bericht

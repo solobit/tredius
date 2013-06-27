@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o nounset
+
+#Works!
+awk '{ if (! ($0 ~ /^[[:space:]]{4} | [\t]/ )) print }' $1 |\
+  awk 'NF' |\
+  awk '/^\#{1,6}.*$/{print "\n"}1'
+
+
+

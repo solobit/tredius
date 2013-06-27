@@ -1,0 +1,411 @@
+
+# Node.js scope
+
+#  Expose these to outside world
+module.exports =
+
+    # Localized path names
+    srcPath:        'bron'
+    outPath:        'uitvoer'
+
+    # Arrays to allow more than one path also localized
+    pluginsPaths:   ['modules/node_modules', 'modules/plugins']
+    documentsPaths: ['documents', 'documenten']
+    filesPaths:     ['files', 'public', 'bestanden']
+    layoutsPaths:   ['layouts', 'sjablonen']
+
+    # Plugin schakelaars
+    enabledPlugins:
+        absolutepath:   true
+        pathtoroot:     false
+        munge:          true
+        text:           false
+
+    plugins:
+
+        partials:
+            partialsPath: 'bouwstenen'
+            # Since partials are not part of the core framework
+            # localize the path name here
+
+        sitemap:
+            cachetime:  600000
+            changefreq: 'yearly'
+            priority:   0.8
+
+
+        ###
+        
+        * `name` string, name of the download, for logging purposes only
+        
+        * `path` string, path that the completed download is placed
+        
+        * `url` string, url the download is retrieved from
+        
+        * `deflate` boolean, whether or not we should deflate the response
+        when fetching the download (auto-detected if not set)
+        
+        * `gzip` boolean, whether or not we should unzip the response when
+        fetching the download (auto-detected if not set)
+        
+        * `tarExtract` boolean, whether or not we should extract tar
+        downloads (auto-detected if not set)
+        
+        * `tarExtractClean` boolean, whether or not when performing a tar
+        extraction if we should remove the root directory of the
+        extracted files
+        
+        ###
+        
+        downloader:
+            downloads: [
+                {
+                    name: 'Gist Bundle'
+                    path: 'src/documents/gist'
+                    url: 'https://gist.github.com/balupton/5432249/download'
+                    tarExtractClean: true
+                }
+                {
+                    name: 'Gist File'
+                    path: 'src/documents/a.html.md'
+                    url: 'https://gist.github.com/balupton/5432249/raw/1e1cd6d374d0565aaab30566ec9055219d857aec/a.html.md'
+                }
+            ]
+
+    # Gedeeld
+    templateData:
+
+        org:
+
+            bedrijfsnaam:     'Tredius'
+
+            bedrijfslogo:     '/media/afbeeldingen/bedrijfslogo.png'
+            omschrijving: "
+            Tredius verleent financiële-, fiscale-, juridische-,
+            personele- en bedrijfsadministratieve diensten aan het MKB
+            van Nederland".replace(/\s+/g, " ")
+
+            auteursrecht:     "#{new Date().getFullYear() + ' © Tredius.nl'}"
+
+            bezoekadres:
+                straat:       'Zijlweg 146'
+                postcode:     '2015 BH'
+                plaats:       'Haarlem'
+
+            postadres:
+                postbus:      'Postbus 992'
+                postcode:     '2003 RZ'
+                plaats:       'Haarlem'
+
+            contactgegevens:
+                telefoon:     '023 551 30 55'
+                fax:          '023 551 30 35'
+                email:        'info@tredius.nl'
+
+            handelsgegevens:
+                kvk:          '3782878'
+                btw:          'NL8124.72.792.B01'
+                bedrijfsvorm: 'Besloten Venootschap (BV)'
+
+            contactpersonen:
+
+                marco:
+                    naam:       'Marco Krijger MB FB'
+                    titel:      'Partner Tredius Fiscalisten'
+                    email:      'm.krijger@tredius.nl'
+
+                linda:
+                    naam:       'Linda Honig'
+                    titel:      ''
+                    telefoon:   '023 551 30 55'
+                    email:      ''
+
+                lennard:
+                    naam:       'Lennard Honig'
+                    titel:      ''
+                    telefoon:   '023 551 30 55'
+                    email:      ''
+
+                luuk:
+                    naam:       'Luuk Oosting'
+                    titel:      ''
+                    telefoon:   '0299 651 987'
+                    email:      ''
+
+                wil:
+                    naam:       'Wil Buffing'
+                    titel:      ''
+                    telefoon:   '0299 411 345'
+                    email:      ''
+
+
+            #
+            # Afdelingen of vestigingen op die geografische locaties
+            # anders dan de hoofdafdeling / organisatie
+            #
+            vestigingen:
+
+                purmerend:
+
+                    bezoekadres: """
+                        Wielingenstraat 119
+                        1441 ZN
+                        Purmerend
+                        Noord-Holland
+                        Nederland
+                        """.trim().split('\n')
+
+                    postadres: """
+                        Postbus 258
+                        1440 AG
+                        Purmerend
+                        """.trim().split('\n')
+
+                    telefoon:   "0299 411 345"
+                    fax:        "0299 411 348"
+                    email:      "info@tredius.nl"
+                    geocode:    ['52.503605', '4.958375']
+                    rest: "geocode=Cc9PzZeFjzXfFYEnIQMdp59LACmPF3Re0AbGRzF_fLmc8BNprg&amp;sll=52.504454,4.956079&amp;sspn=0.009065,0.019054&amp;mra=pd&amp;t=m&amp;spn=0.0064,0.013282"
+
+                monnickendam:
+
+                    bezoekadres: """
+                        Haringburgwal 17
+                        1141 AT
+                        Monnickendam
+                        Noord-Holland
+                        Nederland
+                        """.trim().split('\n')
+
+                    postadres: """
+                        Postbus 48
+                        1140 AA
+                        Monnickendam
+                        """.trim().split('\n')
+
+                    telefoon:   '0299 651 987'
+                    fax:        '0299 653 004'
+                    email:      'info@tredius.nl'
+                    geocode:    ['52.462874', '5.035343']
+                    rest: "geocode=CXRphrBe0kPwFRuFIAMdStVMACln1vctrAXGRzHfFo4FDFJsxg&amp;aq=&amp;sll=52.505806,4.827991&amp;sspn=0.269159,0.835648&amp;mra=pd&amp;spn=0.006406,0.013282"
+
+                alkmaar:
+
+                    bezoekadres: """
+                        Professor van der Waalsstraat 3K
+                        1821 BT
+                        Alkmaar
+                        Noord-Holland
+                        Nederland
+                        """.trim().split('\n')
+
+                    postadres: """
+                        Professor van der Waalsstraat 3K
+                        1821 BT
+                        Alkmaar
+                        """.trim().split('\n')
+
+                    telefoon:   '072 564 4203'
+                    fax:        '072 564 3019'
+                    email:      'info@tredius.nl'
+                    geocode:    ['52.625092', '4.770384']
+                    rest:       "spn=0.006382,0.013282"
+
+                haarlem:
+
+                    bezoekadres: """
+                        Zijlweg 146
+                        2015 BH
+                        Haarlem
+                        Noord-Holland
+                        Nederland
+                        """.trim().split('\n')
+
+                    postadres: """
+                        Postbus 992
+                        2003 RZ
+                        Haarlem
+                        """.trim().split('\n')
+
+                    telefoon:   '023 551 30 55'
+                    fax:        '023 551 30 35'
+                    email:      'info@tredius.nl'
+                    geocode:    ['52.386457', '4.620631']
+                    rest: "geocode=CWxUaXo29tzfFddYHwMdWoFGACkH_TJiEO_FRzHom-tyuYRbow&amp;sll=52.386457,4.620631&amp;sspn=0.008434,0.026114&amp;mra=iwd&amp;spn=0.006417,0.013282"
+
+        site:
+
+            naam:             'Tredius.nl'
+            url:              'http://www.tredius.nl'
+            static:           'http://static.tredius.nl'
+            development:      'http://solobit.github.io/tredius'
+            auteur:           'Solobit &amp; Edberry Creative'
+            contact:          'info@tredius.nl'
+            taal:             'xml:lang': 'nl'
+
+            essentie: "
+            Tredius verleent financiële-, fiscale-, juridische-,
+            personele- en bedrijfsadministratieve diensten aan het MKB
+            van Nederland".replace(/\s+/g, " ")
+
+            omschrijving: "
+            Bij Tredius hebben we de behoefte om het MKB landschap te
+            veranderen: Vrijheid, Onafhankelijkheid en Zelfstandigheid,
+            voor iedere ondernemer.".replace(/\s+/g, " ")
+
+            keywords: "
+            belasting, advies, accountancy, pensioenbelasting,
+            bedrijfsadministratie, vrijheid, onafhankelijkheid,
+            zelfstandigheid".replace(/\s+/g, " ")
+
+            beheer:           'rob.jentzema@gmail.com'
+
+            googleanalytics:  'UA-39413290-1'
+
+            techniek: "
+            Node.js, Docpad, jQuery, Semantic Grid, Stylus, Jade,
+            CoffeeScript, Markdown, Accessible Rich Internet
+            Applications (WAI-ARIA) ".replace(/\s+/g, " ")
+
+            disclaimer: "
+            De informatie zoals opgenomen in bovenstaand artikel is
+            uitsluitend bestemd voor algemene informatiedoeleinden.
+            Derhalve dienen op grond van deze informatie geen
+            handelingen te worden verricht zonder voorafgaand deskundig
+            advies. Voor een toelichting kunt u uiteraard contact
+            opnemen met een van onze kantoren. ".replace(/\s+/g, " ")
+
+            ##
+            # Scripts
+            #
+
+            blockingScripts: """
+                /assets/modernizr-custom.js
+                /assets/ender.min.js
+                //ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js
+                //ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js
+                //code.createjs.com/preloadjs-0.3.0.min.js
+                //yui.yahooapis.com/3.8.0/build/yui/yui-min.js
+                /assets/jquery.colorbox.js
+                /assets/jquery.easing.min.js
+                """.trim().split('\n')
+
+
+            nonBlockingScripts: """
+                /assets/jquery.cookie.js
+                /assets/jquery.circlemenu.js
+                /assets/vimeo.froogaloop2.min.js
+                """.trim().split('\n')
+                # /assets/jquery.hypher.js
+                # /assets/cross-domain.js
+
+            ##
+            # Vormgeving
+            #
+
+            stijl:
+
+                lettertype: "
+                //fonts.googleapis.com/css?family=Dosis:400,500,600
+                |Open+Sans:400italic,600italic,700italic,400,600,700
+                ".replace(/\s+/g, " ")
+
+                icoon:      "/media/afbeeldingen/favicon.png"
+
+                ###
+                TODO: automatisch toevoegen van random voor cache tijdens
+                # development fase en niet comprimeren.
+                volatile: [
+                    '/stijlen/algemeen.css' + '?' + new Date().getTime() / 1000
+                ]
+                ###
+                # Deze well compress
+                bladen: [
+                    '/stijlen/algemeen.css' + '?' + new Date().getTime() / 1000
+                    '/stijlen/circlemenu.css'
+                ]
+
+            ##
+            # Snelkoppelingen
+            #
+            snelkoppelingen:
+
+                debiteuren:
+                    tekst:  'Tredius Debiteurenbeheer'
+                    url:    '/diensten/debiteurenbeheer/index.html'
+                    titel:  'Tredius Debiteurenbeheer is duurzaamheid voorop'
+
+                stappenplan:
+                    tekst:  'Tredius Debiteurenbeheer Stappenplan'
+                    url:    '/diensten/debiteurenbeheer/stappenplan.html'
+                    titel:  'Neem nu een Tredius Debiteurenbeheer Abonnement'
+
+                debiteurenabo:
+                    tekst: 'Tredius Debiteuren Abonnement'
+                    url:    '/diensten/debiteurenbeheer/abonnement.html'
+                    titel:  'Neem nu een Tredius Debiteurenbeheer Abonnement'
+
+                voorwaarden:
+                    tekst:  'voorwaarden'
+                    url:    '/overig/voorwaarden.html'
+                    titel:  'Lees onze algemene voorwaarden'
+
+
+            # (Web 3.0) Vocabularies of web ontologies
+            # XML Namespace URI's for the semantic web
+            vocabulaire: {'xmlns:s'     : 'http://schema.org/'
+                        , 'xmlns:gr'    : 'http://purl.org/goodrelations/v1#'
+                        , 'xmlns:rdfs'  : 'http://www.w3.org/2000/01/rdf-schema#'
+                        , 'xmlns:vcard' : 'http://www.w3.org/2006/vcard/ns#'
+                        , 'xmlns:foaf'  : 'http://xmlns.com/foaf/0.1/'
+                        , 'xmlns:xsd'   : 'http://www.w3.org/2001/XMLSchema#'
+                        , 'xmlns:v'     : 'http://rdf.data-vocabulary.org/#'
+                        , 'xmlns:pto'   : 'http://www.productontology.org/id/'
+                        , 'xmlns:wn'    : 'http://xmlns.com/wordnet/1.6/'}
+
+
+        #
+        # Samenstellen van mail API address voor 'post'
+        #
+        getMailUri: ({id,ds}) ->
+
+            return "" if id? or ds?
+
+            formulier =
+                #  frm    MailingListID - DatasetID
+                nieuwsbrief: [ 145464     , 20853 ]
+                neemcontact: [ 145467     , 20853 ]
+                jabonnement: [ 145467     , 20853 ]
+                dabonnement: [ 145467     , 20853 ]
+                vacaturescv: [ 145472     , 20853 ]
+
+            # Samenstellen en encoden van mail API URI
+            api     = encodeURI          "http://www.graphicmail.nl/api.aspx?"
+            sid     = encodeURIComponent "SID=4"
+            b64     = encodeURIComponent "&Credentials=DtZEdUEEcUap7RsVxnxyWux37VTOip2Xp2M+gIusSMwpc9Hu7nDCFm2LffostDgC/8lkV84pfIARSyMl/Hfamx4oG8mt/mk8o+UsteAhNqMs/qO3lhsagAKn4EtikhystNc17yejBNe2b+pfgz1pwRTA3F1AwxkI87/m5D+5kPkj2DLiRn/CFk4UBeiBT37fW+kniU94iIxHeoOThig3YRuLGaxd3LeSloSHW1xcaEhMpaP+uFozdVPBBf5cVZwjx63xVLa5+jQZBf7UM9zaew=="
+            func    = encodeURIComponent "&Function=post_add_email_and_data"
+            mlid    = encodeURIComponent "&MailingListID=#{id}"
+            dsid    = encodeURIComponent "&DatasetID=#{ds}"
+
+            # Closure
+            api + sid + mlid + dsid + b64 + func
+
+        # QueryEngine / Backbone modellen
+        verzameling: (query) -> @getCollection('documents').findAllLive(query).toJSON()
+
+        # Daadwerkelijke pad achterhalen
+        urlOphalen: (document) ->
+            return @site.url + (document.url or document.get?('url'))
+
+        plaatsLink: (naam) ->
+            link = @site.snelkoppelingen[naam]
+            anker = """
+                <a href="#{link.url}" title="#{link.titel}" class="#{link.cssKlasse or ''}">#{link.tekst}</a>
+                """
+            return anker
+
+
+    collections:
+
+        pages: -> @getCollection('documents').findAllLive({pageOrder:$exists:true},[pageOrder:1])
+

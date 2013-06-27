@@ -1,0 +1,162 @@
+
+rijhoogte           = 34px
+formhoogte          = 545px
+lblbreedte          = 180px
+
+// To be extra sure, I dont know if these variables
+// are in scope but probably not until I creates a Stylus object
+
+
+// FORM element
+//
+.FormElement
+    margin 0
+    padding 10px
+    display block
+    border-radius(4px)
+    height formhoogte
+    color wit
+    float left
+
+    h1,h2,h3,h4
+        color wit
+        padding 10px 0 30px 0
+        text-transform uppercase
+        text-align center
+        font-weight 600
+        font 28px dosis
+
+
+// UL, LIJST
+//
+.FormulierLijst
+    width 100%
+    margin 0
+    padding 10px
+    list-style none
+    height formhoogte - 20
+    > li
+        margin 20px 10px
+        padding 0 0 0 10px
+        display block
+        height rijhoogte
+        input(paars)
+            font-family sans
+            round-corners: 4px
+        label()
+            font-family: sans
+            width lblbreedte
+            float left
+        a
+            small-text()
+
+
+
+
+
+// KNOPPEN (wissen, verzenden)
+//
+.FormulierKnop--verzenden,
+.FormulierKnop--wissen
+    button: paars, "medium", wit, null, lichtpaars
+    round: 4px
+    uppercase()
+    raquo()
+
+
+
+
+/*
+    color wit
+    margin 0 30px 20px 0
+    padding 10px 20px
+    border 1px solid wit
+    background paars
+    cursor pointer
+    display inline-block
+    &:hover
+        background lichtpaars
+        color wit
+
+
+
+// Akkoord voorwaarden
+//
+.FormulierVoorwaarden
+    margin 5px 0 0 20px
+    color wit
+    font klein sans
+    display block
+    text-transform none
+    height 24px
+    a
+        color paars
+        font klein sans
+        text-decoration none
+        &:hover
+            text-decoration underline
+
+
+
+    &:last-child,
+    .FormulierRij-rechts
+        float right
+        height 45px
+
+        //&[type=submit]
+        //&[type=reset]
+
+        &[type=checkbox]
+            float left
+            margin 0 30px 0 0
+
+        &[type="email"],
+        &[type="text"],
+        &[type="tel"],
+        &[type="password"]
+
+            float right
+            height 28px
+            width 330px
+            margin 0
+            padding 0
+            position relative
+            font-style italic
+            border-radius(4px)
+            //border 1px solid zwart
+
+            &:in-range { }
+            &:not()
+            &:valid
+                border 2px solid paars
+            &:invalid
+                box-shadow 0 0 1.5px 1px rood
+            &:default
+                border 1px solid zwart
+                color zwart
+            &:out-of-range
+                border 2px solid rood
+            &:optional
+                border-color lichtpaars
+            &:focus
+                border 2px solid paars
+                transition border-color .2s linear 0
+            &:focus + input::required
+                border 2px solid rood
+            &:required
+                transition border-color .2s linear 0
+                border 1px solid rood
+
+
+
+
+
+// TEKSTLABEL
+//
+.FormVeld-label
+    width lblbreedte
+    height 100%
+    padding 6px 0 0 0 // top correction txt
+    font middel sans
+    float left
+*/

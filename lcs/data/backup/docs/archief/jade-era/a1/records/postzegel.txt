@@ -1,0 +1,15 @@
+
+  $(document).ready ->
+
+    setTimeout ->
+
+      #$("#greetings").animate({top: '125px' }, {queue:false, duration:600, easing:'easeOutBounce'});
+      $("#postzegel").animate
+        left: "840px"
+        ,
+        queue: false
+        duration: 2200
+        easing: "easeOutBounce"
+    , 300
+
+//menu:         "<div id='postzegel'><img src='/media/afbeeldingen/postzegel.png'></div>"

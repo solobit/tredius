@@ -1,0 +1,26 @@
+task 'keywords', 'Perform text analysis using YQL and Yahoo Content Analysis', ->
+
+    YQL = require("yql")
+
+    # Example #1 - Param binding
+    new YQL.exec("select * from contentanalysis.analyze where url='http://www.tredius.nl/accountancy.html';", (response) ->
+      if response.error
+        console.log "Example #1... Error: " + response.error.description
+      else
+        entities = response.query.results.entities
+        categories = response.query.results.categories
+        console.log item for item in entities.entity
+    )
+
+    REPORTER = "min"
+
+task "test", "run tests", ->
+    exec "NODE_ENV=test 
+        ./node_modules/.bin/mocha 
+        --compilers coffee:coffee-script
+        --reporter #{REPORTER}
+        --require coffee-script 
+        --require test/test_helper.coffee
+        --colors", (err, output) ->
+        throw err if err
+        console.log output

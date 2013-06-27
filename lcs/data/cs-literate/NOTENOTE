@@ -1,0 +1,6 @@
+16:20:06 supersym | requirejs "I have a feeling that I have to fork almost every third party library I’m using in my projects. "              │
+16:20:14 supersym | ouch...                                                                                                                   │
+16:20:32 supersym |  Browserify as an alternative                                                                                             │
+16:21:01 supersym |  The main reason is the mess with the AMD define functions calls in various libraries.                                    │
+16:21:16 supersym |  That’s usually ok because you can easily shim the libraries but when you have dependencies between the third party       │
+                  | libraries the shit starts hitting the fan.                                                                  

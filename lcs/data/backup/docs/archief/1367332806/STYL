@@ -1,0 +1,35 @@
+/*
+
+  > form > section
+    kolom(6)
+    > ul
+      margin 0
+      padding 0
+      > li
+        padding 5px 0
+        margin 0
+        > textarea
+          width 445px
+          height 135px
+        > label
+          display inline-block
+          width 140px
+          vertical-align middle
+          &.radio
+            width 300px
+            font-style italic
+            font-size normaal
+            margin-left 10px
+        > input
+          display inline-block
+          &[type=text], &[type=email], &[type=tel]
+            width 250px
+          &[type=radio]
+            margin-top 10px
+        > input
+          &[type=submit]
+            float right
+            margin 50px 0
+
+*/
+

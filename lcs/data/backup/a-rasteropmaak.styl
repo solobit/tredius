@@ -1,0 +1,67 @@
+
+
+
+// Semantic.gs for Stylus http://learnboost.github.com/stylus/
+
+// Utility variable — you should never need to modify this
+_raster-breedte = (kolom-breedte + goot) * aantal-kolommen
+
+// Set @totale-breedte to 100% for a fluid layout
+totale-breedte = _raster-breedte
+
+// Correcting percentage-to-pixel rounding errors in IE6 & 7
+// See http://tylertate.com/blog/2012/01/05/subpixel-rounding.html
+// Override @min with the minimum width of your layout
+minimum-breedte = 940
+correctie = (((0.5 / minimum-breedte) * 100) * 1%)
+
+// The micro clearfix: http://nicolasgallagher.com/micro-clearfix-hack/
+clearfix()
+    *zoom:1
+    &:before,
+    &:after
+        content:""
+        display:table
+
+    &:after
+        clear:both
+
+
+//////////
+// GRID //
+//////////
+
+body
+    width 100%
+    clearfix()
+
+
+rij(aantal-kolommen = aantal-kolommen)
+    display block
+    width totale-breedte * ((goot + _raster-breedte ) / _raster-breedte)
+    margin 0 totale-breedte * (((goot * 0.5) / _raster-breedte ) * - 1)
+    *width totale-breedte * ((goot + _raster-breedte ) / _raster-breedte) - correctie
+    *margin 0 totale-breedte * (((goot * 0.5) / _raster-breedte ) * - 1) - correctie
+
+
+kolom(x, aantal-kolommen = aantal-kolommen)
+    display inline
+    float left
+    overflow hidden
+    width totale-breedte * ((((goot + kolom-breedte ) * x) - goot) / _raster-breedte)
+    margin 0 totale-breedte * ( (goot * 0.5) / _raster-breedte)
+    *width totale-breedte * ((((goot + kolom-breedte ) * x) - goot) / _raster-breedte) - correctie
+    *margin 0 totale-breedte * ( (goot * 0.5) / _raster-breedte) - correctie
+
+
+offset(offset = 1)
+    margin-left totale-breedte * (((goot + kolom-breedte) * offset + (goot * 0.5)) / _raster-breedte)
+
+
+// Maak een klasse voor 12 kolommen precies
+// zo krijgen forms o.a. een dynamische breedte
+kols = (1 2 3 4 5 6 7 8 9 10 11 12)
+
+for kol in kols
+    .Kolom-{kol}
+        kolom(kol)

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset='UTF-8'>
+  <title>CoffeeScript API Documentation</title>
+  <link rel='stylesheet' href='..&#47;assets/biscotto.css' type='text/css'>
+  <script src='..&#47;assets/biscotto.js'></script>
+  <script src='..&#47;assets/search_data.js'></script>
+</head>
+  <body>
+    <div id='base' data-path='..&#47;'></div>
+<div id='header'>
+  <div id='menu'>
+    <a href='..&#47;README.md.html' title='Tredius'>Tredius</a>
+    &raquo;
+    <a href='..&#47;class_index.html' title='Index'>Index</a>
+    &raquo;
+    <span class='title'>StringScanner</span>
+    <nav>
+      <ul>
+        <li class='noframes'>
+          (<a class='noframes' href='#'>no frames</a>)
+        </li>
+      </ul>
+    </nav>
+    <div id='search'>
+      <a id='class_list_link' href='..&#47;class_list.html'>Classes</a>
+      <a id='file_list_link' href='..&#47;file_list.html'>Files</a>
+      <a id='method_list_link' href='..&#47;method_list.html'>Methods</a>
+      <a id='extra_list_link' href='..&#47;extra_list.html'>Extras</a>
+    </div>
+  </div>
+  <iframe id='search_frame'></iframe>
+  <div id='fuzzySearch'>
+    <input type='text'>
+    <ol></ol>
+  </div>
+  <div id='help'>
+    <p>
+      Quickly fuzzy find classes, mixins, methods, file:
+    </p>
+    <ul>
+      <li>
+        <span>Ctrl-T</span>
+        Open fuzzy finder dialog
+      </li>
+    </ul>
+    <p>
+      In frame mode you can toggle the list naviation frame on the left side:
+    </p>
+    <ul>
+      <li>
+        <span>Ctrl-L</span>
+        Toggle list view
+      </li>
+    </ul>
+    <p>
+      You can focus a list in frame mode or toggle a tab in frameless mode:
+    </p>
+    <ul>
+      <li>
+        <span>Ctrl-C</span>
+        Class list
+      </li>
+      <li>
+        <span>Ctrl-I</span>
+        Mixin list
+      </li>
+      <li>
+        <span>Ctrl-F</span>
+        File list
+      </li>
+      <li>
+        <span>Ctrl-M</span>
+        Method list
+      </li>
+      <li>
+        <span>Ctrl-E</span>
+        Extras list
+      </li>
+    </ul>
+    <p>
+      You can focus and blur the search input:
+    </p>
+    <ul>
+      <li>
+        <span>Ctrl-S</span>
+        Focus search input
+      </li>
+      <li>
+        <span>Esc</span>
+        Blur search input
+      </li>
+    </ul>
+    <p>
+      In frameless mode you can close the list tab:
+    </p>
+    <ul>
+      <li>
+        <span>Esc</span>
+        Close list tab
+      </li>
+    </ul>
+  </div>
+</div>
+    <div id='content'>
+      <h1>
+        Class:
+        StringScanner
+      </h1>
+      <table class='box'>
+        <tr>
+          <td>Defined in:</td>
+          <td>node_modules&#47;docpad-plugin-eco&#47;node_modules&#47;eco&#47;node_modules&#47;strscan&#47;src&#47;strscan.coffee</td>
+        </tr>
+      </table>
+      <h2>Instance Method Summary</h2>
+      <ul class='summary'>
+  <li>
+    <span class='signature'>
+      <a href='#check-instance'>
+        .<strong>check</strong>(regexp)
+      </a>
+    </span>
+    <span class='desc'>
+      Checks to see if <code>regexp</code> can be matched at the current position and
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#checkUntil-instance'>
+        .<strong>checkUntil</strong>(regexp)
+      </a>
+    </span>
+    <span class='desc'>
+      Checks to see if <code>regexp</code> can be matched at <em>or after</em> the current
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#concat-instance'>
+        .<strong>concat</strong>(string)
+      </a>
+    </span>
+    <span class='desc'>
+      
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#constructor-instance'>
+        .<strong>constructor</strong>(source)
+      </a>
+    </span>
+    <span class='constructor note title'>Constructor</span>
+    <span class='desc'>
+      
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#getCapture-instance'>
+        .<strong>getCapture</strong>(index)
+      </a>
+    </span>
+    <span class='desc'>
+      Returns the <code>index</code>th capture from the most recent match (or <code>null</code> if
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#getMatch-instance'>
+        .<strong>getMatch</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns the most recently matched portion of the source string (or
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#getPosition-instance'>
+        .<strong>getPosition</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#getPostMatch-instance'>
+        .<strong>getPostMatch</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns the portion of the source string immediately following the most
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#getPreMatch-instance'>
+        .<strong>getPreMatch</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns the portion of the source string leading up to, but not
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#getRemainder-instance'>
+        .<strong>getRemainder</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#getSource-instance'>
+        .<strong>getSource</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#hasTerminated-instance'>
+        .<strong>hasTerminated</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#peek-instance'>
+        .<strong>peek</strong>(length)
+      </a>
+    </span>
+    <span class='desc'>
+      Returns the next <code>length</code> characters after the current position.
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#reset-instance'>
+        .<strong>reset</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#scan-instance'>
+        .<strong>scan</strong>(regexp)
+      </a>
+    </span>
+    <span class='desc'>
+      
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#scanChar-instance'>
+        .<strong>scanChar</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#scanUntil-instance'>
+        .<strong>scanUntil</strong>(regexp)
+      </a>
+    </span>
+    <span class='desc'>
+      
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#setState-instance'>
+        .<strong>setState</strong>(matches, values)
+      </a>
+    </span>
+    <span class='desc'>
+      Sets the state of the scanner (for internal use only).
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#skip-instance'>
+        .<strong>skip</strong>(regexp)
+      </a>
+    </span>
+    <span class='desc'>
+      
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#skipUntil-instance'>
+        .<strong>skipUntil</strong>(regexp)
+      </a>
+    </span>
+    <span class='desc'>
+      
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#terminate-instance'>
+        .<strong>terminate</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#unscan-instance'>
+        .<strong>unscan</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      
+    </span>
+  </li>
+</ul>
+      <h2>Constructor Details</h2>
+      <div class='methods'>
+  <div class='method_details'>
+    <p class='signature' id='constructor-instance'>
+      .<strong>constructor</strong>(source)
+    </p>
+    <div class='tags'>
+</div>
+  </div>
+</div>
+      <h2>Instance Method Details</h2>
+      <div class='methods'>
+  <div class='method_details'>
+    <p class='signature' id='check-instance'>
+      .<strong>check</strong>(regexp)
+    </p>
+    <div class='docstring'>
+  <p>Checks to see if <code>regexp</code> can be matched at the current position and</p>
+</div>
+<div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='checkUntil-instance'>
+      .<strong>checkUntil</strong>(regexp)
+    </p>
+    <div class='docstring'>
+  <p>Checks to see if <code>regexp</code> can be matched at <em>or after</em> the current</p>
+</div>
+<div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='concat-instance'>
+      .<strong>concat</strong>(string)
+    </p>
+    <div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='getCapture-instance'>
+      .<strong>getCapture</strong>(index)
+    </p>
+    <div class='docstring'>
+  <p>Returns the <code>index</code>th capture from the most recent match (or <code>null</code> if</p>
+</div>
+<div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='getMatch-instance'>
+      .<strong>getMatch</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns the most recently matched portion of the source string (or</p>
+</div>
+<div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='getPosition-instance'>
+      .<strong>getPosition</strong>()
+    </p>
+    <div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='getPostMatch-instance'>
+      .<strong>getPostMatch</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns the portion of the source string immediately following the most</p>
+</div>
+<div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='getPreMatch-instance'>
+      .<strong>getPreMatch</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns the portion of the source string leading up to, but not</p>
+</div>
+<div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='getRemainder-instance'>
+      .<strong>getRemainder</strong>()
+    </p>
+    <div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='getSource-instance'>
+      .<strong>getSource</strong>()
+    </p>
+    <div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='hasTerminated-instance'>
+      .<strong>hasTerminated</strong>()
+    </p>
+    <div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='peek-instance'>
+      .<strong>peek</strong>(length)
+    </p>
+    <div class='docstring'>
+  <p>Returns the next <code>length</code> characters after the current position. If</p>
+</div>
+<div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='reset-instance'>
+      .<strong>reset</strong>()
+    </p>
+    <div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='scan-instance'>
+      .<strong>scan</strong>(regexp)
+    </p>
+    <div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='scanChar-instance'>
+      .<strong>scanChar</strong>()
+    </p>
+    <div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='scanUntil-instance'>
+      .<strong>scanUntil</strong>(regexp)
+    </p>
+    <div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='setState-instance'>
+      .<strong>setState</strong>(matches, values)
+    </p>
+    <div class='docstring'>
+  <p>Sets the state of the scanner (for internal use only).</p>
+</div>
+<div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='skip-instance'>
+      .<strong>skip</strong>(regexp)
+    </p>
+    <div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='skipUntil-instance'>
+      .<strong>skipUntil</strong>(regexp)
+    </p>
+    <div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='terminate-instance'>
+      .<strong>terminate</strong>()
+    </p>
+    <div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='unscan-instance'>
+      .<strong>unscan</strong>()
+    </p>
+    <div class='tags'>
+</div>
+  </div>
+</div>
+    </div>
+    <div id='footer'>
+  Generated on
+  Mon May 06 2013 18:23:43 GMT+0200 (CEST)
+  by
+  <a href='https://github.com/gjtorikian/biscotto' title='TomDoc-CoffeeScript API documentation generator'>Biscotto</a>
+  v0.0.11
+  (Node.js v0.10.5).
+  &#10034;
+  Press Ctrl-h to see the keyboard shortcuts
+</div>
+  </body>
+</html>

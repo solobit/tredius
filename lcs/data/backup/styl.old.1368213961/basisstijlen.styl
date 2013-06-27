@@ -1,0 +1,354 @@
+
+
+
+
+
+// Knoppen
+a.knop,
+a.Knop
+    border 0
+    background-color rood
+    display inline-block
+    cursor pointer
+    font 16px dosis
+    border-radius(4px)
+    padding 10px 20px
+    color white
+    text-decoration none
+    text-transform uppercase
+    &:hover
+        background-color goud
+        text-decoration none
+        color white
+
+.Knop-klein
+    padding 5px 15px
+    font-size normaal
+
+
+
+
+
+
+.Achtergrond-groen
+    background turquoise
+
+
+// Context per pagina in de kop
+.PaginaContext
+    width totale-breedte
+    text-align left
+    margin 0 auto
+    padding 0
+    height 300px
+    color wit
+    > div
+        kolom(9)
+        h1, h2, p
+            color inherit
+            text-align left
+
+.PaginaContext-afbeelding
+    width 100%
+    background transparent
+    display block
+    float none
+    height 384px
+h1.PaginaContext-hoofdtitel
+    line-height 0.8em
+    font enorm sans
+    font-style italic
+    font-weight 700
+    margin 10px 0 0 0
+    padding 10px 0 0 0
+h2.PaginaContext-ondertitel
+    font 48px sans
+    font-style italic
+    font-weight 400
+    margin 0
+    padding 0
+
+p.PaginaContext-beknopt
+    font normaal sans
+    font-weight 400
+    line-height 1.8em
+
+// Paginaindeling
+.PaginaKop
+    width totale-breedte
+    margin 0 auto
+    header
+        kolom(10)
+        padding 20px 0
+    aside
+        kolom(2)
+        text-align right
+    a.login
+        @extends a.knop
+        background goud
+        font-size normaal
+        padding 5px 15px
+        margin 20px 10px 10px 0
+        &:hover
+            background rood
+
+// Pagina algemeen
+.PaginaInhoud
+    kolom(12)
+    width totale-breedte
+    margin 10px auto
+    padding 40px 0 30px 0
+    display block
+    float none
+
+// Grijze multimedia voet
+.PaginaBand-grijs
+    width 100%
+    height 200px
+    background image('tegel_grijs.png') repeat
+    margin 0 auto
+    padding 50px 0
+    display block
+    float none
+
+    section
+        width totale-breedte
+        margin 0 auto
+
+        aside
+            kolom(4)
+
+            h3
+                font 24px dosis
+                font-weight 500
+                color rood
+                text-align left
+                padding 0
+                margin 0
+
+            input[type=email]
+                width 300
+                margin 0 0 20px 0
+
+            p
+                margin 10px 0 0 0
+                font-size 14px
+
+            span
+                font 10px sans
+                color rood
+
+// Knop LEES ONZE OVERTUIGING
+a.verder
+    @extends a.knop
+    position relative
+    display inline-block
+    background-color rood
+    margin 0 auto
+    padding 10px 24px
+    &:hover
+        background-color bruinig
+
+// Lees meer
+a.context
+    @extends a.knop
+    box-shadow 0 1px 3px rgba(000,000,000,0.5)
+    background-color white
+    margin 15px 0
+    color rood
+    &:hover
+        color wit
+        background rood
+
+// Video Responsive wrapper
+.MediaSpeler-groot
+    position relative
+
+    // Handhaaft aspect ratio 16:9
+    padding-bottom 56.25%
+    padding-top 25px
+    height 0
+    margin-bottom 50px
+
+    > iframe
+        position absolute
+        top 0
+        left 0
+        width 100%
+        height 100%
+
+// Expliciet de disclaimer tekst ergens onder plaatsen
+// de zgn 'kleine lettertjes' volgend op ondertekenblok.
+.DisclaimerExpliciet
+    margin 20px 0
+    font-size klein
+
+// Benadrukken
+.Tagline
+    color bruin
+    font 30px sans
+    padding 18px 0
+    margin 15px 0 38px 0
+    border-top 1px solid grijs
+    border-bottom 1px solid grijs
+    font-weight 600
+    font-style italic
+    text-align center
+h2.Steunlijn
+    color bruinig
+    padding 14px 0
+    margin 0 0  38px 0
+    font 24px sans
+    font-weight 600
+    font-style italic
+    text-align center
+h3.Steunlijn
+    color paars
+    padding 14px 0
+    margin 15px 0 38px 0
+    font 24px sans
+    font-weight 600
+    font-style italic
+    text-align center
+    border-top 1px solid grijs
+    border-bottom 1px solid grijs
+
+// Opsommingen
+ul.Checklist
+    margin-top 30px
+    line-height 30px
+    font middel sans
+    > li
+        font-size 16px
+        list-style-image url('/media/afbeeldingen/arrow.png')
+        list-style-position outside
+        margin 20px 0 20px 60px
+
+        > strong
+            padding-top -10px
+            font-weight 600
+            display block
+
+// Quotes
+// Rode spraakballon
+blockquote.newQuote
+    float right
+    position relative
+    height 169px
+    width 300px
+    padding 20px
+    margin 0 40px
+    border 0
+    color #fff
+    background rood
+    border-radius(10px)
+    > p
+        font-style italic
+        color wit
+        font-weight 700
+        font-family sans
+        font-size 20px
+        padding 10px
+        margin auto
+    &:after
+        content ""
+        position absolute
+        bottom -30px
+        left 50px
+        border-width 0 20px 30px 0px
+        border-style solid
+        border-color transparent rood
+        /* reduce the damage in FF3.0 */
+        display block
+        width 0
+blockquote.BallonQuote
+    float right
+    position relative
+    background image('bg_quote.png') no-repeat center center
+    height 169px
+    width 300px
+    padding 20px
+    margin 0 40px
+    border 0
+    > p
+        color wit
+        font-weight 700
+        font-style italic
+        font-family sans
+        font-size 20px
+        padding 25px 40px 30px 35px
+        margin auto
+        &:before
+            content "\201C"
+            position absolute
+            z-index 1
+            top 20px
+            left 20px
+            font 80px/1 Georgia, serif
+            color wit
+        &:after
+            content "\201D"
+            position absolute
+            z-index 1
+            bottom 20px
+            right 30px
+            font 80px/0.25 Georgia, serif
+            color wit
+
+// Eerste voetblok
+.PaginaVoet-snelkoppelingen
+    width totale-breedte
+    margin 0 auto
+    section
+        kolom(4)
+        margin 25px 0
+        min-height 250px
+    h4
+        font normaal sans
+        text-align left
+        font-weight 600
+        color zwart
+        margin 0 0 5px 0
+        text-transform uppercase
+    li
+        font-size 14px
+        line-height 22px
+
+        &:before
+            content "» "
+            color rood
+        a
+            color zwart
+            text-transform capitalize
+
+
+// Onderste voetblok
+.PaginaVoet-colofoon
+    width totale-breedte
+    margin 0 auto
+    font klein sans
+
+    // auteursrecht
+    aside
+        kolom(6)
+        text-align left
+        margin 15px 0
+        ul
+            // algemene bepalingen
+            list-style none
+            cursor pointer
+            text-align right
+            > li
+                display inline-block
+                > a
+                    font klein sans
+                    color zwart
+                    line-height 1.8em
+
+// Extra
+.no-cssanimations .support-note span.no-cssanimations,
+.no-csstransforms .support-note span.no-csstransforms,
+.no-csstransforms3d .support-note span.no-csstransforms3d,
+.no-csstransitions .support-note span.no-csstransitions
+    display block
+    hidden true

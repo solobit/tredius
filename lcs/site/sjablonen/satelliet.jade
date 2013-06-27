@@ -1,0 +1,94 @@
+
+:coffeescript
+
+  $ ->
+
+    $("#menu").circleMenu
+      direction: "bottom-right"
+
+      open: ->
+        console.log "menu opened"
+
+      close: ->
+        console.log "menu closed"
+
+      init: ->
+        console.log "menu initialized"
+
+    $("#menu2").circleMenu(
+      direction: "full"
+      trigger: "click"
+
+      open: ->
+        console.log "menu opened"
+
+      close: ->
+        console.log "menu closed"
+
+      init: ->
+        console.log "menu initialized"
+
+      select: (evt, index) ->
+        console.log evt, index
+
+    ).on "circleMenu-open", ->
+      console.log "menu opened 2"
+
+    $("#menu3").circleMenu direction: "top-left"
+    $("#menu4").circleMenu direction: "bottom-left"
+    $("#menu5").circleMenu direction: "top-right"
+    $("#menu6").circleMenu direction: "bottom"
+    $("#menu7").circleMenu direction: "right"
+    $("#menu8").circleMenu direction: "top"
+    $("#menu9").circleMenu direction: "left"
+    $("#menu10").circleMenu direction: "bottom-half"
+    $("#menu11").circleMenu direction: "right-half"
+    $("#menu12").circleMenu direction: "top-half"
+    $("#menu13").circleMenu direction: "left-half"
+    $("#menu14").circleMenu
+      direction: "full"
+      trigger: "click"
+      step_in: 100
+      step_out: 100
+
+    $("#menu15").circleMenu
+      direction: "full"
+      trigger: "click"
+      step_in: -100
+      step_out: -100
+
+    $("#menu16").circleMenu
+      direction: "full"
+      step_in: 0
+      step_out: 0
+
+    $("a").on "click", (evt) ->
+
+      evt.preventDefault()  if $(this).attr("href") is "#"
+
+    $("#satelliet-menu > div:first-child").css "display", "block"
+
+    $("nav li:first-child a").addClass "active"
+
+    $("nav a").each ->
+
+      $link = $(this)
+
+      $link.on "click", (evt) ->
+
+        $("nav a").removeClass "active"
+
+        $("#satelliet-menu > div").css "display", "none"
+
+        $("#" + $link.attr("rel")).css "display", "block"
+
+        $link.addClass "active"
+
+
+#satelliet-menu(role="navigation")
+
+  #ex-full-spinopen
+
+    != document.menu
+
+

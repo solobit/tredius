@@ -1,0 +1,18 @@
+  "optDependencies": {
+    "URIjs": "~1.10.2",
+    "pdfkit": "~0.1.9"
+  },
+  "devDependencies": {
+    "domready": "~0.2.11",
+    "ender": "~1.0.1",
+    "chai": "~1.6.0",
+    "mocha": "~1.9.0",
+    "docco": "~0.6.2",
+    "sinon": "~1.6.0",
+    "winston": "~0.7.1",
+    "yql": "~0.4.8",
+    "superagent": "~0.14.1",
+    "lodash": "~1.2.1",
+    "term-css": "~1.0.0"
+  },
+

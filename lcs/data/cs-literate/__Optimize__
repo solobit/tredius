@@ -1,0 +1,49 @@
+http://www.igvita.com/posa/high-performance-networking-in-google-chrome/
+
+The best, and the fastest request, is a request not made. Whenever we talk about performance, we would be amiss if we didn't talk about the cache -- you are providing Expires, ETag, Last-Modified, and Cache-Control response headers for all the resources on your pages, right? If not, stop, go fix it, we'll wait.
+
+
+Leverage browser caching
+https://developers.google.com/speed/docs/best-practices/caching
+
+Overview
+
+Setting an expiry date or a maximum age in the HTTP headers for static resources instructs the browser to load previously downloaded resources from local disk rather than over the network.
+
+Details
+
+HTTP/S supports local caching of static resources by the browser. Some of the newest browsers (e.g. IE 7, Chrome) use a heuristic to decide how long to cache all resources that don't have explicit caching headers. Other older browsers may require that caching headers be set before they will fetch a resource from the cache; and some may never cache any resources sent over SSL. 
+
+To take advantage of the full benefits of caching consistently across all browsers, we recommend that you configure your web server to explicitly set caching headers and apply them to all cacheable static resources, not just a small subset (such as images). Cacheable resources include JS and CSS files, image files, and other binary object files (media files, PDFs, Flash files, etc.). In general, HTML is not static, and shouldn't be considered cacheable. 
+
+
+> SERVER: Varnish and/or Nginx
+
+> NOTE: It is important to specify one of `Expires` or `Cache-Control
+> max-age`, and one of `Last-Modified` or `ETag`, for all cacheable
+> resources. It is redundant to specify both Expires and Cache-Control:
+> max-age, or to specify both Last-Modified and ETag.
+
+> NOTE There are two sides to the Cache-Control header. One side is
+> where it can be sent by the web server (aka. "origin server"). The
+> other side is where it can be sent by the browser (aka. "user agent").
+
+##### Important!
+
+There is confusion, even among browser vendors so this should also be read:
+<http://stackoverflow.com/a/1383359>
+
+
+HTTP/1.1 provides the following caching response headers :
+
+* Expires and Cache-Control: max-age. These specify the “freshness lifetime” of a resource, that is, the time period during which the browser can use the cached resource without checking to see if a new version is available from the web server. They are "strong caching headers" that apply unconditionally; that is, once they're set and the resource is downloaded, the browser will not issue any GET requests for the resource until the expiry date or maximum age is reached.
+* Last-Modified and ETag. These specify some characteristic about the resource that the browser checks to determine if the files are the same. In the Last-Modified header, this is always a date. In the ETag header, this can be any value that uniquely identifies a resource (file versions or content hashes are typical). Last-Modified is a "weak" caching header in that the browser applies a heuristic to determine whether to fetch the item from cache or not. (The heuristics are different among different browsers.) However, these headers allow the browser to efficiently update its cached resources by issuing conditional GET requests when the user explicitly reloads the page. Conditional GETs don't return the full response unless the resource has changed at the server, and thus have lower latency than full GETs.
+
+
+
+
+CAN I USE NODE MODULES ALREADY WRITTEN IN THE COMMONJS MODULE FORMAT?
+§ 2
+Yes! The Node adapter for RequireJS, called r.js, will use Node's implementation of require and Node's search paths if the module is not found with the configuration used by RequireJS, so you can continue to use your existing Node-based modules without having to do changes to them.
+RequireJS will use its Configuration Options first to find modules. If RequireJS cannot find the module with its configuration, it is assumed to be a module that uses Node's type of modules and configuration. So, only configure module locations with RequireJS if they use the RequireJS API. For modules that expect Node's APIs and configuration/paths, just install them with a Node package manager, like npm, and do not configure their locations with RequireJS.
+Best practice: Use npm to install Node-only packages/modules into the projects node_modules directory, but do not configure RequireJS to look inside the node_modules directory. Also avoid using relative module IDs to reference modules that are Node-only modules. So, do not do something like require("./node_modules/foo/foo").

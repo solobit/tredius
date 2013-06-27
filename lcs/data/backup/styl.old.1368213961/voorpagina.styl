@@ -1,0 +1,293 @@
+
+.ProductAanbod
+    clearfix()
+    display block
+    min-height 200px
+
+.ProductInformatie
+    kolom(3)
+    display block
+    background-color paars
+    color wit
+    margin 0 20px 30px 0 // rechts & onder buiten paarse vlak
+    padding 20px //binnen paarse vlak
+    font-style italic
+    font-size 16px
+    border-radius(4px)
+    text-align center
+
+    // Kop abonnement
+    img
+        padding-top 10px
+    h3
+        color wit
+        padding 10px 0 10px 0
+        text-transform uppercase
+        font flink dosis
+    h4
+        color wit
+        font 16px dosis
+        padding 0 0 20px 0
+    span
+        color wit
+    ul
+        width 95%
+        height 310px
+        margin 0 auto
+        display block
+        text-align center
+        color wit
+        li
+            // Productinformatie
+            display block
+            font-style italic
+            font-size 16px
+            margin 5px 0
+            color wit
+            &:first-child
+                margin-top 0
+                padding-top 10px
+                border-top 1px solid lichtpaars
+            > hr
+                // Lijstscheidingstekens
+                position relative
+                height 1px
+                z-index 1
+                top 20px
+                color lichtpaars
+                background-color lichtpaars
+                border 0
+                margin auto 0
+            > p
+                // En / of
+                display block
+                z-index 10
+                position relative
+                width 50px
+                color lichtpaars
+                background-color paars
+                font-size 22px
+                font-style italic
+                margin 0 auto
+
+.Pagina-accountancy
+    margin 0 auto
+    width totale-breedte
+    figure
+        kolom(3)
+
+.Lijst-dienstenwijzer
+  margin 0
+  padding-left 10px
+  width 100%
+  > ul
+    float left
+    background lichtgrijs
+    list-style none
+    width 300px
+    border 0 solid lichtgrijs
+    border-radius 5px 0 0 5px
+    padding 0
+    margin-top 0
+    margin-bottom 50px
+    text-align center
+    > figure
+      margin-top 30px
+      > img
+        margin 0 auto
+        padding-left 4px
+        padding-top 4px
+      > figcaption
+        text-transform uppercase
+        color turquoise
+        margin-top 10px
+    > li
+      display block
+      margin 0 auto
+      padding 25px 0
+      width 260px
+      text-align center
+      color zwart
+      border-top 1px solid grijs
+      background lichtgrijs
+      > a
+        cursor pointer
+        color donkerblauw
+      &:hover
+        font-weight strong
+.Lijst-advies
+    margin-left 0 8px
+    padding 0
+
+// Algemeen
+.Pagina-voorpagina
+.Pagina-missievisie
+    text-align center
+    section
+        midden()
+        display inline-block
+    figure
+        figuur()
+        kolom(4)
+
+// Financieel-fiscaal
+.Pagina-belastingadvies
+    h2
+        color donkerblauw
+        font-weight 600
+.Pagina-pensioen
+.Pagina-pensioenadvies
+    h1
+        font middel sans
+        color zwart
+        text-align left
+        font-weight 700
+        margin 20px 0
+    p
+        text-align justified
+        text-justify newspaper
+.Pagina-estateplanning
+    figure
+        kolom(3)
+
+// HR en payroll
+.Pagina-hrpayroll
+    margin 0 auto
+    width totale-breedte
+
+// Juristen
+.Pagina-juridisch_abonnement
+    padding-bottom 30px
+    p
+        text-align center
+    h1
+        color paars
+.Pagina-juradvies
+    p
+        text-align justify
+        text-justify newspaper
+
+// Risico advies en -pensioen
+.Pagina-riskpension
+    > blockquote
+        background image('tegel_grijs.png') repeat
+        padding 30px 50px 50px 50px
+        margin 30px 0 50px 0
+    > p
+        color zwart
+        text-align left
+    figure
+        text-align left
+        vertical-align middle
+        > img
+            vertical-align middle
+        > figcaption
+            padding 30px 0 0 10px
+            display inline-block
+            font groot sans
+            color bruin
+            font-weight 700
+
+.Pagina-overstapservice
+    width totale-breedte
+    margin 0 auto
+
+
+// Werken bij Tredius
+.Pagina-vacatures
+    h2
+        color bruinig
+        font 30px sans
+    span
+        color rood
+        margin 20px 0
+    p
+        display inline-block
+        font-style italic
+.Pagina-werkenbij
+    font normaal sans
+    line-height 1.8em
+    .wbt-content-voorpagina
+    .wbt-content-vervolgblok
+        width 100%
+        float left
+    .wbt-titel1
+    .wbt-titel2
+    .wbt-titel3
+    .wbt-titel4
+        clearfix()
+        color bruinig
+        text-align center
+        font groot sans
+    .wbt-titel2
+        padding 10px
+        margin 0
+        font-size 32px
+    .wbt-titel3
+        display block
+        font-size 34px
+        float left
+    .wbt-titel4
+        padding-top 20px
+        display block
+        float left
+        color paars
+        font 28px sans
+    .wbt-content
+        kolom(4)
+        line-height 2em
+        width 280px
+        text-align justify
+        height 100%
+        padding 12px
+        vertical-align top
+        font normaal sans
+    .wbt-slot
+        display block
+        float left
+    div.vacature-knop
+        text-align center
+        a.knop
+            margin 50px auto
+.Pagina-detachering
+    .detachering-diensten
+    .detachering-adviseurs
+        kolom(6)
+        background lichtgrijs
+        border 0 solid lichtgrijs
+        border-radius 5px 0 0 5px
+        margin-bottom 50px
+        text-align center
+        > li
+            display block
+            margin 0 auto
+            padding 25px 0
+            text-align center
+            color zwart
+            border-top 1px solid grijs
+            background lichtgrijs
+
+    .detachering-lijst
+        background lichtgrijs
+        list-style none
+        width 300px
+        border 0 solid lichtgrijs
+        border-radius 5px 0 0 5px
+        margin-bottom 50px
+        text-align center
+        > li
+            display block
+            margin 0 auto
+            padding 25px 0
+            width 260px
+            text-align center
+            color zwart
+            border-top 1px solid grijs
+            background lichtgrijs
+
+    .detachering-details
+        background turquoise
+        box-shadow 3px 3px 3px 0 #888888
+
+
+

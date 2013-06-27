@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset='UTF-8'>
+  <title>CoffeeScript API Documentation</title>
+  <link rel='stylesheet' href='assets/biscotto.css' type='text/css'>
+  <script src='assets/biscotto.js'></script>
+  <script src='assets/search_data.js'></script>
+</head>
+  <body>
+    <div id='base' data-path=''></div>
+<div id='header'>
+  <div id='menu'>
+    <a href='README.md.html' title='Tredius'>Tredius</a>
+    &raquo;
+    <a href='class_index.html' title='Index'>Index</a>
+    &raquo;
+    <span class='title'>README.md</span>
+    <nav>
+      <ul>
+        <li class='noframes'>
+          (<a class='noframes' href='#'>no frames</a>)
+        </li>
+      </ul>
+    </nav>
+    <div id='search'>
+      <a id='extra_list_link' href='extra_list.html'>Extras</a>
+    </div>
+  </div>
+  <iframe id='search_frame'></iframe>
+  <div id='fuzzySearch'>
+    <input type='text'>
+    <ol></ol>
+  </div>
+  <div id='help'>
+    <p>
+      Quickly fuzzy find classes, mixins, methods, file:
+    </p>
+    <ul>
+      <li>
+        <span>Ctrl-T</span>
+        Open fuzzy finder dialog
+      </li>
+    </ul>
+    <p>
+      In frame mode you can toggle the list naviation frame on the left side:
+    </p>
+    <ul>
+      <li>
+        <span>Ctrl-L</span>
+        Toggle list view
+      </li>
+    </ul>
+    <p>
+      You can focus a list in frame mode or toggle a tab in frameless mode:
+    </p>
+    <ul>
+      <li>
+        <span>Ctrl-C</span>
+        Class list
+      </li>
+      <li>
+        <span>Ctrl-I</span>
+        Mixin list
+      </li>
+      <li>
+        <span>Ctrl-F</span>
+        File list
+      </li>
+      <li>
+        <span>Ctrl-M</span>
+        Method list
+      </li>
+      <li>
+        <span>Ctrl-E</span>
+        Extras list
+      </li>
+    </ul>
+    <p>
+      You can focus and blur the search input:
+    </p>
+    <ul>
+      <li>
+        <span>Ctrl-S</span>
+        Focus search input
+      </li>
+      <li>
+        <span>Esc</span>
+        Blur search input
+      </li>
+    </ul>
+    <p>
+      In frameless mode you can close the list tab:
+    </p>
+    <ul>
+      <li>
+        <span>Esc</span>
+        Close list tab
+      </li>
+    </ul>
+  </div>
+</div>
+    <div id='content'>
+      <nav class='toc'>
+        <p class='title'>
+          <a class='hide_toc' href='#'>
+            <strong>Table of Contents</strong>
+          </a>
+          <small>
+            (<a class='float_toc' href='#'>left</a>)
+          </small>
+        </p>
+      </nav>
+      <div id='filecontents'>
+        <h1>Tredius corporate web front-end</h1>
+<h3>SOP</h3>
+<h4>Literate package files</h4><p>This is somewhat of a complicated chicken-and-egg story. The problem is, using
+<code>npm i something --save</code> or <code>npm i elsething --save-dev</code> will add only to the
+<code>package.json</code> file as will the command <code>npm init</code> which we may use now and
+then. On the other hand, having a <code>.cson</code> file gives us so much benefits like
+comments (multiline!) or why not skip it all together and have a <code>.litcoffee</code>
+file. So this is one case, where the .json will be updated often with new
+dependencies (dev, opt whatever) and we need to merge it with the previous
+.cson file so we may keep the comments.</p><ul>
+<li>sdiff is a good tool for this and allows us to interactively merge these
+two files into 1 new one.</li>
+</ul>
+<h4>Current status</h4><p>At the moment I am heavily refactoring old Jade written code to
+CoffeeScript as well as abstracting out any patterns I have/had noticed.</p><p>Plugins I am currently abstracting out of Tredius or under consideration:</p><ul>
+<li>Mail / Form munge (obfuscate to prevent automated spamming tools)</li>
+<li>ARIA-friendly forms and menu controls -&gt; will become a more advanced GUI structure later</li>
+<li>Web 3.0 semantic support features (like schema.org Things or GoodRelations businesses)</li>
+<li>Better support for OOP class definitions through docpad if possible</li>
+</ul>
+<blockquote><p>This web site was purposely written using native Dutch nomenclature.
+It was intended as both experiment as well as demonstration of localized
+docpad-enable web site building. Furthermore it serves a practical
+matter as most of my intended customers will be local business in The
+Netherlands. Also future possible developers may be served this way as a
+more user-centric native speaking approach will prevent possible
+miscommunication due to unambiguous nature (the web and programming uses
+English) It may however, be of use for other developers who use
+<a href="http://docpad.org/">Docpad</a> as their tool of choice to generate
+(static/Node.js/dynamic) web sites and who would like to learn from this
+project. Renaming every variable will prove a useful exercise of getting
+familiar with the structure I have set up.</p><p>You may find some difficulties in understanding the names of elements,
+classes or variables. I hope however, you will be able to understand the
+structure without speaking a single word Dutch, as we share a lot of
+words with English, or often enough, don&#39;t have any equivalent. It&#39;s my
+personal challenge to do so but you will not see me find alternatives
+for &#39;Video&#39; and such. But an &#39;Artikel&#39; is an &#39;Article&#39; and a &#39;Pagina&#39; is
+a &#39;Page&#39; so have fun decoding :)</p></blockquote>
+<h2>Bronnen</h2>
+<h3>Nomenclatuur</h3><p><a href="http://snn.vvb.org/2400lijst.htm">http://snn.vvb.org/2400lijst.htm</a></p>
+      </div>
+    </div>
+    <div id='footer'>
+  Generated on
+  Mon May 06 2013 18:22:53 GMT+0200 (CEST)
+  by
+  <a href='https://github.com/gjtorikian/biscotto' title='TomDoc-CoffeeScript API documentation generator'>Biscotto</a>
+  v0.0.11
+  (Node.js v0.10.5).
+  &#10034;
+  Press Ctrl-h to see the keyboard shortcuts
+</div>
+  </body>
+</html>

@@ -1,0 +1,547 @@
+// T-Time slider
+#rjs-videos
+  width 640px
+  height 360px
+  overflow hidden
+  position relative
+  margin 0 auto
+  text-align center
+  > img
+    width 640px
+    height 360px
+    margin 0 auto
+    display block
+
+  > .slide
+    left 0
+    position absolute
+    top 0
+
+  > .hidden
+    display none
+
+
+
+// Blur on hover ttime
+
+.ib-container
+  background url('/media/afbeeldingen/tegel_grijs.png') repeat
+  position relative
+  width 800px
+  margin 30px auto
+  display block
+  &:after
+    clear both
+  article
+    display block
+    width 140px
+    height 280px
+    background #fff
+    cursor pointer
+    float left
+    border 10px solid #fff
+    text-align center
+    text-transform none
+    margin 15px
+    z-index 1
+    box-shadow 0px 0px 0px 10px rgba(255,255,255,1),
+    1px 1px 3px 10px rgba(0,0,0,0.2)
+    box-shadow 0.4s ease-in-out
+    header
+      span
+        font-size 12px
+        font-family sans
+        padding 10px 0
+        display block
+        color rood
+        text-shadow 0px 0px 0px rgba(255, 210, 82, 1)
+        text-transform uppercase
+        opacity 0.8
+    p
+      font-family sans
+      font-size 12px
+      line-height 1.5em
+      color #333
+      color rgba(51, 51, 51, 1)
+      text-shadow 0px 0px 0px rgba(51, 51, 51, 1)
+      opacity 0.8
+    &.blur
+      //box-shadow 0px 0px 20px 10px rgba(255,255,255,1)
+      transform scale(0.9)
+      //opacity 0.7
+      //h3
+      //  a
+      //    //text-shadow 0px 0px 10px rgba(0, 0, 0, 0.9)
+      //    //color rgba(0, 0, 0, 0)
+      //   //opacity 0.5
+      header
+        span
+          //text-shadow 0px 0px 10px rgba(255, 210, 82, 0.9)
+          //color rgba(255, 210, 82, 0)
+          //opacity 0.5
+      //p
+      //  //text-shadow 0px 0px 10px rgba(51, 51, 51, 0.9)
+      // //color rgba(51, 51, 51, 0)
+      //  //opacity 0.5
+    &.active
+      transform scale(1.05)
+      box-shadow 0px 0px 0px 10px rgba(255,255,255,1),
+    1px 6px 10px 5px rgba(0,0,0,0.4)
+      z-index 100
+      opacity 1
+  h3
+    a
+      font-size 16px
+      font-weight 400
+      color #000
+      color rgba(0, 0, 0, 1)
+      text-shadow 0px 0px 0px rgba(0, 0, 0, 1)
+      opacity 0.8
+
+
+.ib-container:before,
+.ib-container:after
+  content ""
+  display table
+
+.column-datum
+  color rood
+
+.ib-container h3 a,
+.ib-container article header span,
+.ib-container article p
+  transition opacity 0.2s linear,
+  text-shadow 0.5s ease-in-out,
+  color 0.5s ease-in-out
+
+
+// Icon doors 4 pieces
+
+.qitem
+  width 86px
+  height 86px
+  margin 10px auto
+  //background url('/media/afbeeldingen/tegel_grijs.png') no-repeat
+  overflow hidden
+  position relative
+  cursor hand
+  cursor pointer
+  text-align center
+  img
+    border 0
+    position absolute
+    z-index 200
+  .caption
+    position absolute
+    z-index 0
+    color grijs
+    display block
+    h4
+      font-size 12px
+      padding 2px
+      margin 0
+      color goud
+    p
+      font-size 10px
+      padding 2px
+      margin 0
+
+.topLeft, .topRight, .bottomLeft, .bottomRight
+  position absolute
+  background-repeat no-repeat
+  float left
+
+.topLeft
+  background-position top left
+
+.topRight
+  background-position top right
+
+.bottomLeft
+  background-position bottom left
+
+.bottomRight
+  background-position bottom right
+
+.clear
+  clear both
+
+
+//
+// Colorbox
+// MIT Licenced jQuery Lightbox
+//
+
+#colorbox
+#cboxOverlay
+#cboxWrapper
+  position absolute
+  top 0
+  left 0
+  z-index 9999
+  overflow hidden
+
+#cboxOverlay
+  position fixed
+  width 100%
+  height 100%
+  background #fff
+
+#cboxMiddleLeft
+#cboxBottomLeft
+  clear left
+
+#cboxContent
+  position relative
+  background #fff
+  overflow hidden
+
+#cboxLoadedContent
+  overflow auto
+  -webkit-overflow-scrolling touch
+  margin-bottom 20px
+
+#cboxTitle
+  margin 0
+  position absolute
+  bottom 0px
+  left 0
+  text-align center
+  width 100%
+  color #999
+
+#cboxLoadingOverlay
+#cboxLoadingGraphic
+  position absolute
+  top 0
+  left 0
+  width 100%
+  height 100%
+
+#cboxPrevious
+#cboxNext
+#cboxClose
+#cboxSlideshow
+  cursor pointer
+
+.cboxPhoto
+  float left
+  margin auto
+  border 0
+  display block
+  max-width none
+
+.cboxIframe
+  width 100%
+  height 100%
+  display block
+  border 0
+  background #fff
+
+#colorbox, #cboxContent, #cboxLoadedContent
+  box-sizing(content-box)
+
+#colorbox
+  outline 0
+
+#cboxTopLeft
+  width 25px
+  height 25px
+  background url('/media/afbeeldingen/plugins/colorbox/border1.png') no-repeat 0 0
+
+#cboxTopCenter
+  height 25px
+  background url('/media/afbeeldingen/plugins/colorbox/border1.png') repeat-x 0 -50px
+
+#cboxTopRight
+  width 25px
+  height 25px
+  background url('/media/afbeeldingen/plugins/colorbox/border1.png') no-repeat -25px 0
+
+#cboxBottomLeft
+  width 25px
+  height 25px
+  background url('/media/afbeeldingen/plugins/colorbox/border1.png') no-repeat 0 -25px
+
+#cboxBottomCenter
+  height 25px
+  background url('/media/afbeeldingen/plugins/colorbox/border1.png') repeat-x 0 -75px
+
+#cboxBottomRight
+  width 25px
+  height 25px
+  background url('/media/afbeeldingen/plugins/colorbox/border1.png') no-repeat -25px -25px
+
+#cboxMiddleLeft
+  width 25px
+  background url('/media/afbeeldingen/plugins/colorbox/border2.png') repeat-y 0 0
+
+#cboxMiddleRight
+  width 25px
+  background url('/media/afbeeldingen/plugins/colorbox/border2.png') repeat-y -25px 0
+
+#cboxError
+  padding 50px
+  border 1px solid #ccc
+
+#cboxCurrent
+  position absolute
+  bottom 0px
+  left 100px
+  color #999
+
+#cboxLoadingOverlay
+  background #fff url('/media/afbeeldingen/plugins/colorbox/loading.gif') no-repeat 5px 5px
+
+#cboxPrevious
+#cboxNext
+#cboxSlideshow
+#cboxClose
+  border 0
+  padding 0
+  margin 0
+  overflow visible
+  width auto
+  background none
+
+#cboxPrevious:active
+#cboxNext:active
+#cboxSlideshow:active
+#cboxClose:active
+  outline 0
+
+#cboxSlideshow
+  position absolute
+  bottom 0px
+  right 42px
+  color #444
+
+#cboxPrevious
+  position absolute
+  bottom 0px
+  left 0
+  color #444
+
+#cboxNext
+  position absolute
+  bottom 0px
+  left 63px
+  color #444
+
+#cboxClose
+  position absolute
+  bottom 0
+  right 0
+  display block
+  color #444
+
+.cboxIE #cboxTopLeft
+.cboxIE #cboxTopCenter
+.cboxIE #cboxTopRight
+.cboxIE #cboxBottomLeft
+.cboxIE #cboxBottomCenter
+.cboxIE #cboxBottomRight
+.cboxIE #cboxMiddleLeft
+.cboxIE #cboxMiddleRight
+  filter unquote('progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF)')
+
+.cboxIE6
+  #cboxTopLeft
+    background url('/media/afbeeldingen/plugins/colorbox/ie6/borderTopLeft.png')
+  #cboxTopCenter
+    background url('/media/afbeeldingen/plugins/colorbox/ie6/borderTopCenter.png')
+  #cboxTopRight
+    background url('/media/afbeeldingen/plugins/colorbox/ie6/borderTopRight.png')
+  #cboxBottomLeft
+    background url('/media/afbeeldingen/plugins/colorbox/ie6/borderBottomLeft.png')
+  #cboxBottomCenter
+    background url('/media/afbeeldingen/plugins/colorbox/ie6/borderBottomCenter.png')
+  #cboxBottomRight
+    background url('/media/afbeeldingen/plugins/colorbox/ie6/borderBottomRight.png')
+  #cboxMiddleLeft
+    background url('/media/afbeeldingen/plugins/colorbox/ie6/borderMiddleLeft.png')
+  #cboxMiddleRight
+    background url('/media/afbeeldingen/plugins/colorbox/ie6/borderMiddleRight.png')
+
+.cboxIE6 #cboxTopLeft
+.cboxIE6 #cboxTopCenter
+.cboxIE6 #cboxTopRight
+.cboxIE6 #cboxBottomLeft
+.cboxIE6 #cboxBottomCenter
+.cboxIE6 #cboxBottomRight
+.cboxIE6 #cboxMiddleLeft
+.cboxIE6 #cboxMiddleRight
+  color white
+  //_behavior unquote(expression(this.src = this.src ? this.src : this.currentStyle.backgroundImage.split('"')[1], this.style.background = "none", this.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=" + this.src + ", sizingMethod='scale')")")
+
+
+
+
+// #colorbox, #cboxOverlay, #cboxWrapper
+//   position absolute
+//   top 0
+//   left 0
+//   z-index 9999
+//   overflow hidden
+
+// #cboxOverlay
+//   position fixed
+//   width 100%
+//   height 100%
+//   background #000
+
+// #cboxMiddleLeft, #cboxBottomLeft
+//   clear left
+
+// #cboxContent
+//   position relative
+//   background #fff
+//   overflow visible
+
+// #cboxLoadedContent
+//   overflow auto
+//   -webkit-overflow-scrolling touch
+//   margin-bottom 5px
+
+// #cboxTitle
+//   margin 0
+//   position absolute
+//   bottom -25px
+//   left 0
+//   text-align center
+//   width 100%
+//   font-weight bold
+//   color #7C7C7C
+
+// #cboxLoadingOverlay, #cboxLoadingGraphic
+//   position absolute
+//   top 0
+//   left 0
+//   width 100%
+//   height 100%
+
+// #cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow
+//   cursor pointer
+
+// .cboxPhoto
+//   float left
+//   margin auto
+//   border 0
+//   display block
+//   max-width none
+
+// .cboxIframe
+//   width 100%
+//   height 100%
+//   display block
+//   border 0
+//   background #fff
+
+// #colorbox, #cboxContent, #cboxLoadedContent
+//   box-sizing content-box
+//   -moz-box-sizing content-box
+//   -webkit-box-sizing content-box
+
+// #colorbox
+//   outline 0
+
+// #cboxTopLeft
+//   width 14px
+//   height 14px
+//   background url('/media/afbeeldingen/video_besturingselementen.png') no-repeat 0 0
+
+// #cboxTopCenter
+//   height 14px
+//   background url('/media/afbeeldingen/video_rand.png') repeat-x top left
+
+// #cboxTopRight
+//   width 14px
+//   height 14px
+//   background url('/media/afbeeldingen/video_besturingselementen.png') no-repeat -36px 0
+
+// #cboxBottomLeft
+//   width 14px
+//   height 43px
+//   background url('/media/afbeeldingen/video_besturingselementen.png') no-repeat 0 -32px
+
+// #cboxBottomCenter
+//   height 43px
+//   background url('/media/afbeeldingen/video_rand.png') repeat-x bottom left
+
+// #cboxBottomRight
+//   width 14px
+//   height 43px
+//   background url('/media/afbeeldingen/video_besturingselementen.png') no-repeat -36px -32px
+
+// #cboxMiddleLeft
+//   width 14px
+//   background url('/media/afbeeldingen/video_besturingselementen.png') repeat-y -175px 0
+
+// #cboxMiddleRight
+//   width 14px
+//   background url('/media/afbeeldingen/video_besturingselementen.png') repeat-y -211px 0
+
+// #cboxError
+//   padding 50px
+//   border 1px solid #ccc
+
+// #cboxLoadingOverlay
+//   background url('/media/afbeeldingen/video_ladenachtergrond.png') no-repeat center center
+
+// #cboxLoadingGraphic
+//   background url('/media/afbeeldingen/video_laden.gif') no-repeat center center
+
+// #cboxCurrent
+//   position absolute
+//   bottom -25px
+//   left 58px
+//   font-weight bold
+//   color #7C7C7C
+
+// #cboxPrevious, #cboxNext, #cboxSlideshow, #cboxClose
+//   border 0
+//   padding 0
+//   margin 0
+//   overflow visible
+//   position absolute
+//   bottom -29px
+//   background url('/media/afbeeldingen/video_besturingselementen.png') no-repeat 0px 0px
+//   width 23px
+//   height 23px
+//   text-indent -9999px
+
+// #cboxPrevious:active, #cboxNext:active, #cboxSlideshow:active, #cboxClose:active
+//   outline 0
+
+// #cboxPrevious
+//   left 0px
+//   background-position -51px -25px
+//   &:hover
+//     background-position -51px 0px
+
+// #cboxNext
+//   left 27px
+//   background-position -75px -25px
+//   &:hover
+//     background-position -75px 0px
+
+// #cboxClose
+//   right 0
+//   background-position -100px -25px
+//   &:hover
+//     background-position -100px 0px
+
+// .cboxSlideshow_on
+//   #cboxSlideshow
+//     background-position -125px 0px
+//     right 27px
+//     &:hover
+//       background-position -150px 0px
+
+// .cboxSlideshow_off
+//   #cboxSlideshow
+//     background-position -150px -25px
+//     right 27px
+//     &:hover
+//       background-position -125px 0px
+

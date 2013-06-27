@@ -1,0 +1,14 @@
+{
+  "name": "style",
+  "description": "Style canvas renders using CSS",
+  "version": "0.0.1",
+  "keywords": [
+    "css",
+    "canvas",
+    "utility"
+  ],
+  "scripts": [
+    "index.js"
+  ],
+  "repo": "https://raw.github.com/component/style"
+}

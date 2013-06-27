@@ -1,0 +1,10 @@
+
+
+
+task 'pkg', ->
+
+  require('ansinception') ->
+
+    CSON = require 'cson'
+    console.log 'testing'
+

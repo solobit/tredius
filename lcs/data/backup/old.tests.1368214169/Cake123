@@ -1,0 +1,55 @@
+
+#Regular dDependencies
+{exec}      = require 'child_process'
+proj        = require './package.json'
+
+# Import class definitions
+Table       = require 'cli-table'
+ProgressBar = require 'progress'
+
+# Create class instances
+table       = new Table()
+
+# Shorthand
+log = console.log
+
+
+timer = setInterval(() ->
+    bar.tick()
+    if bar.complete
+        log '\n✓ Voltooid!\n'
+        clearInterval timer
+, 100)
+
+
+# running Cake tasks from subdirectories from cake is possible.
+
+header = [
+    'Project name and version:':      "#{proj.name} #{proj.version}"
+  ,
+    'Description:':                   "#{proj.description}"
+  ,
+    'Cakefile:':                      "#{__filename}"
+]
+
+table.push field for field in header
+
+log table.toString()
+
+task "ender:build", "Inbouwen van ender.js software in #{proj.description}.", ->
+    exec "ender build domready qwery bean formwatcher formwatcher-hint"
+    , (err, result) ->
+        console.log err if err
+        run task
+
+run = (task...) ->
+    bar = new ProgressBar "downloaden [:bar]", {
+        complete: "▣ "
+        , incomplete: "□ "
+        , width: 10
+        , total: parseInt(task)
+    }
+
+
+
+

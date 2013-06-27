@@ -1,0 +1,93 @@
+// Multimedia grijze blok
+#multimedia
+  midden()
+  > aside
+    &.video
+      kolom(4)
+    &.nieuwsbrief
+      kolom(4)
+      > h3
+        font 24px dosis
+        font-weight 500
+        color rood
+      input[type=email]
+        width 300
+        margin-bottom 20px
+      > p
+        margin-top 10px
+        font-size 14px
+      span
+        font 10px sans
+        color rood
+
+
+
+// Video
+// Responsive wrapper
+.afspelen
+  position relative
+  // Handhaaft aspect ratio 16:9
+  padding-bottom 56.25%
+  padding-top 25px
+  height 0
+  margin-bottom 50px
+  > iframe
+    position absolute
+    top 0
+    left 0
+    width 100%
+    height 100%
+
+
+
+// Eerste voetblok
+#snelkoppelingen
+  midden()
+  > section
+    kolom(4)
+    margin-top 25px
+    margin-bottom 25px
+    min-height 250px
+  h4
+    font normaal sans
+    text-align left
+    font-weight 600
+    color #363636
+    margin-bottom 5px
+  li
+    font-size 14px
+    line-height 22px
+    &:before
+      content "» "
+      color rood
+    > a
+      font-size 14px
+      color zwart
+      text-decoration none
+      &:hover
+        text-decoration underline
+
+// Onderste voetblok
+#paginavoet
+  midden()
+  font klein sans
+  // auteursrecht
+  > aside
+    kolom(6)
+    text-align left
+    > ul
+      // algemene bepalingen
+      list-style none
+      cursor pointer
+      text-align right
+      > li
+        display inline-block
+        > a
+          font klein sans
+          color zwart
+          text-decoration none
+          line-height 1.8em
+          &:hover
+            text-decoration underline
+
+

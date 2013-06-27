@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>standaard2.html.litcoffee</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>standaard2.html.litcoffee</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap for-h1">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <h1>Tredius corporate web site</h1>
+<h2>Structuur van een hypertext opmaakdocument</h2>
+<p>Helemaal aan het begin van een document wordt de <code>DOCTYPE</code>-declaratie
+(document type) opgenomen. Deze is ervoor bedoeld aan te geven aan welke HTML-
+versie het document voldoet. De <code>DOCTYPE</code>-declaratie verwijst naar een
+document type definition (<code>DTD</code>).</p>
+<p>In dit geval declareren we een HTML document type <strong>5</strong>. </p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>doctype <span class="number">5</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>Op het moment van schrijven is dat de meest recente en gebruikte versie van
+het protocol, al zal de transitie van oudere talen (vocabularies) naar een
+nieuwere altijd enige tijd in beslag nemen. De standaarden zoals welbekend
+<code>HTML</code> of <code>XHTML</code>, <code>XML</code> en <code>CSS</code> onder andere worden uitgegeven en beheerd
+door het [World Wide Web Consortium][w3c] (W3C).</p>
+<p>In de HTML definitie (het <code>html</code>-element) geven we gegevens op als de taal van
+het document. Ook het [Resource Description Framework][rdf] of <code>RDF</code> - hier
+samen met het HTML protocol gedeclareerd - is een standaard van het W3C -
+oorspronkelijk ontworpen als een metadata-model - maar gaandeweg gebruikt als
+een formaat om gegevens in het algemeen voor te stellen en uit te wisselen.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>html lang: <span class="string">'nl'</span>                 , 
+version: <span class="string">'HTML+RDFa 1.1'</span>        , 
+prefix: <span class="string">'og: http://ogp.me/ns#'</span> , -&gt;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Tot slot zagen we een derde attribuut hierboven, deze is genaamd <code>prefix</code>, en
+het prefix &#39;attribute&#39; wordt hier hier gebruikt om de site toegankelijk te
+maken voor - met name - de sociale netwerken op internet. De meest bezochte
+van het stel,  [Facebook][fog], is dan ook eigenaar en de grootste gebruiker
+van [Open Graph][ogp]. De mogelijkheden hiervan lopen uiteen, zo is het
+bijvoorbeeld zeer eenvoudig deze site in Facebook te integreren, alle data
+deelt zich automatisch.</p>
+<p>Met dit vrij korte overzicht, zijn we aan het einde gekomen van het eerste
+&#39;niveau&#39; in het document. De hier boven behandelde elementen, afwisselend vaak
+ook wel (HTML) tags genoemd, valt misschien wel het beste te zien als de
+verpakking van een modern boek, met een barcode - enkele chip wellicht en
+welke taal je nodig hebt om het te lezen. Niet alles van een document wordt
+uitgelezen, scripts bijvoorbeeld dus niet, maar voor de rest kan men veel
+informatie herleiden uit een enkel document. Hieronder staat een mogelijke web
+site weergegeven:</p>
+<p>![<a href="http://cs.lmu.edu/~ray/images/htmlelements.png][Web">http://cs.lmu.edu/~ray/images/htmlelements.png][Web</a> site van cs.lmu.edu]</p>
+<p>Meer informatie staat op [deze pagina][lmu], het biedt een goed overzicht van de
+ontwikkeling van deze web technologieen.</p>
+<p>Zo&#39;n boek gaat dan van de uitgever,
+langs een aantal kanalen totdat het uiteindelijk ook door een aantal grote ketens
+opgepikt wordt, om deze vervolgens ten toon te stellen. Maar hierbij geldt
+even goed: het helpt als je ze op je bestaan attendeert en, mocht je zo
+fortuinlijk zijn een prominente plaats te krijgen, op veel afname kunt rekenen
+- soms meer, veel meer, dan gewenst of gehoopt (virals, slash-dotten).</p>
+<h3>De documentkop</h3>
+<p>Merk op dat we hieronder naar een niveau &#39;dieper&#39; gaan ten opzicht van de
+vorige elementen <code>doctype</code> en <code>html</code>. Deze code, hier genesteld in een
+literair CoffeeScipt/Cup document, vertaalt zich uiteindelijk - via een
+transformatieproces - tot HTML, CSS en JavaScript. Dit zijn de drie disciplines
+waar het moderne web op draait en, veel belangrijker of juist inherent daaraan,
+ook door de meeste aanbieders van diensten aan geconformeerd wordt.</p>
+<p>Het volgende element is de <code>head</code> tag en deze krijgt verder geen attributen
+mee. Deze sectie (want dat is het feitelijk, een inkapseling van meer
+elementen) bevat een belangrijk gedeelte van het document: de kopteksten. En
+net als bij belangrijke rapportages en publicaties, kan hieruit veel
+informatie over de inhoud afgeleid worden. Deze is dan ook gewoonlijk niet
+zichtbaar voor de bezoeker en alleen bestemd voor machines.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>head -&gt;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>We zakken meteen weer een niveau en, zoals ook bij gebruik van &#39;puur&#39; HTML,
+deze wordt daarmee een &#39;genest&#39; of kind (<code>child</code>-element) van de ouder. Men
+spreekt ook wel van <code>ancestors</code> en <code>descendants</code>. Het element dat we hierop
+doen volgen is <code>base</code>. Dit relatief onbekende en niet vaak gebruikte element
+zorgt ervoor dat alle adressen (URL&#39;s) in dit document, zoals die van
+afbeeldingen of videos, niet door het gehele domeinnaam vooraf gegaan hoeven
+te worden. Een link met de snelkoppeling <code>/artikelen/2013.html</code> wordt dan
+automatisch voorafgegaan (prefixed) door het domein.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    base href: <span class="property">@site</span>.url</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>Dit element, het <code>meta</code> element met het <code>charset</code> argument is zeer belangrijk.
+Het kan de gebruikte set karakters(set) aangeven welke voor een goede weergave
+van uw webpagina&#39;s erg belangrijk is.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    meta charset: <span class="string">'utf-8'</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>Uiteraard mag u de metatags op alle pagina&#39;s plaatsen, dus niet alleen de
+eerste index. Zorg er wel voor dat iedere pagina zijn eigen relevante tags
+krijgt, met steekwoorden en begrippen die betrekking hebben op de inhoud. In
+ons geval worden deze automatisch uit de teksten van de inhoud afgeleid en
+tijdens het generen van de statische paginas &#39;ingeplakt&#39;. Dit geeft ons een
+gigantisch voordeel over de dynamische (PHP, Single Page, ASP etc.) gemaakt
+websites. Zij moeten veel moeite doen om hun pakketen in te richten voor Web
+3.0 terwijl in een aantal gevallen het gewoon helemaal kansloos is. Het lijkt
+misschien veel werk om voor iedere pagina aparte metatags te verzinnen maar
+het werkt, en met onze methode besparen we ons veel tijd, geld en energie.</p>
+<p>De onderstaande <code>meta</code> tags zijn ietwat afwijkend van de rest in die zin, zij
+hebben meer betrekking op de feitelijk web servers zelf, dan op de inhoud van
+het document en hiermee kunnen via een omweg nog opdrachten en informatie aan
+machines verstrekken (pragma&#39;s of ook wel macro&#39;s genoemd).</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    meta <span class="string">'http-equiv'</span>: <span class="string">'content-language'</span>   , content: <span class="string">'nl'</span>
+    meta <span class="string">'http-equiv'</span>: <span class="string">'cache-control'</span>      , content: <span class="string">'Public'</span>
+    meta <span class="string">'http-equiv'</span>: <span class="string">'content-tsype'</span>      , content: <span class="string">'text/html; charset=UTF-8'</span>
+    meta <span class="string">'http-equiv'</span>: <span class="string">'X-UA-Compatible'</span>    , content: <span class="string">'IE=edge,chrome=1'</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>Een wat vreemde eend in de bijt, voor hen die al wat HTML tags herkend menen
+te hebben, is de onderstaande <code>text</code> tag. De <code>@getBlock</code> methode die er op
+volgt, wordt door onze statische generator gebruikt om verdere informatie uit
+een ander (administratief) bestand in te voegen.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    text <span class="property">@getBlock</span>(<span class="string">'meta'</span>).toHTML()</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>Als de site eenmaal in de index van een zoekmachine is opgenomen, is het
+uiteraard van belang dat een bezoeker hem zo hoog/goed mogelijk in de
+zoekresultaten tegenkomt. Je kunt dat beïnvloeden door de documenten een goede
+titel te geven en door het opnemen van een korte omschrijving en relevante
+sleutelwoorden. Daarnaast helpt het als er vanaf andere sites links naar uw
+site staan. </p>
+<h3>Documenttitel</h3>
+<p>Met het <code>title</code> element wordt een titel voor het document vastgelegd. Deze
+titel wordt niet weergegeven in het documentvenster, maar in de titelbalk van
+het venster. Daarnaast wordt de titel door zoekmachines geplaatst als kopje
+boven een zoekresultaat en gebruiken browsers hem als iemand de pagina
+toevoegt aan de bookmarks. Elk document <strong>moet</strong> een <code>title</code> element bevatten.
+Het is verstandig een titel te gebruiken, die duidelijk maakt waar het
+document over gaat en op basis waarvan bijvoorbeeld gebruikers van een
+zoekmachine kunnen beslissen, of het bekijken van het document zinvol is.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    title <span class="property">@geefTitel</span>()</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap for-h3">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <h3>Meta-gegevens zoekmachines en waarderingen</h3>
+<p>Op het gebied van [Search Engine Optimization][seo] (SEO) spelen de metatags
+nog steeds een belangrijke rol! Vooral de titel en de meta description tag
+zijn erg van invloed want deze wordt weergegeven als de tekst bij de
+zoekresultaten. Zorg dus dat je metatags voor elke pagina uniek zijn en
+uitnodigen om op te klikken. Samen met een relevante html title tag vormen
+deze de paar regels tekst in een zoekmachine vermelding die de bezoeker moet
+overhalen.</p>
+<p>Allereerst verwelkomen we onze gemechaniseerde vrienden: de robots. We zijn
+erg blij met bezoek, en daarom ook tolerant ten opzichte van indexatie: zowel
+onze inhoud als links van sites naar wie wij verwijzen, mogen ingezien en
+opgeslagen worden. Wel willen we, als een verliefde bakvis, onze vriend graag
+snel weer terug zien! Een dag vinden we voldoende tijd uit elkaar en verzoeken
+de bot daarom dan terug te komen naar onze site.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    meta name: <span class="string">'robots'</span>         , content: <span class="string">'all'</span>
+    meta name: <span class="string">'rivist-after'</span>   , content: <span class="string">'1 days'</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>Een vooralsnog niet gebruikte meta tag op onze site is de onderstaande. Een
+beetje vreemd, maar dit zijn de 5 sterretjes die je misschien wel eens bij
+Google zoekresultaten hebt zien verschijnen. Feitelijk is dit een rating van
+de producten van een site, dit kan een artikel zijn als in een krant, of een
+artikel dat verkocht wordt zoals een stofzuiger of restaurant. Deze kan men
+dus eenvoudig per (product)pagina koppelen aan hun interne database met klant
+waarderingen.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    meta name: <span class="string">'rating'</span>         , content: <span class="string">'General'</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>Wellicht dat ik op een later tijdstip me hier nog mee bezig kan houden.
+Vooralsnog doen we hier niet echt iets mee.</p>
+<h3>Auteurs(recht) en samenvattingen inhoud</h3>
+<blockquote>
+<p>Lorem ipsum Id Duis culpa ad exercitation quis voluptate Duis Duis adipisicing
+dolor irure eiusmod laboris do non laborum fugiat id laborum qui Excepteur ex
+id aute exercitation aliquip irure consequat ad exercitation elit in nisi sint
+quis sint velit.</p>
+</blockquote>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    meta name: <span class="string">'author'</span>         , content: <span class="property">@site</span>.auteur
+    meta name: <span class="string">'email'</span>          , content: <span class="property">@site</span>.contact
+    meta name: <span class="string">'copyright'</span>      , content: <span class="property">@printAuteursrecht</span>()</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <blockquote>
+<p>Lorem ipsum Et reprehenderit sit est proident adipisicing Ut labore aliqua
+velit minim proident exercitation anim id pariatur nostrud quis velit sint
+anim occaecat ex ea in eu do Duis minim eu adipisicing reprehenderit qui
+labore aliqua pariatur ut.</p>
+</blockquote>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    meta name: <span class="string">'abstract'</span>       , content: <span class="property">@site</span>.essentie
+    meta name: <span class="string">'keywords'</span>       , content: <span class="property">@geefSleutelwoorden</span>()
+    meta name: <span class="string">'description'</span>    , content: <span class="property">@geefOmschrijving</span>()
+
+
+    meta name: <span class="string">'viewport'</span>       , content: <span class="string">'width=device-width, initial-scale=0.7'</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap for-h2">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <h2>Open Graph protocol for social networks (FB)</h2>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    meta property: <span class="string">'og:url'</span>     , content: <span class="property">@document</span>.url
+    meta property: <span class="string">'og:type'</span>    , content: <span class="property">@document</span>.type
+    meta property: <span class="string">'og:title'</span>   , content: <span class="property">@document</span>.titel
+    meta property: <span class="string">'og:image'</span>   , content: <span class="property">@org</span>.merknamen.bedrijfslogo</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap for-h2">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <h2>Styles</h2>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    text <span class="property">@getBlock</span>(<span class="string">'styles'</span>).toHTML()
+
+    link rel: <span class="string">'shortcut icon'</span>   , href: <span class="string">'/media/afbeeldingen/favicon.png'</span>, type: <span class="string">'image/png'</span>
+    link rel: <span class="string">'stylesheet'</span>      , href: <span class="property">@site</span>.stijl.lettertypen</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap for-h2">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <h2>Scripts (blocking ones)</h2>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="keyword">for</span> js <span class="keyword">in</span> <span class="property">@blockingScripts</span>
+    script src:</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-17">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-17">&#182;</a>
+              </div>
+              <p>Body -------------------------------------------------</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>body role: <span class="string">'document'</span>, <span class="string">"typeof"</span>: <span class="property">@geefEntiteit</span>(), -&gt;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-18">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-18">&#182;</a>
+              </div>
+              <p>comment &#39;.cookieWarningBox&#39;
+script type: &#39;text/javascript&#39;, &#39;(function() {\n  $(&quot;#position3&quot;).position({\n    my: &quot;right center&quot;,\n    at: &quot;right bottom&quot;,\n    of: &quot;#targetElement&quot;\n  });\n\n}).call(this);&#39;
+comment &#39;[if lt IE 7]&gt;\n    <p class="chromeframe">Uw browser is<em>antiek!</em></p><a href="http://browsehappy.com/">Upgrade</a><span>de browser of</span><a href="http://www.google.nl/chromeframe/?redirect=true">installeer Google Chrome Frame</a><span>om deze site te ervaren.</span>&lt;![endif]&#39;</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    section <span class="string">'#paginakop'</span>, -&gt;
+
+        header itemscope: <span class="string">'itemscope'</span>, itemtype: <span class="string">'gr:BusinessEntity'</span>, about: <span class="string">'#company'</span>, -&gt;
+            div property: <span class="string">'gr:legalName'</span>, content: <span class="property">@org</span>.naam
+            a href: <span class="property">@site</span>.url, alt: <span class="string">'Terug naar startpagina'</span>, rel: <span class="string">'foaf:page'</span>, resource: <span class="property">@site</span>.url, -&gt;
+                img width: <span class="string">'160'</span>, height: <span class="string">'59'</span>, rel: <span class="string">'foaf:logo'</span>, title: <span class="property">@site</span>.naam, alt: <span class="string">"Ga terug naar <span class="subst">#{@site.naam}</span>"</span>, src: <span class="property">@org</span>.merknamen.bedrijfslogo, resource: <span class="property">@org</span>.merknamen.bedrijfslogo
+
+        aside -&gt; a <span class="string">'.login.knop'</span>, href: <span class="string">'https://login.twinfield.com/'</span>, <span class="string">'Inloggen'</span>
+
+        text <span class="property">@partial</span>(<span class="string">"blok/navigatie"</span>, @)
+
+    header <span class="string">'#bannier'</span>, role: <span class="string">'banner'</span>, <span class="string">"aria-labelledby"</span>: <span class="string">'label_titel'</span>,style: <span class="string">'background: url("#{@document.bannier}") repeat-x;'</span>, -&gt;
+
+        h1 <span class="string">'#label_titel'</span>, title: <span class="property">@org</span>.naam
+
+        div <span class="string">'#menucontext'</span>, itemscope: <span class="string">'itemscope'</span>, itemtype: <span class="string">'s:WebPage'</span>, -&gt;
+
+            div <span class="string">'.pagina-info'</span>, -&gt;
+
+                h1 <span class="string">'#pagina_titel'</span>, itemprop: <span class="string">'name'</span>, <span class="property">@document</span>.titel
+                h2 <span class="string">'#pagina_subtitel'</span>, itemprop: <span class="string">'about'</span>, <span class="property">@document</span>.subtitel
+
+                p itemprop: <span class="string">'description'</span>, <span class="property">@document</span>.samenvatting
+
+                meta itemprop: <span class="string">'keywords'</span>, content: <span class="property">@document</span>.labels
+                meta itemprop: <span class="string">'creator'</span>, content: <span class="property">@org</span>.naam
+
+    section <span class="string">'#pagina'</span>, role: <span class="string">'main'</span>, -&gt;
+
+        article <span class="string">'#document.kenmerk.inhoud'</span>, -&gt; <span class="property">@content</span>
+
+    text <span class="property">@partial</span>(<span class="string">"blok/multimedia"</span>, @)
+
+    text <span class="property">@partial</span>(<span class="string">"blok/voettekst"</span>, @)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-19">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-19">&#182;</a>
+              </div>
+              <p>Scripts</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    text <span class="property">@getBlock</span>(<span class="string">"scripts"</span>).add(<span class="property">@site</span>.scripts).toHTML()</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-20">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-20">&#182;</a>
+              </div>
+              
+            </div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

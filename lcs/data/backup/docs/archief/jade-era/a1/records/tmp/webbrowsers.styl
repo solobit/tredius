@@ -1,0 +1,54 @@
+
+// Pointers
+a[href], input[type='submit'], input[type='image'], label[for], select, button, .pointer {
+  cursor: pointer;
+}
+
+// Reset
+IR()
+  font 0/0 a
+  color transparent
+  background transparent
+
+// Interpolatie techniek
+vendor(prop, args)
+  -webkit-{prop} args
+  -moz-{prop} args
+  -ms-{prop} args
+  -o-{prop} args
+  {prop} args
+
+// Vendor mixins
+box-sizing()
+  vendor('box-sizing', arguments)
+
+border-radius()
+  vendor('border-radius', arguments)
+
+background-image()
+  vendor('background-image', arguments)
+
+box-shadow()
+  vendor('box-shadow', arguments)
+
+transition()
+  vendor('transition', arguments)
+
+transform()
+  vendor('transform', arguments)
+
+transform-origin()
+  vendor('transform-origin', arguments)
+
+placeholder()
+  vendor('input-placeholder', arguments)
+
+// TODO CHECK ME
+linear()
+  vendor('linear-gradient', arguments)
+
+support-for-ie ?= true
+opacity(n)
+  opacity n
+  if support-for-ie
+    filter unquote('progid:DXImageTransform.Microsoft.Alpha(Opacity=' + round(n * 100) + ')')

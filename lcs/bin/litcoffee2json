@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# TODO fix using : or ' or " besides key names
+
+coffee -p -b $1.litcoffee | sed '1s/^.//' | sed "s/});.*$/}/" | sed "s/\([^ '\"].*[^ '\"]\):/\"\1\":/" > $1.json &&\
+    cat $1.json | json_pp

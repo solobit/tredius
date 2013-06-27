@@ -1,0 +1,201 @@
+p
+  font 16px sans
+  margin-bottom 25px
+
+li
+  font-size 16px
+
+body
+  font normaal sans
+  font-weight 500
+  color zwart
+
+a
+  color rood
+  text-decoration none
+  font sans
+
+/*
+____ ____ _  _ ___ ____ _ _  _ ____ ____ ____
+|    |  | |\ |  |  |__| | |\ | |___ |__/ [__
+|___ |__| | \|  |  |  | | | \| |___ |  \ ___]
+
+*/
+
+// Centreren van inhoud
+midden()
+  width 940px
+  margin 0 auto
+
+// Rij 100% breedte
+band()
+  width 100%
+  background transparent
+  margin 0
+  padding 0
+  display block
+  float none
+
+// In rood afgevinkte lijstonderdelen
+afvinken()
+  margin-top 30px
+  line-height 30px
+  font middel sans
+  > li
+    font-size 16px
+    list-style-image url('/media/afbeeldingen/arrow.png')
+    list-style-position outside
+    margin-left 60px
+    margin-bottom 20px
+
+.afgevinkt
+  afvinken()
+
+
+/*
+___  ____ _  _ _  _ _ ____ ____
+|__] |__| |\ | |\ | | |___ |__/
+|__] |  | | \| | \| | |___ |  \
+
+*/
+
+// Grijze band met nieuwsbrief en 2 videos (multimedia)
+#media-bannier
+  band()
+  background url('/media/afbeeldingen/tegel_grijs.png') repeat
+  min-height 200px
+  margin 0 auto
+  padding 50px 0
+
+// Vlaggenschip: bannier (afbeeldingen/titels kop)
+#bannier
+  band()
+  height 384px
+
+#postzegel
+  position absolute
+  top 180px
+  left 2000px
+  z-index 21
+
+
+// Inline snelkoppelingen
+a:link
+  &:hover
+  &:visited
+  &:active
+    color rood
+    text-decoration none
+    font sans
+
+
+// Knoppen
+a.knop
+input.knop
+  background-color rood
+  display inline-block
+  cursor pointer
+  font 16px dosis
+  border-radius(4px)
+  border-width none
+  padding 10px 20px
+  color white
+  text-decoration none
+  text-transform uppercase
+  &:hover
+    background-color goud
+    text-decoration none
+    color white
+
+.klein
+  padding 5px 15px
+  font-size normaal
+
+
+// Iconen & illustratie
+figuur()
+  font flink dosis
+  font-size 600
+  display inline-block
+  color bruinig
+  text-align center
+  overflow none
+  margin-bottom 30px
+  > figcaption
+    font-size 18px
+    color inherit
+    margin-bottom 30px
+    text-transform uppercase
+
+// Accentueer lijnen boven/onder
+accent()
+  padding 10px 0
+  margin 50px 0
+  border-top 1px solid grijs
+  border-bottom 1px solid grijs
+
+// Rode wolk quote
+quote()
+  float right
+  position relative
+  background url('/media/afbeeldingen/bg_quote.png') no-repeat center center
+  height 169px
+  width 300px
+  padding 20px
+  margin 0 40px
+  border 0
+  > p
+    color wit
+    font-weight 700
+    font-style italic
+    font-family sans
+    font-size 20px
+    padding 10px
+    margin auto
+
+
+// Contactpersonen
+.contactblok
+  text-align center
+  > .stippellijn
+    border-top 1px solid lichtgrijs
+    background-color #fff
+    //height 1px
+    width 100%
+    margin 25px 0
+  > p
+    color bruin
+    line-height 24px
+    font-size 16px
+  > .contactpersoon
+    color rood
+    > .pocnaam
+      display block
+      font-style normal
+      font-size 24px
+      font-weight 300
+      line-height 48px
+    > .poctelefoon
+      font-size 36px
+      font-weight 700
+
+li > .lijstkop
+  font-weight 600
+  display block
+
+.markeer
+  accent()
+
+figure
+  figuur()
+
+.centreren
+  midden()
+
+
+.disclaimer-column
+  margin 20px 0
+  font-size klein
+
+.adr span
+  display block

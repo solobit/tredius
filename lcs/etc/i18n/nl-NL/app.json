@@ -1,0 +1,11 @@
+{
+    "company": {
+        "name": "Tredius"
+    },
+    "attr": {
+        "placeholder": "vertaalde plaatshouder",
+        "title": "een titel"
+    },
+    "add": "toevoegen",
+    "sprintf": "Hallo %s, %s, %s en %s"
+}

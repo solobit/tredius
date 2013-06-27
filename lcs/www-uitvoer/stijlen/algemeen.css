@@ -1,0 +1,62 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * “Share your knowledge. It is a way to achieve immortality.” 
+ *  ― Dalai Lama XIV
+ *
+ */
+@charset 'UTF-8';
+.cf,
+.clearfix {
+  zoom: 1;
+}
+.cf:before,
+.clearfix:before,
+.cf:after,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+.cf:after,
+.clearfix:after {
+  clear: both;
+}
+.cflite,
+.clearfixlite {
+  overflow: hidden;
+}
+.accessible-hidden {
+  position: absolute;
+  clip: rect(1px 1px 1px 1px);
+/* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+}
+.collapse-inner-margins > :first-child {
+  margin-top: 0;
+}
+.collapse-inner-margins > :last-child {
+  margin-bottom: 0;
+}
+.inlineblock {
+  zoom: 1;
+  display: inline;
+  display: -moz-inline-stack;
+  display: inline-block;
+}
+.pushbutton {
+  position: relative;
+  top: 0.0625em;
+  left: 0;
+}
+.collapse-inner-margins > :first-child {
+  margin-top: 0;
+}
+.collapse-inner-margins > :last-child {
+  margin-bottom: 0;
+}
+.default-stuff {
+  color: #47427a;
+}
+.LinksRechts-uitlijnen {
+  clear: both;
+  display: block;
+  margin: 0 auto;
+}

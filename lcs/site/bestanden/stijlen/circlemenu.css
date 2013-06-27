@@ -1,0 +1,156 @@
+/* html,body{height:100%; *//* padding:0; *//* margin:0; *//* overflow:hidden; *//* background:url('bg_belastingadvies.jpg'); *//* background-repeat: repeat-x; */
+.menu li:first-child {
+    /* background:url('circle.png'); */
+    background:#e31741;
+    -webkit-box-shadow:  0px 1px 3px 0px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow:  0px 1px 3px 0px rgba(0, 0, 0, 0.25);
+    box-shadow:  0px 1px 3px 0px rgba(0, 0, 0, 0.25);
+    z-index:1;
+}
+.menu li {
+    background:#fff;
+    -webkit-box-shadow:  0px 1px 3px 0px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow:  0px 1px 3px 0px rgba(0, 0, 0, 0.25);
+    box-shadow:  0px 1px 3px 0px rgba(0, 0, 0, 0.25);
+    color: #e31741;
+    display: table;
+    font-family: 'Dosis', sans-serif;
+    font-size: 12px;
+    font-weight:500;
+    line-height:14px;
+
+}
+
+
+.menu li p {
+    display: table-cell;
+    font-size: 12px;
+    height: 76px;
+    left: 0px;
+    position: relative;
+    text-align: center;
+    top: 0px;
+    vertical-align: middle;
+    width: 76px;
+}
+
+.menu li:first-child:hover {
+    /* background:url('circle_rood.png'); */
+    background:#e31741;
+    z-index:1;
+
+}
+
+
+
+
+.menu li:hover {
+    background:#fff;
+    color:#fff;
+    font-family: 'Dosis', sans-serif;
+    font-weight:500;
+
+
+}
+
+.menu a{
+    color:#363636;
+
+    position: relative;
+    text-decoration: none;
+
+}
+
+.menu a:hover{
+    color:#e31741;
+    text-decoration: none;
+}
+
+#menu16 {
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+    -moz-transform-origin: 38px 38px;
+    -o-transform-origin: 38px 38px;
+    -webkit-transform-origin: 38px 38px;
+    transform-origin: 38px 38px;
+    -moz-transition: all .5s ease;
+    -o-transition: all .5s ease;
+
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease;
+
+}
+
+#menu16.circleMenu-open {
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+#menu16.circleMenu-open > li:first-child {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+
+
+
+#satelliet-menu {
+    margin-left:0px;
+    padding-top: 30px;
+
+}
+
+#satelliet-menu2 > div {
+    display:none;
+    float:left;
+    height:384px;
+    overflow:hidden;
+    position:relative;
+    top: 0;
+    width:100%;
+
+}
+
+.menu{position:relative;}
+
+#menu2, #menu13, #menu15, #menu16{
+    left:765px;
+    top:135px;
+}
+
+
+
+
+#menu3{
+    bottom:34px;
+    right:4px;
+}
+#menu4{
+    right:4px;
+    top:0;
+}
+#menu5{
+    bottom:34px;
+    left:0;
+}
+#menu6, #menu10{
+    left:250px;
+    top:50px;
+}
+#menu7, #menu11{
+    left:0;
+    top:135px;
+}
+#menu8, #menu12{
+    bottom:34px;
+    left:135px;
+}
+#menu9, #menu13{
+    right:4px;
+    top:135px;
+}

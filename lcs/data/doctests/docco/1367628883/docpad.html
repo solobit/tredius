@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>docpad.litcoffee</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>docpad.litcoffee</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap for-h1">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              <h1>DocPad Configuratie</h1>
+<p>Dit bestand is het belangrijkste, althans meest prominent zichtbare,
+bestand in een reeks welke op een of andere wijze uw site instellen.</p>
+<h1>Node modules</h1>
+<p>Node.js modules are basically just files with code, essentially
+JavaScript but optionally compiled from another language such as
+CoffeeScript, ClojureScript etc. The files, or modules, can share their
+methods and properties with eachother, as long as these files exposed their
+data to the outside world.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>module.exports =</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap for-h2">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <h2>Gebeurtenissen (events)</h2>
+<p>Event handlers in DocPad receive two arguments. The first is <code>opts</code>
+which is an object filled with properties that the event may provide to
+you. The second is <code>next</code> which is a completion callback. Both arguments
+are <strong>optional</strong>.</p>
+<p>Events are fired in a synchronous serial fashion, meaning fire the first
+handler, wait for it to finish, fire the next handler, wait for it to
+finish, and so on.</p>
+<p>Omitting the next callback is perfectly valid and encouraged when you
+are writing synchronous code. Synchronous code is code that runs
+everything from start to finish in one go. Asynchronous code however is
+code that will run a portion at one time, and another portion at another
+time. With asynchronous code a completion callback is necessary for us
+to know when everything has properly run, or rather when it is okay to
+proceed to the next task (or in this case event handler).</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    events:</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>Used to add our own custom routes to the server before the docpad routes are
+added</p>
+<p>Bekijken we puur (via <code>nesh -c</code>) wat we krijgen als we docpad
+initialiseren, dan zien we dat het <code>_events</code> (het liggend streepje
+impliceert een private scope) object ons de volgende sleutels geeft.</p>
+<p>Een aantal zijn volgens mij echter geen bruikbare <code>events</code> in de zin dat
+deze niet in de documentatie vermeldt staan. Voor de volledigheid heb ik
+deze echter hier nog staan.</p>
+<ul>
+<li>extendTemplateData: -&gt;</li>
+<li>extendCollections: -&gt;</li>
+<li>contextualizeBefore: -&gt;</li>
+<li>contextualizeAfter: -&gt;</li>
+<li>populateCollections: -&gt;</li>
+<li>docpadLoaded: -&gt;</li>
+<li>log: -&gt;</li>
+</ul>
+<p>Vervolgens geeft de docpad site ons nog een aantal hints over wat voor
+argumenten deze functies mogen verwachten. Ook deze zijn er in verwerkt,
+samen met een pakkende, zo volledig mogelijke Nederlandstalige
+omschrijving.</p>
+<h3>DocPad gereed met laden</h3>
+<p>Een gebeurtenis gezonden zodra een DocPad exemplaar gemaakt is en de
+instellingen daarin geladen zijn. Er is nog geen server gemaakt of
+bestanden getransformeerd: de site is nog niet gegenereerd!</p>
+<h4>Functiesleutel</h4>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        docpadReady:        ({docpad}) -&gt; console.log <span class="property">@docpad</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap for-h4">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <h4>Argumentenlijst</h4>
+<ul>
+<li><code>{docpad}</code> Een exemplaar van het docpad object</li>
+</ul>
+<h4>Omschrijving</h4>
+<p>Deze gebeurtenis wordt uitgezonden (door middel van een Node.js
+<code>EventEmitter.emit()</code> methode) wanneer DocPad gereed is om &#39;acties&#39; uit
+te voeren (dp official docs). Meer specifiek gaat het hier om het maken
+van een nieuw exemplaar (een zgn <code>instance</code>) van de DocPad structuur
+door middel van het aanroepen van de methode <code>.createInstance()</code> van de
+DocPad module. Vervolgens worden de, onder andere, in dit bestand
+opgeslagen <strong>instellingen geladen in het nieuwe exemplaar</strong>. Dit gebeurt
+dus iedere keer, wanneer bijvoorbeeld de commandos <code>docpad generate</code> of
+<code>docpad run</code> vanaf de opdrachtregel gegeven worden.</p>
+<h3>Opdrachtregel gereed met laden</h3>
+<p>De gebeurtenis <code>consoleSetup</code> wordt uitgezonden op het moment zodra de
+interface voor de opdrachtregel (de <code>CLI</code> of Command Line Interface)
+<strong>daadwerkelijk succesvol geladen</strong> is.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        consoleSetup:       (options, next) -&gt;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap for-h5">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <h5>Opties</h5>
+<p>Deze argumenten worden als functie parameters doorgegeven aan de
+gebeurtenis, DocPad noemt deze gebundeld <code>options</code>.</p>
+<ol>
+<li>consoleInterface • Een exemplaar van de CLI</li>
+<li>commander • Een exemplaar van commander.js</li>
+</ol>
+<p>Daarnaast wordt aan iedere functie een zgn. closure meegegeven genaamd
+<code>next</code>, deze gebruikt men om de volgende achtereenvolgende stap te aan
+te roepen.</p>
+<h3>Voorafgaand aan genereren web site</h3>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        generateBefore: -&gt;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap for-h3">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <h3>Genereren van site voltooid</h3>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        generateAfter: -&gt;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap for-h3">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <h3>NOOT CHECK: Verschil tussen genereren en parsen (transformeren)</h3>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        parseBefore: -&gt;
+
+        parseAfter: -&gt;
+
+        renderBefore:       ({models}, templates) -&gt;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap for-h3">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <h3>Transformeren van bestandsextensies</h3>
+<h4>Functiesleutel</h4>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        render:             (opts) -&gt;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap for-h4">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <h4>Argumentenlijst</h4>
+<ul>
+<li><code>inExtension</code> • de extensie waarvandaan we transformeren</li>
+<li><code>outExtension</code> • de extensie waar we naartoe transformeren</li>
+<li><code>templateData</code> • de docpad template gegevens zoals hieronder</li>
+<li><code>file</code> • het model van &#39;bestand&#39; dat we gebruiken</li>
+<li><code>content</code> • de inhoud van een document (dus zonder meta-gegevens)</li>
+</ul>
+<h4>Omschrijving</h4>
+<p>Render wordt, in tegenstelling tot het merendeel van de andere
+gebeurtenissen, <strong>per document</strong> en <strong>per extensie</strong> uitgezonden. Dit is
+om transformaties mogelijk te maken, van het ene bestandstype naar het
+andere zeg maar. DocPad is een taalonafhankelijk systeem wat
+eenvoudigweg mogelijk maakt om van de ene opmaaktaal naar een andere te
+veranderen: van CoffeeScript naar JavaScript, of van Jade naar HTML, het
+maakt niet uit (zolang er maar een plugin voor is).</p>
+<h4>Voorbeeld</h4>
+<p>Een bestand <code>mijn_document_1</code> wat dus getransformeerd wordt door
+<code>Coffeecup</code> om van een <code>.coffee</code> bestand een <code>.html</code> bestand te maken,
+binnen docpad met dubbele extensie gemarkeerd <strong>voor iedere
+bestandsextensie</strong> in de naam van dat document (dus voor bijvoorbeeld
+<code>bestand123.html.md.coffee</code> twee keer) aangeroepen.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        renderDocument:     -&gt;
+
+        renderAfter:        -&gt;
+
+        writeBefore:        -&gt;
+
+        writeAfter:         -&gt;
+
+        serverBefore:       -&gt;
+
+        serverExtend:       -&gt;
+
+        serverAfter:        -&gt;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap for-h3">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <h3>Render After</h3>
+<p>Event fired after rendering has taken place. Hiermee halen we alle uiteindelijke
+HTML bestanden op die we tegen een remote SEO tool kunnen gebruiken.</p>
+<!--
+renderAfter: (opts, next) ->
+
+docpad = @docpad
+docpad.log 'info', 'Listing all generated page urls'
+documents = docpad.getCollection('html')
+
+documents.forEach (document) ->
+
+documentName = document.get('name')
+documentPath = document.get('path')
+#console.log document.get('outFilename')
+-->
+
+<p>Volgende in de wachtrij</p>
+<p>next()?</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>Welke server poort gebruiken we? De <code>1337</code>-port aka &#39;elite&#39; is tijdens
+development in gebruik.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    port: <span class="number">1337</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>Localized path names</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    srcPath:        <span class="string">'site'</span>
+    outPath:        <span class="string">'uitvoer'</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>Arrays to allow more than one path also localized</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    pluginsPaths:   [<span class="string">'node_modules'</span>, <span class="string">'modules/node_modules'</span>, <span class="string">'modules/plugins'</span>]
+    documentsPaths: [<span class="string">'documents'</span>, <span class="string">'documenten'</span>]
+    filesPaths:     [<span class="string">'files'</span>, <span class="string">'public'</span>, <span class="string">'bestanden'</span>]
+    layoutsPaths:   [<span class="string">'layouts'</span>, <span class="string">'sjablonen'</span>]</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>Plugin schakelaars</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    enabledPlugins:
+        absolutepath:   <span class="literal">true</span>
+        pathtoroot:     <span class="literal">false</span>
+        munge:          <span class="literal">true</span>
+        text:           <span class="literal">false</span>
+        literate:       <span class="literal">false</span>
+
+    plugins:
+
+        partials:
+            partialsPath: <span class="string">'bouwstenen'</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>Since partials are not part of the core framework
+localize the path name here</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        sitemap:
+            cachetime:  <span class="number">600000</span>
+            changefreq: <span class="string">'yearly'</span>
+            priority:   <span class="number">0.8</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p>Something</p>
+<ul>
+<li><p><code>name</code> string, name of the download, for logging purposes only</p>
+</li>
+<li><p><code>path</code> string, path that the completed download is placed</p>
+</li>
+<li><p><code>url</code> string, url the download is retrieved from</p>
+</li>
+<li><p><code>deflate</code> boolean, whether or not we should deflate the response
+when fetching the download (auto-detected if not set)</p>
+</li>
+<li><p><code>gzip</code> boolean, whether or not we should unzip the response when
+fetching the download (auto-detected if not set)</p>
+</li>
+<li><p><code>tarExtract</code> boolean, whether or not we should extract tar
+downloads (auto-detected if not set)</p>
+</li>
+<li><p><code>tarExtractClean</code> boolean, whether or not when performing a tar
+extraction if we should remove the root directory of the
+extracted files</p>
+</li>
+</ul>
+<p>And then some</p>
+<p>name: &#39;Gist Bundle&#39;
+path: &#39;src/documents/gist&#39;
+url: &#39;<a href="https://gist.github.com/supersym/5430339/download">https://gist.github.com/supersym/5430339/download</a>&#39;
+tarExtractClean: true</p>
+<p>name: &#39;Gist File&#39;
+path: &#39;src/documents/a.html.md&#39;
+url: &#39;<a href="https://gist.github.com/balupton/5432249/raw/1e1cd6d374d0565aaab30566ec9055219d857aec/a.html.md">https://gist.github.com/balupton/5432249/raw/1e1cd6d374d0565aaab30566ec9055219d857aec/a.html.md</a>&#39;</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        downloader:
+            downloads: [
+                {
+                    name: <span class="string">'jquery'</span>
+                    path: <span class="string">'site/bestanden/'</span>
+                    url:  <span class="string">'http://code.jquery.com/jquery-latest.min.js'</span>
+                }
+            ]</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-17">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-17">&#182;</a>
+              </div>
+              <p>Gedeeld</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    templateData:
+
+        org:
+
+            bedrijfsnaam:     <span class="string">'Tredius'</span>
+
+            bedrijfslogo:     <span class="string">'/media/afbeeldingen/bedrijfslogo.png'</span>
+            omschrijving: <span class="string">"
+            Tredius verleent financiële-, fiscale-, juridische-,
+            personele- en bedrijfsadministratieve diensten aan het MKB
+            van Nederland"</span>.replace(<span class="regexp">/\s+/g</span>, <span class="string">" "</span>)
+
+            auteursrecht:     <span class="string">"<span class="subst">#{<span class="keyword">new</span> Date().getFullYear() + ' © Tredius.nl'}</span>"</span>
+
+            bezoekadres:
+                straat:       <span class="string">'Zijlweg 146'</span>
+                postcode:     <span class="string">'2015 BH'</span>
+                plaats:       <span class="string">'Haarlem'</span>
+
+            postadres:
+                postbus:      <span class="string">'Postbus 992'</span>
+                postcode:     <span class="string">'2003 RZ'</span>
+                plaats:       <span class="string">'Haarlem'</span>
+
+            contactgegevens:
+                telefoon:     <span class="string">'023 551 30 55'</span>
+                fax:          <span class="string">'023 551 30 35'</span>
+                email:        <span class="string">'info@tredius.nl'</span>
+
+            handelsgegevens:
+                kvk:          <span class="string">'3782878'</span>
+                btw:          <span class="string">'NL8124.72.792.B01'</span>
+                bedrijfsvorm: <span class="string">'Besloten Venootschap (BV)'</span>
+
+            contactpersonen:
+
+                marco:
+                    naam:       <span class="string">'Marco Krijger MB FB'</span>
+                    titel:      <span class="string">'Partner Tredius Fiscalisten'</span>
+                    email:      <span class="string">'m.krijger@tredius.nl'</span>
+
+                linda:
+                    naam:       <span class="string">'Linda Honig'</span>
+                    titel:      <span class="string">''</span>
+                    telefoon:   <span class="string">'023 551 30 55'</span>
+                    email:      <span class="string">''</span>
+
+                lennard:
+                    naam:       <span class="string">'Lennard Honig'</span>
+                    titel:      <span class="string">''</span>
+                    telefoon:   <span class="string">'023 551 30 55'</span>
+                    email:      <span class="string">''</span>
+
+                luuk:
+                    naam:       <span class="string">'Luuk Oosting'</span>
+                    titel:      <span class="string">''</span>
+                    telefoon:   <span class="string">'0299 651 987'</span>
+                    email:      <span class="string">''</span>
+
+                wil:
+                    naam:       <span class="string">'Wil Buffing'</span>
+                    titel:      <span class="string">''</span>
+                    telefoon:   <span class="string">'0299 411 345'</span>
+                    email:      <span class="string">''</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-18">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-18">&#182;</a>
+              </div>
+              <p>Afdelingen of vestigingen op die geografische locaties anders dan de
+hoofdafdeling / organisatie</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            vestigingen:
+
+                purmerend:
+
+                    bezoekadres: <span class="string">"""
+                        Wielingenstraat 119
+                        1441 ZN
+                        Purmerend
+                        Noord-Holland
+                        Nederland
+                        """</span>.trim().split(<span class="string">'\n'</span>)
+
+                    postadres: <span class="string">"""
+                        Postbus 258
+                        1440 AG
+                        Purmerend
+                        """</span>.trim().split(<span class="string">'\n'</span>)
+
+                    telefoon:   <span class="string">"0299 411 345"</span>
+                    fax:        <span class="string">"0299 411 348"</span>
+                    email:      <span class="string">"info@tredius.nl"</span>
+                    geocode:    [<span class="string">'52.503605'</span>, <span class="string">'4.958375'</span>]
+                    rest: <span class="string">"geocode=Cc9PzZeFjzXfFYEnIQMdp59LACmPF3Re0AbGRzF_fLmc8BNprg&amp;amp;sll=52.504454,4.956079&amp;amp;sspn=0.009065,0.019054&amp;amp;mra=pd&amp;amp;t=m&amp;amp;spn=0.0064,0.013282"</span>
+
+                monnickendam:
+
+                    bezoekadres: <span class="string">"""
+                        Haringburgwal 17
+                        1141 AT
+                        Monnickendam
+                        Noord-Holland
+                        Nederland
+                        """</span>.trim().split(<span class="string">'\n'</span>)
+
+                    postadres: <span class="string">"""
+                        Postbus 48
+                        1140 AA
+                        Monnickendam
+                        """</span>.trim().split(<span class="string">'\n'</span>)
+
+                    telefoon:   <span class="string">'0299 651 987'</span>
+                    fax:        <span class="string">'0299 653 004'</span>
+                    email:      <span class="string">'info@tredius.nl'</span>
+                    geocode:    [<span class="string">'52.462874'</span>, <span class="string">'5.035343'</span>]
+                    rest: <span class="string">"geocode=CXRphrBe0kPwFRuFIAMdStVMACln1vctrAXGRzHfFo4FDFJsxg&amp;amp;aq=&amp;amp;sll=52.505806,4.827991&amp;amp;sspn=0.269159,0.835648&amp;amp;mra=pd&amp;amp;spn=0.006406,0.013282"</span>
+
+                alkmaar:
+
+                    bezoekadres: <span class="string">"""
+                        Professor van der Waalsstraat 3K
+                        1821 BT
+                        Alkmaar
+                        Noord-Holland
+                        Nederland
+                        """</span>.trim().split(<span class="string">'\n'</span>)
+
+                    postadres: <span class="string">"""
+                        Professor van der Waalsstraat 3K
+                        1821 BT
+                        Alkmaar
+                        """</span>.trim().split(<span class="string">'\n'</span>)
+
+                    telefoon:   <span class="string">'072 564 4203'</span>
+                    fax:        <span class="string">'072 564 3019'</span>
+                    email:      <span class="string">'info@tredius.nl'</span>
+                    geocode:    [<span class="string">'52.625092'</span>, <span class="string">'4.770384'</span>]
+                    rest:       <span class="string">"spn=0.006382,0.013282"</span>
+
+                haarlem:
+
+                    bezoekadres: <span class="string">"""
+                        Zijlweg 146
+                        2015 BH
+                        Haarlem
+                        Noord-Holland
+                        Nederland
+                        """</span>.trim().split(<span class="string">'\n'</span>)
+
+                    postadres: <span class="string">"""
+                        Postbus 992
+                        2003 RZ
+                        Haarlem
+                        """</span>.trim().split(<span class="string">'\n'</span>)
+
+                    telefoon:   <span class="string">'023 551 30 55'</span>
+                    fax:        <span class="string">'023 551 30 35'</span>
+                    email:      <span class="string">'info@tredius.nl'</span>
+                    geocode:    [<span class="string">'52.386457'</span>, <span class="string">'4.620631'</span>]
+                    rest: <span class="string">"geocode=CWxUaXo29tzfFddYHwMdWoFGACkH_TJiEO_FRzHom-tyuYRbow&amp;amp;sll=52.386457,4.620631&amp;amp;sspn=0.008434,0.026114&amp;amp;mra=iwd&amp;amp;spn=0.006417,0.013282"</span>
+
+        site:
+
+            naam:             <span class="string">'Tredius.nl'</span>
+            url:              <span class="string">'http://www.tredius.nl'</span>
+            static:           <span class="string">'http://static.tredius.nl'</span>
+            development:      <span class="string">'http://solobit.github.io/tredius'</span>
+            auteur:           <span class="string">'Solobit &amp;amp; Edberry Creative'</span>
+            contact:          <span class="string">'info@tredius.nl'</span>
+            taal:             <span class="string">'xml:lang'</span>: <span class="string">'nl'</span>
+
+            essentie: <span class="string">"
+            Tredius verleent financiële-, fiscale-, juridische-,
+            personele- en bedrijfsadministratieve diensten aan het MKB
+            van Nederland"</span>.replace(<span class="regexp">/\s+/g</span>, <span class="string">" "</span>)
+
+            omschrijving: <span class="string">"
+            Bij Tredius hebben we de behoefte om het MKB landschap te
+            veranderen: Vrijheid, Onafhankelijkheid en Zelfstandigheid,
+            voor iedere ondernemer."</span>.replace(<span class="regexp">/\s+/g</span>, <span class="string">" "</span>)
+
+            keywords: <span class="string">"
+            belasting, advies, accountancy, pensioenbelasting,
+            bedrijfsadministratie, vrijheid, onafhankelijkheid,
+            zelfstandigheid"</span>.replace(<span class="regexp">/\s+/g</span>, <span class="string">" "</span>)
+
+            beheer:           <span class="string">'rob.jentzema@gmail.com'</span>
+
+            googleanalytics:  <span class="string">'UA-39413290-1'</span>
+
+            techniek: <span class="string">"
+            Node.js, Docpad, jQuery, Semantic Grid, Stylus, Jade,
+            CoffeeScript, Markdown, Accessible Rich Internet
+            Applications (WAI-ARIA) "</span>.replace(<span class="regexp">/\s+/g</span>, <span class="string">" "</span>)
+
+            disclaimer: <span class="string">"
+            De informatie zoals opgenomen in bovenstaand artikel is
+            uitsluitend bestemd voor algemene informatiedoeleinden.
+            Derhalve dienen op grond van deze informatie geen
+            handelingen te worden verricht zonder voorafgaand deskundig
+            advies. Voor een toelichting kunt u uiteraard contact
+            opnemen met een van onze kantoren. "</span>.replace(<span class="regexp">/\s+/g</span>, <span class="string">" "</span>)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-19">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-19">&#182;</a>
+              </div>
+              <p>#
+Scripts</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+            blockingScripts: <span class="string">"""
+                //ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js
+                //ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js
+                //code.createjs.com/preloadjs-0.3.0.min.js
+                /assets/modernizr-custom.js
+                """</span>.trim().split(<span class="string">'\n'</span>)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-20">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-20">&#182;</a>
+              </div>
+              <p>//yui.yahooapis.com/3.8.0/build/yui/yui-min.js
+/assets/ender.min.js</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+
+            nonBlockingScripts: <span class="string">"""
+                /assets/ui.js
+                /assets/jquery.cookie.js
+                /assets/jquery.circlemenu.js
+                /assets/vimeo.froogaloop2.min.js
+                /assets/dragdealer.js
+                /assets/jquery.colorbox.js
+                /assets/jquery.easing.min.js
+                """</span>.trim().split(<span class="string">'\n'</span>)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-21">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-21">&#182;</a>
+              </div>
+              <p>/assets/jquery.hypher.js
+/assets/cross-domain.js</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-22">
+            <div class="annotation">
+              
+              <div class="pilwrap for-h3">
+                <a class="pilcrow" href="#section-22">&#182;</a>
+              </div>
+              <h3>Vormgeving</h3>
+<p>Hier komt een stukje over stijlen die gebruikt zijn.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            stijl:
+
+                lettertype: <span class="string">"
+                //fonts.googleapis.com/css?family=Dosis:400,500,600
+                |Open+Sans:400italic,600italic,700italic,400,600,700
+                "</span>.replace(<span class="regexp">/\s+/g</span>, <span class="string">" "</span>)
+
+                icoon:      <span class="string">"/media/afbeeldingen/favicon.png"</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-23">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-23">&#182;</a>
+              </div>
+              <p>TODO: automatisch toevoegen van random voor cache tijdens development fase en niet comprimeren.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                volatile: [
+                    <span class="string">'/stijlen/algemeen.css'</span> + <span class="string">'?'</span> + <span class="keyword">new</span> Date().getTime() / <span class="number">1000</span>
+                ]</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-24">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-24">&#182;</a>
+              </div>
+              <p>Deze wel compressen</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                bladen: [
+                    <span class="string">'/stijlen/algemeen.css'</span> + <span class="string">'?'</span> + <span class="keyword">new</span> Date().getTime() / <span class="number">1000</span>
+                    <span class="string">'/stijlen/circlemenu.css'</span>
+                    <span class="string">'/stijlen/dragdealer.css'</span>
+                    <span class="string">'/stijlen/ui.css'</span>
+                ]</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-25">
+            <div class="annotation">
+              
+              <div class="pilwrap for-h3">
+                <a class="pilcrow" href="#section-25">&#182;</a>
+              </div>
+              <h3>Snelkoppelingen</h3>
+<p>Veel gebruikte snelkoppelingen / hyperlinks</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            snelkoppelingen:
+
+                debiteuren:
+                    tekst:  <span class="string">'Tredius Debiteurenbeheer'</span>
+                    url:    <span class="string">'/diensten/debiteurenbeheer/index.html'</span>
+                    titel:  <span class="string">'Tredius Debiteurenbeheer is duurzaamheid voorop'</span>
+
+                stappenplan:
+                    tekst:  <span class="string">'Tredius Debiteurenbeheer Stappenplan'</span>
+                    url:    <span class="string">'/diensten/debiteurenbeheer/stappenplan.html'</span>
+                    titel:  <span class="string">'Neem nu een Tredius Debiteurenbeheer Abonnement'</span>
+
+                debiteurenabo:
+                    tekst: <span class="string">'Tredius Debiteuren Abonnement'</span>
+                    url:    <span class="string">'/diensten/debiteurenbeheer/abonnement.html'</span>
+                    titel:  <span class="string">'Neem nu een Tredius Debiteurenbeheer Abonnement'</span>
+
+                voorwaarden:
+                    tekst:  <span class="string">'voorwaarden'</span>
+                    url:    <span class="string">'/overig/voorwaarden.html'</span>
+                    titel:  <span class="string">'Lees onze algemene voorwaarden'</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-26">
+            <div class="annotation">
+              
+              <div class="pilwrap for-h3">
+                <a class="pilcrow" href="#section-26">&#182;</a>
+              </div>
+              <h3>(Web 3.0) Vocabularies of web ontologies</h3>
+<p>XML Namespace URI&#39;s for the semantic web <a href="http://www.w3.org/2001/sw/">http://www.w3.org/2001/sw/</a></p>
+<p>What is the Semantic Web? The Semantic Web provides a common framework
+that allows data to be shared and reused across application, enterprise,
+and community boundaries. It is a collaborative, very-long term effort
+led by <a href="www">W3C</a> with participation from a large number of researchers and
+industrial partners.</p>
+<p>It is based on the <a href="www">Resource Description Framework (RDF)</a>.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            vocabulaire: {<span class="string">'xmlns:s'</span>     : <span class="string">'http://schema.org/'</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-27">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-27">&#182;</a>
+              </div>
+              <p>[Schema.org][s] provides a collection of shared vocabularies webmasters
+can use to mark up their pages in ways that can be understood by the
+major search engines: Google, Microsoft, Yandex and Yahoo! You use the
+schema.org [vocabulary][sv], along with the microdata format, to add
+information to your HTML content. While the long term goal is to support
+a wider range of formats, the initial focus is on Microdata.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        , <span class="string">'xmlns:gr'</span>    : <span class="string">'http://purl.org/goodrelations/v1#'</span>
+                        , <span class="string">'xmlns:rdfs'</span>  : <span class="string">'http://www.w3.org/2000/01/rdf-schema#'</span>
+                        , <span class="string">'xmlns:vcard'</span> : <span class="string">'http://www.w3.org/2006/vcard/ns#'</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-28">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-28">&#182;</a>
+              </div>
+              <p>The [Friend of a Friend (FOAF)][foaf] project is creating a Web of
+machine- readable pages describing people, the links between them and
+the things they create and do; it is a contribution to the linked
+information system known as the Web. FOAF [defines][foafs] an open,
+decentralized technology for connecting social Web sites, and the people
+they describe. FOAF is a simple technology that makes it easier to share
+and use information about people and their activities (eg. photos,
+calendars, weblogs), to transfer information between Web sites, and to
+automatically extend, merge and re-use it online.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        , <span class="string">'xmlns:foaf'</span>  : <span class="string">'http://xmlns.com/foaf/0.1/'</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-29">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-29">&#182;</a>
+              </div>
+              <p>The Open Graph protocol enables any web page to become a rich object in
+a social graph. For instance, this is used on Facebook to allow any web
+page to have the same functionality as any other object on Facebook.</p>
+<p><a href="/handleiding/semantisch/ogp.html">Klik hier voor meer informatie</a></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        , <span class="string">'xmlns:xsd'</span>   : <span class="string">'http://www.w3.org/2001/XMLSchema#'</span>
+                        , <span class="string">'xmlns:v'</span>     : <span class="string">'http://rdf.data-vocabulary.org/#'</span>
+                        , <span class="string">'xmlns:pto'</span>   : <span class="string">'http://www.productontology.org/id/'</span>
+                        , <span class="string">'xmlns:wn'</span>    : <span class="string">'http://xmlns.com/wordnet/1.6/'</span>}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-30">
+            <div class="annotation">
+              
+              <div class="pilwrap for-h2">
+                <a class="pilcrow" href="#section-30">&#182;</a>
+              </div>
+              <h2>Hulpfuncties (helpers)</h2>
+<p>Deze helpen ons met verschillende dingen.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        getVimeoUri: (id) -&gt;
+            <span class="keyword">return</span> <span class="string">"http://player.vimeo.com/video/<span class="subst">#{id}</span>?api=1&amp;amp;player_id=VideoSpeler-<span class="subst">#{id}</span>&amp;amp;title=0&amp;amp;byline=0&amp;amp;portrait=0&amp;amp;badge=0&amp;amp;color=e31741"</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-31">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-31">&#182;</a>
+              </div>
+              <p>Samenstellen van mail API address voor &#39;post&#39;</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        getMailUri: ({id,ds}) -&gt;
+
+            <span class="keyword">return</span> <span class="string">""</span> <span class="keyword">if</span> id? <span class="keyword">or</span> ds?
+
+            formulier =</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-32">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-32">&#182;</a>
+              </div>
+              <p> frm    MailingListID - DatasetID</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                nieuwsbrief: [ <span class="number">145464</span>     , <span class="number">20853</span> ]
+                neemcontact: [ <span class="number">145467</span>     , <span class="number">20853</span> ]
+                jabonnement: [ <span class="number">145467</span>     , <span class="number">20853</span> ]
+                dabonnement: [ <span class="number">145467</span>     , <span class="number">20853</span> ]
+                vacaturescv: [ <span class="number">145472</span>     , <span class="number">20853</span> ]</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-33">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-33">&#182;</a>
+              </div>
+              <p>Samenstellen en encoden van mail API URI</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            api     = encodeURI          <span class="string">"http://www.graphicmail.nl/api.aspx?"</span>
+            sid     = encodeURIComponent <span class="string">"SID=4"</span>
+            b64     = encodeURIComponent <span class="string">"&amp;Credentials=DtZEdUEEcUap7RsVxnxyWux37VTOip2Xp2M+gIusSMwpc9Hu7nDCFm2LffostDgC/8lkV84pfIARSyMl/Hfamx4oG8mt/mk8o+UsteAhNqMs/qO3lhsagAKn4EtikhystNc17yejBNe2b+pfgz1pwRTA3F1AwxkI87/m5D+5kPkj2DLiRn/CFk4UBeiBT37fW+kniU94iIxHeoOThig3YRuLGaxd3LeSloSHW1xcaEhMpaP+uFozdVPBBf5cVZwjx63xVLa5+jQZBf7UM9zaew=="</span>
+            func    = encodeURIComponent <span class="string">"&amp;Function=post_add_email_and_data"</span>
+            mlid    = encodeURIComponent <span class="string">"&amp;MailingListID=<span class="subst">#{id}</span>"</span>
+            dsid    = encodeURIComponent <span class="string">"&amp;DatasetID=<span class="subst">#{ds}</span>"</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-34">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-34">&#182;</a>
+              </div>
+              <p>Closure</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            api + sid + mlid + dsid + b64 + func</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-35">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-35">&#182;</a>
+              </div>
+              <p>QueryEngine / Backbone modellen</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        verzameling: (query) -&gt; <span class="property">@getCollection</span>(<span class="string">'documents'</span>).findAllLive(query).toJSON()</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-36">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-36">&#182;</a>
+              </div>
+              <p>Daadwerkelijke pad achterhalen</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        urlOphalen: (document) -&gt;
+            <span class="keyword">return</span> <span class="property">@site</span>.url + (document.url <span class="keyword">or</span> document.get?(<span class="string">'url'</span>))
+
+        plaatsLink: (naam) -&gt;
+            link = <span class="property">@site</span>.snelkoppelingen[naam]
+            anker = <span class="string">"""
+                &lt;a href="<span class="subst">#{link.url}</span>" title="<span class="subst">#{link.titel}</span>" class="<span class="subst">#{link.cssKlasse <span class="keyword">or</span> ''}</span>"&gt;<span class="subst">#{link.tekst}</span>&lt;/a&gt;
+                """</span>
+            <span class="keyword">return</span> anker</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-37">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-37">&#182;</a>
+              </div>
+              <p>Als voorbeeld overgebleven</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    collections:
+
+        pages: -&gt; <span class="property">@getCollection</span>(<span class="string">'documents'</span>).findAllLive({pageOrder:$exists:<span class="literal">true</span>},[pageOrder:<span class="number">1</span>])</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

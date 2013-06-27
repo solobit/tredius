@@ -1,0 +1,28 @@
+
+            text:
+                heading: "Benjamin Lupton"
+                subheading: '''
+                    <t render="html.coffee">
+                        link = @getPreparedLink.bind(@)
+                        text """
+                            Founder of #{link 'bevry'}, #{link 'docpad'}, #{link 'historyjs'}  &amp; #{link 'hostel'}.<br/>
+                            Aficionado of #{link 'javascript'}, #{link 'nodejs'}, #{link 'opensource'} and #{link 'html5'}.<br/>
+                            Available for consulting, training and speaking. #{link 'contact'}.
+                            """
+                    </t>
+                    '''
+
+                about: '''
+                    <t render="html.coffee">
+                        link = @getPreparedLink.bind(@)
+                        text """
+                            This website was created with #{link 'bevry'}’s #{link 'docpad'} and is #{link 'source'}
+                            """
+                    </t>
+                    '''
+
+                cr: '''
+                    <t render="html.md">
+                        Unless stated otherwise; all works are Copyright © 2011+ [Benjamin Lupton](http://balupton.com) and licensed [permissively](http://en.wikipedia.org/wiki/Permissive_free_software_licence) under the [MIT License](http://creativecommons.org/licenses/MIT/) for code and the [Creative Commons Attribution 3.0 Unported License](http://creativecommons.org/licenses/by/3.0/) for everything else (including content, media and design), enjoy!
+                    </t>
+                    '''

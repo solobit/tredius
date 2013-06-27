@@ -1,0 +1,343 @@
+
+// Continue afwisseling in brede banden
+.Pagina-ttime
+    width 100%
+    // zet standaard alles op 100%
+    background transparent
+    margin 0
+    padding 0
+    display block
+    float none
+
+// (1) Videos (grijze band)
+section.ttVideoSlider-sectie
+    width 100%
+    background image('tegel_grijs.png') repeat
+    padding 0 0 70px 0
+    min-height 300px
+    text-align center
+    h1
+        width totale-breedte
+        margin 0 auto
+        color bruin
+        font 32px sans
+        font-style italic
+        font-weight 600
+        text-align center
+        margin-bottom 30px
+
+// Slider
+article.ttVideoSlider
+    width 640px
+    height 360px
+    overflow hidden
+    position relative
+    margin 0 auto
+    text-align center
+    > a.ttVideoSlide--open
+        cursor pointer
+        > img
+            width 640px
+            height 360px
+            margin 0 auto
+            display block
+.ttVideoSlide
+    left 0
+    position absolute
+    top 0
+.hidden { display: none; }
+
+// Controls
+ul.ttVideoCtl
+    width 640px
+    display inline-block
+    position relative
+    margin 0 auto
+    text-align center
+    > li
+        list-style-type none
+        display inline-block
+        margin 15px
+        > a.ttVideoCtl--goto
+            color wit
+            padding 2px 3px 0 2px
+            height 24px
+            width 24px
+            border-radius 50%
+            background bruin
+            display block
+            text-align center
+a.ttVideoCtl--play
+    color wit
+    background bruin
+    height 24px
+    width 24px
+    border-radius(50%)
+    &:after
+        left 7px
+        border 4px solid transparent
+        border-left-color #fff
+        margin-top -4px
+        background transparent
+
+// (2) Nieuwsbrief (turquoise)
+section.ttNieuwsEditie-sectie
+    width 100%
+    background image('tegel_groen.png') repeat
+    height 760px
+    padding-top 30px
+    text-align center
+    h1
+        width totale-breedte
+        margin 0 auto
+        color wit
+        font 34px sans
+        font-style italic
+        font-weight 600
+        text-align center
+        margin-bottom 30px
+
+section.ttNieuwsEditie-slider
+    width totale-breedte
+    margin 0 auto
+    display block
+    margin 0 auto
+    text-align center
+
+// Tree panelen groen kader
+section.ttNieuwsEditie-paneel
+    kolom(6)
+    text-align center
+    > figure
+        text-align center
+        width 63%
+        > img
+            border 0
+            margin-bottom 20px
+        > figcaption
+            text-transform uppercase
+            font 22px dosis
+            color wit
+            font-weight 600
+            font-style none
+
+    // De nieuwsbrieven zelf (wit)
+    article.ttNieuwsEditie
+        background wit
+        height 380px
+        width 100%
+        border-radius(4px)
+        p.ttNieuwsEditie-datum
+            color goud
+            font 14px
+            padding-top 20px
+        > h3.ttNieuwsEditie-titel
+            color bruin
+            font-style italic !important
+            font-weight 600 !important
+            font 20px sans
+            margin-bottom 25px
+
+// (3) Columns
+section.ttColumnTegel-sectie
+    height 450px
+    display block
+    background image('tegel_grijs.png') repeat
+    padding-top 20px
+h1.ttColumnTegel-kop
+    width totale-breedte
+    margin 0 auto
+    color bruin
+    font 32px sans
+    font-style italic
+    font-weight 600
+    text-align center
+    margin-bottom 30px
+
+// Wrapper voor onderstaande
+.ttColumnTegel-katern
+    width totale-breedte
+    margin 0 auto
+    display block
+    margin 0 auto
+    text-align center
+    height 360px
+
+// Vier (4) tegels voor columns
+article.ttColumnTegel-artikel
+    display block
+    float left
+    width 158px
+    height 280px
+    background wit
+    cursor pointer
+    text-align center
+    margin 33px
+    z-index 1
+    box-shadow 0 0 0 10px rgba(255,255,255,1), 1px 1px 3px 10px rgba(0,0,0,0.2)
+    box-shadow 0.4s ease-in-out
+    &.blur
+        transform scale(0.9)
+        opacity 0.8
+    &.active
+        transform scale(1.05)
+        box-shadow 0 0 0 10px rgba(255,255,255,1), 1px 6px 10px 5px rgba(0,0,0,0.4)
+        z-index 100
+        opacity 1
+    a:link, a:active, a:hover, a:visited
+        text-decoration none
+span.ttColumnTegel-datum
+    font-size 12px
+    font-family sans
+    padding 10px 0
+    display block
+    color rood
+    text-shadow 0 0 0 rgba(255, 210, 82, 1)
+    text-transform uppercase
+    opacity 0.8
+h2.ttColumnTegel-titel
+    color bruin
+    font 14px sans
+    line-height 1.5em
+    margin 0
+    padding 10px 0
+p.ttColumnTegel-samenvatting
+    font-family sans
+    font-size 12px
+    line-height 1.5em
+    color #333
+    color rgba(51, 51, 51, 1)
+    text-shadow 0 0 0 rgba(51, 51, 51, 1)
+    opacity 0.8
+
+// Specials
+.ttSpecialSlider-sectie
+    background lichtpaars
+    width 100%
+    height 450px
+    padding-top 30px
+h1.ttSpecialSlider-kop
+    width totale-breedte
+    margin 0 auto
+    color bruin
+    font 32px sans
+    font-style italic
+    font-weight 600
+    text-align center
+    margin-bottom 30px
+    color wit
+    //border-top 1px solid #9c9bc3
+    //border-bottom 1px solid #9c9bc3
+.ttSpecialSlider-download
+    display block
+    width totale-breedte
+    margin 0 auto
+.ttSpecialSlider-artikel
+    kolom(6)
+    text-align center
+    margin 0 auto
+    figure
+        img
+            margin-bottom 10px
+        figcaption
+            margin-top 20px
+            margin-bottom 20px
+            font middel dosis
+            color wit
+            text-transform uppercase
+
+// Nieuwsbrieven
+h1.ttNieuwsOverzicht-kop2
+    clear both
+    font 28px sans
+    font-style italic
+    font-weight 600
+    margin 25px 0
+    display block
+    color bruinig
+.ttNieuwsOverzicht-actualiteit
+    background-color lichtgrijs
+    min-height 200px
+    padding 20px
+    > a:hover
+        text-decoration none
+.ttNieuwsOverzicht-sectie
+    clear both
+    display block
+    float none
+    height 100%
+article.ttNieuwsOverzicht-artikel
+    clear both
+    padding 20px 0
+    border-bottom 1px solid grijs
+    margin 15px 0
+    display block
+    float none
+    height 180px
+.ttNieuwsOverzicht-illustratie
+    kolom(6)
+    width 225px
+    height 150px
+    display block
+    margin-right 20px
+    margin-top 20px
+.ttNieuwsOverzicht-katern
+    kolom(6)
+    display block
+    height 100%
+    padding 0 25px
+    > a:hover
+        text-decoration none
+.ttNieuwsOverzicht-titel
+    font 16px sans
+    color zwart
+    font-weight 600
+    margin 20px 0
+.ttNieuwsOverzicht-intro
+    font 14px sans
+    color zwart
+    font-weight 500
+a.ttNieuwsOverzicht--openen
+    &:link
+    &:hover
+    &:visited
+    &:active
+        font-size 14px
+        font-family sans
+        font-weight 500
+        color rood
+        text-transform uppercase !important
+    &:after
+        content " »"
+
+// Testimonials
+
+// Noot: evt te wijzigen naar nth-child oid
+.ArtikelIllustratief-rechts
+    float right
+    padding 80px 0 20px 0
+.ArtikelIllustratief-links
+    float left
+    padding 10px 20px 20px 0
+.ArtikelIllustratief-links
+.ArtikelIllustratief-rechts
+    display inline
+    margin 10px
+
+.Pagina-reviewmaison
+    h2
+        font 16px sans
+        color zwart
+        font-weight 600
+        font-style normal
+        text-align left
+        margin 20px 0 0 0
+        padding 10px 0 0 0
+    blockquote
+        font 24px sans
+        color bruin
+        font-style italic
+        text-align center
+        display block
+        padding 20px 0
+        font-weight 600

@@ -1,0 +1,14 @@
+
+
+formulier:
+    naam:   'aname12'
+    method: 'POST'
+    action: getGraphicMailUri()
+    fields:
+        lazy: ['naam','pcode','plaats','email','mobiel'
+            , { voornaam:
+                    lengte: 22
+                    patroon: "[A-Za-z0-9]{3,13}"
+                    tekst: 'Blababaaa'}]
+
+

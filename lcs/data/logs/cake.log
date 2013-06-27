@@ -1,0 +1,58 @@
+{"level":"base","message":"Using new logger and using this from now on...","timestamp":"2013-05-03T08:12:49.284Z"}
+{"level":"done","message":"Loading member build-time variables","timestamp":"2013-05-03T08:12:49.285Z"}
+{"level":"fact","message":"Running file Cakefile as subprocess of node v0.10.5","timestamp":"2013-05-03T08:12:49.285Z"}
+{"level":"fact","message":"Using 'linux' as your host platform and x64 CPU architecture\n","timestamp":"2013-05-03T08:12:49.285Z"}
+{"level":"base","message":"Using new logger and using this from now on...","timestamp":"2013-05-03T08:12:51.989Z"}
+{"level":"done","message":"Loading member build-time variables","timestamp":"2013-05-03T08:12:51.990Z"}
+{"level":"fact","message":"Running file Cakefile as subprocess of node v0.10.5","timestamp":"2013-05-03T08:12:51.990Z"}
+{"level":"fact","message":"Using 'linux' as your host platform and x64 CPU architecture\n","timestamp":"2013-05-03T08:12:51.990Z"}
+{"level":"task","message":"Started task 'hello' at Fri May 03 2013 10:12:51 GMT+0200 (CEST)","timestamp":"2013-05-03T08:12:51.991Z"}
+{"level":"base","message":"Using new logger and using this from now on...","timestamp":"2013-05-03T08:13:09.750Z"}
+{"level":"done","message":"Loading member build-time variables","timestamp":"2013-05-03T08:13:09.751Z"}
+{"level":"fact","message":"Running file Cakefile as subprocess of node v0.10.5","timestamp":"2013-05-03T08:13:09.751Z"}
+{"level":"fact","message":"Using 'linux' as your host platform and x64 CPU architecture\n","timestamp":"2013-05-03T08:13:09.751Z"}
+{"level":"task","message":"Started task 'hello' at Fri May 03 2013 10:13:09 GMT+0200 (CEST)","timestamp":"2013-05-03T08:13:09.752Z"}
+{"level":"base","message":"Using new logger and using this from now on...","timestamp":"2013-05-03T08:13:24.456Z"}
+{"level":"done","message":"Loading member build-time variables","timestamp":"2013-05-03T08:13:24.457Z"}
+{"level":"fact","message":"Running file Cakefile as subprocess of node v0.10.5","timestamp":"2013-05-03T08:13:24.457Z"}
+{"level":"fact","message":"Using 'linux' as your host platform and x64 CPU architecture\n","timestamp":"2013-05-03T08:13:24.457Z"}
+{"level":"task","message":"Started task 'hello' at Fri May 03 2013 10:13:24 GMT+0200 (CEST)","timestamp":"2013-05-03T08:13:24.458Z"}
+{"level":"base","message":"Using new logger and using this from now on...","timestamp":"2013-05-03T10:51:11.129Z"}
+{"level":"done","message":"Loading member build-time variables","timestamp":"2013-05-03T10:51:11.130Z"}
+{"level":"fact","message":"Running file Cakefile as subprocess of node v0.10.5","timestamp":"2013-05-03T10:51:11.130Z"}
+{"level":"fact","message":"Using 'linux' as your host platform and x64 CPU architecture\n","timestamp":"2013-05-03T10:51:11.131Z"}
+{"level":"base","message":"Using new logger and using this from now on...","timestamp":"2013-05-03T10:51:14.216Z"}
+{"level":"done","message":"Loading member build-time variables","timestamp":"2013-05-03T10:51:14.217Z"}
+{"level":"fact","message":"Running file Cakefile as subprocess of node v0.10.5","timestamp":"2013-05-03T10:51:14.217Z"}
+{"level":"fact","message":"Using 'linux' as your host platform and x64 CPU architecture\n","timestamp":"2013-05-03T10:51:14.217Z"}
+{"level":"fail","message":"Something went wrong during conversion from .litcoffee to .js","timestamp":"2013-05-03T10:51:14.319Z"}
+{"level":"base","message":"Using new logger and using this from now on...","timestamp":"2013-05-03T10:51:30.822Z"}
+{"level":"done","message":"Loading member build-time variables","timestamp":"2013-05-03T10:51:30.823Z"}
+{"level":"fact","message":"Running file Cakefile as subprocess of node v0.10.5","timestamp":"2013-05-03T10:51:30.823Z"}
+{"level":"fact","message":"Using 'linux' as your host platform and x64 CPU architecture\n","timestamp":"2013-05-03T10:51:30.824Z"}
+{"level":"fail","message":"Something went wrong during conversion from .litcoffee to .js","timestamp":"2013-05-03T10:51:30.934Z"}
+{"level":"base","message":"Using new logger and using this from now on...","timestamp":"2013-05-03T11:03:16.203Z"}
+{"level":"done","message":"Loading member build-time variables","timestamp":"2013-05-03T11:03:16.204Z"}
+{"level":"fact","message":"Running file Cakefile as subprocess of node v0.10.5","timestamp":"2013-05-03T11:03:16.204Z"}
+{"level":"fact","message":"Using 'linux' as your host platform and x64 CPU architecture\n","timestamp":"2013-05-03T11:03:16.204Z"}
+{"level":"fail","message":"Something went wrong during conversion from .litcoffee to .js","timestamp":"2013-05-03T11:03:16.321Z"}
+{"level":"base","message":"Using new logger and using this from now on...","timestamp":"2013-05-03T11:04:03.379Z"}
+{"level":"done","message":"Loading member build-time variables","timestamp":"2013-05-03T11:04:03.380Z"}
+{"level":"fact","message":"Running file Cakefile as subprocess of node v0.10.5","timestamp":"2013-05-03T11:04:03.381Z"}
+{"level":"fact","message":"Using 'linux' as your host platform and x64 CPU architecture\n","timestamp":"2013-05-03T11:04:03.381Z"}
+{"level":"done","message":"Written docpad.js and stipped .coffee files from .litcoffee annotated source","timestamp":"2013-05-03T11:04:04.158Z"}
+{"level":"base","message":"Using new logger and using this from now on...","timestamp":"2013-05-03T12:00:34.042Z"}
+{"level":"done","message":"Loading member build-time variables","timestamp":"2013-05-03T12:00:34.043Z"}
+{"level":"fact","message":"Running file Cakefile as subprocess of node v0.10.5","timestamp":"2013-05-03T12:00:34.043Z"}
+{"level":"fact","message":"Using 'linux' as your host platform and x64 CPU architecture\n","timestamp":"2013-05-03T12:00:34.043Z"}
+{"level":"fail","message":"Something went wrong during conversion from .litcoffee to .js","timestamp":"2013-05-03T12:00:34.160Z"}
+{"level":"base","message":"Using new logger and using this from now on...","timestamp":"2013-05-03T12:00:44.348Z"}
+{"level":"done","message":"Loading member build-time variables","timestamp":"2013-05-03T12:00:44.349Z"}
+{"level":"fact","message":"Running file Cakefile as subprocess of node v0.10.5","timestamp":"2013-05-03T12:00:44.350Z"}
+{"level":"fact","message":"Using 'linux' as your host platform and x64 CPU architecture\n","timestamp":"2013-05-03T12:00:44.350Z"}
+{"level":"done","message":"Written docpad.js and stipped .coffee files from .litcoffee annotated source","timestamp":"2013-05-03T12:00:45.118Z"}
+{"level":"base","message":"Using new logger and using this from now on...","timestamp":"2013-05-03T12:19:51.610Z"}
+{"level":"done","message":"Loading member build-time variables","timestamp":"2013-05-03T12:19:51.611Z"}
+{"level":"fact","message":"Running file Cakefile as subprocess of node v0.10.5","timestamp":"2013-05-03T12:19:51.611Z"}
+{"level":"fact","message":"Using 'linux' as your host platform and x64 CPU architecture\n","timestamp":"2013-05-03T12:19:51.611Z"}
+{"level":"done","message":"Written docpad.js and stipped .coffee files from .litcoffee annotated source","timestamp":"2013-05-03T12:19:52.375Z"}

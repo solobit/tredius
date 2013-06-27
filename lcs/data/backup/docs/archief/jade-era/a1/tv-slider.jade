@@ -1,0 +1,118 @@
+
+//- Aanvang scripting
+:coffeescript
+
+    # Wanneer document geladen is Short-hand jQuery DocumentReady
+    $ ->
+
+        $("[href='#']").click (e) -> e.preventDefault()
+
+        ###
+        Colorbox.js
+
+        Gratis lightbox popup voor de videos. Expliciet objecten en methode
+        symbolen {} en () gebruikt voor oneliner. Ook komma's zijn expliciet maar
+        impliciet te maken (zie revolver.js beneden).
+
+        Lokaal bestand: src/files/assets/colorbox.jquery.js
+        Opslag stroomopwaarts: https://github.com/jackmoore/colorbox
+        Veelgestelde vragen: http://www.jacklmoore.com/colorbox/faq/
+        Beginnershandleiding: http://www.jacklmoore.com/colorbox/guide/
+
+        ###
+        $(".vimeo").colorbox({iframe:true, width: 513, height: 288})
+
+        # Revolver.js
+        ###
+
+        Gratis slider voor de afbeeldingen van videos. Deze worden niet direct
+        ingeladen omdat dit anders teveel laadtijd op zou leveren. Pas na klik
+        wordt de colorbox met videos als popup geopend.
+
+        Bestand: src/files/assets/revolver.jquery.min.js
+
+        ###
+
+
+
+        $('#rjs-videos').revolver
+            autoPlay:       true        # automatisch afspelen of niet
+            onReady:        ->          # wanneer gereed voor afspelen
+            onPlay:         ->          # wanneer play() aangeroepen wordt
+            onStop:         ->          # wanneer stop() methode aangeroepen wordt
+            onPause:        ->          # wanneer pause() aangeroepen wordt
+            onRestart:      ->          # bij restart() methode aanroepen
+            rotationSpeed:  6000        # lengte in milliseconden op slides blijven
+            slideClass:     'slide'     # CSS klasse waarmee slides herkend worden
+
+        transition:
+            direction:      'left'    # richting / volgorde van afspelen
+            easing:         'swing'   # standaard 'easing' methode van overgang
+            onStart:        ->        # bij aanvang overgang naar andere slide
+            onFinish:       ->        # bij einde van de overgang aanroepen
+            speed:          400       # lengte in milliseconden van de transitie
+            type:           'fade'   # none, fade, of slide zijn mogelijk
+
+
+
+//-
+    Noot: aangezien er nog wijzigingen komen, voorlopig handmatig ingezet...
+    Voor later: optie om extra meta-data van videos op te slaan: via docpad
+    Of anders alleen vimeo API.
+
+//- Aanvang markup
+section.ttVideoSlider-sectie
+
+  //- Titel
+  h1 Actuele videos
+
+  //- Slider met afbeeldingen
+  #rjs-videos.revolver.container.stack
+
+    a.vimeo(href="http://player.vimeo.com/video/55430791")
+      img.slide(src="http://b.vimeocdn.com/ts/383/616/383616241_640.jpg")
+
+    a.vimeo(href="http://player.vimeo.com/video/55430735")
+      img.slide.hidden(src="http://b.vimeocdn.com/ts/383/615/383615632_640.jpg")
+
+    a.vimeo(href="http://player.vimeo.com/video/55429476")
+      img.slide.hidden(src="http://b.vimeocdn.com/ts/383/607/383607338_640.jpg")
+
+    a.vimeo(href="http://player.vimeo.com/video/55430884")
+      img.slide.hidden(src="http://b.vimeocdn.com/ts/383/616/383616996_640.jpg")
+
+    a.vimeo(href="http://player.vimeo.com/video/55430952")
+      img.slide.hidden(src="http://b.vimeocdn.com/ts/383/617/383617040_640.jpg")
+
+  //- Besturingselementen
+  .controls
+    ul.ttVideoBesturing--lijst
+      li
+        a.goto.ttVideoBesturing--goto(data-goto="0", href="#") 1
+      li
+        a.goto.ttVideoBesturing--goto(data-goto="1", href="#") 2
+      li
+        a.goto.ttVideoBesturing--goto(data-goto="2", href="#") 3
+      li
+        a.goto.ttVideoBesturing--goto(data-goto="3", href="#") 4
+      li
+        a.goto.ttVideoBesturing--goto(data-goto="4", href="#") 5
+      li
+        a.goto.ttVideoBesturing--goto(data-goto="5", href="#") 6
+    
+
+
+    //-
+      a.first(href="#")
+      a.previous(href="#")
+      a.next(href="#") next
+      a.last(href="#") last
+      a.stop(href="#") stop
+      a.play(href="#") play
+      a.pause(href="#") pause
+      a.restart(href="#") restart
+    
+
+
+
+

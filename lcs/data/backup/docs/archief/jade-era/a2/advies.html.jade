@@ -1,0 +1,86 @@
+--- cson
+layout:     'standaard'
+entiteit:   's:Article'
+kenmerk:    'juristen'
+titel:      'Juridisch'
+subtitel:   'Juridisch Advies'
+naam:       'Juridisch Advies'
+tags:       [ 'belastingen', 'juridisch' ]
+bannier:    'bg_juristen.jpg'
+voetmenu:   1
+---
+
+
+:markdown
+
+  De wereld wordt steeds juridischer – en wat dat betreft ook steeds complexer,
+  vooral voor ondernemers. Dit kan betekenen dat uw vrijheid, onafhankelijkheid
+  of zelfstandigheid in het geding komt. Dit wilt u uiteraard voorkomen. U bent
+  niet voor niets ooit als ondernemer begonnen.
+
+  > "Het belangrijkste is dat u vrij en onafhankelijk kunt blijven bewegen in
+  > een steeds complexere wereld."
+
+  Een sparringpartner op juridisch gebied is dan een prettig gevoel. Zeker in de
+  grote hoeveelheid rechtsgebieden waar u iedere dag mee te maken heeft of kunt
+  krijgen. Het belangrijkste is dat u vrij en onafhankelijk kunt blijven bewegen
+  in een steeds complexere wereld.
+
+  De juristen van Tredius helpen u hier graag mee. Dat kan bijvoorbeeld door uw
+  huidige contracten en overeenkomsten te controleren. Zijn de overeenkomsten
+  nog wel van deze tijd? Of kunnen er aanpassingen gedaan worden die in uw
+  voordeel zijn?
+
+  Ook uw algemene leveringsvoorwaarden zijn zeker een controle waard.
+  Voorkomen is immers beter dan genezen.
+
+//- Juridische producten
+h1(itemscope, itemtype="s:Offer", itemid="#offer")
+  | Naast het controleren verzorgen wij de volgende zaken:
+
+//- Aanbodgegevens
+ul(typeof="gr:Offering", about="#offering")
+
+  //- Dienstenaanbod en productomschrijving
+  div(rev="gr:offers", resource="#company")
+  div(property="gr:name", content="Juristen", xml:lang="nl")
+  div(rel="gr:hasBusinessFunction", resource="gr:ProvideService")
+  div(rel="foaf:page", resource="#{document.url}")
+  div(property="gr:description", xml:lang="nl"
+    content="De juristen van Tredius staan voor u gereed.")
+
+  //- Overeenkomsten
+  li(typeof="gr:SomeItems, pto:Contract", about="#product")
+    strong.lijstkop(property="gr:name", content="Overeenkomsten") Overeenkomsten:
+    | leningovereenkomsten, verpandingsovereenkomsten, huurovereenkomsten, arbeidsovereenkomsten
+
+  //- Bankzaken
+  li(typeof="gr:SomeItems, pto:Financial_accountancy", about="#product")
+    strong.lijstkop(property="gr:name", content="Bankzaken") Bankzaken:
+    | Controleren van uw afspraken en overeenkomsten met uw financiers.
+
+  //- Procederen
+  li(typeof="gr:SomeItems, pto:Lawsuit", about="#product")
+    strong.lijstkop(property="gr:name", content="Procederen") Procederen:
+    | soms moet er ook geprocedeerd worden. Ook dat nemen de juristen van Tredius graag voor u uit handen.
+    | Samen wordt de beste strategie bepaald om te zorgen voor de waarborging van uw rechten.
+
+  //- Contracten
+  li(typeof="gr:SomeItems, pto:Legal_advise", about="#product")
+    strong.lijstkop(property="gr:name", content="Juridisch advies") Contracten:
+    | opstellen van arbeidscontracten of assistentie bij arbeidsgeschillen.
+
+  //- Juridische bijstand
+  li(typeof="gr:SomeItems, pto:Legal_aid", about="#product")
+    strong.lijstkop(property="gr:name", content="Juridische bijstand") Juridische bijstand:
+    | soms is het prettig om iemand naast u te hebben in een belangrijk gesprek of onderhandeling.
+    | Onze juristen weten hier raad mee en voorkomen dat u teveel zegt en waarborgen uw belangen tot het gaatje.
+
+
+!= partial('contactpersoon', { 'regel1': "Mocht u behoefte hebben aan goed juridisch advies of wilt u eens sparren met een van onze juristen?", 'regel2': "Neemt u dan contact op met:", 'naam': 'Lennard Honig', 'telefoon': '023 551 30 55' } )
+
+
+
+
+
+
