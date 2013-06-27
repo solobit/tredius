@@ -1,4 +1,6 @@
 /target
+/tmp
+tmp/
 /lib
 /classes
 /checkouts
