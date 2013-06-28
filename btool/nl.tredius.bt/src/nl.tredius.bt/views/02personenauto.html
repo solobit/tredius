@@ -1,0 +1,341 @@
+<fieldset id="fsInvoer1" style="visibility: visible; display: block;"><legend>Gegevens voor de berekening</legend>
+
+                      <div id="divVragenProvincie" class="divVraag" style="display: block; visibility: visible; top: -220px;">
+                        <p>
+                          <label>In welke provincie woont u?</label>
+                          <select id="SelProvincie" onchange="algValidatie()">
+                            <option value="-1">Selecteer uw provincie...</option>
+                            <option value="DR">Drenthe</option>
+                            <option value="FL">Flevoland</option>
+                            <option value="FR">Friesland</option>
+                            <option value="GL">Gelderland</option>
+                            <option value="GR">Groningen</option>
+                            <option value="LI">Limburg</option>
+                            <option value="NB">Noord-Brabant</option>
+                            <option value="NH">Noord-Holland</option>
+                            <option value="OV">Overijssel</option>
+                            <option value="UT">Utrecht</option>
+                            <option value="ZL">Zeeland</option>
+                            <option value="ZH">Zuid-Holland</option>
+                          </select>
+                        </p>
+                      </div>
+                      <div id="divVragenBrandstof" class="divVraag" style="display: block; visibility: visible; top: -220px;">
+                        <p>
+                          <label>Op welke brandstof rijdt uw <span id="BrandstofVoertuigtypeVraag">personenauto</span>?</label>
+                          <select id="SelBrandstof" onchange="algValidatie()">
+                            <option value="-1">Selecteer de brandstof... </option>
+                            <option value="benzine">Benzine</option>
+                            <option value="diesel">Diesel</option>
+                            <option value="lpg3">LPG3 en Aardgas</option>
+                            <option value="lpg">LPG en Overige (behalve electra en waterstof)</option>
+                          </select>
+                        </p>
+                      </div>
+                      <div id="divVragenGewichtsklasseAlgemeen" class="divVraag" style="display: block; visibility: visible; top: -220px;">
+                        <p>
+                          <label>Wat is de gewichtsklasse van uw <span id="GewichtAlgemeenVoertuigtypeVraag">personenauto</span>?</label>
+                          <select id="SelGewichtsklasseAlgemeen" onchange="algValidatie()">
+                            <option value="-1">Selecteer een gewichtsklasse... </option>
+                            <option value="1">0 t/m 550</option>
+                            <option value="551">551 t/m 650</option>
+                            <option value="651">651 t/m 750</option>
+                            <option value="751">751 t/m 850</option>
+                            <option value="851">851 t/m 950</option>
+                            <option value="951">951 t/m 1050</option>
+                            <option value="1051">1051 t/m 1150</option>
+                            <option value="1151">1151 t/m 1250</option>
+                            <option value="1251">1251 t/m 1350</option>
+                            <option value="1351">1351 t/m 1450</option>
+                            <option value="1451">1451 t/m 1550</option>
+                            <option value="1551">1551 t/m 1650</option>
+                            <option value="1651">1651 t/m 1750</option>
+                            <option value="1751">1751 t/m 1850</option>
+                            <option value="1851">1851 t/m 1950</option>
+                            <option value="1951">1951 t/m 2050</option>
+                            <option value="2051">2051 t/m 2150</option>
+                            <option value="2151">2151 t/m 2250</option>
+                            <option value="2251">2251 t/m 2350</option>
+                            <option value="2351">2351 t/m 2450</option>
+                            <option value="2451">2451 t/m 2550</option>
+                            <option value="2551">2551 t/m 2650</option>
+                            <option value="2651">2651 t/m 2750</option>
+                            <option value="2751">2751 t/m 2850</option>
+                            <option value="2851">2851 t/m 2950</option>
+                            <option value="2951">2951 t/m 3050</option>
+                            <option value="3051">3051 t/m 3150</option>
+                            <option value="3151">3151 t/m 3250</option>
+                            <option value="3251">3251 t/m 3350</option>
+                            <option value="3351">3351 t/m 3450</option>
+                            <option value="3451">3451 t/m 3550</option>
+                            <option value="3551">3551 t/m 3650</option>
+                            <option value="3651">3651 t/m 3750</option>
+                            <option value="3751">3751 t/m 3850</option>
+                            <option value="3851">3851 t/m 3950</option>
+                            <option value="3951">3951 t/m 4050</option>
+                            <option value="4051">4051 t/m 4150</option>
+                            <option value="4151">4151 t/m 4250</option>
+                            <option value="4251">4251 t/m 4350</option>
+                            <option value="4351">4351 t/m 4450</option>
+                            <option value="4451">4451 t/m 4550</option>
+                            <option value="4551">4551 t/m 4650</option>
+                            <option value="4651">4651 t/m 4750</option>
+                            <option value="4751">4751 t/m 4850</option>
+                            <option value="4851">4851 t/m 4950</option>
+                            <option value="4951">4951 t/m 5050</option>
+                          </select>
+                          <img src="../images/bttn_help_normal.gif" alt="Klik hier voor help over deze vraag." class="clBtnInfo" onclick="doHelp('divHelpGewichtsklasse', this)">
+                        </p>
+                      </div>
+                      <div id="divVragenGewichtsklasseBestelauto" class="divVraag" style="display: none; visibility: hidden;">
+                        <p>
+                          <label>Wat is de gewichtsklasse van uw <span id="GewichtBestelVoertuigtypeVraag">personenauto</span>?</label>
+                          <select id="SelGewichtsklasseBestelauto" onchange="algValidatie()">
+                            <option value="-1">Selecteer een gewichtsklasse... </option>
+                            <option value="1">0 t/m 550</option>
+                            <option value="551">551 t/m 650</option>
+                            <option value="651">651 t/m 750</option>
+                            <option value="751">751 t/m 850</option>
+                            <option value="851">851 t/m 950</option>
+                            <option value="951">951 t/m 1050</option>
+                            <option value="1051">1051 t/m 1150</option>
+                            <option value="1151">1151 t/m 1250</option>
+                            <option value="1251">1251 t/m 1350</option>
+                            <option value="1351">1351 t/m 1450</option>
+                            <option value="1451">1451 t/m 1550</option>
+                            <option value="1551">1551 t/m 1650</option>
+                            <option value="1651">1651 t/m 1750</option>
+                            <option value="1751">1751 t/m 1850</option>
+                            <option value="1851">1851 t/m 1950</option>
+                            <option value="1951">1951 t/m 2050</option>
+                            <option value="2051">2051 t/m 2150</option>
+                            <option value="2151">2151 t/m 2250</option>
+                            <option value="2251">2251 t/m 2350</option>
+                            <option value="2351">2351 t/m 2450</option>
+                            <option value="2451">2451 t/m 2550</option>
+                            <option value="2551">2551 t/m 2650</option>
+                            <option value="2651">2651 t/m 2750</option>
+                            <option value="2751">2751 t/m 2850</option>
+                            <option value="2851">2851 t/m 2950</option>
+                            <option value="2951">2951 t/m 3050</option>
+                            <option value="3051">3051 t/m 3150</option>
+                            <option value="3151">3151 t/m 3250</option>
+                            <option value="3251">3251 t/m 3350</option>
+                            <option value="3351">3351 t/m 3450</option>
+                            <option value="3451">3451 t/m 3550</option>
+                          </select>
+                          <img src="../images/bttn_help_normal.gif" alt="Klik hier voor help over deze vraag." class="clBtnInfo" onclick="doHelp('divHelpGewichtsklasse', this)">
+                        </p>
+                      </div>
+                      <div id="divVragenGewichtsklasseWinkelwagen" class="divVraag" style="display: none; visibility: hidden;">
+                        <p>
+                          <label>Wat is de gewichtsklasse van uw <span id="GewichtWinkelwagenVoertuigtypeVraag">personenauto</span>?</label>
+                          <select id="SelGewichtsklasseWinkelwagen" onchange="algValidatie()">
+                            <option value="-1">Selecteer een gewichtsklasse... </option>
+                            <option value="1">0 t/m 11999</option>
+                            <option value="12000">12000 t/m 12999</option>
+                            <option value="13000">13000 t/m 13999</option>
+                            <option value="14000">14000 t/m 14999</option>
+                            <option value="15000">15000 t/m 15999</option>
+                            <option value="16000">16000 t/m 16999</option>
+                            <option value="17000">17000 t/m 17999</option>
+                            <option value="18000">18000 t/m 18999</option>
+                            <option value="19000">19000 t/m 19999</option>
+                            <option value="20000">20000 t/m 20999</option>
+                            <option value="21000">21000 t/m 21999</option>
+                            <option value="22000">22000 t/m 22999</option>
+                            <option value="23000">23000 t/m 23999</option>
+                            <option value="24000">24000 t/m 24999</option>
+                            <option value="25000">25000 t/m 25999</option>
+                            <option value="26000">26000 t/m 26999</option>
+                            <option value="27000">27000 t/m 27999</option>
+                            <option value="28000">28000 t/m 28999</option>
+                            <option value="29000">29000 t/m 29999</option>
+                            <option value="30000">30000 t/m 30999</option>
+                            <option value="31000">31000 t/m 31999</option>
+                            <option value="32000">32000 t/m 32999</option>
+                            <option value="33000">33000 t/m 33999</option>
+                            <option value="34000">34000 t/m 34999</option>
+                            <option value="35000">35000 t/m 35999</option>
+                            <option value="36000">36000 t/m 36999</option>
+                            <option value="37000">37000 t/m 37999</option>
+                            <option value="38000">38000 t/m 38999</option>
+                            <option value="39000">39000 t/m 39999</option>
+                            <option value="40000">40000 t/m 40999</option>
+                            <option value="41000">41000 en zwaarder</option>
+                          </select>
+                          <img src="../images/bttn_help_normal.gif" alt="Klik hier voor help over deze vraag." class="clBtnInfo" onclick="doHelp('divHelpGewichtsklasseWinkelwagen', this)">
+                        </p>
+                        <p id="pGewichtWinkelwagen">
+                          <label>Wat is het gewicht van uw <span id="GewichtWinkelwagenXVoertuigtypeVraag">personenauto</span>?</label>
+                          <input value="" type="text" name="inpGewichtWinkelwagen" id="inpGewichtWinkelwagen" size="6" maxlength="6" class="inpBedrag" onkeyup="this.value=checkBedrag(this.value, this.name, false, false, false, true, false);" onblur="doDummy(this)">
+                          <img src="../images/bttn_help_normal.gif" alt="Klik hier voor help over deze vraag." class="clBtnInfo" onclick="doHelp('divHelpGewichtsklasseWinkelwagen', this)">
+                        </p>
+                      </div>
+                      <div id="divVragenGewichtsklasseAutobus" class="divVraag" style="display: none; visibility: hidden;">
+                        <p>
+                          <label>Wat is de gewichtsklasse van uw <span id="GewichtAutobusVoertuigtypeVraag">personenauto</span>?</label>
+                          <select id="SelGewichtsklasseAutobus" onchange="algValidatie()">
+                            <option value="-1">Selecteer een gewichtsklasse... </option>
+                            <option value="1">0 t/m 1050</option>
+                            <option value="1051">1051 t/m 1150</option>
+                            <option value="1151">1151 t/m 1250</option>
+                            <option value="1251">1251 t/m 1350</option>
+                            <option value="1351">1351 t/m 1450</option>
+                            <option value="1451">1451 t/m 1550</option>
+                            <option value="1551">1551 t/m 1650</option>
+                            <option value="1651">1651 t/m 1750</option>
+                            <option value="1751">1751 t/m 1850</option>
+                            <option value="1851">1851 t/m 1950</option>
+                            <option value="1951">1951 t/m 2050</option>
+                            <option value="2051">2051 t/m 2150</option>
+                            <option value="2151">2151 t/m 2250</option>
+                            <option value="2251">2251 t/m 2350</option>
+                            <option value="2351">2351 t/m 2450</option>
+                            <option value="2451">2451 t/m 2550</option>
+                            <option value="2551">2551 t/m 2650</option>
+                            <option value="2651">2651 t/m 2750</option>
+                            <option value="2751">2751 t/m 2850</option>
+                            <option value="2851">2851 t/m 2950</option>
+                            <option value="2951">2951 t/m 3050</option>
+                            <option value="3051">3051 t/m 3150</option>
+                            <option value="3151">3151 t/m 3250</option>
+                            <option value="3251">3251 t/m 3350</option>
+                            <option value="3351">3351 t/m 3450</option>
+                            <option value="3451">3451 t/m 3550</option>
+                            <option value="3551">3551 t/m 3650</option>
+                            <option value="3651">3651 t/m 3750</option>
+                            <option value="3751">3751 t/m 3850</option>
+                            <option value="3851">3851 t/m 3950</option>
+                            <option value="3951">3951 t/m 4050</option>
+                            <option value="4051">4051 t/m 4150</option>
+                            <option value="4151">4151 t/m 4250</option>
+                            <option value="4251">4251 t/m 4350</option>
+                            <option value="4351">4351 t/m 4450</option>
+                            <option value="4451">4451 t/m 4550</option>
+                            <option value="4551">4551 t/m 4650</option>
+                            <option value="4651">4651 t/m 4750</option>
+                            <option value="4751">4751 t/m 4850</option>
+                            <option value="4851">4851 t/m 4950</option>
+                            <option value="4951">4951 t/m 5050</option>
+                            <option value="5051">5051 t/m 5150</option>
+                            <option value="5151">5151 t/m 5250</option>
+                            <option value="5251">5251 t/m 5350</option>
+                            <option value="5351">5351 t/m 5450</option>
+                            <option value="5451">5451 t/m 5550</option>
+                            <option value="5551">5551 t/m 5650</option>
+                            <option value="5651">5651 t/m 5750</option>
+                            <option value="5751">5751 t/m 5850</option>
+                            <option value="5851">5851 t/m 5950</option>
+                            <option value="5951">5951 t/m 6050</option>
+                            <option value="6051">6051 t/m 6150</option>
+                            <option value="6151">6151 t/m 6250</option>
+                            <option value="6251">6251 t/m 6350</option>
+                            <option value="6351">6351 t/m 6450</option>
+                            <option value="6451">6451 t/m 6550</option>
+                            <option value="6551">6551 t/m 6650</option>
+                            <option value="6651">6651 t/m 6750</option>
+                            <option value="6751">6751 t/m 6850</option>
+                            <option value="6851">6851 t/m 6950</option>
+                            <option value="6951">6951 t/m 7050</option>
+                            <option value="7051">7051 t/m 7150</option>
+                            <option value="7151">7151 t/m 7250</option>
+                            <option value="7251">7251 t/m 7350</option>
+                            <option value="7351">7351 t/m 7450</option>
+                            <option value="7451">7451 t/m 7550</option>
+                            <option value="7551">7551 t/m 7650</option>
+                            <option value="7651">7651 t/m 7750</option>
+                            <option value="7751">7751 t/m 7850</option>
+                            <option value="7851">7851 t/m 7950</option>
+                            <option value="7951">7951 t/m 8050</option>
+                            <option value="8051">8051 t/m 8150</option>
+                            <option value="8151">8151 t/m 8250</option>
+                            <option value="8251">8251 t/m 8350</option>
+                            <option value="8351">8351 t/m 8450</option>
+                            <option value="8451">8451 t/m 8550</option>
+                            <option value="8551">8551 t/m 8650</option>
+                            <option value="8651">8651 t/m 8750</option>
+                            <option value="8751">8751 t/m 8850</option>
+                            <option value="8851">8851 t/m 8950</option>
+                            <option value="8951">8951 t/m 9050</option>
+                            <option value="9051">9051 t/m 9150</option>
+                            <option value="9151">9151 t/m 9250</option>
+                            <option value="9251">9251 t/m 9350</option>
+                            <option value="9351">9351 t/m 9450</option>
+                            <option value="9451">9451 t/m 9550</option>
+                            <option value="9551">9551 t/m 9650</option>
+                            <option value="9651">9651 t/m 9750</option>
+                            <option value="9751">9751 t/m 9850</option>
+                            <option value="9851">9851 t/m 9950</option>
+                            <option value="9951">9951 t/m 10050</option>
+                            <option value="10051">10051 t/m 10150</option>
+                            <option value="10151">10151 t/m 10250</option>
+                            <option value="10251">10251 t/m 10350</option>
+                            <option value="10351">10351 t/m 10450</option>
+                            <option value="10451">10451 t/m 10550</option>
+                            <option value="10551">10551 t/m 10650</option>
+                            <option value="10651">10651 t/m 10750</option>
+                            <option value="10751">10751 t/m 10850</option>
+                            <option value="10851">10851 t/m 10950</option>
+                            <option value="10951">10951 t/m 11050</option>
+                            <option value="11051">11051 t/m 11150</option>
+                            <option value="11151">11151 t/m 11250</option>
+                            <option value="11251">11251 t/m 11350</option>
+                            <option value="11351">11351 t/m 11450</option>
+                            <option value="11451">11451 t/m 11550</option>
+                            <option value="11551">11551 t/m 11650</option>
+                            <option value="11651">11651 t/m 11750</option>
+                            <option value="11751">11751 t/m 11850</option>
+                            <option value="11851">11851 t/m 11950</option>
+                            <option value="11951">11951 t/m 12050</option>
+                            <option value="12051">12051 t/m 12150</option>
+                            <option value="12151">12151 t/m 12250</option>
+                            <option value="12251">12251 t/m 12350</option>
+                            <option value="12351">12351 t/m 12450</option>
+                            <option value="12451">12451 t/m 12550</option>
+                            <option value="12551">12551 t/m 12650</option>
+                            <option value="12651">12651 t/m 12750</option>
+                            <option value="12751">12751 t/m 12850</option>
+                            <option value="12851">12851 t/m 12950</option>
+                            <option value="12951">12951 t/m 13050</option>
+                            <option value="13051">13051 t/m 13150</option>
+                            <option value="13151">13151 t/m 13250</option>
+                            <option value="13251">13251 t/m 13350</option>
+                            <option value="13351">13351 t/m 13450</option>
+                            <option value="13451">13451 t/m 13550</option>
+                            <option value="13551">13551 t/m 13650</option>
+                            <option value="13651">13651 t/m 13750</option>
+                            <option value="13751">13751 t/m 13850</option>
+                            <option value="13851">13851 t/m 13950</option>
+                            <option value="13951">13951 t/m 14050</option>
+                            <option value="14051">14051 t/m 14150</option>
+                            <option value="14151">14151 t/m 14250</option>
+                            <option value="14251">14251 t/m 14350</option>
+                            <option value="14351">14351 t/m 14450</option>
+                            <option value="14451">14451 t/m 14550</option>
+                            <option value="14551">14551 t/m 14650</option>
+                            <option value="14651">14651 t/m 14750</option>
+                            <option value="14751">14751 t/m 14850</option>
+                            <option value="14851">14851 t/m 14950</option>
+                            <option value="14951">14951 t/m 15050</option>
+                            <option value="15051">15051 en zwaarder</option>
+                          </select>
+                          <img src="../images/bttn_help_normal.gif" alt="Klik hier voor help over deze vraag." class="clBtnInfo" onclick="doHelp('divHelpGewichtsklasse', this)">
+                        </p>
+                        <p id="pGewichtAutobus">
+                          <label>Wat is het gewicht van uw <span id="GewichtAutobusXVoertuigtypeVraag">personenauto</span>?</label>
+                          <input value="" type="text" name="inpGewichtAutobus" id="inpGewichtAutobus" size="6" maxlength="6" class="inpBedrag" onkeyup="this.value=checkBedrag(this.value, this.name, false, false, false, true, false);" onblur="doDummy(this)">
+                          <img src="../images/bttn_help_normal.gif" alt="Klik hier voor help over deze vraag." class="clBtnInfo" onclick="doHelp('divHelpGewichtsklasse', this)">
+                        </p>
+                      </div>
+                      <div id="divVragenBedrijfsmatigVerhuurd" class="divVraag" style="display: none; visibility: hidden;">
+                        <p>
+                          <label>Wordt uw kampeerauto bedrijfsmatig verhuurd?</label>
+                          <span class="clNietPrinten">
+                            <input type="radio" name="radioBedrijfsmatigVerhuurd" id="radioBedrijfsmatigVerhuurdTrue" value="ja" class="clRadioBtn" onclick="doDummy(this)">ja
+                            <input type="radio" name="radioBedrijfsmatigVerhuurd" id="radioBedrijfsmatigVerhuurdFalse" value="nee" class="clRadioBtn" onclick="doDummy(this)">nee
+                          </span>
+                          <span id="prnradioBedrijfsmatigVerhuurd" class="clPrinten"></span>
+                        </p>
+                      </div>
+                    </fieldset>

@@ -1,0 +1,3241 @@
+Douane
+Belastingdienst
+
+ACC 55 - 2Z*65FOL
+
+Tarievenlijst
+Accijns en verbruiks­
+belastingen
+
+Gebruiksaanwijzing
+Gebruiksaanwijzing
+Alcoholvrije dranken
+Bier
+Wijn
+Tussenproducten
+Overige alcoholhoudende producten
+Rooktabak
+Sigaretten
+Sigaren
+Pruim- en snuiftabak
+Minerale oliën
+Ongelode lichte olie
+Gelode lichte olie
+Halfzware olie en gasolie, zwavelvrij
+Halfzware olie en gasolie, anders dan zwavelvrij
+Laagbelaste halfzware olie
+Halfzware olie en gasolie bestemd voor luchtvaartuigen
+Laagbelaste gasolie
+Zware stookolie
+Vloeibaar gemaakt petroleumgas
+Vloeibaar gemaakt petroleumgas, voor wegverkeer
+Vloeibaar gemaakt petroleumgas, niet voor wegverkeer
+
+Vermindering accijns voor Biobrandstoffen
+Teruggaaf
+Hulpapparatuur
+Accijns voor gebruik van vloeibaar gemaakt petroleumgas
+Energiebelasting voor grootgebruikers
+Accijns voor grootgebruikers
+Energiebelasting voor glastuinders
+Accijns voor glastuinders
+Accijns voor kerk en non-profit instellingen
+Accijns duurzaam geproduceerde biobrandstof
+Rekenvoorbeeld accijns duurzaam geproduceerde biobrandstof
+Technische en/of logistieke redenen
+
+Gebruiksaanwijzing
+Met dit programma vraagt u de juiste tarieven op die u nodig heeft voor uw aangifte voor accijns en
+verbruiksbelastingen of uw verzoek om teruggaaf.
+Het kan zijn dat in de periode, waarop uw aangifte of verzoek om teruggaaf betrekking heeft de tarieven zijn
+gewijzigd. Daarom zijn ook tarieven uit het verleden opgenomen. U berekent zelf de belastingen en vult die in
+op uw aangifte of verzoek om teruggaaf.
+
+Gebruiksaanwijzing
+Alcoholvrije
+Alcoholvrijedranken
+dranken
+Bier
+Wijn
+Tussenproducten
+Overige alcoholhoudende producten
+Rooktabak
+Sigaretten
+Sigaren
+Pruim- en snuiftabak
+Minerale oliën
+Ongelode lichte olie
+Gelode lichte olie
+Halfzware olie en gasolie, zwavelvrij
+Halfzware olie en gasolie, anders dan zwavelvrij
+Laagbelaste halfzware olie
+Halfzware olie en gasolie bestemd voor luchtvaartuigen
+Laagbelaste gasolie
+Zware stookolie
+Vloeibaar gemaakt petroleumgas
+Vloeibaar gemaakt petroleumgas, voor wegverkeer
+Vloeibaar gemaakt petroleumgas, niet voor wegverkeer
+
+Vermindering accijns voor Biobrandstoffen
+Teruggaaf
+Hulpapparatuur
+Accijns voor gebruik van vloeibaar gemaakt petroleumgas
+Energiebelasting voor grootgebruikers
+Accijns voor grootgebruikers
+Energiebelasting voor glastuinders
+Accijns voor glastuinders
+Accijns voor kerk en non-profit instellingen
+Accijns duurzaam geproduceerde biobrandstof
+Rekenvoorbeeld accijns duurzaam geproduceerde biobrandstof
+Technische en/of logistieke redenen
+
+Verbruiksbelasting op alcoholvrije dranken
+Soort
+
+Ingangsdatum
+
+Tarief per hl bij 20°C
+
+Vruchtensap, groentesap,
+mineraalwater en mengsels daarvan
+
+01-04-2002
+
+€
+
+Limonade
+
+01-04-2002
+
+€	5,50
+
+4,13
+
+Gebruiksaanwijzing
+Alcoholvrije dranken
+Bier
+Bier
+Wijn
+Tussenproducten
+Overige alcoholhoudende producten
+Rooktabak
+Sigaretten
+Sigaren
+Pruim- en snuiftabak
+Minerale oliën
+Ongelode lichte olie
+Gelode lichte olie
+Halfzware olie en gasolie, zwavelvrij
+Halfzware olie en gasolie, anders dan zwavelvrij
+Laagbelaste halfzware olie
+Halfzware olie en gasolie bestemd voor luchtvaartuigen
+
+1 2
+
+Accijns op bier
+Normaal tarief
+Soort
+
+Ingangsdatum
+
+Normaal tarief per hl
+
+Percentage Plato:
+–  minder dan 7
+
+
+01-04-2002
+01-01-2013
+
+€	 5,50
+€	6,05
+
+–  7 tot 11
+
+
+
+01-04-2002
+01-01-2009
+01-01-2013
+
+€	 18,84
+€	24,49
+€	26,94
+
+–  11 tot 15
+
+
+
+01-04-2002
+01-01-2009
+01-01-2013
+
+€	 25,11
+€	32,64
+€	35,90
+
+–  15 of meer
+
+
+
+01-04-2002
+01-01-2009
+01-01-2013
+
+€	 31,40
+€	40,82
+€	44,90
+
+Laagbelaste gasolie
+Zware stookolie
+Vloeibaar gemaakt petroleumgas
+Vloeibaar gemaakt petroleumgas, voor wegverkeer
+Vloeibaar gemaakt petroleumgas, niet voor wegverkeer
+
+Vermindering accijns voor Biobrandstoffen
+Teruggaaf
+Hulpapparatuur
+Accijns voor gebruik van vloeibaar gemaakt petroleumgas
+Energiebelasting voor grootgebruikers
+Accijns voor grootgebruikers
+Energiebelasting voor glastuinders
+Accijns voor glastuinders
+Accijns voor kerk en non-profit instellingen
+Accijns duurzaam geproduceerde biobrandstof
+Rekenvoorbeeld accijns duurzaam geproduceerde biobrandstof
+Technische en/of logistieke redenen
+
+Let op! Het bijzondere tarief voor bier vindt u op het volgende scherm.
+
+Gebruiksaanwijzing
+Alcoholvrije dranken
+Bier
+Bier
+Wijn
+Tussenproducten
+Overige alcoholhoudende producten
+Rooktabak
+Sigaretten
+Sigaren
+Pruim- en snuiftabak
+Minerale oliën
+
+1 2
+
+Accijns op bier
+Bijzonder tarief
+Soort
+
+Ingangsdatum
+
+Bijzonder tarief per hl
+
+Percentage Plato:
+–  7 tot 11
+
+
+
+01-04-2002
+01-01-2009
+01-01-2013
+
+€	 17,43
+€	22,65
+€	24,92
+
+–  11 tot 15
+
+
+
+01-04-2002
+01-01-2009
+01-01-2013
+
+€	 23,23
+€	30,19
+€	33,21
+
+–  15 of meer
+
+
+
+01-04-2002
+01-01-2009
+01-01-2013
+
+€	 29,05
+€	37,76
+€	41,53
+
+Ongelode lichte olie
+Gelode lichte olie
+Halfzware olie en gasolie, zwavelvrij
+Halfzware olie en gasolie, anders dan zwavelvrij
+Laagbelaste halfzware olie
+Halfzware olie en gasolie bestemd voor luchtvaartuigen
+Laagbelaste gasolie
+Zware stookolie
+Vloeibaar gemaakt petroleumgas
+Vloeibaar gemaakt petroleumgas, voor wegverkeer
+Vloeibaar gemaakt petroleumgas, niet voor wegverkeer
+
+Vermindering accijns voor Biobrandstoffen
+Teruggaaf
+Hulpapparatuur
+Accijns voor gebruik van vloeibaar gemaakt petroleumgas
+Energiebelasting voor grootgebruikers
+Accijns voor grootgebruikers
+Energiebelasting voor glastuinders
+Accijns voor glastuinders
+Accijns voor kerk en non-profit instellingen
+Accijns duurzaam geproduceerde biobrandstof
+Rekenvoorbeeld accijns duurzaam geproduceerde biobrandstof
+Technische en/of logistieke redenen
+
+Gebruiksaanwijzing
+Alcoholvrije dranken
+Bier
+Wijn
+Wijn
+Tussenproducten
+Overige alcoholhoudende producten
+Rooktabak
+Sigaretten
+Sigaren
+Pruim- en snuiftabak
+Minerale oliën
+
+Accijns op wijn
+Soort
+
+Ingangsdatum
+
+Tarief per hl
+
+Wijn, niet mousserend,
+alcoholpercentage ≤ 8,5%
+
+
+
+01-04-2002
+01-01-2008
+01-02-2010
+01-01-2013
+
+€	 29,51
+€	 34,27
+€	35,28
+€	41,78
+
+Wijn, niet mousserend,
+alcoholpercentage > 8,5%,
+maar ≤ 15%
+
+
+01-04-2002
+01-01-2008
+01-02-2010
+01-01-2013
+
+€	 59,02
+€	 68,54
+€	 70,56
+€	83,56
+
+Wijn, niet mousserend,
+alcoholpercentage > 15%
+
+
+01-04-2002
+01-01-2008
+01-02-2010
+
+€	 102,68
+€	 119,24
+€	122,75
+
+Wijn, mousserend,
+Alcoholpercentage ≤ 8,5%
+
+
+01-04-2002
+01-01-2008
+01-02-2010
+
+€	 38,16
+€	 44,32
+€	45,63
+
+Wijn, mousserend,
+alcoholpercentage > 8,5%,
+maar ≤ 15%
+
+01-04-2002
+01-01-2008
+01-02-2010
+
+€	 201,24
+€	 233,70
+€	 240,58
+
+Ongelode lichte olie
+Gelode lichte olie
+Halfzware olie en gasolie, zwavelvrij
+Halfzware olie en gasolie, anders dan zwavelvrij
+Laagbelaste halfzware olie
+Halfzware olie en gasolie bestemd voor luchtvaartuigen
+Laagbelaste gasolie
+Zware stookolie
+Vloeibaar gemaakt petroleumgas
+Vloeibaar gemaakt petroleumgas, voor wegverkeer
+Vloeibaar gemaakt petroleumgas, niet voor wegverkeer
+
+Vermindering accijns voor Biobrandstoffen
+Teruggaaf
+Hulpapparatuur
+Accijns voor gebruik van vloeibaar gemaakt petroleumgas
+Energiebelasting voor grootgebruikers
+Accijns voor grootgebruikers
+Energiebelasting voor glastuinders
+Accijns voor glastuinders
+Accijns voor kerk en non-profit instellingen
+Accijns duurzaam geproduceerde biobrandstof
+Rekenvoorbeeld accijns duurzaam geproduceerde biobrandstof
+Technische en/of logistieke redenen
+
+Gebruiksaanwijzing
+Alcoholvrije dranken
+Bier
+Wijn
+Tussenproducten
+Tussenproducten
+Overige alcoholhoudende producten
+Rooktabak
+Sigaretten
+Sigaren
+Pruim- en snuiftabak
+Minerale oliën
+
+Accijns op tussenproducten
+Soort
+
+Ingangsdatum
+
+Tarief per hl
+
+Niet mousserend,
+alcoholgehalte ≤ 15%
+
+
+
+01-04-2002
+01-01-2008
+01-02-2010
+01-01-2013
+
+€	 72,89
+€	 84,65
+€	87,14
+€	100,22
+
+Niet mousserend,
+alcoholgehalte > 15%
+
+
+
+01-04-2002
+01-01-2008
+01-02-2010
+01-01-2013
+
+€	 102,68
+€	 119,24
+€	122,75
+€	141,17
+
+Mousserend
+
+
+
+01-04-2002
+01-01-2008
+01-02-2010
+
+€	201,24
+€	233,70
+€	240,58
+
+Ongelode lichte olie
+Gelode lichte olie
+Halfzware olie en gasolie, zwavelvrij
+Halfzware olie en gasolie, anders dan zwavelvrij
+Laagbelaste halfzware olie
+Halfzware olie en gasolie bestemd voor luchtvaartuigen
+Laagbelaste gasolie
+Zware stookolie
+Vloeibaar gemaakt petroleumgas
+Vloeibaar gemaakt petroleumgas, voor wegverkeer
+Vloeibaar gemaakt petroleumgas, niet voor wegverkeer
+
+Vermindering accijns voor Biobrandstoffen
+Teruggaaf
+Hulpapparatuur
+Accijns voor gebruik van vloeibaar gemaakt petroleumgas
+Energiebelasting voor grootgebruikers
+Accijns voor grootgebruikers
+Energiebelasting voor glastuinders
+Accijns voor glastuinders
+Accijns voor kerk en non-profit instellingen
+Accijns duurzaam geproduceerde biobrandstof
+Rekenvoorbeeld accijns duurzaam geproduceerde biobrandstof
+Technische en/of logistieke redenen
+
+Gebruiksaanwijzing
+Alcoholvrije dranken
+Bier
+Wijn
+Tussenproducten
+Overige
+Overigealcoholhoudende
+alcoholhoudendeproducten
+producten
+Rooktabak
+Sigaretten
+Sigaren
+Pruim- en snuiftabak
+Minerale oliën
+Ongelode lichte olie
+Gelode lichte olie
+Halfzware olie en gasolie, zwavelvrij
+Halfzware olie en gasolie, anders dan zwavelvrij
+Laagbelaste halfzware olie
+Halfzware olie en gasolie bestemd voor luchtvaartuigen
+Laagbelaste gasolie
+Zware stookolie
+Vloeibaar gemaakt petroleumgas
+Vloeibaar gemaakt petroleumgas, voor wegverkeer
+Vloeibaar gemaakt petroleumgas, niet voor wegverkeer
+
+Vermindering accijns voor Biobrandstoffen
+Teruggaaf
+Hulpapparatuur
+Accijns voor gebruik van vloeibaar gemaakt petroleumgas
+Energiebelasting voor grootgebruikers
+Accijns voor grootgebruikers
+Energiebelasting voor glastuinders
+Accijns voor glastuinders
+Accijns voor kerk en non-profit instellingen
+Accijns duurzaam geproduceerde biobrandstof
+Rekenvoorbeeld accijns duurzaam geproduceerde biobrandstof
+Technische en/of logistieke redenen
+
+Accijns op overige alcoholhoudende producten
+Soort
+
+Ingangsdatum
+
+Tarief per hl
+
+Per volumepercent alcohol
+
+
+
+01-01-2003
+01-01-2006
+01-01-2013
+
+€	 17,75
+€	15,04
+€	15,94
+
+Gebruiksaanwijzing
+Alcoholvrije dranken
+Bier
+Wijn
+Tussenproducten
+Overige alcoholhoudende producten
+Rooktabak
+Rooktabak
+Sigaretten
+Sigaren
+Pruim- en snuiftabak
+Minerale oliën
+Ongelode lichte olie
+Gelode lichte olie
+Halfzware olie en gasolie, zwavelvrij
+Halfzware olie en gasolie, anders dan zwavelvrij
+Laagbelaste halfzware olie
+Halfzware olie en gasolie bestemd voor luchtvaartuigen
+Laagbelaste gasolie
+
+Accijns op rooktabak
+
+Ingangsdatum
+
+
+
+Kleinhandelsprijs
+meest gevraagde
+prijsklasse
+
+
+
+(per 01-07-2011 WAP)
+
+Accijns
+
+
+
+
+
+
+
+
+
+
+01-06-2007
+01-07-2008
+01-04-2009
+01-03-2010
+01-04-2010
+01-03-2011
+01-07-2011
+01-04-2012
+01-01-2013
+01-04-2013
+
+€	 102,00
+€	 110,00
+€	115,79
+€	115,79
+€	122,22
+€	129,41
+€	116,12
+€	123,44
+€	123,44
+€	126,86
+
+Percentage
+kleinhandelsprijs
+
+Tarief accijns
+per kg
+
+14,21%
+17,84%
+17,00%
+17,21%
+16,33%
+17,34%
+13,00%
+11,97%
+7,66%
+7,19%
+
+€
+€
+€
+€
+€
+€
+€
+€
+€
+€
+
+30,78
+37,19
+38,17
+38,41
+39,48
+43,10
+50,45
+51,72
+72,04
+72,64
+
+Zware stookolie
+Vloeibaar gemaakt petroleumgas
+Vloeibaar gemaakt petroleumgas, voor wegverkeer
+Vloeibaar gemaakt petroleumgas, niet voor wegverkeer
+
+Vermindering accijns voor Biobrandstoffen
+Teruggaaf
+Hulpapparatuur
+Accijns voor gebruik van vloeibaar gemaakt petroleumgas
+Energiebelasting voor grootgebruikers
+Accijns voor grootgebruikers
+Energiebelasting voor glastuinders
+Accijns voor glastuinders
+
+Voor rooktabak geldt een minimum accijnsbedrag per kg:
+
+Accijns
+
+
+
+
+
+
+
+
+
+
+Ingangsdatum
+01-06-2007
+01-07-2008
+01-04-2009
+01-03-2010
+01-04-2010
+01-03-2011
+01-07-2011
+01-04-2012
+01-01-2013
+01-04-2013
+
+Minimum accijnsbedrag per kg
+€	43,92
+€	56,81
+€	57,85
+€	58,34
+€	59,44
+€	65,54
+€	65,54
+€	66,50
+€	81,50
+€	81,76
+
+
+Omzetbelasting
+
+
+
+Ingangsdatum
+01-01-2001
+01-10-2012
+01-07-2013
+
+Deel van de kleinhandelsprijs
+19 / 119
+21 / 121
+vervallen
+
+Accijns voor kerk en non-profit instellingen
+Accijns duurzaam geproduceerde biobrandstof
+Rekenvoorbeeld accijns duurzaam geproduceerde biobrandstof
+Technische en/of logistieke redenen
+
+(WAP is: Weighted Average Price)
+
+Gebruiksaanwijzing
+Alcoholvrije dranken
+Bier
+Wijn
+Tussenproducten
+Overige alcoholhoudende producten
+Rooktabak
+Sigaretten
+Sigaretten
+Sigaren
+Pruim- en snuiftabak
+Minerale oliën
+Ongelode lichte olie
+Gelode lichte olie
+Halfzware olie en gasolie, zwavelvrij
+Halfzware olie en gasolie, anders dan zwavelvrij
+Laagbelaste halfzware olie
+Halfzware olie en gasolie bestemd voor luchtvaartuigen
+Laagbelaste gasolie
+
+Accijns op sigaretten
+
+Ingangsdatum
+
+
+
+Kleinhandelsprijs
+meest gevraagde
+prijsklasse per 1000
+
+
+
+(per 01-07-2011 WAP)
+
+Accijns
+
+
+
+
+
+
+
+
+
+
+01-07-2008
+01-12-2008
+01-08-2009
+01-03-2010
+01-03-2011
+01-05-2011
+01-07-2011
+01-04-2012
+01-01-2013
+01-04-2013
+
+€	231,58
+€	236,84
+€	242,11
+€	252,63
+€	273,68
+€	263,16
+€	236,72
+€	251,74
+€	251,74
+€	264,62
+
+Percentage
+kleinhandelsprijs
+
+Tarief accijns
+per 1000
+
+21,28%
+20,87%
+20,52%
+20,52%
+20,52%
+21,66%
+8,59%
+7,57%
+3,13%
+2,36%
+
+€	 86,25
+€	 87,23
+€	 88,33
+€	 92,17
+€	 99,85
+€	 99,01
+€	135,66
+€	138,23
+€	167,84
+€	169,86
+
+Zware stookolie
+Vloeibaar gemaakt petroleumgas
+Vloeibaar gemaakt petroleumgas, voor wegverkeer
+Vloeibaar gemaakt petroleumgas, niet voor wegverkeer
+
+Vermindering accijns voor Biobrandstoffen
+Teruggaaf
+Hulpapparatuur
+Accijns voor gebruik van vloeibaar gemaakt petroleumgas
+Energiebelasting voor grootgebruikers
+Accijns voor grootgebruikers
+Energiebelasting voor glastuinders
+Accijns voor glastuinders
+
+Voor sigaretten geldt een minimum accijnsbedrag per 1000 stuks:
+
+Accijns
+
+
+
+
+
+
+
+
+
+
+Ingangsdatum
+01-07-2008
+01-12-2008
+01-08-2009
+01-03-2010
+01-03-2011
+01-05-2011
+01-07-2011
+01-04-2012
+01-01-2013
+01-04-2013
+
+Minimum accijnsbedrag per 1000
+€	135,53
+€	136,65
+€	138,00
+€	144,00
+€	156,00
+€	156,00
+€	156,00
+€	157,28
+€	175,71
+€	176,11
+
+
+Omzetbelasting
+
+
+
+Ingangsdatum
+01-01-2001
+01-10-2012
+01-07-2013
+
+Deel van de kleinhandelsprijs
+19 / 119
+21 / 121
+vervallen
+
+Accijns voor kerk en non-profit instellingen
+Accijns duurzaam geproduceerde biobrandstof
+Rekenvoorbeeld accijns duurzaam geproduceerde biobrandstof
+Technische en/of logistieke redenen
+
+(WAP is: Weighted Average Price)
+
+Gebruiksaanwijzing
+Alcoholvrije dranken
+Bier
+Wijn
+Tussenproducten
+Overige alcoholhoudende producten
+Rooktabak
+Sigaretten
+Sigaren
+Sigaren
+Pruim- en snuiftabak
+Minerale oliën
+
+Accijns op sigaren
+
+
+Ingangsdatum
+
+Percentage kleinhandelsprijs
+
+Accijns
+
+01-02-1997	5%
+
+
+
+Ingangsdatum
+
+Deel van de kleinhandelsprijs
+
+Omzetbelasting
+
+
+
+01-01-2001
+01-10-2012
+01-07-2013
+
+19 / 119
+21 / 121
+vervallen
+
+Ongelode lichte olie
+Gelode lichte olie
+Halfzware olie en gasolie, zwavelvrij
+Halfzware olie en gasolie, anders dan zwavelvrij
+Laagbelaste halfzware olie
+Halfzware olie en gasolie bestemd voor luchtvaartuigen
+Laagbelaste gasolie
+Zware stookolie
+Vloeibaar gemaakt petroleumgas
+Vloeibaar gemaakt petroleumgas, voor wegverkeer
+Vloeibaar gemaakt petroleumgas, niet voor wegverkeer
+
+Vermindering accijns voor Biobrandstoffen
+Teruggaaf
+Hulpapparatuur
+Accijns voor gebruik van vloeibaar gemaakt petroleumgas
+Energiebelasting voor grootgebruikers
+Accijns voor grootgebruikers
+Energiebelasting voor glastuinders
+Accijns voor glastuinders
+Accijns voor kerk en non-profit instellingen
+Accijns duurzaam geproduceerde biobrandstof
+Rekenvoorbeeld accijns duurzaam geproduceerde biobrandstof
+Technische en/of logistieke redenen
+
+Gebruiksaanwijzing
+Alcoholvrije dranken
+Bier
+Wijn
+Tussenproducten
+Overige alcoholhoudende producten
+Rooktabak
+Sigaretten
+Sigaren
+PruimPruim-en
+ensnuiftabak
+snuiftabak
+Minerale oliën
+Ongelode lichte olie
+
+Verbruiksbelasting op pruimtabak en snuiftabak
+(t/m 31-12-2012)
+
+
+Ingangsdatum
+
+Tarief per kg
+
+Verbruiksbelasting
+
+
+01-01-2002
+01-01-2013
+
+€	24,04
+vervallen
+
+
+
+Ingangsdatum
+
+Deel van de kleinhandelsprijs
+
+Omzetbelasting
+
+
+
+01-01-2001
+01-10-2012
+01-01-2013
+
+19 / 119
+21 / 121
+vervallen
+
+Gelode lichte olie
+Halfzware olie en gasolie, zwavelvrij
+Halfzware olie en gasolie, anders dan zwavelvrij
+Laagbelaste halfzware olie
+Halfzware olie en gasolie bestemd voor luchtvaartuigen
+Laagbelaste gasolie
+Zware stookolie
+Vloeibaar gemaakt petroleumgas
+Vloeibaar gemaakt petroleumgas, voor wegverkeer
+Vloeibaar gemaakt petroleumgas, niet voor wegverkeer
+
+Vermindering accijns voor Biobrandstoffen
+Teruggaaf
+Hulpapparatuur
+Accijns voor gebruik van vloeibaar gemaakt petroleumgas
+Energiebelasting voor grootgebruikers
+Accijns voor grootgebruikers
+Energiebelasting voor glastuinders
+Accijns voor glastuinders
+Accijns voor kerk en non-profit instellingen
+Accijns duurzaam geproduceerde biobrandstof
+Rekenvoorbeeld accijns duurzaam geproduceerde biobrandstof
+Technische en/of logistieke redenen
+
+Gebruiksaanwijzing
+Alcoholvrije dranken
+Bier
+Wijn
+Tussenproducten
+Overige alcoholhoudende producten
+Rooktabak
+Sigaretten
+Sigaren
+Pruim- en snuiftabak
+Minerale
+Mineraleoliën
+oliën
+Ongelode lichte olie
+
+Accijns, energiebelasting en voorraadheffing
+op minerale oliën
+Ongelode lichte olie
+Gelode lichte olie
+Halfzware olie en gasolie, zwavelvrij
+Halfzware olie en gasolie, anders dan zwavelvrij
+
+Gelode lichte olie
+Halfzware olie en gasolie, zwavelvrij
+Halfzware olie en gasolie, anders dan zwavelvrij
+Laagbelaste halfzware olie
+Halfzware olie en gasolie bestemd voor luchtvaartuigen
+
+Laagbelaste halfzware olie (t/m 31-12-2012)
+Halfzware olie en gasolie, bestemd voor luchtvaartuigen (t/m 31-12-2011)
+Laagbelaste gasolie (t/m 31-12-2012)
+
+Laagbelaste gasolie
+Zware stookolie
+Vloeibaar gemaakt petroleumgas
+Vloeibaar gemaakt petroleumgas, voor wegverkeer
+Vloeibaar gemaakt petroleumgas, niet voor wegverkeer
+
+Vermindering accijns voor Biobrandstoffen
+Teruggaaf
+Hulpapparatuur
+Accijns voor gebruik van vloeibaar gemaakt petroleumgas
+Energiebelasting voor grootgebruikers
+Accijns voor grootgebruikers
+Energiebelasting voor glastuinders
+Accijns voor glastuinders
+Accijns voor kerk en non-profit instellingen
+Accijns duurzaam geproduceerde biobrandstof
+Rekenvoorbeeld accijns duurzaam geproduceerde biobrandstof
+Technische en/of logistieke redenen
+
+Zware stookolie
+Vloeibaar gemaakt petroleumgas (vanaf 01-01-2010)
+Vloeibaar gemaakt petroleumgas, bestemd voor wegverkeer (t/m 31-12-2009)
+Vloeibaar gemaakt petroleumgas, niet bestemd voor wegverkeer (t/m 31-12-2009)
+
+Gebruiksaanwijzing
+Alcoholvrije dranken
+Bier
+Wijn
+Tussenproducten
+Overige alcoholhoudende producten
+Rooktabak
+Sigaretten
+Sigaren
+Pruim- en snuiftabak
+Minerale
+Mineraleoliën
+oliën
+Ongelode
+Ongelodelichte
+lichteolie
+olie
+Gelode lichte olie
+Halfzware olie en gasolie, zwavelvrij
+Halfzware olie en gasolie, anders dan zwavelvrij
+Laagbelaste halfzware olie
+Halfzware olie en gasolie bestemd voor luchtvaartuigen
+Laagbelaste gasolie
+Zware stookolie
+Vloeibaar gemaakt petroleumgas
+Vloeibaar gemaakt petroleumgas, voor wegverkeer
+Vloeibaar gemaakt petroleumgas, niet voor wegverkeer
+
+Vermindering accijns voor Biobrandstoffen
+Teruggaaf
+Hulpapparatuur
+Accijns voor gebruik van vloeibaar gemaakt petroleumgas
+Energiebelasting voor grootgebruikers
+Accijns voor grootgebruikers
+Energiebelasting voor glastuinders
+Accijns voor glastuinders
+Accijns voor kerk en non-profit instellingen
+Accijns duurzaam geproduceerde biobrandstof
+Rekenvoorbeeld accijns duurzaam geproduceerde biobrandstof
+Technische en/of logistieke redenen
+
+Ongelode lichte olie
+
+
+Ingangsdatum
+
+Tarief per 1000 l bij 15° C
+
+Accijns
+
+
+
+
+
+
+
+
+01-01-2005
+01-01-2007
+01-01-2008
+01-01-2009
+01-01-2010
+01-01-2011
+01-01-2012
+01-01-2013
+
+€	668,10
+€	678,79
+€	688,97
+€	700,68
+€	713,99
+€	718,27
+€	730,48
+€	746,55
+
+Voorraadheffing
+
+
+
+01-10-2004
+01-08-2009
+01-04-2013
+
+€	5,30
+€	5,90
+€	8,00
+
+Gebruiksaanwijzing
+Alcoholvrije dranken
+Bier
+Wijn
+Tussenproducten
+Overige alcoholhoudende producten
+Rooktabak
+Sigaretten
+Sigaren
+Pruim- en snuiftabak
+Minerale
+Mineraleoliën
+oliën
+Ongelode lichte olie
+Gelode
+Gelodelichte
+lichteolie
+olie
+Halfzware olie en gasolie, zwavelvrij
+Halfzware olie en gasolie, anders dan zwavelvrij
+Laagbelaste halfzware olie
+Halfzware olie en gasolie bestemd voor luchtvaartuigen
+Laagbelaste gasolie
+Zware stookolie
+Vloeibaar gemaakt petroleumgas
+Vloeibaar gemaakt petroleumgas, voor wegverkeer
+Vloeibaar gemaakt petroleumgas, niet voor wegverkeer
+
+Vermindering accijns voor Biobrandstoffen
+Teruggaaf
+Hulpapparatuur
+Accijns voor gebruik van vloeibaar gemaakt petroleumgas
+Energiebelasting voor grootgebruikers
+Accijns voor grootgebruikers
+Energiebelasting voor glastuinders
+Accijns voor glastuinders
+Accijns voor kerk en non-profit instellingen
+Accijns duurzaam geproduceerde biobrandstof
+Rekenvoorbeeld accijns duurzaam geproduceerde biobrandstof
+Technische en/of logistieke redenen
+
+Gelode lichte olie
+
+
+Ingangsdatum
+
+Tarief per 1000 l bij 15° C
+
+Accijns
+
+
+
+
+
+
+
+
+01-01-2005
+01-01-2007
+01-01-2008
+01-01-2009
+01-01-2010
+01-01-2011
+01-01-2012
+01-01-2013
+
+€	744,00
+€	755,90
+€	767,24
+€	780,28
+€	795,11
+€	799,88
+€	813,48
+€	831,38
+
+Voorraadheffing
+
+
+
+01-10-2004
+01-08-2009
+01-04-2013
+
+€	5,30
+€	5,90
+€	8,00
+
+Gebruiksaanwijzing
+Alcoholvrije dranken
+Bier
+Wijn
+Tussenproducten
+Overige alcoholhoudende producten
+Rooktabak
+Sigaretten
+Sigaren
+Pruim- en snuiftabak
+Minerale
+Mineraleoliën
+oliën
+Ongelode lichte olie
+Gelode lichte olie
+Halfzware
+zwavelvrij
+Halfzwareolie
+olieenengasolie,
+gasolie,
+zwavelvrij
+Halfzware olie en gasolie, anders dan zwavelvrij
+Laagbelaste halfzware olie
+Halfzware olie en gasolie bestemd voor luchtvaartuigen
+Laagbelaste gasolie
+Zware stookolie
+Vloeibaar gemaakt petroleumgas
+Vloeibaar gemaakt petroleumgas, voor wegverkeer
+Vloeibaar gemaakt petroleumgas, niet voor wegverkeer
+
+Vermindering accijns voor Biobrandstoffen
+Teruggaaf
+Hulpapparatuur
+Accijns voor gebruik van vloeibaar gemaakt petroleumgas
+Energiebelasting voor grootgebruikers
+Accijns voor grootgebruikers
+Energiebelasting voor glastuinders
+Accijns voor glastuinders
+Accijns voor kerk en non-profit instellingen
+Accijns duurzaam geproduceerde biobrandstof
+Rekenvoorbeeld accijns duurzaam geproduceerde biobrandstof
+Technische en/of logistieke redenen
+
+Halfzware olie en gasolie, zwavelvrij
+
+
+Ingangsdatum
+
+Tarief per 1000 l bij 15° C
+
+Accijns
+
+
+
+
+
+
+
+
+
+01-01-2005
+01-01-2007
+01-01-2008
+01-07-2008
+01-01-2009
+01-01-2010
+01-01-2011
+01-01-2012
+01-01-2013
+
+€	364,91
+€	370,75
+€	376,31
+€	406,31
+€	413,22
+€	421,07
+€	423,60
+€	430,80
+€	440,28
+
+Voorraadheffing
+
+
+
+01-01-2005
+01-08-2009
+01-04-2013
+
+€	5,30
+€	5,90
+€	8,00
+
+Gebruiksaanwijzing
+Alcoholvrije dranken
+Bier
+Wijn
+Tussenproducten
+Overige alcoholhoudende producten
+Rooktabak
+Sigaretten
+Sigaren
+Pruim- en snuiftabak
+Minerale
+Mineraleoliën
+oliën
+Ongelode lichte olie
+Gelode lichte olie
+Halfzware olie en gasolie, zwavelvrij
+Halfzware
+anders
+dan
+zwavelvrij
+Halfzwareolie
+olieenengasolie,
+gasolie,
+anders
+dan
+zwavelvrij
+Laagbelaste halfzware olie
+Halfzware olie en gasolie bestemd voor luchtvaartuigen
+Laagbelaste gasolie
+Zware stookolie
+Vloeibaar gemaakt petroleumgas
+Vloeibaar gemaakt petroleumgas, voor wegverkeer
+Vloeibaar gemaakt petroleumgas, niet voor wegverkeer
+
+Vermindering accijns voor Biobrandstoffen
+Teruggaaf
+Hulpapparatuur
+Accijns voor gebruik van vloeibaar gemaakt petroleumgas
+Energiebelasting voor grootgebruikers
+Accijns voor grootgebruikers
+Energiebelasting voor glastuinders
+Accijns voor glastuinders
+Accijns voor kerk en non-profit instellingen
+Accijns duurzaam geproduceerde biobrandstof
+Rekenvoorbeeld accijns duurzaam geproduceerde biobrandstof
+Technische en/of logistieke redenen
+
+Halfzware olie en gasolie, anders dan zwavelvrij
+
+
+Ingangsdatum
+
+Tarief per 1000 l bij 15° C
+
+Accijns
+
+
+
+
+
+
+
+
+
+
+01-01-2005
+01-07-2005
+01-01-2007
+01-01-2008
+01-07-2008
+01-01-2009
+01-01-2010
+01-01-2011
+01-01-2012
+01-01-2013
+
+€	364,91
+€	374,91
+€	380,91
+€	386,62
+€	416,62
+€	423,70
+€	431,75
+€	434,34
+€	441,72
+€	451,44
+
+Voorraadheffing
+
+
+
+01-01-2005
+01-08-2009
+01-04-2013
+
+€	5,30
+€	5,90
+€	8,00
+
+Gebruiksaanwijzing
+Alcoholvrije dranken
+Bier
+Wijn
+Tussenproducten
+Overige alcoholhoudende producten
+Rooktabak
+Sigaretten
+Sigaren
+Pruim- en snuiftabak
+Minerale
+Mineraleoliën
+oliën
+Ongelode lichte olie
+Gelode lichte olie
+Halfzware olie en gasolie, zwavelvrij
+Halfzware olie en gasolie, anders dan zwavelvrij
+Laagbelaste
+olie
+Laagbelastehalfzware
+halfzware
+olie
+Halfzware olie en gasolie bestemd voor luchtvaartuigen
+
+Laagbelaste halfzware olie
+(t/m 31-12-2012)
+
+
+Ingangsdatum
+
+Tarief per 1000 l bij 15° C
+
+Accijns
+
+
+
+
+
+
+
+01-01-2002
+01-07-2008
+01-01-2009
+01-01-2010
+01-01-2011
+01-01-2012
+01-01-2013
+
+€	46,56
+€	76,56
+€	77,86
+€	253,01
+€	254,53
+€	258,86
+vervallen
+
+Voorraadheffing
+
+
+
+01-10-2004
+01-08-2009
+01-01-2013
+
+€	5,30
+€	5,90
+vervallen
+
+Energiebelasting
+
+
+
+
+
+
+01-01-2005
+01-01-2006
+01-01-2007
+01-01-2008
+01-01-2009
+01-01-2010
+
+€	159,72
+€	161,16
+€	163,74
+€	166,20
+€	169,03
+vervallen
+
+Laagbelaste gasolie
+Zware stookolie
+Vloeibaar gemaakt petroleumgas
+Vloeibaar gemaakt petroleumgas, voor wegverkeer
+Vloeibaar gemaakt petroleumgas, niet voor wegverkeer
+
+Vermindering accijns voor Biobrandstoffen
+Teruggaaf
+Hulpapparatuur
+Accijns voor gebruik van vloeibaar gemaakt petroleumgas
+Energiebelasting voor grootgebruikers
+Accijns voor grootgebruikers
+Energiebelasting voor glastuinders
+Accijns voor glastuinders
+Accijns voor kerk en non-profit instellingen
+Accijns duurzaam geproduceerde biobrandstof
+Rekenvoorbeeld accijns duurzaam geproduceerde biobrandstof
+Technische en/of logistieke redenen
+
+Gebruiksaanwijzing
+Alcoholvrije dranken
+Bier
+Wijn
+Tussenproducten
+Overige alcoholhoudende producten
+Rooktabak
+Sigaretten
+Sigaren
+Pruim- en snuiftabak
+Minerale
+Mineraleoliën
+oliën
+Ongelode lichte olie
+Gelode lichte olie
+Halfzware olie en gasolie, zwavelvrij
+Halfzware olie en gasolie, anders dan zwavelvrij
+Laagbelaste halfzware olie
+Halfzware
+bestemd
+voor
+luchtvaartuigen
+Halfzwareolie
+olieenengasolie
+gasolie
+bestemd
+voor
+luchtvaartuigen
+Laagbelaste gasolie
+Zware stookolie
+Vloeibaar gemaakt petroleumgas
+Vloeibaar gemaakt petroleumgas, voor wegverkeer
+Vloeibaar gemaakt petroleumgas, niet voor wegverkeer
+
+Vermindering accijns voor Biobrandstoffen
+Teruggaaf
+Hulpapparatuur
+Accijns voor gebruik van vloeibaar gemaakt petroleumgas
+Energiebelasting voor grootgebruikers
+Accijns voor grootgebruikers
+Energiebelasting voor glastuinders
+Accijns voor glastuinders
+Accijns voor kerk en non-profit instellingen
+Accijns duurzaam geproduceerde biobrandstof
+Rekenvoorbeeld accijns duurzaam geproduceerde biobrandstof
+Technische en/of logistieke redenen
+
+Halfzware olie en gasolie
+bestemd voor luchtvaartuigen (t/m 31-12-2011)
+
+
+Ingangsdatum
+
+Tarief per 1000 l bij 15° C
+
+Accijns
+
+
+
+
+
+
+
+01-01-2005
+01-01-2007
+01-01-2008
+01-01-2009
+01-01-2010
+01-01-2011
+01-01-2012
+
+€	206,28
+€	209,58
+€	212,72
+€	216,34
+€	220,45
+€	221,77
+vervallen
+
+Voorraadheffing
+
+
+
+01-01-2005
+01-08-2009
+01-01-2012
+
+€	5,30
+€	5,90
+vervallen
+
+Gebruiksaanwijzing
+Alcoholvrije dranken
+Bier
+Wijn
+Tussenproducten
+Overige alcoholhoudende producten
+Rooktabak
+Sigaretten
+Sigaren
+Pruim- en snuiftabak
+Minerale
+Mineraleoliën
+oliën
+Ongelode lichte olie
+Gelode lichte olie
+Halfzware olie en gasolie, zwavelvrij
+Halfzware olie en gasolie, anders dan zwavelvrij
+Laagbelaste halfzware olie
+Halfzware olie en gasolie bestemd voor luchtvaartuigen
+
+Laagbelaste gasolie
+(t/m 31-12-2012)
+
+
+Ingangsdatum
+
+Tarief per 1000 l bij 15° C
+
+Accijns
+
+
+
+
+
+
+
+01-01-2002
+01-07-2008
+01-01-2009
+01-01-2010
+01-01-2011
+01-01-2012
+01-01-2013
+
+€	46,56
+€	76,56
+€	77,86
+€	253,01
+€	254,53
+€	258,86
+vervallen
+
+Voorraadheffing
+
+
+
+01-10-2004
+01-08-2009
+01-01-2013
+
+€	5,30
+€	5,90
+vervallen
+
+Energiebelasting
+
+
+
+
+
+
+01-01-2005
+01-01-2006
+01-01-2007
+01-01-2008
+01-01-2009
+01-01-2010
+
+€	161,05
+€	162,50
+€	165,10
+€	167,58
+€	170,43
+vervallen
+
+Laagbelaste
+Laagbelastegasolie
+gasolie
+Zware stookolie
+Vloeibaar gemaakt petroleumgas
+Vloeibaar gemaakt petroleumgas, voor wegverkeer
+Vloeibaar gemaakt petroleumgas, niet voor wegverkeer
+
+Vermindering accijns voor Biobrandstoffen
+Teruggaaf
+Hulpapparatuur
+Accijns voor gebruik van vloeibaar gemaakt petroleumgas
+Energiebelasting voor grootgebruikers
+Accijns voor grootgebruikers
+Energiebelasting voor glastuinders
+Accijns voor glastuinders
+Accijns voor kerk en non-profit instellingen
+Accijns duurzaam geproduceerde biobrandstof
+Rekenvoorbeeld accijns duurzaam geproduceerde biobrandstof
+Technische en/of logistieke redenen
+
+Gebruiksaanwijzing
+Alcoholvrije dranken
+Bier
+Wijn
+Tussenproducten
+Overige alcoholhoudende producten
+Rooktabak
+Sigaretten
+Sigaren
+Pruim- en snuiftabak
+Minerale
+Mineraleoliën
+oliën
+Ongelode lichte olie
+Gelode lichte olie
+Halfzware olie en gasolie, zwavelvrij
+Halfzware olie en gasolie, anders dan zwavelvrij
+Laagbelaste halfzware olie
+Halfzware olie en gasolie bestemd voor luchtvaartuigen
+Laagbelaste gasolie
+Zware
+Zwarestookolie
+stookolie
+Vloeibaar gemaakt petroleumgas
+Vloeibaar gemaakt petroleumgas, voor wegverkeer
+Vloeibaar gemaakt petroleumgas, niet voor wegverkeer
+
+Vermindering accijns voor Biobrandstoffen
+Teruggaaf
+Hulpapparatuur
+Accijns voor gebruik van vloeibaar gemaakt petroleumgas
+Energiebelasting voor grootgebruikers
+Accijns voor grootgebruikers
+Energiebelasting voor glastuinders
+Accijns voor glastuinders
+Accijns voor kerk en non-profit instellingen
+Accijns duurzaam geproduceerde biobrandstof
+Rekenvoorbeeld accijns duurzaam geproduceerde biobrandstof
+Technische en/of logistieke redenen
+
+Zware stookolie
+
+
+Ingangsdatum
+
+Tarief per 1000 kg
+
+Accijns
+
+
+
+
+
+
+01-01-2004
+01-01-2009
+01-01-2010
+01-01-2011
+01-01-2012
+01-01-2013
+
+€	32,51
+€	33,06
+€	33,69
+€	33,89
+€	34,47
+€	35,23
+
+Gebruiksaanwijzing
+Alcoholvrije dranken
+Bier
+Wijn
+Tussenproducten
+Overige alcoholhoudende producten
+Rooktabak
+Sigaretten
+Sigaren
+Pruim- en snuiftabak
+Minerale
+Mineraleoliën
+oliën
+
+Vloeibaar gemaakt petroleumgas
+(vanaf 01-01-2010)
+
+
+Ingangsdatum
+
+Tarief per 1000 kg
+
+Accijns
+
+
+
+
+
+
+01-01-2010
+01-01-2011
+01-01-2012
+01-01-2013
+
+€	154,12
+€	155,04
+€	167,54
+€	180,04
+
+Voorraadheffing
+
+
+01-01-2010
+01-04-2013
+
+€	 5,90
+€	8,00
+
+Ongelode lichte olie
+Gelode lichte olie
+Halfzware olie en gasolie, zwavelvrij
+Halfzware olie en gasolie, anders dan zwavelvrij
+Laagbelaste halfzware olie
+Halfzware olie en gasolie bestemd voor luchtvaartuigen
+Laagbelaste gasolie
+Zware stookolie
+Vloeibaar
+Vloeibaargemaakt
+gemaaktpetroleumgas
+petroleumgas
+Vloeibaar gemaakt petroleumgas, voor wegverkeer
+Vloeibaar gemaakt petroleumgas, niet voor wegverkeer
+
+Vermindering accijns voor Biobrandstoffen
+Teruggaaf
+Hulpapparatuur
+Accijns voor gebruik van vloeibaar gemaakt petroleumgas
+Energiebelasting voor grootgebruikers
+Accijns voor grootgebruikers
+Energiebelasting voor glastuinders
+Accijns voor glastuinders
+Accijns voor kerk en non-profit instellingen
+Accijns duurzaam geproduceerde biobrandstof
+Rekenvoorbeeld accijns duurzaam geproduceerde biobrandstof
+Technische en/of logistieke redenen
+
+Gebruiksaanwijzing
+Alcoholvrije dranken
+Bier
+Wijn
+Tussenproducten
+Overige alcoholhoudende producten
+Rooktabak
+Sigaretten
+Sigaren
+Pruim- en snuiftabak
+Minerale
+Mineraleoliën
+oliën
+
+Vloeibaar gemaakt petroleumgas,
+bestemd voor wegverkeer (t/m 31-12-2009)
+
+
+Ingangsdatum
+
+Tarief per 1000 kg
+
+Accijns
+
+
+
+
+01-01-2004
+01-07-2008
+01-01-2009
+01-01-2010
+
+€	96,21
+€	123,96
+€	126,07
+
+Voorraadheffing
+
+
+
+01-10-2004
+01-08-2009
+01-01-2010
+
+Ongelode lichte olie
+Gelode lichte olie
+Halfzware olie en gasolie, zwavelvrij
+Halfzware olie en gasolie, anders dan zwavelvrij
+
+*
+€	5,30
+€	5,90
+
+*
+
+Laagbelaste halfzware olie
+Halfzware olie en gasolie bestemd voor luchtvaartuigen
+Laagbelaste gasolie
+Zware stookolie
+Vloeibaar gemaakt petroleumgas
+Vloeibaar
+voor
+wegverkeer
+Vloeibaargemaakt
+gemaaktpetroleumgas,
+petroleumgas,
+voor
+wegverkeer
+Vloeibaar gemaakt petroleumgas, niet voor wegverkeer
+
+Vermindering accijns voor Biobrandstoffen
+Teruggaaf
+Hulpapparatuur
+Accijns voor gebruik van vloeibaar gemaakt petroleumgas
+Energiebelasting voor grootgebruikers
+Accijns voor grootgebruikers
+Energiebelasting voor glastuinders
+Accijns voor glastuinders
+Accijns voor kerk en non-profit instellingen
+Accijns duurzaam geproduceerde biobrandstof
+Rekenvoorbeeld accijns duurzaam geproduceerde biobrandstof
+Technische en/of logistieke redenen
+
+* Het onderscheid tussen vloeibaar gemaakt petroleumgas, bestemd voor wegverkeer en niet bestemd voor wegverkeer
+is vervallen met ingang van 1 januari 2010. Zie het scherm Vloeibaar gemaakt petroleumgas voor de tarieven vanaf 1 januari 2010.
+
+Gebruiksaanwijzing
+Alcoholvrije dranken
+Bier
+Wijn
+Tussenproducten
+Overige alcoholhoudende producten
+Rooktabak
+Sigaretten
+Sigaren
+Pruim- en snuiftabak
+Minerale
+Mineraleoliën
+oliën
+Ongelode lichte olie
+Gelode lichte olie
+Halfzware olie en gasolie, zwavelvrij
+Halfzware olie en gasolie, anders dan zwavelvrij
+Laagbelaste halfzware olie
+Halfzware olie en gasolie bestemd voor luchtvaartuigen
+
+Vloeibaar gemaakt petroleumgas,
+niet bestemd voor wegverkeer (t/m 31-12-2009)
+
+
+Ingangsdatum
+
+Tarief per 1000 kg
+
+Voorraadheffing
+
+
+
+01-10-2004
+01-08-2009
+01-01-2010
+
+€	5,30
+€	5,90
+
+Energiebelasting
+
+
+
+
+
+
+01-01-2005
+01-01-2006
+01-01-2007
+01-01-2008
+01-01-2009
+01-01-2010
+
+*
+€	190,68
+€	192,40
+€	195,48
+€	198,41
+€	201,78
+vervallen
+
+*
+
+Laagbelaste gasolie
+Zware stookolie
+Vloeibaar gemaakt petroleumgas
+Vloeibaar gemaakt petroleumgas, voor wegverkeer
+Vloeibaar
+niet
+voor wegverkeer
+Vloeibaargemaakt
+gemaaktpetroleumgas,
+petroleumgas,
+niet
+voor wegverkeer
+
+Vermindering accijns voor Biobrandstoffen
+Teruggaaf
+Hulpapparatuur
+Accijns voor gebruik van vloeibaar gemaakt petroleumgas
+Energiebelasting voor grootgebruikers
+Accijns voor grootgebruikers
+Energiebelasting voor glastuinders
+Accijns voor glastuinders
+Accijns voor kerk en non-profit instellingen
+Accijns duurzaam geproduceerde biobrandstof
+Rekenvoorbeeld accijns duurzaam geproduceerde biobrandstof
+Technische en/of logistieke redenen
+
+* Het onderscheid tussen vloeibaar gemaakt petroleumgas, bestemd voor wegverkeer en niet bestemd voor wegverkeer
+is vervallen met ingang van 1 januari 2010. In plaats van de energiebelasting geldt er vanaf die datum een accijnstarief.
+Zie het scherm Vloeibaar gemaakt petroleumgas voor de tarieven van de accijns en de voorraadheffing vanaf 1 januari 2010.
+
+Gebruiksaanwijzing
+Alcoholvrije dranken
+Bier
+Wijn
+Tussenproducten
+Overige alcoholhoudende producten
+Rooktabak
+Sigaretten
+Sigaren
+Pruim- en snuiftabak
+Minerale oliën
+Ongelode lichte olie
+Gelode lichte olie
+Halfzware olie en gasolie, zwavelvrij
+Halfzware olie en gasolie, anders dan zwavelvrij
+Laagbelaste halfzware olie
+Halfzware olie en gasolie bestemd voor luchtvaartuigen
+Laagbelaste gasolie
+Zware stookolie
+Vloeibaar gemaakt petroleumgas
+Vloeibaar gemaakt petroleumgas, voor wegverkeer
+Vloeibaar gemaakt petroleumgas, niet voor wegverkeer
+
+Vermindering
+Verminderingaccijns
+accijnsvoor
+voorBiobrandstoffen
+Biobrandstoffen
+Teruggaaf
+Hulpapparatuur
+Accijns voor gebruik van vloeibaar gemaakt petroleumgas
+Energiebelasting voor grootgebruikers
+Accijns voor grootgebruikers
+Energiebelasting voor glastuinders
+Accijns voor glastuinders
+Accijns voor kerk en non-profit instellingen
+Accijns duurzaam geproduceerde biobrandstof
+Rekenvoorbeeld accijns duurzaam geproduceerde biobrandstof
+Technische en/of logistieke redenen
+
+Vermindering accijns bijzondere regeling
+voor biobrandstoffen 2006
+Soort
+
+Ingangsdatum
+
+Vermindering per 1000 l
+
+Ethylalcohol
+
+
+01-01-2006
+01-01-2007
+
+€	10,10
+vervallen
+
+Biodiesel
+
+
+01-01-2006
+01-01-2007
+
+€	6,10
+vervallen
+
+Gebruiksaanwijzing
+Alcoholvrije dranken
+Bier
+Wijn
+Tussenproducten
+Overige alcoholhoudende producten
+Rooktabak
+Sigaretten
+Sigaren
+Pruim- en snuiftabak
+Minerale oliën
+Ongelode lichte olie
+
+Teruggaaf
+Hulpapparatuur (t/m 30-06-2008)
+Accijns voor gebruik van vloeibaar gemaakt petroleumgas
+Energiebelasting voor grootgebruikers (t/m 31-12-2009)
+Accijns voor grootgebruikers (t/m 31-12-2012)
+
+Gelode lichte olie
+Halfzware olie en gasolie, zwavelvrij
+Halfzware olie en gasolie, anders dan zwavelvrij
+Laagbelaste halfzware olie
+Halfzware olie en gasolie bestemd voor luchtvaartuigen
+
+Energiebelasting voor glastuinders zonder aansluiting op het aardgasnet (t/m 31-12-2009)
+Accijns voor glastuinders zonder aansluiting op het aardgasnet
+Accijns voor kerk en non-profit instellingen
+
+Laagbelaste gasolie
+Zware stookolie
+Vloeibaar gemaakt petroleumgas
+Vloeibaar gemaakt petroleumgas, voor wegverkeer
+Vloeibaar gemaakt petroleumgas, niet voor wegverkeer
+
+Vermindering accijns voor Biobrandstoffen
+Teruggaaf
+Teruggaaf
+Hulpapparatuur
+Accijns voor gebruik van vloeibaar gemaakt petroleumgas
+Energiebelasting voor grootgebruikers
+Accijns voor grootgebruikers
+Energiebelasting voor glastuinders
+Accijns voor glastuinders
+Accijns voor kerk en non-profit instellingen
+Accijns duurzaam geproduceerde biobrandstof
+Rekenvoorbeeld accijns duurzaam geproduceerde biobrandstof
+Technische en/of logistieke redenen
+
+Accijns duurzaam geproduceerde biobrandstof
+Technische en/of logistieke redenen (t/m 31-12-2012)
+
+Gebruiksaanwijzing
+Alcoholvrije dranken
+Bier
+Wijn
+Tussenproducten
+Overige alcoholhoudende producten
+Rooktabak
+Sigaretten
+Sigaren
+Pruim- en snuiftabak
+Minerale oliën
+Ongelode lichte olie
+Gelode lichte olie
+Halfzware olie en gasolie, zwavelvrij
+Halfzware olie en gasolie, anders dan zwavelvrij
+Laagbelaste halfzware olie
+Halfzware olie en gasolie bestemd voor luchtvaartuigen
+Laagbelaste gasolie
+Zware stookolie
+Vloeibaar gemaakt petroleumgas
+Vloeibaar gemaakt petroleumgas, voor wegverkeer
+Vloeibaar gemaakt petroleumgas, niet voor wegverkeer
+
+Vermindering accijns voor Biobrandstoffen
+Teruggaaf
+Teruggaaf
+Hulpapparatuur
+Hulpapparatuur
+Accijns voor gebruik van vloeibaar gemaakt petroleumgas
+Energiebelasting voor grootgebruikers
+Accijns voor grootgebruikers
+Energiebelasting voor glastuinders
+Accijns voor glastuinders
+Accijns voor kerk en non-profit instellingen
+Accijns duurzaam geproduceerde biobrandstof
+Rekenvoorbeeld accijns duurzaam geproduceerde biobrandstof
+Technische en/of logistieke redenen
+
+Hulpapparatuur
+(t/m 30-06-2008)
+
+
+Ingangsdatum
+
+Tarief per 1000 l bij 15° C
+
+Terug te ontvangen accijns
+
+
+
+01-01-2007
+01-01-2008
+01-07-2008
+
+€	324,19
+€	329,75
+vervallen
+
+Te betalen energiebelasting
+
+
+
+
+01-01-2006
+01-01-2007
+01-01-2008
+01-07-2008
+
+€	162,50
+€	165,10
+€	167,58
+vervallen
+
+Gebruiksaanwijzing
+Alcoholvrije dranken
+Bier
+Wijn
+Tussenproducten
+Overige alcoholhoudende producten
+Rooktabak
+Sigaretten
+Sigaren
+Pruim- en snuiftabak
+Minerale oliën
+Ongelode lichte olie
+
+Accijns voor gebruik van
+vloeibaar gemaakt petroleumgas
+
+
+Ingangsdatum
+
+Tarief per 1000 kg
+
+Autobussen voor openbaar vervoer
+
+
+
+
+
+
+
+
+01-01-2002
+01-01-2010
+01-01-2011
+01-01-2012
+01-01-2013
+
+€	46,78
+€	47,67
+€	47,96
+€	48,78
+€	49,85
+
+Aandrijving vuilniswagens,
+kolkenzuigers of straatveegwagens
+
+
+
+
+
+
+01-01-2002
+01-01-2010
+01-01-2011
+01-01-2012
+01-01-2013
+
+€	46,78
+€	47,67
+€	47,96
+€	48,78
+€	49,85
+
+Gelode lichte olie
+Halfzware olie en gasolie, zwavelvrij
+Halfzware olie en gasolie, anders dan zwavelvrij
+Laagbelaste halfzware olie
+Halfzware olie en gasolie bestemd voor luchtvaartuigen
+Laagbelaste gasolie
+Zware stookolie
+Vloeibaar gemaakt petroleumgas
+Vloeibaar gemaakt petroleumgas, voor wegverkeer
+Vloeibaar gemaakt petroleumgas, niet voor wegverkeer
+
+Vermindering accijns voor Biobrandstoffen
+Teruggaaf
+Teruggaaf
+Hulpapparatuur
+Accijns
+vloeibaar
+gemaakt
+petroleumgas
+Accijnsvoor
+voorgebruik
+gebruikvan
+van
+vloeibaar
+gemaakt
+petroleumgas
+Energiebelasting voor grootgebruikers
+Accijns voor grootgebruikers
+Energiebelasting voor glastuinders
+Accijns voor glastuinders
+Accijns voor kerk en non-profit instellingen
+Accijns duurzaam geproduceerde biobrandstof
+Rekenvoorbeeld accijns duurzaam geproduceerde biobrandstof
+Technische en/of logistieke redenen
+
+Gebruiksaanwijzing
+Alcoholvrije dranken
+Bier
+Wijn
+Tussenproducten
+Overige alcoholhoudende producten
+Rooktabak
+Sigaretten
+Sigaren
+Pruim- en snuiftabak
+Minerale oliën
+Ongelode lichte olie
+Gelode lichte olie
+Halfzware olie en gasolie, zwavelvrij
+Halfzware olie en gasolie, anders dan zwavelvrij
+Laagbelaste halfzware olie
+Halfzware olie en gasolie bestemd voor luchtvaartuigen
+Laagbelaste gasolie
+Zware stookolie
+Vloeibaar gemaakt petroleumgas
+Vloeibaar gemaakt petroleumgas, voor wegverkeer
+
+Energiebelasting voor grootgebruikers
+(t/m 31-12-2009)
+
+
+Ingangsdatum
+
+Tarief per 1000 l bij 15° C
+
+Halfzware olie, > 159.000 liter
+
+
+
+
+
+
+
+01-01-2005
+01-01-2006
+01-01-2007
+01-01-2008
+01-07-2008
+01-01-2009
+01-01-2010
+
+€	144,64
+€	145,94
+€	148,28
+€	150,50
+€	120,75
+€	 92,55
+vervallen
+
+Gasolie, > 153.000 liter
+
+
+
+
+
+
+
+01-01-2005
+01-01-2006
+01-01-2007
+01-01-2008
+01-07-2008
+01-01-2009
+01-01-2010
+
+€	145,86
+€	147,17
+€	149,52
+€	151,76
+€	121,76
+€	93,32
+vervallen
+
+
+
+Ingangsdatum
+
+Tarief per 1000 kg
+
+Vloeibaar gemaakt petroleumgas,
+> 119.000 kg
+
+
+
+
+
+
+01-01-2005
+01-01-2006
+01-01-2007
+01-01-2008
+01-07-2008
+01-01-2009
+01-01-2010
+
+€	 172,54
+€	174,09
+€	176,88
+€	179,53
+€	144,04
+€	110,40
+vervallen
+
+Vloeibaar gemaakt petroleumgas, niet voor wegverkeer
+
+Vermindering accijns voor Biobrandstoffen
+Teruggaaf
+Teruggaaf
+Hulpapparatuur
+Accijns voor gebruik van vloeibaar gemaakt petroleumgas
+Energiebelasting
+grootgebruikers
+Energiebelastingvoor
+voor
+grootgebruikers
+Accijns voor grootgebruikers
+Energiebelasting voor glastuinders
+Accijns voor glastuinders
+Accijns voor kerk en non-profit instellingen
+Accijns duurzaam geproduceerde biobrandstof
+Rekenvoorbeeld accijns duurzaam geproduceerde biobrandstof
+Technische en/of logistieke redenen
+
+Gebruiksaanwijzing
+Alcoholvrije dranken
+Bier
+Wijn
+Tussenproducten
+Overige alcoholhoudende producten
+Rooktabak
+Sigaretten
+Sigaren
+Pruim- en snuiftabak
+Minerale oliën
+
+Accijns voor grootgebruikers
+(t/m 31-12-2012)
+
+
+Ingangsdatum
+
+Tarief per 1000 l bij 15° C
+
+Halfzware olie, > 159.000 liter
+
+
+
+
+01-01-2010
+01-01-2011
+01-01-2012
+01-01-2013
+
+€	64,00
+€	33,10
+€	33,66
+vervallen
+
+Gasolie, > 153.000 liter
+
+
+
+
+01-01-2010
+01-01-2011
+01-01-2012
+01-01-2013
+
+€	64,00
+€	33,10
+€	33,66
+vervallen
+
+
+
+Ingangsdatum
+
+Tarief per 1000 kg
+
+Vloeibaar gemaakt petroleumgas,
+> 119.000 kg
+
+
+
+01-01-2010
+01-01-2011
+01-01-2012
+01-01-2013
+
+€	 75,72
+€	39,17
+€	39,84
+vervallen
+
+Ongelode lichte olie
+Gelode lichte olie
+Halfzware olie en gasolie, zwavelvrij
+Halfzware olie en gasolie, anders dan zwavelvrij
+Laagbelaste halfzware olie
+Halfzware olie en gasolie bestemd voor luchtvaartuigen
+Laagbelaste gasolie
+Zware stookolie
+Vloeibaar gemaakt petroleumgas
+Vloeibaar gemaakt petroleumgas, voor wegverkeer
+Vloeibaar gemaakt petroleumgas, niet voor wegverkeer
+
+Vermindering accijns voor Biobrandstoffen
+Teruggaaf
+Teruggaaf
+Hulpapparatuur
+Accijns voor gebruik van vloeibaar gemaakt petroleumgas
+Energiebelasting voor grootgebruikers
+Accijns
+Accijnsvoor
+voorgrootgebruikers
+grootgebruikers
+Energiebelasting voor glastuinders
+Accijns voor glastuinders
+Accijns voor kerk en non-profit instellingen
+Accijns duurzaam geproduceerde biobrandstof
+Rekenvoorbeeld accijns duurzaam geproduceerde biobrandstof
+Technische en/of logistieke redenen
+
+Gebruiksaanwijzing
+Alcoholvrije dranken
+Bier
+Wijn
+Tussenproducten
+Overige alcoholhoudende producten
+Rooktabak
+Sigaretten
+Sigaren
+Pruim- en snuiftabak
+Minerale oliën
+Ongelode lichte olie
+Gelode lichte olie
+Halfzware olie en gasolie, zwavelvrij
+Halfzware olie en gasolie, anders dan zwavelvrij
+Laagbelaste halfzware olie
+Halfzware olie en gasolie bestemd voor luchtvaartuigen
+Laagbelaste gasolie
+Zware stookolie
+
+Energiebelasting voor glastuinders
+zonder aansluiting op het aardgasnet (t/m 31-12-2009)
+
+
+Ingangsdatum
+
+Tarief per 1000 l bij 15° C
+
+Laagbelaste halfzware olie
+
+
+
+
+
+
+01-01-2005
+01-01-2006
+01-01-2007
+01-01-2008
+01-01-2009
+01-01-2010
+
+€	17,1484
+€	 17,3027
+€	17,5795
+€	17,8432
+€	18,1465
+vervallen
+
+Laagbelaste gasolie
+
+
+
+
+
+
+01-01-2005
+01-01-2006
+01-01-2007
+01-01-2008
+01-01-2009
+01-01-2010
+
+€	17,2758
+€	 17,4313
+€	 17,7102
+€	17,9759
+€	18,2815
+vervallen
+
+
+
+Ingangsdatum
+
+Tarief per 1000 kg
+
+Vloeibaar gemaakt petroleumgas
+
+
+
+
+
+
+01-01-2005
+01-01-2006
+01-01-2007
+01-01-2008
+01-01-2009
+01-01-2010
+
+€	 20,6073
+€	20,7928
+€	21,1255
+€	21,4424
+€	21,8069
+vervallen
+
+Vloeibaar gemaakt petroleumgas
+Vloeibaar gemaakt petroleumgas, voor wegverkeer
+Vloeibaar gemaakt petroleumgas, niet voor wegverkeer
+
+Vermindering accijns voor Biobrandstoffen
+Teruggaaf
+Teruggaaf
+Hulpapparatuur
+Accijns voor gebruik van vloeibaar gemaakt petroleumgas
+Energiebelasting voor grootgebruikers
+Accijns voor grootgebruikers
+Energiebelasting
+glastuinders
+Energiebelastingvoor
+voor
+glastuinders
+Accijns voor glastuinders
+Accijns voor kerk en non-profit instellingen
+Accijns duurzaam geproduceerde biobrandstof
+Rekenvoorbeeld accijns duurzaam geproduceerde biobrandstof
+Technische en/of logistieke redenen
+
+Gebruiksaanwijzing
+Alcoholvrije dranken
+Bier
+Wijn
+Tussenproducten
+Overige alcoholhoudende producten
+Rooktabak
+Sigaretten
+Sigaren
+Pruim- en snuiftabak
+Minerale oliën
+
+Accijns voor glastuinders
+zonder aansluiting op het aardgasnet
+
+
+Ingangsdatum
+
+Tarief per 1000 l bij 15° C
+
+Laagbelaste halfzware olie
+
+
+
+
+01-01-2010
+01-01-2011
+01-01-2012
+01-01-2013
+
+€	155,04
+€	155,97
+€	158,62
+vervallen
+
+Laagbelaste gasolie
+
+
+
+
+01-01-2010
+01-01-2011
+01-01-2012
+01-01-2013
+
+€	155,04
+€	155,97
+€	158,62
+vervallen
+
+
+
+Ingangsdatum
+
+Tarief per 1000 kg
+
+Vloeibaar gemaakt petroleumgas
+
+
+
+
+01-01-2010
+01-01-2011
+01-01-2012
+01-01-2013
+
+€	131,90
+€	132,69
+€	134,95
+€	137,92
+
+Ongelode lichte olie
+Gelode lichte olie
+Halfzware olie en gasolie, zwavelvrij
+Halfzware olie en gasolie, anders dan zwavelvrij
+Laagbelaste halfzware olie
+Halfzware olie en gasolie bestemd voor luchtvaartuigen
+Laagbelaste gasolie
+Zware stookolie
+Vloeibaar gemaakt petroleumgas
+Vloeibaar gemaakt petroleumgas, voor wegverkeer
+Vloeibaar gemaakt petroleumgas, niet voor wegverkeer
+
+Vermindering accijns voor Biobrandstoffen
+Teruggaaf
+Teruggaaf
+Hulpapparatuur
+Accijns voor gebruik van vloeibaar gemaakt petroleumgas
+Energiebelasting voor grootgebruikers
+Accijns voor grootgebruikers
+Energiebelasting voor glastuinders
+Accijns
+Accijnsvoor
+voorglastuinders
+glastuinders
+Accijns voor kerk en non-profit instellingen
+Accijns duurzaam geproduceerde biobrandstof
+Rekenvoorbeeld accijns duurzaam geproduceerde biobrandstof
+Technische en/of logistieke redenen
+
+Gebruiksaanwijzing
+Alcoholvrije dranken
+Bier
+Wijn
+Tussenproducten
+Overige alcoholhoudende producten
+Rooktabak
+Sigaretten
+Sigaren
+Pruim- en snuiftabak
+Minerale oliën
+
+Accijns voor kerk en non‑profit instellingen
+
+
+Ingangsdatum
+
+Tarief per 1000 l bij 15° C
+
+Laagbelaste halfzware olie
+
+
+
+
+01-01-2010
+01-01-2011
+01-01-2012
+01-01-2013
+
+€	86,84
+€	87,36
+€	88,85
+vervallen
+
+Laagbelaste gasolie
+
+
+
+
+01-01-2010
+01-01-2011
+01-01-2012
+01-01-2013
+
+€	86,84
+€	87,36
+€	88,85
+vervallen
+
+
+
+Ingangsdatum
+
+Tarief per 1000 kg
+
+Vloeibaar gemaakt petroleumgas
+
+
+
+
+01-01-2010
+01-01-2011
+01-01-2012
+01-01-2013
+
+€	77,06
+€	77,52
+€	78,84
+€	80,57
+
+Ongelode lichte olie
+Gelode lichte olie
+Halfzware olie en gasolie, zwavelvrij
+Halfzware olie en gasolie, anders dan zwavelvrij
+Laagbelaste halfzware olie
+Halfzware olie en gasolie bestemd voor luchtvaartuigen
+Laagbelaste gasolie
+Zware stookolie
+Vloeibaar gemaakt petroleumgas
+Vloeibaar gemaakt petroleumgas, voor wegverkeer
+Vloeibaar gemaakt petroleumgas, niet voor wegverkeer
+
+Vermindering accijns voor Biobrandstoffen
+Teruggaaf
+Teruggaaf
+Hulpapparatuur
+Accijns voor gebruik van vloeibaar gemaakt petroleumgas
+Energiebelasting voor grootgebruikers
+Accijns voor grootgebruikers
+Energiebelasting voor glastuinders
+Accijns voor glastuinders
+Accijns
+instellingen
+Accijnsvoor
+voorkerk
+kerkenennon-profit
+non‑profit instellingen
+Accijns duurzaam geproduceerde biobrandstof
+Rekenvoorbeeld accijns duurzaam geproduceerde biobrandstof
+Technische en/of logistieke redenen
+
+Gebruiksaanwijzing
+Alcoholvrije dranken
+Bier
+Wijn
+Tussenproducten
+Overige alcoholhoudende producten
+Rooktabak
+Sigaretten
+Sigaren
+Pruim- en snuiftabak
+Minerale oliën
+Ongelode lichte olie
+Gelode lichte olie
+Halfzware olie en gasolie, zwavelvrij
+Halfzware olie en gasolie, anders dan zwavelvrij
+Laagbelaste halfzware olie
+Halfzware olie en gasolie bestemd voor luchtvaartuigen
+Laagbelaste gasolie
+Zware stookolie
+Vloeibaar gemaakt petroleumgas
+Vloeibaar gemaakt petroleumgas, voor wegverkeer
+Vloeibaar gemaakt petroleumgas, niet voor wegverkeer
+
+Vermindering accijns voor Biobrandstoffen
+Teruggaaf
+Teruggaaf
+Hulpapparatuur
+Accijns voor gebruik van vloeibaar gemaakt petroleumgas
+Energiebelasting voor grootgebruikers
+Accijns voor grootgebruikers
+Energiebelasting voor glastuinders
+Accijns voor glastuinders
+Accijns voor kerk en non-profit instellingen
+Accijns
+biobrandstof
+Accijnsduurzaam
+duurzaamgeproduceerde
+geproduceerde
+biobrandstof
+Rekenvoorbeeld accijns duurzaam geproduceerde biobrandstof
+Technische en/of logistieke redenen
+
+Accijns duurzaam geproduceerde biobrandstof
+
+
+Ingangsdatum
+
+Tarief per 1000 l bij 15° C
+
+Duurzaam geproduceerde
+biobrandstof
+
+
+01-04-2010
+01-01-2011
+01-01-2012
+
+€	192,78
+€	193,93
+Zie rekenvoorbeeld
+
+Gebruiksaanwijzing
+Alcoholvrije dranken
+Bier
+Wijn
+Tussenproducten
+Overige alcoholhoudende producten
+Rooktabak
+Sigaretten
+Sigaren
+Pruim- en snuiftabak
+Minerale oliën
+
+1 2
+
+Berekening gedeeltelijke teruggaaf van accijns
+voor duurzaam geproduceerde biobrandstof
+U kunt gedeeltelijke teruggaaf van accijns krijgen voor duurzaam geproduceerde biobrandstof.
+Deze teruggaaf is gebaseerd op
+– het aandeel van de bio-component in de biobrandstof
+– het verschil tussen de energie-inhoud van de bio-component en de (hogere) energie-inhoud
+van de gelijkwaardige motorbrandstof (benzine of diesel)
+– het accijnstarief van de gelijkwaardige motorbrandstof (benzine of diesel)
+
+Ongelode lichte olie
+Gelode lichte olie
+Halfzware olie en gasolie, zwavelvrij
+Halfzware olie en gasolie, anders dan zwavelvrij
+Laagbelaste halfzware olie
+Halfzware olie en gasolie bestemd voor luchtvaartuigen
+Laagbelaste gasolie
+Zware stookolie
+Vloeibaar gemaakt petroleumgas
+Vloeibaar gemaakt petroleumgas, voor wegverkeer
+Vloeibaar gemaakt petroleumgas, niet voor wegverkeer
+
+Vermindering accijns voor Biobrandstoffen
+Teruggaaf
+Teruggaaf
+
+De energie-inhoud van benzine is 32 Megajoule per liter (MJ/L).
+De energie-inhoud van diesel is 36 MJ/L.
+Tabel 1 - Verschil energie-inhoud met gelijkwaardige motorbrandstof
+Bio-component
+Energie-inhoud
+
+(MJ/L)
+Bio-ethanol	21
+Bio-methanol	16
+Biodiesel	33
+
+Gelijkwaardige
+motorbrandstof
+benzine
+benzine
+diesel
+
+Verschil energie-inhoud met
+gelijkwaardige motorbrandstof (afgerond)
+34%
+50%
+8%
+
+Duurzaam geproduceerde biobrandstof bestaat altijd voor een deel uit een bio-component
+en voor een deel uit de gelijkwaardige motorbrandstof. U krijgt alleen teruggaaf als het aandeel
+van de bio-component meer is dan een vastgestelde minimumhoeveelheid.
+
+Hulpapparatuur
+Accijns voor gebruik van vloeibaar gemaakt petroleumgas
+Energiebelasting voor grootgebruikers
+Accijns voor grootgebruikers
+Energiebelasting voor glastuinders
+Accijns voor glastuinders
+Accijns voor kerk en non-profit instellingen
+Accijns duurzaam geproduceerde biobrandstof
+Rekenvoorbeeld
+duurzaam
+geproduceerde
+biobrandstof
+Rekenvoorbeeldaccijns
+accijns
+duurzaam
+geproduceerde
+biobrandstof
+Technische en/of logistieke redenen
+
+Tabel 2 - Minimumhoeveelheid bio-component per 1.000 liter brandstof
+Bio-component	Minimumhoeveelheid
+
+per 1.000 L brandstof
+Bio-ethanol
+145 L
+Bio-methanol
+185 L
+Biodiesel
+109 L
+
+Gebruiksaanwijzing
+Alcoholvrije dranken
+Bier
+Wijn
+Tussenproducten
+Overige alcoholhoudende producten
+Rooktabak
+Sigaretten
+Sigaren
+Pruim- en snuiftabak
+Minerale oliën
+Ongelode lichte olie
+Gelode lichte olie
+Halfzware olie en gasolie, zwavelvrij
+Halfzware olie en gasolie, anders dan zwavelvrij
+Laagbelaste halfzware olie
+Halfzware olie en gasolie bestemd voor luchtvaartuigen
+Laagbelaste gasolie
+
+1 2
+
+Berekening gedeeltelijke teruggaaf van accijns
+voor duurzaam geproduceerde biobrandstof
+Rekenvoorbeeld 1
+Stel u vraagt teruggaaf van accijns aan voor 7.000 liter E30. E30 bestaat voor 30% uit bio-ethanol en voor 70% uit benzine.
+E30 komt in aanmerking voor teruggaaf, want het aandeel bio-component per 1.000 liter brandstof is 300 liter (30% van
+1.000 liter). En dat is meer dan de minimumhoeveelheid van 145 liter voor bio-ethanol (tabel 2).
+De gelijkwaardige motorbrandstof is benzine. Het accijnstarief voor benzine is in 2011 € 718,27 per 1.000 liter. De energieinhoud van bio-ethanol is 34% minder dan van de gelijkwaardige motorbrandstof benzine (tabel 1).
+U berekent de teruggaaf als volgt:
+1	Bereken het aandeel bio-ethanol van de brandstof: 30% van 7.000 liter is 2100 liter.
+2	Bereken hoeveel accijns u hierover betaalde: 2.100 liter / 1.000 liter x € 718,27 = € 1.508,37
+3	Hiervan krijgt u 34% terug (op basis van het verschil in energie-inhoud met benzine): 34% van € 1.508,37 = € 512,84
+(afgerond).
+
+Zware stookolie
+Vloeibaar gemaakt petroleumgas
+Vloeibaar gemaakt petroleumgas, voor wegverkeer
+Vloeibaar gemaakt petroleumgas, niet voor wegverkeer
+
+Vermindering accijns voor Biobrandstoffen
+Teruggaaf
+Teruggaaf
+Hulpapparatuur
+Accijns voor gebruik van vloeibaar gemaakt petroleumgas
+Energiebelasting voor grootgebruikers
+Accijns voor grootgebruikers
+Energiebelasting voor glastuinders
+Accijns voor glastuinders
+Accijns voor kerk en non-profit instellingen
+Accijns duurzaam geproduceerde biobrandstof
+Rekenvoorbeeld
+duurzaam
+geproduceerde
+biobrandstof
+Rekenvoorbeeldaccijns
+accijns
+duurzaam
+geproduceerde
+biobrandstof
+Technische en/of logistieke redenen
+
+Rekenvoorbeeld 2
+Stel u vraagt teruggaaf van accijns aan voor 2.500 liter brandstof die voor 8% bestaat uit biodiesel en voor 92% uit diesel.
+Deze brandstof komt niet in aanmerking voor teruggaaf, want het aandeel bio-component per 1.000 liter brandstof is 80 liter
+(8% van 1.000 liter). De minimumhoeveelheid voor motorbrandstof met biodiesel is 109 liter per 1.000 liter (tabel 2).
+
+Gebruiksaanwijzing
+Alcoholvrije dranken
+Bier
+Wijn
+Tussenproducten
+Overige alcoholhoudende producten
+Rooktabak
+Sigaretten
+Sigaren
+Pruim- en snuiftabak
+Minerale oliën
+Ongelode lichte olie
+Gelode lichte olie
+Halfzware olie en gasolie, zwavelvrij
+Halfzware olie en gasolie, anders dan zwavelvrij
+Laagbelaste halfzware olie
+Halfzware olie en gasolie bestemd voor luchtvaartuigen
+Laagbelaste gasolie
+Zware stookolie
+Vloeibaar gemaakt petroleumgas
+Vloeibaar gemaakt petroleumgas, voor wegverkeer
+Vloeibaar gemaakt petroleumgas, niet voor wegverkeer
+
+Vermindering accijns voor Biobrandstoffen
+Teruggaaf
+Teruggaaf
+Hulpapparatuur
+Accijns voor gebruik van vloeibaar gemaakt petroleumgas
+Energiebelasting voor grootgebruikers
+Accijns voor grootgebruikers
+Energiebelasting voor glastuinders
+Accijns voor glastuinders
+Accijns voor kerk en non-profit instellingen
+Accijns duurzaam geproduceerde biobrandstof
+Rekenvoorbeeld accijns duurzaam geproduceerde biobrandstof
+Technische
+redenen
+Technischeen/of
+en/oflogistieke
+logistieke
+redenen
+
+Technische en/of logistieke redenen
+(t/m 31-12-2012)
+
+
+Ingangsdatum
+
+Tarief per 1000 l bij 15° C
+
+Terug te ontvangen accijns
+
+
+
+
+
+
+
+
+01-01-2007
+01-01-2008
+01-01-2009
+01-01-2010
+01-01-2011
+01-01-2012
+01-01-2013
+
+€	324,19
+€	329,75
+€	335,36
+€	168,06
+€	169,07
+€	171,94
+vervallen
+
+Te betalen energiebelasting
+
+
+
+
+
+
+01-01-2006
+01-01-2007
+01-01-2008
+01-01-2009
+01-01-2010
+
+€	162,50
+€	165,10
+€	167,58
+€	170,43
+vervallen
+
+

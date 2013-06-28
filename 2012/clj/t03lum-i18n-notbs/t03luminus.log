@@ -1,0 +1,6 @@
+2013-Jun-27 22:28:50 +0200 ares.domain.tld INFO [t03luminus.handler] - Applicatie succesvol opgestart.
+2013-Jun-27 22:29:27 +0200 ares.domain.tld INFO [t03luminus.handler] - Applicatie succesvol opgestart.
+2013-Jun-27 22:30:19 +0200 ares.domain.tld WARN [taoensso.tower] - 
+2013-Jun-27 22:30:19 +0200 ares.domain.tld WARN [taoensso.tower] - 
+2013-Jun-27 22:30:19 +0200 ares.domain.tld INFO [t03luminus.handler] - &lt;Missing translation: '{:locale :nl, :scope nil, :k-or-ks :app-shutdown}'&gt;
+2013-Jun-27 22:30:19 +0200 ares.domain.tld INFO [t03luminus.handler] - &lt;Missing translation: '{:locale :nl, :scope nil, :k-or-ks :app-shutdown}'&gt;

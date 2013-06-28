@@ -1,0 +1,103 @@
+function Bereken() {
+	sVoertuig = document.getElementById('selectVoertuig').value;
+	var sResultExtra = "";
+  if ( sVoertuig == "personenauto") {
+		aResult = Bereken_2(eval("data" + document.getElementById("frmBerekening").SelProvincie.value), document.getElementById("frmBerekening").SelBrandstof.value, document.getElementById("frmBerekening").SelGewichtsklasseAlgemeen.value);
+  } else if ( sVoertuig == "bestelautoz") {
+  	aResult = Bereken_1(dataBAZ, document.getElementById("frmBerekening").SelGewichtsklasseBestelauto.value);
+  } else if ( sVoertuig == "bestelautop") {
+  	aResult = Bereken_2( dataBAP, document.getElementById("frmBerekening").SelBrandstof.value, document.getElementById("frmBerekening").SelGewichtsklasseBestelauto.value);
+  } else if ( sVoertuig == "bestelautoi") {
+  	aResult = Bereken_1(dataBAI, document.getElementById("frmBerekening").SelGewichtsklasseBestelauto.value);
+  } else if ( sVoertuig == "motor") {
+  	 aResult = Bereken_3(dataMotor, $("#SelProvincie option:selected").text());
+  } else if ( sVoertuig == "kampeerauto") {
+     	if ( document.getElementById("frmBerekening").radioBedrijfsmatigVerhuurd[0].checked==true ) {
+        var sBedrijfsmatig = "_1_";
+      } else {
+        var sBedrijfsmatig = "_0_";
+      }
+    aResult = Bereken_2(eval("data" + sBedrijfsmatig + document.getElementById("frmBerekening").SelProvincie.value), document.getElementById("frmBerekening").SelBrandstof.value, document.getElementById("frmBerekening").SelGewichtsklasseAlgemeen.value);
+		sResultExtra = "<p><strong>Let op!</strong><br/>De kampeerauto moet wel voldoen aan de <a href='/wps/wcm/connect/bldcontentnl/belastingdienst/prive/auto_en_vervoer/belastingen_op_auto_en_motor/motorrijtuigenbelasting/kampeerauto_camper/eisen_aan_ombouw_en_inrichting'>inrichtingseisen</a>.</p>";
+ } else if ( sVoertuig == "autobus") {
+    aResult = BerekenAutobus(document.getElementById("frmBerekening").SelGewichtsklasseAutobus.value);
+  	if ( aResult.length == 0) {return}
+  } else if ( sVoertuig == "winkelwagen") {
+    aResult = BerekenWinkelwagen(document.getElementById("frmBerekening").SelGewichtsklasseWinkelwagen.value);
+    if ( aResult.length == 0) {return}
+  } else if ( sVoertuig == "handelaarskenteken") {
+    aResult = Bereken_3(dataBV, document.getElementById("frmBerekening").SelProvincie.value);
+    if ( aResult.length == 0) {return}
+  }
+
+	var sTekst = "<p>Motorrijtuigenbelasting per kwartaal: &euro; " + aResult[0] + ",00<br>Motorrijtuigenbelasting per jaar: &euro; " + aResult[1] + ",00</p>" + sResultExtra + "</div>";
+  sTekst += "<div class=\"clUitkomstExtra\"><p class=\"clButtonLine\"><input type=\"button\" value=\"Wijzigen invoer\" class=\"clButtons\" onClick=\"doOpnieuw('')\" /></p></div>";
+  document.getElementById('divResult').innerHTML = sTekst;
+  doUitvoerResult('divResult');
+}
+
+function Bereken_1(aData, sGewicht) {
+  	for (i=0;i < aData.length; i++) {
+		var aGegevens = aData[i].split("#")
+		if (aGegevens[0] == sGewicht) {
+			break;
+		}
+	}
+  return [aGegevens[1],aGegevens[2]];
+}
+
+function Bereken_2(aData, sBrandstof, sGewicht) {
+	for (i=0;i < aData.length; i++) {
+		var aGegevens = aData[i].split("#")
+		if (aGegevens[0] == sGewicht) {
+			break;
+		}
+	}
+	//Gewicht vanaf#Benzine#Diesel#LPG3 en aardgas#LPG/Overige
+  if (sBrandstof == "benzine") { return [aGegevens[1],aGegevens[1]*4]};
+	if (sBrandstof == "diesel") { return [aGegevens[2],aGegevens[2]*4]};
+	if (sBrandstof == "lpg3") { return [aGegevens[3],aGegevens[3]*4]};
+	if (sBrandstof == "lpg") { return [aGegevens[4],aGegevens[4]*4]};
+}
+
+function Bereken_3(aData, sProvincie) {
+  	for (i=0;i < aData.length; i++) {
+		var aGegevens = aData[i].split("#")
+		if (aGegevens[0] == sProvincie) {
+			break;
+		}
+	}
+  return [aGegevens[1],aGegevens[2]];
+}
+
+function BerekenAutobus(sGewicht) {
+	if ( sGewicht == "15051" ) { // zwaarder dan 15051
+    iWelkGewicht = parseInt(document.getElementById("frmBerekening").inpGewichtAutobus.value);
+    if (iWelkGewicht < 15051) {
+      alert("Het gewicht is lager dan 15051. U dient een keuze uit de lijst te maken.");
+      return [];
+    } else {
+      kwartaal = parseInt( vanaf15051Autobus + (meertariefAutobus * parseInt(((iWelkGewicht - 15051) / stepAutobus) + 1)));
+			jaar = (kwartaal * 4);
+      return [kwartaal,jaar];
+    }
+	} else {
+    return Bereken_1(dataAutobus, sGewicht)
+	}
+}
+
+function BerekenWinkelwagen(sGewicht) {
+	if ( sGewicht == "41000" ) { // zwaarder dan 41000
+    iWelkGewicht = parseInt(document.getElementById("frmBerekening").inpGewichtWinkelwagen.value);
+    if (iWelkGewicht < 41000) {
+      alert("Het gewicht is lager dan 41000. U dient een keuze uit de lijst te maken.");
+      return [];
+    } else {
+      kwartaal = parseInt(vanaf41000Winkelwagen + (meertariefWinkelwagen * parseInt(((iWelkGewicht - 41000) / stepWinkelwagen) + 1)));
+			jaar = (kwartaal * 4);
+      return [kwartaal,jaar];
+    }
+	} else {
+    return Bereken_1(dataWinkelwagen, sGewicht)
+	}
+}
