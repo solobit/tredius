@@ -1,7 +1,21 @@
 (ns nl.tredius.modellen.belastingen.mrb
   "Berekeningen basis cijfers motorrijtuigenbelasting per provincie,
-  type brandstof op gewicht personenauto.")
+  type brandstof op gewicht personenauto."
+  (:require [clojure.repl :refer [dir]]
+            [clojure.string :refer [replace]]))
 
+
+(defn zoeken
+  [gewicht brandstof]
+  (let []))
+
+(def provincies (list 'drenthe 'flevoland 'friesland 'gelderland 'groningen
+                      'limburg 'noord-brabant 'noord-holland 'overijssel
+                      'utrecht 'zeeland 'zuid-holland))
+
+
+(ns-name *ns*)
+(println (replace (with-out-str (dir nl.tredius.modellen.belastingen.mrb)) #"\nmrb-personenauto-" " "))
 
 (def mrb-personenauto-noord-holland
   [{:gewicht 1    :benzine 26  :diesel 88   :lpg3 26   :overig 99}
