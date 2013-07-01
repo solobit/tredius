@@ -18,7 +18,7 @@
 
   :resource-paths    ["src/resources"]
 
-  :jvm-opts          ["-Xmx2048m"]
+  :jvm-opts          ["-Xmx1024m"]
 
   :plugins
   [[lein-ring "0.8.5"]
