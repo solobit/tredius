@@ -27,6 +27,7 @@
   :dependencies
   [[clabango "0.5"]
    [domina "1.0.1"]
+   [local/javacsv "2.0"]
    [hickory "0.4.1"]
    [lib-noir "0.6.4"]
    [cljs-ajax "0.1.3"]
