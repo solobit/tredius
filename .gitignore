@@ -1,0 +1,14 @@
+/target
+/tmp
+tmp/
+/lib
+/classes
+/checkouts
+pom.xml
+*node_modules
+node_modules/
+*.jar
+*.bin
+*.class
+/.lein-*
+/.env
